@@ -46,6 +46,11 @@
 \newcounter{dummy} % Necessary for correct hyperlinks (to index, bib, etc.)
 \providecommand{\mLyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
 
+% Define a note environment for in-line comments.
+\newcommand{\note}[1]{{\color{blue}[#1]}}
+% Uncomment the line below to hide the notes in the produced file.
+\renewcommand{\note}[1]{}
+
 %----------------------------------------------------------------------------------------
 %	PACKAGES
 %----------------------------------------------------------------------------------------
@@ -67,7 +72,12 @@
  %------------------------------------------------
 
 \PassOptionsToPackage{fleqn}{amsmath} % Math environments and more by the AMS
- \usepackage{amsmath}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newcommand{\vtr}[1]{\boldsymbol{#1}}  %bold-math for vectors
+\newcommand{\appropto}{\mathrel{\vcenter{
+  \offinterlineskip\halign{\hfil$##$\cr
+    \propto\cr\noalign{\kern2pt}\sim\cr\noalign{\kern-2pt}}}}}
 
  %------------------------------------------------
 
