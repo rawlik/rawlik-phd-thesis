@@ -22,10 +22,58 @@
 
 \subsection{Fluxgates}
 
+
 \section{Influence of the SC magnet}
+The ultracold neutrons are polarised by passing through a superconducting magnet. The length of the path of the neutrons to the experiment should be small to minimise transport losses. For this reason the experiment is located close to the exit of the UCN beam--port and the magnet is fit in between.
+
+\begin{figure}[bth]
+  \myfloatalign
+  \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/SCM_magn_map.pdf}
+  \caption
+  [TODO]
+  {Map of the magnetic field of the superconducting magnet. Courtesy of Dr. Geza Zsigmond}
+  \label{fig:nEDM_SFC_SC_magnet_map}
+\end{figure}
+
+\begin{figure}[bth]
+  \myfloatalign
+  \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_top_view}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_field_top_view.pdf}}
+  \quad
+  \subfloat[Displaying fields at two different times simultaneously, yellow and blue.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_front_view}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_field_front_view.pdf}}
+  \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
+\end{figure}
+
+\begin{figure}[bth]
+  \myfloatalign
+  \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/SC_magnet_optimal_coil_on_wall.png}
+  \caption
+  [TODO]
+  {Map of the field of a potential correcting coil}
+  \label{fig:nEDM_SFC_SC_magnet_optimal_coil}
+\end{figure}
+
+\begin{figure}[bth]
+  \myfloatalign
+  \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_top_view}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_improvement_top_view.pdf}}
+  \quad
+  \subfloat[Displaying fields at two different times simultaneously, yellow and blue.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_front_view}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_improvement_front_view.pdf}}
+  \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
+\end{figure}
+
+The improvement in the range of the field is 40-70\% (In different simulated runs, 21.7 to 12.6 (42\%), 22.2 to 12.9 (42\%), 19.3 to 5.8 (70\%), and 35.1 to 18.6 (57\%)), unit microteslas.
 
 
 \section{Magnetic field during sparks in HV}
+
+
 
 
 \section{Possible mistake in implementation}
@@ -100,62 +148,21 @@ Work of Nils Ebeling.
 \section{Performance during SULTAN ramps}
 Describe the fancy algorithm and show the results of the data analysis.
 
+\begin{figure}[bth]
+  \myfloatalign
+  \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_top_view}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/field_seen_by_Hg_2015-2016}}
+  \quad
+  \subfloat[Displaying fields at two different times simultaneously, yellow and blue.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_front_view}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/gradient_seen_by_Cs_2015-2016}}
+  \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
+\end{figure}
+
 
 
 \section{Remote magnetometers}
 Write the documentation, show a SULTAN ramp as seen by the magnetometers, boast a bit about the automatic deployment, timing accuracy and so on.
 
 Work of Gianluca Janka.
-
-Despite five layers of mu-metal shielding the external magnetic field environment will play an important role in the n2EDM experiment, as it does in the nEDM. One handle on monitoring it are the sensors of the Surrounding Field Compensation system. However, as they are inside the compensation system, and in the direct vicinity of the shield, it is hard to infer about the external sources of magnetic disturbance. Remote magnetometers will be distributed around the experiment site, around 10 meters away.
-
-The primary role of the remote magnetometers system is to measure the magnetic environment around the experiment. Thanks to their spatial distribution it is easy to identify the approximate direction of the source of the disturbance. This is a valuable input for the shifters who may, for example, decide to delay a start of sensitive measurement seeing that a nearby magnet is ramping. In the off-line analysis a reason for an abnormal behavior may be correlated and attributed to a particular external source of magnetic disturbance.
-
-For the 2016 operation a prototype array of 4 remote magnetometers has been set up, each placed approximately 10 meters away from the experiment. In Fig.\,\ref{fig:remote_magnetometers_ui} a ramp of the SULTAN magnet is shown, as seen by the magnetometers. The sensors are based on widely used commercially Inertial Measurement Units (IMU) in form of a chip, which include a magnetometer. The sensitivity of those, about 0.1$\,$µT, is enough for a remote magnetometer. We use an IMU chip on the senseHAT module for a RaspberryPi single-board computer. The two, with appropriate software, form a measurement module, including data transmission. A module has also a power-over-ethernet splitter, so an ethernet cable is the only connection to a module. A photograph of a complete remote magnetometer module is presented in Fig.\,\ref{fig:remote_magnetometers_remote_magnetometer}. All of the hardware is off-the-shelf. The measurements on all modules are synchronous on a $\approx20\,$µs level with the use of precise time protocol (see Fig.\,\ref{fig:remote_magnetometers_timing_measurement}. The data from all magnetometers is aggregated on a single computer (also a RaspberryPi) and transmitted over an optical link to the main DAQ.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/nEDM_SFC/ui_plot.png}
-  \caption{The up- and down-ramping of the SULTAN magnet seen by the four prototype remote magnetometers. The positions of the plots roughly correspond to the location of the sensors, the experiment being in the middle. For each magnetometer the three components of the magnetic field are plotted, but the orientation is not consistent between plots. The immediate conclusion can be drawn, that the magnet is located in the direction up and left.}
-  \label{fig:remote_magnetometers_ui}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/nEDM_SFC/remote_magnetometer.jpg}
-  \caption{A prototpype remote magnetometer module. On the right is a RaspberryPi single--board computer with a senseHAT module, the latter including a magnetic field sensor. Both are protected by a transparent, commercial enclosure. The black part on the left is a power-over-ethernet splitter (TP-Link TL-PoE10R). The ethernet interface of the whole module, for both data transmission and power, is located on the bottom of the splitter.}
-  \label{fig:remote_magnetometers_remote_magnetometer}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/nEDM_SFC/timing_measurement.png}
-  \caption{The histogram of the the time jitter between remote magnetometers synchronised over precise time protocol. The jitter is on a 20µs level, with rare events at around 400µs.}
-  \label{fig:remote_magnetometers_timing_measurement}
-\end{figure}
-
-For the n2EDM the remote magnetometers system is mainly going to be scaled to approximately 50 modules, which requires no change in the architecture. Both software and choice of hardware are to be directly transferred from the prototype. Minor work will need to be done in the data transmission front-end to adapt to the n2EDM DAQ scheme. It is planned to additionally design and manufacture custom adapters for mounting the modules in the experimental hall. The projected cost, totalling at around 11$\,$kCHF, is summarized in Table\,\ref{tab:remote_magnetometers_cost}. It workload is estimated to be 36 full-time-equivalent days to complete, not counting the workshop's time for manufacturing the mountings.
-
-
-\begin{table}
-  \centering
-  \begin{tabular}{lrrr}
-    \toprule
-    Item  & Unit Cost & Quantity & Item Cost \\
-    %  &  & (CHF) & (CHF) \\
-    \midrule
-    RaspberryPi model B & 46 & 50 & 2300 \\
-    RaspberryPi senseHAT & 46 & 50 & 2300 \\
-    8GB SD card & 13 & 50 & 650 \\
-    ModMyPi Modular RPi 2 Case & 13 & 50 & 650 \\
-    TP-Link TL-PoE10R PoE Splitter & 10 & 50 & 500 \\
-    Ethernet cable 30m & $\approx\,$50 & 50 & $\approx\,$2500 \\
-    Cisco SG500-52P-K9-G5 PoE Switch & 1468 & 1 & 1468 \\
-    Mountings & $\approx\,$20 & 50 & $\approx\,$1000 \\
-    \cmidrule{3-4}
-    & & Total Cost & $\approx\,$11\,000 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Summary of the cost of the remote magnetometers system for n2EDM. excluding the production of the mountings. All prices in Swiss Francs.}
-  \label{tab:remote_magnetometers_cost}
-\end{table}
