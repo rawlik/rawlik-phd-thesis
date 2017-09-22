@@ -1,0 +1,99 @@
+\chapter{Periodograms}
+\label{ch:axions-periodograms}
+
+It boils down to looking for an oscillating signal in a time series. The problem is naturally set is the frequency space.
+
+The idea is to put all the difficulty into making a statistically sound transition from the temporal to the frequency space, in which is is then easy.
+
+
+\section{Looking for oscillations - periodograms}
+In this section, we present the statistical methods we use. We start by defining the \emph{periodogram}, which serves as a transition from time to the frequency space, natural for looking for oscillations. Next we proceed to discuss the statistical properties of the periodogram, which lays the basis for this analysis.
+
+A \emph{periodogram} is an estimator of the power spectrum. With the Least Squares Spectral Analysis (LSSA) method one can construct a statistically well--behaving periodogram for non-uniformly sampled data with unequal error--bars. To evaluate the LSSA periodogram at a circular frequency $\omega$, one performs a linear least--squares fit (hence the name) to the data with a function
+\begin{equation}
+  A\,\mathrm{cos}(\omega t) + B\,\mathrm{sin}(\omega t) + C \ ,
+\end{equation}
+where $A$, $B$ and $C$ are free parameters. The estimator of power $P(\omega)$ is then defined as
+\begin{equation}
+  P(\omega) := \frac{N}{4} \, \left( A^2 + B^2 \right) \ ,
+\end{equation}
+where $N$ is the number of data points. Different scaling factors may be used. We use the one of \cite{Scargle1982}, where the height of $\sqrt{P(\omega)}$ at the noise--bed corresponds numerically to the size of the error--bars squared, if they are all equal. LSSA, in contrast to FFT, does not require windowing, because it is explicitly phase--aware. A graphical overview of the method is shown in Fig.\,\ref{fig:LSSA}. Throughout the analysis, the figure of merit is either the power $P(\omega)$ or, interchangeably, its square root \emph{amplitude}. \note{MR: for clarity we may always speak of power (or only of amplitude) --- would need to decide which is better. I'd say to use amplitude, as it has more intuitive units.}
+
+\begin{figure}[htb]
+  \centering \includegraphics[width=\linewidth]{gfx/axions/LSSA}
+  \caption{The LSSA periodogram, a function of frequency, is constructed by performing a linear least--squares fit at each of those frequencies.}
+  \label{fig:LSSA}
+\end{figure}
+
+
+\subsection{Null hypothesis test}
+Once the periodogram of the real data, demodulated $R$ time series, is calculated we look for a signal. A signature of a periodic signal is a peak in the periodogram. The really interesting statement is the answer to the question:
+
+\begin{center}
+  \emph{How likely it is, that the highest peak in the periodogram cannot be only a random fluctuation?}
+\end{center}
+
+To describe the question mathematically, let us denote the time series from the real data by $D$. The peridogoram is then a set of $P^D(\omega_i)$. We are interested in \emph{the maximum of the periodogram}:
+\begin{align}
+  P_{max}^D &:= \mathrm{max}_i\,P^D(\omega_i) \\
+  \omega_{max}^D &:= \mathrm{arg\,max}_i\,P^D(\omega_i)
+\end{align}
+The height of the maximum, $P_{max}^D$, is a random variable. We consider the distribution of $P_{max}$ given the null hypothesis, $H_0$, where an array of normally distributed random variables is taken. The probability that a peak at least as high as the one observed arises as a random fluctuation is:
+\begin{equation}
+  \mathrm{Pr}\left( P_{max} > P_{max}^D\ |\, H_0 \right) \ .
+\end{equation}
+This value is called the \emph{false alarm probability} (see eg. \citeauthor{Pandola2004}~\citep{Pandola2004}). It can be numerically calculated with a Monte--Carlo method by generating random data according to the null hypothesis and counting the relative number of cases when $P_{max} > P_{max}^D$. To claim a discovery the \emph{false alarm probability} has to be at most in the range of $10^{-7}$ (so--called 5--sigma).
+
+It should be stressed that the distribution of $P_{max}$ is very different from the distribution of $P(\omega_{max})$. The highest peak will always occur in a far tail of the $P(\omega_{max})$ distribution, which is natural. By looking for the highest peak we check a big number of random variables $P(\omega_i)$ and pick the one that does lie the furthest in the tail of the distribution. The distribution of $P_{max}$ is centered around much higher values, as the highest peak is bound to occur \emph{somewhere}. It is explained in Fig.\,\ref{fig:axions_null_rejection}.
+
+\begin{figure}[bth]
+  \myfloatalign
+  \includegraphics[width=.8\linewidth]{gfx/axions/axionMC_null_rejection}
+  \caption
+  [...]
+  {
+Testing not--yet--real data against the null hypothesis. \textsc{Upper--left:} The periodogram of the data (black line) on top of the periodogram of the null hypothesis (green line with Monte--Carlo generated distribution bands). \textsc{Upper--right:} The distribution of $P(\omega_{max})$, given the null hypothesis (vertical slice through the green part of the plot in the upper--left corner). \textsc{Lower--left:} CDF of $P(\omega)$ evaluated at $P^D(\omega)$ in function of $\omega$. \textsc{Lower--right:} The distribution of $P_{max}$. }
+  \label{fig:axions_null_rejection}
+\end{figure}
+
+
+\subsection{Signal hypotheses tests}
+Should no claim for a discovery be possible, the next question to ask is:
+\begin{center}
+  \emph{Which oscillations would produce a visible peak, but did not, and can be thus excluded?}
+\end{center}
+In order to answer this question, the data need to be tested against being compatible with a number of model signal hypotheses. As an oscillation is characterised by its amplitude and frequency, the space of the hypotheses to test is two--dimensional.
+
+The probability that a hypothetical oscillation of amplitude $A$ and frequency $\omega$ would produce more power at $\omega$ then observed is:
+\begin{equation}
+  \mathrm{Pr}\left( P(\omega) > P^D(\omega)\ |\, H(\omega, A) \right) \ .
+\end{equation}
+This probability is the \emph{confidence level} (C.L.) at which the hypothesis $H(\omega, A)$ can be rejected. Figure\,\ref{fig:axions_signal_rejection} presents comparing a not--yet--real data power spectrum with a hypothetical signal. This test may be performed many times, each covering a \emph{pixel} of the space of possible hypotheses, forming an image as in Fig.\,\ref{fig:axions_exclusion}. The set of hypotheses excluded at a certain C.L. (often 95\%) forms an \emph{exclusion region}.
+
+\begin{figure}[bth]
+  \myfloatalign
+  \includegraphics[width=.8\linewidth]{gfx/axions/axionMC_signal_hypothesis_rejection}
+  \caption
+  [...]
+  {
+\textsc{Left:} A periodogram of not--yet--real data on top of distribution of a periodogram of a hypothetical signal (green). \textsc{Right:} The distribution of power of the hypothetical signal at its model frequency.}
+  \label{fig:axions_signal_rejection}
+\end{figure}
+
+\begin{figure}[bth]
+  %FIXME directly copied from Elise's presentation on the 2015 PSI collaboration meeting
+  \myfloatalign
+  \subfloat
+  [The not--yet--real data tested against hypothetical signals. Each pixel is one signal hypothesis. The white line connects points of 95\% C.L., surrounding an exclusion region. Note how deep into low amplitudes the line goes for couple of frequencies. See the text for the explanation.]
+  {\label{fig:axions_exclusion}
+  \includegraphics[width=.45\linewidth]{gfx/axions/axionMC_exclusion}}
+  \quad
+  \subfloat
+  [The not--yet--real data tested against hypothetical signals using the \emph{CLs method}, in which hypotheses to which the experiment is not sensitive to get a statistical penalty. ]
+  {\label{fig:axions_exclusion_CLs}
+  \includegraphics[width=.45\linewidth]{gfx/axions/axionMC_exclusion_CLs}}
+  \caption{Exclusion region --- signals that can be excluded at 95\% confidence level.}
+  \label{fig:axions_exclusions}
+\end{figure}
+
+The exclusion region, depicted by a white line in Fig.\,\ref{fig:axions_exclusion}, is exhibits a number of thin peaks going down in very low amplitudes. Seemingly for some frequencies signals with amplitude far below the sensitivity of the experiment are excluded. This is disturbing. Consider, however, that as the power was evaluated for many frequencies, inevitably at some of them, roughly 5\%, the power is low enough to be rejected at 95\%~C.L. even when tested against a white noise. However completely fine from the statistical point of view, physicists do not accept a situation, where a hypothesis is rejected based on an experiment which was not sensitive to it. One possible solution is called the \emph{CLs method}. The method is defined, as well the problem itself discussed, in the booklet of Particle Data Group~\citep{Group2014}. With use of the \emph{CLs method} the exclusion final region is obtained, as shown in Fig.\,\ref{fig:axions_exclusion_CLs}.
