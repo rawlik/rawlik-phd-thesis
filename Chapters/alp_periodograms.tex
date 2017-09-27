@@ -33,29 +33,31 @@ We will now follow an analysis of a simple example, shown in Fig.\,\ref{fig:basi
 
 \begin{figure}
   \centering \includegraphics[width=0.8\linewidth]{gfx/axions/basic_signal.pdf}
-  \caption{A simple signal generated just for the purpose for explaining the general scheme of the analysis.}
+  \caption{A simple signal generated just for the purpose for explaining the general scheme of periodogram analysis.}
   \label{fig:basic_signal}
 \end{figure}
 
-We proceed to evaluate the LSSA periodogram of this time series. The immediate question is: for which frequencies to evaluate the power? In case of equally--spaced series the upper limit is the \emph{Nyquist frequency}, equal to the half of the sampling rate~\cite{Shannon1949}.
+We proceed to evaluate the LSSA periodogram of this time series. The immediate question is: for which frequencies to evaluate the power? In case of equally--spaced series the upper limit is the \emph{Nyquist frequency}, equal to the half of the sampling rate~\cite{Shannon1949}. It is not the case when the sampling is not uniform. In practice we can expect little sensitivity to oscillations faster than the period over which each signal is averaged, \unit[1]{s} in the example. On the low side the limit is zero, which corresponds to the constant offset (an LSSA fit of a horizontal line, which is equivalent to calculating the average of the points).
 
-The \emph{spectral resolution} is the inverse span of the dataset and roughly defines the minimal frequency difference between two signals that is distinguishable. In Fig.\,\ref{fig:basic_periodogram} there are two periodograms: evaluated at frequencies spaced every spectral resolution (black dots), and one evaluated a thousand times more densely (orange line). We see that the structures are represented and the peak of the signal present in the data has finite width.
+When choosing the spacing between the frequencies we consider the the \emph{spectral resolution}, defined as the inverse span of the dataset. It roughly defines the minimal frequency difference between two signals that is distinguishable. In Fig.\,\ref{fig:basic_periodogram} there are two periodograms: evaluated at frequencies a spectral resolution apart (black dots), and one evaluated a thousand times more densely (the orange line). As no structure on a scale finer the the spectral resolution can be accessed, the orange line simply "connects" the black dots smoothly.
 
 \begin{figure}
   \centering \includegraphics[width=0.8\linewidth]{gfx/axions/basic_periodogram.pdf}
-  \caption{A simple signal generated just for the purpose for explaining the general scheme of the analysis.}
+  \caption{Two periodograms of the time series in Fig.\,\ref{fig:basic_signal}. One evaluated at frequencies a spectral resolution apart (black dots), and one evaluated a thousand times more densely (the orange line). As no structure on a scale finer the the spectral resolution can be accessed, the orange line simply "connects" the black dots.}
   \label{fig:basic_periodogram}
 \end{figure}
 
-Fig.\,\ref{fig:basic_periodogram_loglog} shows the same in a log--log scale. Often used, as the potential signals span orders of magnitude in both frequency and amplitude. But it can lead to misunderstanding. Consider for example noise, which appears to increase in amplitude for higher frequencies. Purely cognitive effect -- simply the density of points increases.
+In particular it is interesting to consider the difference between the 0 (offset) and the next frequency. Oscillations with a period longer than the span of the time series  appear in the series as a linear drift, if the measurements were taken in the linear part of the sine, or a quadratic change, if taken in the apex. Fitting such an oscillation is then equivalent to looking for a up--to--second--order drift in the data. Naturally, we expect the sensitivity to quickly worsen for these very long oscillations.
+
+Fig.\,\ref{fig:basic_periodogram_loglog} shows the same two periodograms in a log--log scale. This scale is often used, as the potential signals span orders of magnitude in both frequency and amplitude. Unfortunately, it can lead to misunderstandings. Specifically, the noise appears to increase in amplitude with frequency. It is a purely cognitive effect. The spacing of the points is linear, so on a logarithmic scale the density of points increases for high amplitudes, making the extreme deviations more likely to appear in the same plot area, despite the noise amplitude being the same.
 
 \begin{figure}
   \centering \includegraphics[width=0.8\linewidth]{gfx/axions/basic_periodogram_loglog.pdf}
-  \caption{A simple signal generated just for the purpose for explaining the general scheme of the analysis.}
+  \caption{Two periodograms of the time series in Fig.\,\ref{fig:basic_signal}. One evaluated at frequencies a spectral resolution apart (black dots), and one evaluated a thousand times more densely (the orange line). As no structure on a scale finer the the spectral resolution can be accessed, the orange line simply "connects" the black dots. The periodogram is plotted on a log--log scale. The amplitude of the noise appears to be increasing with frequency, but it is not true. Only the density of the evaluated points increases, making the extreme deviations more pronounce.}
   \label{fig:basic_periodogram_loglog}
 \end{figure}
 
-
+An oscillation in the time series produces a peak in the periodogram. The position of the peak is the frequency of the oscillation, the width corresponds to the coherence of the signal. However, we see in the periodogram many peaks besides the one corresponding to the oscillation used when generating the data. Many are small. Some are even bigger than this one. In the next section we will consider what is the cause and how to determine whether a peak is caused by an oscillation.
 
 
 
