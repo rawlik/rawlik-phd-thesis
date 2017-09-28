@@ -57,7 +57,7 @@ Fig.\,\ref{fig:basic_periodogram_loglog} shows the same two periodograms in a lo
   \label{fig:basic_periodogram_loglog}
 \end{figure}
 
-An oscillation in the time series produces a peak in the periodogram. The position of the peak is the frequency of the oscillation, the width corresponds to the coherence of the signal. However, we see in the periodogram many peaks besides the one corresponding to the oscillation used when generating the data. Many are small. Some are even bigger than this one. In the next section we will consider what is the cause and how to determine whether a peak is caused by an oscillation.
+An oscillation in the time series produces a peak in the periodogram. The position of the peak is the frequency of the oscillation, the width corresponds to the coherence of the signal. However, we see in the periodogram many peaks besides the one corresponding to the oscillation used when generating the data. Some are even bigger and there are many smaller ones. In the next section we will consider what, besides an oscillating signal, may give rise to a peak. Most importantly a way of determining whether a peak is caused by an oscillation is presented.
 
 
 
@@ -66,19 +66,22 @@ An oscillation in the time series produces a peak in the periodogram. The positi
 Once the periodogram of a time series is calculated we would like to know whether it contains a signal signature. A signature of a periodic signal is a peak in the periodogram. The really interesting statement is the answer to the question:
 
 \begin{center}
-  \emph{How likely it is, that the highest peak in the periodogram cannot be only~a~random~fluctuation?}
+  \emph{How likely is it that the highest peak in the periodogram is not only a random fluctuation?}
 \end{center}
 
-To describe the question mathematically, let us denote the time series from the real data by $D$. The peridogoram is then a set of $P^D(\omega_i)$. We are interested in \emph{the maximum of the periodogram}:
+We are, in fact, interested in the \emph{least likely} peak, which may not be the same as the highest one. For clarity we are going to be first considering the highest peak, and explain the difference later.
+
+To describe the question mathematically, let us denote the time series of the real data by $D$. The peridogoram is then a set of $P^D(\omega_i)$. We are interested in \emph{the maximum of the periodogram}:
 \begin{align}
   P_{max}^D &:= \mathrm{max}_i\,P^D(\omega_i) \\
-  \omega_{max}^D &:= \mathrm{arg\,max}_i\,P^D(\omega_i)
+  \omega_{max}^D &:= \mathrm{arg\,max}_{\omega_i}\,P^D(\omega_i)
 \end{align}
-The height of the maximum, $P_{max}^D$, is a random variable. We consider the distribution of $P_{max}$ given the null hypothesis, $H_0$, where an array of normally distributed random variables is taken. The probability that a peak at least as high as the one observed arises as a random fluctuation is:
+The height of the maximum, $P_{max}^D$, is a statistic itself. We refer to it as \emph{global}, in contrast with the \emph{local} statistics $P^D(\omega_i)$. We consider the distribution of $P_{max}^{H_0}$ given the null hypothesis $H_0$, where the time array is an array of normally distributed random variables, with widths equal to the corresponding error--bars. The probability that a peak at least as high as the one observed arises as a random fluctuation is:
 \begin{equation}
-  \mathrm{Pr}\left( P_{max} > P_{max}^D\ |\, H_0 \right) \ .
+  % \mathrm{Pr}\left( P_{max}^{H_0} > P_{max}^D\ |\, H_0 \right) \ .
+  \mathrm{Pr}\left( P_{max}^{H_0} > P_{max}^D \right) \ .
 \end{equation}
-This value is called the \emph{false alarm probability} (see eg. \cite{Pandola2004}). It can be numerically calculated with a Monte--Carlo method by generating random data according to the null hypothesis and counting the relative number of cases when $P_{max} > P_{max}^D$. To claim a discovery the \emph{false alarm probability} has to be at most in the range of $10^{-7}$ (so--called 5--sigma).
+This value is called the \emph{false alarm probability} (see eg. \cite{Pandola2004}). It can be numerically calculated with the Monte Carlo method by generating random data according to the null hypothesis (Fig.\,\ref{fig:generating_null_hypothesis_periodogram}) and counting the relative number of cases when $P_{max}^{H_0} > P_{max}^D$. To claim a discovery, the \emph{false alarm probability} has to be at most in the range of $2.87\,\cdot\,10^{-7}$ (so--called 5--sigma) \cite{PDG2014}.
 
 \begin{figure}
   \centering \includegraphics[width=\linewidth]{gfx/axions/basic_detection.pdf}
@@ -101,18 +104,41 @@ This value is called the \emph{false alarm probability} (see eg. \cite{Pandola20
 %   \label{fig:basic_detection}
 % \end{figure}
 
-It should be emphasised that the distribution of $P_{max}$ is very different from the distribution of $P(\omega_{max})$. The highest peak will always occur in a far tail of the $P(\omega_{max})$ distribution, which is natural. By looking for the highest peak we check a big number of random variables $P(\omega_i)$ and pick the one that does lie the furthest in the tail of the distribution. The distribution of $P_{max}$ is centered around much higher values, as the highest peak is bound to occur \emph{somewhere}. It is explained in Fig.\,\ref{fig:axions_null_rejection}.
+It should be stressed that the distribution of $P_{max}$ is very different from the one of $P(\omega_{max})$. By looking for the highest peak, we check a big number of random variables $P(\omega_i)$ and pick a very special one --- the one that does lie the furthest in the tail of the distribution. The distribution of $P_{max}$ thus is centred around much higher values, as shown in Fig.\,\ref{fig:max_power_distribution}.
 
+The question is what is the \emph{global} p-value of the least likely peak in the data--set being compatible with $H_0$. If the points of the periodogram were not correlated, this would be a simple case of many hypothesis testing \cite{Algeri2016}. The local p-values $p_i$ are, by definition, uniformly distributed. The CDF of a maximum of a set of uncorrelated variables is a product of their CDFs \note{MR: Cite Papoulis 1965, 7.1, application 3 - taken from Scargle III a)}. So in this case we have:
+\begin{align}
+  F_p(p) &= p \\
+  F_{p_{max}}(p) &= p^N \\
+  &\text{with}\ p' := 1 - p :\\
+  F_{p_{min}}(p) &= 1 - F_{p'_{max}}(p') = 1 - (1 - p)^N \label{eq:Fpmin}\\
+\end{align}
+where $N$ is the number of frequencies. Correlations in the periodogram effectively lower $N$. If three dice are rolled in a way that two always give the same result, this is the same as rolling two dice when minimum roll is concerned. To quantify that, we exploit the fact that we can do fast Monte Carlo and \emph{simulate} the whole process: generating many signals assuming the null--hypothesis and calculating the p-value of the least--likely peak. Thereby we can estimate the CDF of $p_{\mathrm{min}} \, | H_0$, which we call $F^g$. Then the \emph{global} p-value is given by:
+\begin{equation}
+  p^g = F^g(p_{\mathrm{min}}^D)
+\end{equation}
 
-% \begin{figure}
-%   \myfloatalign
-%   \includegraphics[width=.8\linewidth]{gfx/axions/axionMC_null_rejection}
-%   \caption
-%   [...]
-%   {
-% Testing not--yet--real data against the null hypothesis. \textsc{Upper--left:} The periodogram of the data (black line) on top of the periodogram of the null hypothesis (green line with Monte--Carlo generated distribution bands). \textsc{Upper--right:} The distribution of $P(\omega_{max})$, given the null hypothesis (vertical slice through the green part of the plot in the upper--left corner). \textsc{Lower--left:} CDF of $P(\omega)$ evaluated at $P^D(\omega)$ in function of $\omega$. \textsc{Lower--right:} The distribution of $P_{max}$. }
-%   \label{fig:axions_null_rejection}
-% \end{figure}
+We can further determine \emph{false--alarm} thresholds. Traditionally, they are chosen to be at p-values of the normal distribution at $n \,\sigma$. The \emph{global} threshold p-value we call $p^g_{f.a.}$. The \emph{local} threshold p-value is:
+\begin{equation}
+  p_{f.a.} = \left( F^g \right)^{-1}(p^g_{f.a.})
+\end{equation}
+For each frequency the threshold power can be calculated:
+\begin{equation}
+  P^{f.a}_i = F_{P_i}^{-1}(1 - p_{f.a.})
+\end{equation}
+We claim a statistically significant discovery if the periodogram of the $d_n$ time--series crosses the 5--sigma false--alarm threshold.
+
+The amount of Monte Carlo samples can be reduced, if the CDFs can be extrapolated. Effects like unequal error--bars and measurements of non--negligible duration causes them to deviate from the strictly derived equations in \cite{Scargle1982}. Nevertheless, we assume that functional form of the tails is preserved. Under the null hypothesis $F_{P_i}$ has form $1 - e^{-P}$ \cite{Scargle1982}. For $F^g$ we assume a form of Eq.\,(\ref{eq:Fpmin}), where $N$ is a parameter that we have to fit to account for correlations in the periodogram.
+
+In Fig.\,\ref{fig:ILL_detection} we present the periodogram of a fake ILL dataset (geneated with the same run timings and uncertainties as in the real dataset, with run EDM values generated according to gaussian distribution with mean of $0$ and standard deviation equal to that run's uncertainty). We decided not to analyse the real data set until we are fully happy with the method.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=\columnwidth]{gfx/axions/ILL_detection_Periodogram.png}
+    \caption{Periodogram of a fake ILL dataset. The green bands represent the distribution of the periodogram given the null hypothesis. The orange lines are 1-, 2-, 3-, 4-, 5--sigma false--alarm thresholds.}
+    \label{fig:ILL_detection}
+  \end{center}
+\end{figure}
 
 
 
