@@ -128,13 +128,13 @@ There is an another way of understanding this phenomenon. The height of the most
 % It should be stressed that the distribution of $P_{max}$ is very different from the one of $P(\omega_{max})$. By looking for the highest peak, we check a big number of random variables $P(\omega_i)$ and pick a very special one --- the one that does lie the furthest in the tail of the distribution. The distribution of $P_{max}$ thus is centred around much higher values, as shown in Fig.\,\ref{fig:max_power_distribution}.
 
 Let us now consider the local p--value of the most significant peak: $p_{\mathrm{min}} \, | H_0$. If the points of the periodogram were perfectly uncorrelated, this would be a simple case of many hypothesis testing \cite{Algeri2016}. In the case of uniform sampling, however, they are not~\cite{Scargle1982}. The local p-values $p_i$ are, by definition, uniformly distributed. The CDF of a maximum of a set of uncorrelated variables is a product of their CDFs~\cite{Papoulis2002}. So in this case we have:
-\begin{align}
+\begin{align}\label{eq:Fpmin}
   F_p(p) &= p \\
   F_{p_{max}}(p) &= p^N \\
   &\text{with}\ p' := 1 - p :\\
-  F_{p_{min}}(p) &= 1 - F_{p'_{max}}(p') = 1 - (1 - p)^N \label{eq:Fpmin}\\
+  F_{p_{min}}(p) &= 1 - F_{p'_{max}}(p') = 1 - (1 - p)^N
 \end{align}
-where $N$ is the number of frequencies tested. Correlations in the periodogram effectively lower $N$. \mnote{Is $N$ \emph{always} lowered?} If three dice are rolled in a way that two always give the same result, this is the same as rolling two dice when minimum roll is concerned. The CDF of $p_{\mathrm{min}} \, | H_0$, which we call $F^g$, can be estimated from the MC--generated data. Then the \emph{global} p-value is given by:
+where $N$ is the number of frequencies tested. Correlations in the periodogram effectively lower $N$. \mnote{Is $N$ really always lowered?} If three dice are rolled in a way that two always give the same result, this is the same as rolling two dice when minimum roll is concerned. The CDF of $p_{\mathrm{min}} \, | H_0$, which we call $F^g$, can be estimated from the MC--generated data. Then the \emph{global} p-value is given by:
 \begin{equation}
   p^g = F^g(p_{\mathrm{min}}^D)
 \end{equation}
