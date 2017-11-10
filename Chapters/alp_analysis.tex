@@ -104,9 +104,32 @@ Out of the three, we opt for the third option, but leave the subject open to dis
 
 
 
+\section{The PSI 2015-16 data set}
+The PSI data set is taken 2015-07-03, 14:21:30 to 2016-12-18, 19:51:23. It has been a regular nEDM run. Per cycle one $R = f_\mathrm{n} / f_\mathrm{Hg}$ estimate is obtained. The complete data set used in the analysis is shown in Fig.\,\ref{fig:PSI_dataset_time_domain}.
+
+\mnote{Idea: present a scheme of the timing structure of the nEDM data taking, where a cycle, sequence are defined, and HV and B field reversals are shown.}
+The time structure ias follows: The atomic measurement is called a cycle, which gives an estimate of the average precession frequency of the neutrons $f_\mathrm{n}$ and mercury $f_\mathrm{Hg}$. Their ratio $R = f_\mathrm{n} / f_\mathrm{Hg}$ is show in Fig.\,\ref{fig:PSI_dataset_time_domain}. An automatic system executes one cycle after another (triggered on a signal from the UCN source). A series of automatically executed cycles is called a \emph{run}. The $R$ time series of a typical run, 1-3 days long, is shown in the lower-right corner. During a run the electric field automatically changes polarity every \ldots \mnote{Find out how many cycles for one HV cycle} cycles. In between \ldots cycles with no electric field are measured. These have no sensitivity to the electric dipole moment, but provide a control data set.
+
+A run is taken always in one magnetic field configuration. No change of the trim coil currents.\mnote{Explain the R-curve and crossing-lines analysis already in the beginning, so that it is clear that we measure in different magnetic field configurations. You do not need to know the timing structure of your data to do that. Mention the $R$ equation there!} During the measurements the vertical magnetic field gradient $\partial B_z / \partial z$ is modulated from cycle-to-cycle (up to \SI{60}{\pico\tesla} in \SI{10}{\pico\tesla} steps) so that related systematic effects (which scale linearily with the magnitude of the gradient) with it can be extracted and corrected for (see some equation that has been introduced at the beginning. These large changes in the vertical gradient cause the different runs to be scattered in the plot.
+
+During a single run the magnetic field is kept as stable as the team can manage. The drifts of the homogeneous part of the field are cancelled in $R$, but the gradients are not. So drifts of the gradient directly cause changes in $R$. These, however, can be corrected for using the Cs magnetometers. They are mounted on the top and bottom electrode and they can be used to correct for the in-run gradient drifts. They do not provide an accurate measure of the gradient. \mnote{Remember the reasoning why the cross-run gradient-drift correction can't be done: to large a change and the calibration issues}.
+
+Sometimes for technical reasons there is a pause in the measurements. Then the collected data may still belong to one run One such sequence is shown in the lower-right inset in Fig.\,\ref{fig:PSI_dataset_time_domain}.
+
+Typically... Sometimes stopped... Define a sequence
+
+
+
+Really, really first, show some example runs. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/axions/deltah4mm_time_domain_inset_no_yerr.pdf}
+  \caption{The complete PSI data set used in the analysis. It spans from July 2015 to December 2016. Two sequences are enlarged. Due to high density of the measurements individual points cannot be resolved. The $R$ time series has been corrected for gradient drifts.}
+  \label{fig:PSI_dataset_time_domain}
+\end{figure}
 
 \section{The analysis itself}
-The PSI data set is taken 2015-07-03, 14:21:30 to 2016-12-18, 19:51:23
 
 Definitely put in the plots for all three analyses (E0, EBp and EBap)!
 
@@ -116,14 +139,8 @@ The largest missing piece is the Cs gradient-drift correction. What should I do 
 
 First, present the results of the analysis itself. Present the periodogram, and so on...
 s
-Really, really first, show some example runs. Fig.\,\ref{fig:PSI_dataset_time_domain}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/deltah4mm_time_domain_inset_no_yerr.pdf}
-  \caption{The complete PSI data set used in the analysis. It spans from July 2015 to December 2016. Two sequences are enlarged. The $R$ time series has been corrected for gradient drifts.}
-  \label{fig:PSI_dataset_time_domain}
-\end{figure}
+
 
 Then proceed to discuss the results. Probably need to explain that more in detail.
 
