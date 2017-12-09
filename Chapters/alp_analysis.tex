@@ -129,20 +129,16 @@ Really, really first, show some example runs.
   \label{fig:PSI_dataset_time_domain}
 \end{figure}
 
+
 \section{The analysis itself}
 
-Definitely put in the plots for all three analyses (E0, EBp and EBap)!
+We start by presenting the results and then proceed to a more in-depth discussion.
 
-This does not need to be explained really in detail! Most of the things were already explained earlier...
+\mnote{Definitely put in the plots for all three analyses (E0, EBp and EBap)! But only in the appendix!}
 
-The largest missing piece is the Cs gradient-drift correction. What should I do with it?
+\mnote{This does not need to be explained really in detail! Most of the things were already explained earlier\ldots}
 
-First, present the results of the analysis itself. Present the periodogram, and so on...
-s
-
-
-
-Then proceed to discuss the results. Probably need to explain that more in detail.
+\mnote{The largest missing piece is the Cs gradient-drift correction. What should I do with it? The correction should be introduced by now!}
 
 \begin{figure}
   \centering
@@ -154,19 +150,7 @@ Then proceed to discuss the results. Probably need to explain that more in detai
   \label{fig:axions_PSI_detection}
 \end{figure}
 
-Here would be a place to discuss the look-elsewhere effect -- how the false-alarm thresholds were obtained. Put in the plots for all three analyses! Worst case I have a lot of pages with Figures only.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_look-elsewhere.png}
-  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value -- global p-value transition. The fit with the model \dots gives the number of frequencies.}
-  \label{fig:P_look-elsewhere}
-\end{figure}
-
-
-
-\section{Discussion of the results}
-
+The periodogram of the subset of data with the electric and magnetic field parallel is presented in Fig.\,\ref{fig:axions_PSI_detection}.
 There are two regions of expected rise in the oscillation amplitude due to the time structure of the data collection.
 The one around $\unit[28]{\upmu Hz}$ (the inverse of 10 hours) corresponds to the period of the electric-field reversal.
 The very narrow one around $\unit[3.3]{mHz}$ (the inverse of $\unit[300]{s}$) corresponds to the cycle repetition rate.
@@ -176,34 +160,60 @@ trial frequencies for which the $3\sigma$ false--alarm threshold is exceeded,
 %\note{PMM: use words like 'surpassed', or 'exceeded' instead of penetrated}
 two of which, including the largest excess with a $6\sigma$ significance, occur in a $\unit[100]{\upmu Hz}$ region around the inverse of \unit[300]{s}, while the other three are in the low-frequency region (inverse days) already excluded by the long time--base analysis.
 % \note{FP: Can you maybe also explicitly state the positions of these three lines in Hz or inverse time?}
- The periodograms for the other two datasets (not shown) are very similar.
+ The periodograms for the other two datasets (presented in \ref{ch:alp_appendix}) are very similar.
 In the other sensitive set, there are three excesses of the $3\sigma$ threshold (the highest is $5\sigma$), all constrained to the same two regions. In the control dataset, only the $1\sigma$ threshold is exceeded.
 %\note{MR: We may consider not discussing the false--alarm threshold penetrations, and just state in the next paragraph that we do not find a signal which meets our criteria.}
 The periodogram of the $R$ time array without the gradient-drift correction is shown in pink in Fig.\,\ref{fig:PSI_detection} to visualize the frequencies where the correction has an effect.
 
-In the introduction, mention what would be the detection criteria.
-Here, first discuss the plots.
-\mnote{Need to decide, whether present the plots for all E0, EB parallel and anti-parallel, or just for one.}
+\mnote{Here a brief discussion about the Cs-gradient-drift correction.}
+It is interesting to observe, that the periodograms with and without the gradient drift correction diverge only for frequencies below \SI{6e-5}{\hertz}, the period of the high-voltage reversal (the disagreement around inverse \SI{300}{\second} is folded from the low frequencies). This is not a coincidence. The period of the high-voltage reversal has been deliberately chosen, so that\ldots\mnote{Was the period really chosen such?}
 
-Start by saying that the first 
+No signals fulfilling the detection criteria are found.
 
-Maybe now show more in detail the plot Fig.\,\ref{fig:P_best_signal_candidate}. This I can do just for one peak.
+
+\section{False-alarm thresholds}
+\mnote{In this section we will dive in more deeply into statistics associated with the data.}
+
+Remind: for each of the three data sets we have a periodogram, one value for the power estimate for each frequency. Then we have a collection of simulated periodograms, many power estimates for each frequency, generated assuming the null hypothesis --- only white noise in the data.
+
+First how the local p-values were obtained. In Fig.\,\ref{fig:P_best_signal_candidate} the cumulative distribution function (CDF) \mnote{define CDF somewhere and then just continue to use it. Maybe even a table of abbreviations at the end?} of the power at one frequency (a special one, where the least probable peak is). CDF has this advantage over the PDF, that it does not require binning to be estimated. To estimate the CDF all the MC-generated power estimates are sorted into an array. Then the discrete CDF estimate is plotted by putting the power on the x-axis and the place in the sorted array, normalised to one, on the y-axis. Fig.\,\ref{fig:P_best_signal_candidate} actually shows $1 - \mathrm{CDF}$, so that the logarithmic y-scale can be leveraged to resolve the high-power tail. The plot also includes a extrapolating fit line and false--alarm thresholds, which we now proceed to explain.
+
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_best_signal_candidate.png}
+  \includegraphics[width=0.9\linewidth]{gfx/axions/P_best_signal_candidate.png}
   \caption{1 - CDF for the parallel data set. This provides the power to local p-value transition, for each frequency separately. The extrapolation based on Eq.\ldots is shown.}
   \label{fig:P_best_signal_candidate}
 \end{figure}
 
-I would list here the peaks in detail, why not? Just show the plots.
+Once every MC-generated power estimate has a local p-value associated with it, we find for each generated periodogram the minimal local p-value and treat it as a statistic in itself. We estimate the CDF of the minimal local p-value. The result is plotted in Fig.\,\ref{fig:P_look-elsewhere}. The plot can be understood in the following way: it states how probable it is (y-axis) for a peak of a given local significance (x-axis) to occur anywhere in a periodogram. In other words, the y-axis corresponds to the \emph{global} p-value. The global p-value for an $n\,\sigma$ level is given by:
+\begin{equation}
+  \mathrm{erfc}\left( \frac{n}{\sqrt{2}} \right)\ ,
+\end{equation}
+where $\mathrm{erfc}$ is the complementary error function (intuitively understood as ,,one minus the integral of the gaussion distribution''). We mark the global p-values corresponding to $1,\ldots,5\sigma$ levels and via the CDF find the corresponding local p-value thresholds.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/axions/P_look-elsewhere.png}
+  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value -- global p-value transition. The fit with the model \dots gives the number of frequencies.}
+  \label{fig:P_look-elsewhere}
+\end{figure}
+
+We see, that the discrete estimate from the MC simulation can only go down to the $2\sigma$ false-alarm threshold. To go lower would require many more MC samples. To observe a single $5\sigma$ event, roughly one-in-a-million, needs typically a million samples. To reduce the computational effort we exploit the fact, that we know the expected functional form of the CDF:
+\begin{equation}
+  F(p) = 1 - (1-p)^N\ ,
+\end{equation}
+\mnote{Ref. for the formula? PDF statistics? Scargle?}
+where $N$ is the total number of frequencies. This corresponds to $N$ \emph{independent} statistical tests. We refrain from using for $N$ the actual number of frequencies, \num{156198}, because we cannot guarantee that the power estimates at different frequencies are independent\footnote{They are in a case of periodograms of evenly sampled series}. Instead, we fit $N$ to the observed CDF obtaining \num{177844}. CDFs corresponding to both values of $N$ are depicted in Fig.\,\ref{fig:P_look-elsewhere} and are almost overlapping.
+
+Now for each frequency the local p-values corresponding the the false-alarm thresholds are known. They are depicted in Fig.\,\ref{fig:P_best_signal_candidate}. There, the power CDF (at this frequency) can be used to express the thresholds in power or evaluate the global significance of an arbitrary power. Here, too, the problem is that the discretely estimated CDF does not reach far enough in the tails, and, again, we exploit the functional form to extrapolate the CDF. We expect the power to be exponentially distributed in a no-signal case \cite{Scargle1982}, which corresponds to a straight line on the CDF plot with a logarithmic y-scale. The thresholds powers are depicted in orange in Fig.\,\ref{fig:axions_PSI_detection}.
 
 
-% LIST OF PEAK PLOTS
-
-
-
+\section{Further discussion}
+In this paragraph discuss the the distribution of the p-values and plot the filtered p-values.
 
 Now, proceed to discuss the distribution of p-values.
+Then, proceed to plot the filtered p-values as the function of frequency.
+
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/P_p-values.pdf}
@@ -211,8 +221,14 @@ Now, proceed to discuss the distribution of p-values.
   \label{fig:P_p-values}
 \end{figure}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/axions/observed-predicted_power_ratio_filtered.pdf}
+  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value -- global p-value transition. The fit with the model \dots gives the number of frequencies.}
+  \label{fig:axions_observed-predicted_power_ratio_filtered}
+\end{figure}
 
-Then, proceed to plot the filtered p-values as the function of frequency.
+
 
 % HERE, a plot with the filtered p-value as the function...
 
