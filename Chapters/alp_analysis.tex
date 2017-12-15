@@ -205,26 +205,39 @@ We see, that the discrete estimate from the MC simulation can only go down to th
 \mnote{Ref. for the formula? PDF statistics? Scargle?}
 where $N$ is the total number of frequencies. This corresponds to $N$ \emph{independent} statistical tests. We refrain from using for $N$ the actual number of frequencies, \num{156198}, because we cannot guarantee that the power estimates at different frequencies are independent\footnote{They are in a case of periodograms of evenly sampled series}. Instead, we fit $N$ to the observed CDF obtaining \num{177844}. CDFs corresponding to both values of $N$ are depicted in Fig.\,\ref{fig:P_look-elsewhere} and are almost overlapping.
 
-Now for each frequency the local p-values corresponding the the false-alarm thresholds are known. They are depicted in Fig.\,\ref{fig:P_best_signal_candidate}. There, the power CDF (at this frequency) can be used to express the thresholds in power or evaluate the global significance of an arbitrary power. Here, too, the problem is that the discretely estimated CDF does not reach far enough in the tails, and, again, we exploit the functional form to extrapolate the CDF. We expect the power to be exponentially distributed in a no-signal case \cite{Scargle1982}, which corresponds to a straight line on the CDF plot with a logarithmic y-scale. The thresholds powers are depicted in orange in Fig.\,\ref{fig:axions_PSI_detection}.
+Now for each frequency the local p-values corresponding the the false-alarm thresholds are known. They are depicted in Fig.\,\ref{fig:P_best_signal_candidate}. There, the power CDF (at this frequency) can be used to express the thresholds in power or evaluate the global significance of an arbitrary power. Here, too, the problem is that the discretely estimated CDF does not reach far enough in the tails, and, again, we exploit the functional form to extrapolate the CDF. We expect the power to be exponentially distributed in a no-signal case \cite{Scargle1982}, which corresponds to a straight line on the CDF plot with a logarithmic y-scale.
+
+The thresholds powers are different for each frequency and are depicted in orange in Fig.\,\ref{fig:axions_PSI_detection}. They provide an intuitive interpretation of the plot: the most significant signal candidate is the one piercing furthest into the false-alarm thresholds. Its statistical significance is equal to the last threshold it crossed.
+
 
 
 \section{Further discussion}
-In this paragraph discuss the the distribution of the p-values and plot the filtered p-values.
+\mnote{In this paragraph discuss the the distribution of the p-values and plot the filtered p-values.}
+\mnote{Now, proceed to discuss the distribution of p-values. Then, proceed to plot the filtered p-values as the function of frequency.}
+There are a number of frequencies where statistically significant (put the $\sigma$ level here) excesses are observed in the EB parallel and EB anti-parallel datasets. 
+Even though they are not compatible with an axion-induced signal, it is interesting to investigate the possible reason.
 
-Now, proceed to discuss the distribution of p-values.
-Then, proceed to plot the filtered p-values as the function of frequency.
+In the first step we look at the p-value distribution, shown in black in Fig.\,\ref{fig:axions_P_p-values} (for the EB parallel dataset).
+\mnote{Come up with a nice name for the EB parallel and anti-parallel data sets.}
+The distribution is flat with narrow peak in the first bin, corresponding to the highest excesses.
+This means that there is only a small number (around 300) frequencies, where more power than expected is observed.
+\marginpar{A global, like over- or underestimating the error-bars, would cause a tilt in the p-value distribution.}
+To identify this group we plot the ratio of the observed to average amplitude (Fig.\,\ref{fig:axions_observed-predicted_power_ratio_filtered}). The lines are low-pass filtered to average the statistical noise out. The excesses occur only for frequencies below \SI{1e-4}{\hertz} and in a narrow region around inverse \SI{300}{\second}. These are the regions where the gradient-drift correction had an effect.
+
+Here tell how it might be due to the imperfect gradient-drift correction. Say, that the narrow region around inverse \SI{300}{\second} is most likely strongly correlated with the low frequencies (essentially peak folding around the Nyquist frequency in the case of evenly sampled data.)
+
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_p-values.pdf}
-  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value -- global p-value transition. The fit with the model \dots gives the number of frequencies.}
-  \label{fig:P_p-values}
+  \includegraphics[width=0.9\linewidth]{gfx/axions/P_p-values.pdf}
+  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value -- global p-value transition. The fit with the model \dots gives the number of frequencies. \note{Prepare this histogram in a way, that the curves for all the datasets are shown. Then may need to normalise it.}}
+  \label{fig:axions_P_p-values}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/axions/observed-predicted_power_ratio_filtered.pdf}
-  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value -- global p-value transition. The fit with the model \dots gives the number of frequencies.}
+  \includegraphics[width=0.9\linewidth]{gfx/axions/observed-predicted_power_ratio_filtered.pdf}
+  \caption{Maybe mark the 1/300 seconds. Note, that because of the settling of the filter first $N$ points need to be dropped, so not whole range is plotted.}
   \label{fig:axions_observed-predicted_power_ratio_filtered}
 \end{figure}
 
