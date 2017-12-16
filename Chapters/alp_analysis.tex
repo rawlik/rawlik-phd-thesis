@@ -61,6 +61,7 @@ It may be tempting to think about demodulating the $R$ time--series into what wo
 
 A different approach, one that that was taken, is to split the $R$ time--series into three sets: without the electric field (a control data set, no signal expected), with the electric and magnetic field parallel, and with anti-parallel (the signal is expected to come up with an opposite phase in the two). Then in the LSSA fit instead of one DC offset, allow a different one for each run:
 \begin{equation}
+  \label{eq:axions_LSSA}
   A\sin(2 \pi f t) + B\cos(2 \pi f t) + \sum_i C_i\,\Pi_i(t) \,
 \end{equation}
 where $C_i$ is the free offset in the $i$th sequence and $\Pi_i(t)$ is a gate function equal to one in the $i$th sequence and zero elsewhere.
@@ -170,6 +171,32 @@ It is interesting to observe, that the periodograms with and without the gradien
 
 No signals fulfilling the detection criteria are found.
 
+Having observed no significant signal, we could place limits on the coupling strength as the function of axion mass.
+The result are presented in Fig.\,\ref{fig:axions_limits_coupling} and are labeled \emph{short time-base} (the next paragraph is devoted to the \emph{long time-base} limits).
+The limits we evaluated using Monte Carlo techniques, as described \ldots.
+The results are presented in the landscape of already existing limits: axions with a mass below \ldots have their Compton wavelength larger than the size of the smallest dwarf \emph{galaxies} and, therefore, could not be the sole constituent of dark matter; the influence of axions in the red-shaded area on the \emph{Big Bang nucleosynthesis} would result in an underproduction of\ldots .
+\mnote{Need to research and explain all those.}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/axions/psi_ill_axion_limits_v7.pdf}
+  \caption{Mention, that it shows\ldots}
+  \label{fig:axions_limits_coupling}
+\end{figure}
+
+The Fig.\,\ref{fig:axions_limits_coupling} features the \emph{short time-base} limits, the ones described in this work, as well as \emph{long time-base} ones.
+This work was performed with close collaboration with Nicholas Ayres of the University of Sussex. The Sussex group was part of the collaboration running the predecesor of the nEDM experiment at PSI --- the measurement performed in the Institute Laue-Langevin in Grenoble, France, in the years 1998--2002~\cite{Pendlebury2015}.
+An analysis analogous to this work was performed on those data, with an important difference, which made it sensitive to lower frequencies (or lighter axions)~\cite{AyresThesis}.
+Namely, the time series consisted of one point per run, in contrast to one per cycle in the short time-base analysis.
+On one hand it limits the sensitivity to oscillation periods corresponding to one run (1--2 days).
+On the other, the sensitivity to low frequencies is not deteriorated, as there is no need to use multiple free offsets in the LSSA fit (Eq.\,(\ref{eq:axions_LSSA})). In fact the free offset is assumed to be zero on the ground that the experiment delivered a zero-compatible result.
+% in the process of calculating the per-run nEDM estimate the gradient fluctuations are averaged out, so there is 
+\mnote{What about the gradient-related systematics (nEDM vs R' curve)? Was it corrected for? Wrote an email to Nick.}
+
+Despite close collaboration the two analyses shared no common code. As a mean of cross-check, the two codes were compared on artifical datasets, more on that in the appendix.
+
+
+
 
 \section{False-alarm thresholds}
 \mnote{In this section we will dive in more deeply into statistics associated with the data.}
@@ -244,6 +271,10 @@ Here tell how it might be due to the imperfect gradient-drift correction. Say, t
 
 
 \section{Axion-Wind analysis}
+The analysis described in this chapter so far concerned the scalar coupling of the axions to gluons, which looks like an oscillation in the electric dipole moment of the neutron. Now we describe how we used the same data set and the same analysis techniques to look for a different coupling --- a vector one of axions and 
+
+
+
 In the wind\ldots What we expect to see. Divide by Bup and Bdown. The dataset is shown in Fig.\,\ref{fig:axions_wind_time_domain}.
 
 In the periodogram we expect to see a triplet (sidebands because of the sidereal frequency modulation).
@@ -253,7 +284,7 @@ We see a lot of excesses (figures, already gradient-drift corrected), but none p
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/axions/winddeltah4mm_time_domain.png}
-  \caption{Maybe mark the 1/300 seconds. Note, that because of the settling of the filter first $N$ points need to be dropped, so not whole range is plotted.}
+  \caption{\ldots}
   \label{fig:axions_wind_time_domain}
 \end{figure}
 
@@ -267,7 +298,7 @@ We see a lot of excesses (figures, already gradient-drift corrected), but none p
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/axions/winddeltah4mm_Bdown_detection.png}
-  \caption{Maybe mark the 1/300 seconds. Note, that because of the settling of the filter first $N$ points need to be dropped, so not whole range is plotted.}
+  \caption{\ldots}
   \label{fig:axions_wind_Bdown_detection}
 \end{figure}
 
