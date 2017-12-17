@@ -125,7 +125,7 @@ Really, really first, show some example runs.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/axions/deltah4mm_time_domain_inset_no_yerr.pdf}
+  \includegraphics[width=0.9\linewidth]{gfx/axions/deltah4mm_time_domain_inset_no_yerr.pdf}
   \caption{The complete PSI data set used in the analysis. It spans from July 2015 to December 2016. Two sequences are enlarged. Due to high density of the measurements individual points cannot be resolved. The $R$ time series has been corrected for gradient drifts.}
   \label{fig:PSI_dataset_time_domain}
 \end{figure}
@@ -143,7 +143,7 @@ We start by presenting the results and then proceed to a more in-depth discussio
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/axions/detection_psi_inset_gc.pdf}
+  \includegraphics[width=0.9\linewidth]{gfx/axions/detection_psi_inset_gc.pdf}
   \caption{Periodogram of the $R$ time array of the PSI experiment data, sensitive to oscillations in the quantity $d_\mathrm{n} - \left( \mu_\mathrm{n} / \mu_\mathrm{Hg} \right) \, d_\mathrm{Hg}$, taken with the $\boldsymbol{E}$ and $\boldsymbol{B}$ fields parallel (black line).
   The mean of MC--generated periodograms, assuming no signal, is depicted in green. MC is used to calculate $1,2,…,5\,\sigma$ false--alarm thresholds, depicted in light orange.
   For clarity, we also plot the smoothed version in orange.
@@ -179,7 +179,7 @@ The results are presented in the landscape of already existing limits: axions wi
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/axions/psi_ill_axion_limits_v7.pdf}
+  \includegraphics[width=0.9\linewidth]{gfx/axions/psi_ill_axion_limits_v7.pdf}
   \caption{Mention, that it shows\ldots}
   \label{fig:axions_limits_coupling}
 \end{figure}
@@ -271,15 +271,8 @@ Here tell how it might be due to the imperfect gradient-drift correction. Say, t
 
 
 \section{Axion-Wind analysis}
-The analysis described in this chapter so far concerned the scalar coupling of the axions to gluons, which looks like an oscillation in the electric dipole moment of the neutron. Now we describe how we used the same data set and the same analysis techniques to look for a different coupling --- a vector one of axions and 
-
-
-
-In the wind\ldots What we expect to see. Divide by Bup and Bdown. The dataset is shown in Fig.\,\ref{fig:axions_wind_time_domain}.
-
-In the periodogram we expect to see a triplet (sidebands because of the sidereal frequency modulation).
-
-We see a lot of excesses (figures, already gradient-drift corrected), but none passes the detection criteria (the phase requirements in particular).
+The analysis described in this chapter so far concerned the scalar coupling of the axions to gluons, which looks like an oscillation in the electric dipole moment of the neutron.
+Now we describe how we used the same data set and the same analysis techniques to look for a different coupling --- a vector one of axions to nucleons.
 
 \begin{figure}
   \centering
@@ -287,6 +280,15 @@ We see a lot of excesses (figures, already gradient-drift corrected), but none p
   \caption{\ldots}
   \label{fig:axions_wind_time_domain}
 \end{figure}
+
+This coupling acts like an additional dynamic magnetic field. In this analysis the data are split based on the direction of the holding magnetic field $B_0$, as indicated in Fig.\,\ref{fig:axions_wind_time_domain}. The axion-wind coupling is insensitive to the electric field in the experiment.
+
+The axion-wind coupling \note{ref to equation} is proportional to the projection of experiment's quantisation axis on the momentum of the axions.
+Because the latter is due to the Earth traversing the galactic axion field in the Solar System's movement around the Milky Way's centre, the effect is called Axion-Wind. \note{Maybe a ref}
+The Earth additionally spins, causing the effect to be modulated with the sidereal frequency $\Omega_\mathrm{sid}$.\footnote{Sidereal frequency is one of the Earth's spinning as seen in the reference of fixed stars.}
+The modulation makes a signal in periodogram a triplet, with the central, highest, peak at the frequency of the oscillation of the axion field, and two additional ones, on either side, $\Omega_\mathrm{sid}$ away from the main peak.
+
+Besides splitting the data on the direction of the magnetic field, rather than the relative direction of the magnetic and electric ones, the analysis is performed exactly in the same way as in the case of the search for the scalar axion-gluon coupling. The periodograms for the two datasets are presented in Fig.\,\ref{fig:axions_wind_Bup_detection} (magnetic field pointing upwards, relative to gravity) and Fig.\,\ref{fig:axions_wind_Bdown_detection} (pointing downwards).
 
 \begin{figure}
   \centering
@@ -301,6 +303,19 @@ We see a lot of excesses (figures, already gradient-drift corrected), but none p
   \caption{\ldots}
   \label{fig:axions_wind_Bdown_detection}
 \end{figure}
+
+We see a lot of excesses (figures, already gradient-drift corrected), but none passes the detection criteria (the phase requirements in particular).
+
+The lack of statistically significant signal compatible with the axion model allowed us to put limits on the axion-nucleon coupling, depicted in Fig.\,\ref{fig:axions_wind_limits}. \note{comment a bit on the other limits in the plot}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/axions/psi_ill_axion_wind_limits_v1.pdf}
+  \caption{\ldots}
+  \label{fig:axions_wind_limits}
+\end{figure}
+
+
 
 
 \section{Resonant oscillating nEDM search}
