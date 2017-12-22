@@ -71,6 +71,8 @@ We assume never to be in the small triangle to the left and down from the line c
 
 The problem of determining the orientation of the tower is, in fact, the same as the one of the position. The setup includes a third string potentiometer, with the string attached to \note{there are two $d$s in the picture!} an arm of the tower (depicted in violet in Fig.\,\ref{fig:mapping_geometry}) of the length $a$. The end of the arm lies on the intersection of two circles: the one centred in the centre of the tower and radius $a$, and the one centred at the sensor end of the third potentiometer with the length equal to the wire extension.
 
+Comment on the sensitivity here. The solution is best conditioned, when the angle of the intersection of the circles is large. There is a problem, in particular, in the ,,upper-left corner''.
+
 
 
 \section{LPSC campaign}
@@ -108,6 +110,8 @@ The setup is shown\ldots The mapper was a tower this and that high, with ten flu
 The three analogue string potentiometers were mounted on a rigid L-piece (give the positions).
 \marginpar{A string potentiometer has a spring-loaded spool attached to a potentiometer. For maximal linearity it is constructed in a way, that the string is wound one layer only.}
 \marginpar{Technical details of the setup: fluxgate -- Stefan-Mayer FLC3-70, readout frequency -- xxx, ADC -- aoethu, string potentiometers -- Micro-Eplison xxx}
+
+Naively estimated the error on the measurement in a bin is 140nT, so for a gradient it is 140nT∗2√25cm=8 nT/cm. It is, however, better in reality - 3.8 nT/cm. To have a good estimate on the gradient the system needs to be stable and reproducible on small scales (25cm and less then a second). For the absolute field measurement to be reproducible the whole system needs to be stable on scales of 400cm and half and hour.
 
 \begin{figure}
   \centering
@@ -161,6 +165,13 @@ The three analogue string potentiometers were mounted on a rigid L-piece (give t
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/reproducibility_gradient.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_magnitude}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_crane_change_magnitude.pdf}
   \caption{\ldots}
   \label{fig:mapping_bastille_magnitude}
 \end{figure}
