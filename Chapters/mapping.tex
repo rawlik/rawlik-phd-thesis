@@ -74,6 +74,33 @@ The problem of determining the orientation of the tower is, in fact, the same as
 
 
 \section{LPSC campaign}
+The subject of this report is a mapping of the magnetic field performed in Laboratoire de Physique Subatomique \& Cosmologie (LPSC) in Grenoble, France in the days 6.-10.03.2017 by Michał Rawlik, with the much appreciated help of Rémi Faure, Guillaume Pignol and Dominique Rebreyend.
+
+The goal was to map two rooms, Bastille and Chalet, considered to host a test setup for Hg-199 magnetometry. The setup is sensitive to ambient magnetic fields. In particular, gradients above roughly 10 nT/cm cause an increase in the depolarisation rate of the mercury atoms.
+
+To map the field a device called simply the mapper was used, described below.
+
+This report is bundled with photographs documenting the measurement process, the datafiles taken and plots produced in the analysis. All the analysis code is part of this report. The report is a jupyter notebook using python3 code.
+
+The picture above shows the two main parts of the mapper. The first is the movable tower equipped with 10 3-axis Stefan Mayer FLC3-70 fluxgates. The second is the stationary coordinate sytem onto which three WDS-15000-P115-SA-P string extension transducers (also called string pots) are attached. The string pots are equipped with a custom made attachments that allow the string to come at an angle out of the device. The strings are attached to the tower, two to a point where the vertical beam with fluxgates are, one to one of the arms with wheels. This allows for determination of both position and orientation of the tower.
+
+The data acquisition system is located on a cart. It consists of a power supply used to put a constant current through the string potentiometers, custom-built crate for the fluxgates, which supplies them with power and conditions the incoming signals, and a National Instruments PXI crate, reading the analogue voltage signals from the fluxgates and the stringpots. The digitisation of all signals is simultaneous.
+
+The coordinate system is visible in the lower-left corner. To the right are the entrance door, in the middle a power outlet box is visible. Behind the wall with the power outlet box there is a pump, which has been at some point removed. The room is a wooden structure built in a hall. The hall is made of steel beams and sheets. The room's wall with the power outlet is located close, less than 1 metre, to the steel wall of the hall. The hall features a gantry crane, several metres above the roof of the room. On the roof of the room there are air conditioning devices, standing about a metre above the roof on steel legs. The legs have rather large feet, possibly with a steel plate inside.
+
+The map was performed with:
+
+    the pump standing behind the ,,left" wall (one with the power outlet box)
+    the crane in an undefined position (approximately halfway between the Bastille room and the end of the hall)
+
+The mapping procedure itself is simple. The tower is moved by hand across the room. Care is taken to scan the whole room and to maitain approximately the same orientation of the tower throughout the measurement.
+
+Part of the data analysis is performed on-line. In particular the voltage readout of the string pots is translated int their legths which are used to determine the position and orientation of the tower. This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned. The position and orientation information is readily stored in the data files.
+
+Below we define functions that load the data file into a pandas DataFrame. We hold all information, including the DataFrame, in an object of class Map.
+
+
+
 First the setting. Magnetic characterisation of a new laboratory room, designated for Hg-199 magnetometry research.
 A picture of the room (and the mapper, too?).
 
@@ -82,28 +109,65 @@ The three analogue string potentiometers were mounted on a rigid L-piece (give t
 \marginpar{A string potentiometer has a spring-loaded spool attached to a potentiometer. For maximal linearity it is constructed in a way, that the string is wound one layer only.}
 \marginpar{Technical details of the setup: fluxgate -- Stefan-Mayer FLC3-70, readout frequency -- xxx, ADC -- aoethu, string potentiometers -- Micro-Eplison xxx}
 
-Then about the reproducibility.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/setup_edited.jpg}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_setup}
+\end{figure}
 
-The subject of this report is a mapping of the magnetic field performed in Laboratoire de Physique Subatomique & Cosmologie (LPSC) in Grenoble, France in the days 6.-10.03.2017 by Michał Rawlik, with the much appreciated help of Rémi Faure, Guillaume Pignol and Dominique Rebreyend.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/daq_edited.jpg}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_daq}
+\end{figure}
 
-The goal was to map two rooms, Bastille and Chalet, considered to host a test setup for Hg-199 magnetometry. The setup is sensitive to ambient magnetic fields. In particular, gradients above roughly 10 nT/cm cause an increase in the depolarisation rate of the mercury atoms.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_panorama_edited.jpg}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_panorama}
+\end{figure}
 
-To map the field a device called simply the mapper was used, described below.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_track.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_track}
+\end{figure}
 
-This report is bundled with photographs documenting the measurement process, the datafiles taken and plots produced in the analysis. All the analysis code is part of this report. The report is a jupyter notebook using python3 code.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_magnitude.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_magnitude}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_gradient_139cm.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_magnitude}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/reproducibility_field.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_magnitude}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/reproducibility_gradient.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_magnitude}
+\end{figure}
 
 
-The picture above shows the two main parts of the mapper. The first is the movable tower equipped with 10 3-axis Stefan Mayer FLC3-70 fluxgates. The second is the stationary coordinate sytem onto which three WDS-15000-P115-SA-P string extension transducers (also called string pots) are attached. The string pots are equipped with a custom made attachments that allow the string to come at an angle out of the device. The strings are attached to the tower, two to a point where the vertical beam with fluxgates are, one to one of the arms with wheels. This allows for determination of both position and orientation of the tower.
 
-The data acquisition system is located on a cart. It consists of a power supply used to put a constant current through the string potentiometers, custom-built crate for the fluxgates, which supplies them with power and conditions the incoming signals, and a National Instruments PXI crate, reading the analogue voltage signals from the fluxgates and the stringpots. The digitisation of all signals is simultaneous.
-
-The picture below shows a panoramic view of the room.
-
-The coordinate system is visible in the lower-left corner. To the right are the entrance door, in the middle a power outlet box is visible. Behind the wall with the power outlet box there is a pump, which has been at some point removed. The room is a wooden structure built in a hall. The hall is made of steel beams and sheets. The room's wall with the power outlet is located close, less than 1 metre, to the steel wall of the hall. The hall features a gantry crane, several metres above the roof of the room. On the roof of the room there are air conditioning devices, standing about a metre above the roof on steel legs. The legs have rather large feet, possibly with a steel plate inside.
-
-
-
-\section{PSI campaign}
+\section{PSI Area South campaign}
 
 Acknowledge that it is a joint work with Solange Emmenegger.
 
