@@ -15,6 +15,13 @@ The three analogue string potentiometers were mounted on a rigid L-piece. The ba
 \mnote{The terms like the tower need to be clear by here.}
 
 
+Let us start with a two-dimensional problem. Span two strings between a magnetic field sensor, each to a fixed position in the room. Based on trilateration. With two strings there are two solutions, but we are always able to detect the correct one.
+
+To get the vector information about the field, also the orientation of the sensors needs to be known. For that an arm can attached to the sensor and a third string spanned to the arm's end.
+
+Now is the time for the nice drawing of the geometry solution.
+
+
 
 \section{Principle of a string-potentiometer--based mapper}
 For a given signal of a calibrated string potentiometer the points where the free end of the string can be make up a circle. The centre at the location of the body of the sensor, the radius equal to the extension of the wire. In the mapper setup there are two string potentiometers mounted on the fixed L-piece, both extended to a single point on the tower. This points lies on the intersection of the two circles. The problem of determining the location based on the measurement of the distances to a set of fixed points is called \emph{trilateration}.
@@ -30,20 +37,40 @@ For a given signal of a calibrated string potentiometer the points where the fre
 
 The geometry is presented in Fig.\,\ref{fig:mapping_geometry}.The two string potentiometers used to determine the position are located is points $(x, y) = (0, y_0)$ and $(x_0, 0)$ (in the L-piece coordinate system, orange in the figure).
 The tower, here point-like, is at $(x,y)$.
-The wire extensions are $r$ and $\rho$. For the sake of simplicity, we first give the solution in the coordinate system depicted in green \note{maybe use the A B and C names here already}, where the first string potentiometer is in $(0,0)$ and the second in $(d, 0)$ (with $d = \sqrt{x_0^2 + y_0^2}$). In this coordinate system the tower is in $(\xi, \nu)$.
-
+The wire extensions are $r$ and $\rho$. For the sake of simplicity, we first give the solution in the coordinate system depicted in green \note{maybe use the A B and C names here already}, where the first string potentiometer is in $(0,0)$ and the second in $(d, 0)$ (with $d = \sqrt{x_0^2 + y_0^2}$). In this coordinate system the tower is in $(\xi, \nu)$. From simple geometry the solution for the position of the tower is:
 \begin{align}
   \xi & = \frac{1}{2d} \left( d^2 - \rho^2 + r^2 \right) \\
-  \nu & = \frac{1}{2d} \left( (-d + \rho - r) (-d - \rho + r) (-d + \rho + r) (d + \rho + r)  \right)
+  \nu & = \frac{1}{2d} \sqrt{ (-d + \rho - r) (-d - \rho + r) (-d + \rho + r) (d + \rho + r) }
 \end{align}
+The transformation to the L-piece, orange, coordinate system is rotation by the angle $\alpha = \mathrm{ctan} \frac{y_0}{x_0}$ followed by a translation:
+\begin{equation}
+  \begin{pmatrix}
+    x \\
+    y
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos \alpha & -\sin \alpha \\
+    \sin \alpha & \cos \alpha
+  \end{pmatrix}
+  \begin{pmatrix}
+    \xi \\
+    \nu
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+    0 \\
+    y_0
+  \end{pmatrix}
+\end{equation}
 
+\note{Give here a general formula for an intersection of two circles. Need to check the LabVIEW code?}
 
+With two circles there are two solutions, symmetric around the line connecting the centres of the circles. However, during the mapping the tower stays in the area inside the positive quarter of the L-piece coordinate system.
+We assume never to be in the small triangle to the left and down from the line connecting the two string potentiometers.
 
-Let us start with a two-dimensional problem. Span two strings between a magnetic field sensor, each to a fixed position in the room. Based on trilateration. With two strings there are two solutions, but we are always able to detect the correct one.
+The problem of determining the orientation of the tower is, in fact, the same as the one of the position. The setup includes a third string potentiometer, with the string attached to \note{there are two $d$s in the picture!} an arm of the tower (depicted in violet in Fig.\,\ref{fig:mapping_geometry}) of the length $a$. The end of the arm lies on the intersection of two circles: the one centred in the centre of the tower and radius $a$, and the one centred at the sensor end of the third potentiometer with the length equal to the wire extension.
 
-To get the vector information about the field, also the orientation of the sensors needs to be known. For that an arm can attached to the sensor and a third string spanned to the arm's end.
-
-Now is the time for the nice drawing of the geometry solution.
 
 
 \section{LPSC campaign}
@@ -55,3 +82,31 @@ The three analogue string potentiometers were mounted on a rigid L-piece (give t
 \marginpar{A string potentiometer has a spring-loaded spool attached to a potentiometer. For maximal linearity it is constructed in a way, that the string is wound one layer only.}
 \marginpar{Technical details of the setup: fluxgate -- Stefan-Mayer FLC3-70, readout frequency -- xxx, ADC -- aoethu, string potentiometers -- Micro-Eplison xxx}
 
+Then about the reproducibility.
+
+The subject of this report is a mapping of the magnetic field performed in Laboratoire de Physique Subatomique & Cosmologie (LPSC) in Grenoble, France in the days 6.-10.03.2017 by Michał Rawlik, with the much appreciated help of Rémi Faure, Guillaume Pignol and Dominique Rebreyend.
+
+The goal was to map two rooms, Bastille and Chalet, considered to host a test setup for Hg-199 magnetometry. The setup is sensitive to ambient magnetic fields. In particular, gradients above roughly 10 nT/cm cause an increase in the depolarisation rate of the mercury atoms.
+
+To map the field a device called simply the mapper was used, described below.
+
+This report is bundled with photographs documenting the measurement process, the datafiles taken and plots produced in the analysis. All the analysis code is part of this report. The report is a jupyter notebook using python3 code.
+
+
+The picture above shows the two main parts of the mapper. The first is the movable tower equipped with 10 3-axis Stefan Mayer FLC3-70 fluxgates. The second is the stationary coordinate sytem onto which three WDS-15000-P115-SA-P string extension transducers (also called string pots) are attached. The string pots are equipped with a custom made attachments that allow the string to come at an angle out of the device. The strings are attached to the tower, two to a point where the vertical beam with fluxgates are, one to one of the arms with wheels. This allows for determination of both position and orientation of the tower.
+
+The data acquisition system is located on a cart. It consists of a power supply used to put a constant current through the string potentiometers, custom-built crate for the fluxgates, which supplies them with power and conditions the incoming signals, and a National Instruments PXI crate, reading the analogue voltage signals from the fluxgates and the stringpots. The digitisation of all signals is simultaneous.
+
+The picture below shows a panoramic view of the room.
+
+The coordinate system is visible in the lower-left corner. To the right are the entrance door, in the middle a power outlet box is visible. Behind the wall with the power outlet box there is a pump, which has been at some point removed. The room is a wooden structure built in a hall. The hall is made of steel beams and sheets. The room's wall with the power outlet is located close, less than 1 metre, to the steel wall of the hall. The hall features a gantry crane, several metres above the roof of the room. On the roof of the room there are air conditioning devices, standing about a metre above the roof on steel legs. The legs have rather large feet, possibly with a steel plate inside.
+
+
+
+\section{PSI campaign}
+
+Acknowledge that it is a joint work with Solange Emmenegger.
+
+Describe the changes to the setup: now the geometry is like this and this. Need probably a detailed picture of the geometry of the setup and the mapper.
+
+About the method to fit the calibration parameters to the fixed points.
