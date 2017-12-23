@@ -76,19 +76,47 @@ Comment on the sensitivity here. The solution is best conditioned, when the angl
 
 
 \section{LPSC campaign}
-The subject of this report is a mapping of the magnetic field performed in Laboratoire de Physique Subatomique \& Cosmologie (LPSC) in Grenoble, France in the days 6.-10.03.2017 by Michał Rawlik, with the much appreciated help of Rémi Faure, Guillaume Pignol and Dominique Rebreyend.
+The mapper setup was used to perform a mapping of the magnetic field performed in Laboratoire de Physique Subatomique \& Cosmologie (LPSC) in Grenoble, France in the days 6.-10.03.2017, with the much appreciated help of Rémi Faure, Guillaume Pignol and Dominique Rebreyend. The goal was to map two rooms, referred to as \emph{Bastille} and \emph{Chalet}. The rooms were considered to host a magnetic-field sensitive setup for Hg-199 magnetometry. In particular, gradients above roughly \SI[per-mode=symbol]{10}{\nano\tesla\per\centi\meter} cause an increase in the depolarisation rate of the mercury atoms.
 
-The goal was to map two rooms, Bastille and Chalet, considered to host a test setup for Hg-199 magnetometry. The setup is sensitive to ambient magnetic fields. In particular, gradients above roughly 10 nT/cm cause an increase in the depolarisation rate of the mercury atoms.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/setup_edited.jpg}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_setup}
+\end{figure}
 
-To map the field a device called simply the mapper was used, described below.
+A photograph of the mapping setup is shown in Fig.\,\ref{fig:mapping_bastille_setup}. The movable \SI{2.5}{\meter} high tower was equipped with ten 3-axis fluxgate magnetic field sensors. The stationary coordinate system featured three string potentiometers spanned to the tower. The string pots were equipped with a custom made attachments that allowed the string to come at an angle out of the device. Two of the strings were attached to a point where the vertical beam with the fluxgates is, the third (left on the picture) was attached to the black, short vertical profile on the tower.
 
-This report is bundled with photographs documenting the measurement process, the datafiles taken and plots produced in the analysis. All the analysis code is part of this report. The report is a jupyter notebook using python3 code.
+\marginpar{Technical details of the setup: fluxgates -- Stefan-Mayer FLC3-70, ADC -- aoethu, string potentiometers -- Micro-Eplison WDS-15000-P115-SA-P, readout frequency -- xxx}
 
-The picture above shows the two main parts of the mapper. The first is the movable tower equipped with 10 3-axis Stefan Mayer FLC3-70 fluxgates. The second is the stationary coordinate sytem onto which three WDS-15000-P115-SA-P string extension transducers (also called string pots) are attached. The string pots are equipped with a custom made attachments that allow the string to come at an angle out of the device. The strings are attached to the tower, two to a point where the vertical beam with fluxgates are, one to one of the arms with wheels. This allows for determination of both position and orientation of the tower.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/daq_edited.jpg}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_daq}
+\end{figure}
 
-The data acquisition system is located on a cart. It consists of a power supply used to put a constant current through the string potentiometers, custom-built crate for the fluxgates, which supplies them with power and conditions the incoming signals, and a National Instruments PXI crate, reading the analogue voltage signals from the fluxgates and the stringpots. The digitisation of all signals is simultaneous.
+The data acquisition system, pictured in Fig.\,\ref{fig:mapping_bastille_daq}, was located on a cart. It consisted of a power supply used to put a constant voltage on the string potentiometers, a custom-built crate for the fluxgates, which supplied them with power and conditioned the incoming signals, and a National Instruments PXI crate, which simultaneously digitised the analogue voltage signals from the fluxgates and the stringpots.
 
-The coordinate system is visible in the lower-left corner. To the right are the entrance door, in the middle a power outlet box is visible. Behind the wall with the power outlet box there is a pump, which has been at some point removed. The room is a wooden structure built in a hall. The hall is made of steel beams and sheets. The room's wall with the power outlet is located close, less than 1 metre, to the steel wall of the hall. The hall features a gantry crane, several metres above the roof of the room. On the roof of the room there are air conditioning devices, standing about a metre above the roof on steel legs. The legs have rather large feet, possibly with a steel plate inside.
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_panorama_edited.jpg}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_panorama}
+\end{figure}
+
+A panoramic shot of the Bastille room is presented in Fig.\,\ref{fig:mapping_bastille_panorama}. The coordinate system is visible in the upper-left corner. To the right are the entrance door, in the middle a power outlet box is visible.
+% Behind the wall with the power outlet box there is a pump, which has been at some point removed.
+The room is a wooden structure built in a hall. made of steel beams and sheets. The room's wall with the power outlet is located close, less than 1 metre, to the steel wall of the hall. The hall features a gantry crane, several metres above the roof of the room. On the roof of the room there are air conditioning devices, standing about a metre above the roof on steel legs. The legs have rather large feet, possibly with a steel plate inside.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_track.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_track}
+\end{figure}
+
+Several maps were performed. Moving the tower by hand, the track depicted in Fig\,\ref{fig:mapping_bastille_track}.
 
 The map was performed with:
 
@@ -109,69 +137,41 @@ A picture of the room (and the mapper, too?).
 The setup is shown\ldots The mapper was a tower this and that high, with ten fluxgate magnetometers mounted on it.
 The three analogue string potentiometers were mounted on a rigid L-piece (give the positions).
 \marginpar{A string potentiometer has a spring-loaded spool attached to a potentiometer. For maximal linearity it is constructed in a way, that the string is wound one layer only.}
-\marginpar{Technical details of the setup: fluxgate -- Stefan-Mayer FLC3-70, readout frequency -- xxx, ADC -- aoethu, string potentiometers -- Micro-Eplison xxx}
 
 Naively estimated the error on the measurement in a bin is 140nT, so for a gradient it is 140nT∗2√25cm=8 nT/cm. It is, however, better in reality - 3.8 nT/cm. To have a good estimate on the gradient the system needs to be stable and reproducible on small scales (25cm and less then a second). For the absolute field measurement to be reproducible the whole system needs to be stable on scales of 400cm and half and hour.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/setup_edited.jpg}
-  \caption{\ldots}
-  \label{fig:mapping_bastille_setup}
-\end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/daq_edited.jpg}
-  \caption{\ldots}
-  \label{fig:mapping_bastille_daq}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_panorama_edited.jpg}
-  \caption{\ldots}
-  \label{fig:mapping_bastille_panorama}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_track.pdf}
-  \caption{\ldots}
-  \label{fig:mapping_bastille_track}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_magnitude.pdf}
+  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_magnitude.pdf}
   \caption{\ldots}
   \label{fig:mapping_bastille_magnitude}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_gradient_139cm.pdf}
+  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_gradient_139cm.pdf}
   \caption{\ldots}
   \label{fig:mapping_bastille_magnitude}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/reproducibility_field.pdf}
+  \includegraphics[width=0.8\linewidth]{gfx/mapping/lpsc/reproducibility_field.pdf}
   \caption{\ldots}
   \label{fig:mapping_bastille_magnitude}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/reproducibility_gradient.pdf}
+  \includegraphics[width=0.8\linewidth]{gfx/mapping/lpsc/reproducibility_gradient.pdf}
   \caption{\ldots}
   \label{fig:mapping_bastille_magnitude}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/mapping/lpsc/bastille_crane_change_magnitude.pdf}
+  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_change_magnitude.pdf}
   \caption{\ldots}
   \label{fig:mapping_bastille_magnitude}
 \end{figure}
