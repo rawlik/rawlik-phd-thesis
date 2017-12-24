@@ -116,19 +116,53 @@ The room is a wooden structure built in a hall. made of steel beams and sheets. 
   \label{fig:mapping_bastille_track}
 \end{figure}
 
-Several maps were performed. Moving the tower by hand, the track depicted in Fig\,\ref{fig:mapping_bastille_track}.
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_magnitude.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_magnitude}
+\end{figure}
 
-The map was performed with:
+To collect a map, the tower was moved around the room by hand. Care is taken to scan the whole room and to maintain approximately the same orientation of the tower throughout the measurement. The track of one of the collected maps is depicted in Fig\,\ref{fig:mapping_bastille_track}, together with an overview of the room. \note{maybe mention, that the position was calculated on-line, too} Part of the data analysis is performed on-line. In particular the voltage readout of the string pots is translated into their lengths which are used to determine the position and orientation of the tower. This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned. The resulting map was a set of points, collected at \note{give the sampling frequency}, with the position of the tower and magnetic field readout for each fluxgates. Those data are directly plotted in Fig.\,\ref{fig:mapping_bastille_magnitude}. Horizontal slices (each a different sensor) of the magnitude of the magnetic field are shown, with the height of the slice above the floor indicated. It is clearly visible, that there are localised sources of magnetic disturbance above the roof, later attributed to elements of the air-conditioning system mounted on the roof of the hut.
 
-    the pump standing behind the ,,left" wall (one with the power outlet box)
-    the crane in an undefined position (approximately halfway between the Bastille room and the end of the hall)
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_gradient_139cm.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_gradient}
+\end{figure}
 
-The mapping procedure itself is simple. The tower is moved by hand across the room. Care is taken to scan the whole room and to maitain approximately the same orientation of the tower throughout the measurement.
+The mapper collects not only the magnitude of the field, but the full vector information. This can be used to produce maps of the gradient of the magnetic field. For this purpose the area is divided into pixels, and the average magnetic field is calculated in each.
+The the differences between the magnetic field components in the neighbouring pixels are taken, which, divided by the separation between the pixels, are the estimates of the gradient.
+For example, the dBx/dx gradient is estimated by the\ldots The map of the gradient \SI{128}{\centi\meter} above the floor is shown in Fig.\,\ref{fig:mapping_bastille_gradient}. Comment on the structures from the roof? On the left side, next to the power outlet box, large gradients above \SI[per-mode=symbol]{20}{\pico\tesla\per\centi\meter} are visible. Only ,,horizontal'' gradients were estimated.
+To estimate the vertical ones would require to compare the readouts of different sensors. The sensors are specified to be only $\pm 1\% \pm \SI{0.5}{\micro\tesla}$ accurate, which in a \SI{50}{\micro\tesla} field adds up to \SI{1}{\micro\tesla}. With a \SI{22}{\centi\meter} separation between the sensors, the systematic effect on the gradient would be \SI[per-mode=symbol]{45}{\nano\tesla\per\centi\meter}.
 
-Part of the data analysis is performed on-line. In particular the voltage readout of the string pots is translated int their legths which are used to determine the position and orientation of the tower. This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned. The position and orientation information is readily stored in the data files.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{gfx/mapping/lpsc/reproducibility_field.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_reproducibility}
+\end{figure}
 
-Below we define functions that load the data file into a pandas DataFrame. We hold all information, including the DataFrame, in an object of class Map.
+Binned data allow also for direct comparison between maps. In order to estimate the reproducibility of the mapping process two maps were taken directly one after another. The maps were then, after binning, subtracted from one another. The histogram of the differences is shown in Fig.\,\ref{fig:mapping_bastille_reproducibility} (one entry is one difference in one of the components). The standard deviation of the distribution, a measure of the reproducibility, is \SI{0.14}{\micro\tesla}. The reproducibility of the gradient was estimated in the same way, yielding the standard deviation of \SI[per-mode=symbol]{3.8}{\nano\tesla\per\centi\meter}. This is better than a na\"{\i}ve estimate, which assumes that the value of the component of the field measured in one bin has a \SI{0.14}{\micro\tesla} uncorrelated error bar associated with it:
+\begin{equation}
+  \frac{\SI{140}{\nano\tesla} \, \sqrt{2}}{\SI{25}{\centi\meter}} = \SI[per-mode=symbol]{8}{\nano\tesla\per\centi\meter} \ .
+\end{equation}
+The reason is, that the for the absolute field estimate to be reproducible the system needs to be stable on a large scale -- from one map to another. For the gradient of the field to be reproducible, the system needs to be stable only from one bin to the next.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_change_magnitude.pdf}
+  \caption{\ldots}
+  \label{fig:mapping_bastille_crane_change}
+\end{figure}
+
+The reproducibility of the gradient esti
+
+First the reproducibility, then a differential map.
+
+
+Several maps were performed. 
 
 
 First the setting. Magnetic characterisation of a new laboratory room, designated for Hg-199 magnetometry research.
@@ -141,40 +175,14 @@ The three analogue string potentiometers were mounted on a rigid L-piece (give t
 Naively estimated the error on the measurement in a bin is 140nT, so for a gradient it is 140nT∗2√25cm=8 nT/cm. It is, however, better in reality - 3.8 nT/cm. To have a good estimate on the gradient the system needs to be stable and reproducible on small scales (25cm and less then a second). For the absolute field measurement to be reproducible the whole system needs to be stable on scales of 400cm and half and hour.
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_magnitude.pdf}
-  \caption{\ldots}
-  \label{fig:mapping_bastille_magnitude}
-\end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_gradient_139cm.pdf}
-  \caption{\ldots}
-  \label{fig:mapping_bastille_magnitude}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.8\linewidth]{gfx/mapping/lpsc/reproducibility_gradient.pdf}
+%   \caption{\ldots}
+%   \label{fig:mapping_bastille_magnitude}
+% \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{gfx/mapping/lpsc/reproducibility_field.pdf}
-  \caption{\ldots}
-  \label{fig:mapping_bastille_magnitude}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{gfx/mapping/lpsc/reproducibility_gradient.pdf}
-  \caption{\ldots}
-  \label{fig:mapping_bastille_magnitude}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_change_magnitude.pdf}
-  \caption{\ldots}
-  \label{fig:mapping_bastille_magnitude}
-\end{figure}
 
 
 
