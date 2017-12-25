@@ -1,3 +1,4 @@
+% !TEX root = ../rawlik-phd-thesis.tex
 \chapter{Coil design} % Chapter title
 \label{ch:coil_design}
 
@@ -183,7 +184,7 @@ but the problem is typically solved numerically\footnote{\texttt{I = M \textback
   \quad
   \subfloat{
     \label{fig:homogeneous_performance_b}
-    \includegraphics[width=.45\linewidth]{homogeneous_performance_smaller_volume.pdf}}
+    \includegraphics[width=.45\linewidth]{gfx/coils/homogeneous_performance_smaller_volume.pdf}}
   \caption{Magnetic field produced by a coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles on a unit cube. The field lines are depicted in grey. Contours show boundaries of 0.5, 1 and 10\% magnitude deviation from an ideal homogeneous field. Horizontal cross sections in the middle--height plane are shown. Two designs are presented. Left-hand side: the volume of interest is a cube with side length 0.75 (the individual tile coil currents are depicted in Fig.\,\ref{fig:homogeneous_tiles}), right-hand side: the size of volume of interest is reduced to 0.5.}
   \label{fig:homogeneous_performance}
 \end{figure*}
@@ -545,8 +546,8 @@ where $H_n$ are the expansion coefficients. They satisfy Maxwell's equations, so
     7 & $z$ &  0  & $ x$ \\
     8 &  0  & $z$ & $-y$ \\
   \end{tabular}
-  \label{tab:coils_carthesian_harmonics}
   \caption{Carthesian harmonic polynomials.}
+  \label{tab:coils_carthesian_harmonics}
 \end{table}
 
 The first three terms are homogeneous fields. Further five are the five independent gradients.
