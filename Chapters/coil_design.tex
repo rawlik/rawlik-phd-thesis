@@ -176,7 +176,7 @@ but the problem is typically solved numerically\footnote{\texttt{I = M \textback
 %   \label{fig:homogeneous_performance}
 % \end{figure}
 
-\begin{figure*}[bth]
+\begin{figure*}
   \centering
   \subfloat{
     \label{fig:homogeneous_performance_a}
@@ -331,28 +331,43 @@ Using the method presented here to design the active compensation coils offers i
 % One needs not to worry about possible spacial conflicts, as the method guarantees that all the coils are constrained to the grid on which they are designed.
 
 
-\begin{figure*}
-  \centering
-  % \subfloat[A coil designed for a homogeneous $50\,\mathrm{\micro T}$ field along the x--axis. A net current along each edge is shown.]{
-  %   \label{fig:coils_homogeneous_3d}
-  %   \includegraphics[width=.45\linewidth]{coil_homogeneous}}
-  % \quad
-  % \subfloat[XY section in the middle --- achieved relative compensation of the homogeneous field.]{
-  %   \label{fig:coils_homogeneous_section}
-  %   \includegraphics[width=.45\linewidth]{coil_homogeneous_section}}
-  % \\
-  \subfloat{
-    \label{fig:coils_dipole_3d}
-    \includegraphics[width=.35\linewidth]{gfx/coils/coil_dipole.pdf}}
-  \quad
-  \subfloat{
-    \label{fig:coils_dipole_section}
-    \includegraphics[width=.55\linewidth]{gfx/coils/coil_dipole_section_with_dipole.pdf}}
-  \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of 0.75. On the left--hand side the total current along each edge of the dipole compensation coil is depicted. On the right--hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at 0.1 and 100\,µT). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}
-  \label{fig:showcase}
-\end{figure*}
+
+% \begin{figure}
+%   \centering
+%   % \includegraphics[width=\linewidth]{gfx/coils/coil_dipole.pdf}
+%   \includegraphics[width=\linewidth]{gfx/coils/algorithm_net_5.pdf}
+%   \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of 0.75. On the left--hand side the total current along each edge of the dipole compensation coil is depicted. On the right--hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at 0.1 and 100\,µT). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}
+%   \label{fig:coils_arb_3d}
+% \end{figure}
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/coils/coil_dipole_section_with_dipole.pdf}
+%   \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of 0.75. On the left--hand side the total current along each edge of the dipole compensation coil is depicted. On the right--hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at 0.1 and 100\,µT). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}
+%   \label{fig:coils_arb_section}
+% \end{figure}
 
 
+% \begin{figure}
+%   \centering
+%   % \subfloat[A coil designed for a homogeneous $50\,\mathrm{\micro T}$ field along the x--axis. A net current along each edge is shown.]{
+%   %   \label{fig:coils_homogeneous_3d}
+%   %   \includegraphics[width=.45\linewidth]{coil_homogeneous}}
+%   % \quad
+%   % \subfloat[XY section in the middle --- achieved relative compensation of the homogeneous field.]{
+%   %   \label{fig:coils_homogeneous_section}
+%   %   \includegraphics[width=.45\linewidth]{coil_homogeneous_section}}
+%   % \\
+%   \subfloat{
+%     \label{fig:coils_dipole_3d}
+%     \includegraphics[width=.34\linewidth]{gfx/coils/coil_dipole.pdf}}
+%   \quad
+%   \subfloat{
+%     \label{fig:coils_dipole_section}
+%     \includegraphics[width=.54\linewidth]{gfx/coils/coil_dipole_section_with_dipole.pdf}}
+%   \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of 0.75. On the left--hand side the total current along each edge of the dipole compensation coil is depicted. On the right--hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at 0.1 and 100\,µT). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}
+%   \label{fig:showcase}
+% \end{figure}
 
 
 
@@ -404,11 +419,12 @@ Using the method presented here to design the active compensation coils offers i
 \section{Conclusion}
 Coil design is a complicated and very technical problem, especially when high accuracy is required. We presented a method that is simple in terms of both underlying math and computational effort. We believe that the design method can find its niche in practical applications, where spatial constraints play a significant role and a percent level in accuracy of the produced field is acceptable.
 
-For the sake of clarity we explained the method on a simple example. We designed a coil for a homogeneous field with only few tiles. However, the method is much more powerful. We conclude by presenting, in Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source.
+For the sake of clarity we explained the method on a simple example. We designed a coil for a homogeneous field with only few tiles. However, the method is much more powerful. We conclude by presenting, in Figs.\,\ref{fig:fig:coils_arb_3d} and \ref{fig:coils_arb_3d}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source. \note{Could not manage to put those figure in - the document stops to compile. Leave it for now.}
 
 We publish the software implementation of the coil design, including examples, as open--source \cite{Coilsjlcode}.
 
 We would like to thank Georg Bison, Allard Schnabel and other members of the nEDM at PSI collaboration for fruitful discussions. This work was supported by the Swiss National Science Foundation under grant 200020\_162574.
+  
 
 
 
@@ -453,8 +469,8 @@ Consider all possible coils that can be constructed by laying wires on a surface
 Coils can be seen an vectors in a linear space. One coil spans a one--dimensional space of magnetic fields it can produce. Adding a second coil creates a system spanning a two--dimensional space of fields, thanks to the magnetic field being additive. Four square coils tiled to form a larger square form a four--dimensional space, which is a subset of coils possible to construct on the larger square's surface. This size of the subset we restrict ourselves to is controlled by $N$ --- the number of \emph{base coils} forming the grid. Any coil, member of the subset, is fully described by a vector of $N$ relative currents in each of the \emph{base coils} --- denoted by $\mathbb{I}$. The problem of coil design is thereby simplified to finding a vector $\mathbb{I}$ in a linear space.
 % The four coils form a complete linear basis of coils on the surface for any coils that have wires going only along the edges --- see Fig.\,\ref{fig:coils_tile_basis}. This is a very convenient subspace of all coils possible to build on a square. The possible to realise subspace may be enlarged by refining the division into tiles. But as a coil is equivalent to the field it produces, one can just as well say that they form a four--dimensional \emph{space of coils}.
 
-\begin{figure}[bth]
-  \myfloatalign
+\begin{figure}
+  \centering
   \subfloat[A basis of four base--coils on a surface. Three vectors are presented together with their explicit coordinates in the basis.]
   {\label{fig:coils_tile_basis}
   \includegraphics[width=.45\linewidth]{gfx/tile_basis}}
@@ -503,8 +519,8 @@ The simplest magnetic field is a homogeneous one. Figures\,\ref{fig:coils_homoge
 
 The full power of this scheme is visible, when the desired $B_0$ field is complicated. One may want to counteract a fixed nearby dipole source. A coil designed for that is presented in Fig.\,\ref{fig:coils_dipole_3d}.
 
-\begin{figure}[bth]
-  \myfloatalign
+\begin{figure}
+  \centering
   \subfloat[A coil designed for a homogeneous $50\,\mathrm{\micro T}$ field along the x--axis. A net current along each edge is shown.]{
     \label{fig:coils_homogeneous_3d}
     \includegraphics[width=.45\linewidth]{gfx/coil_homogeneous}}
@@ -560,8 +576,8 @@ The first step is to define the \emph{coil surface}. Afterwards the surface has 
 Exploit symmetries --- a homogeneous coil may be viewed a sum of a number of
 much simpler to construct coils, which are then connected in series.
 
-\begin{figure}[bth]
-  \myfloatalign
+\begin{figure}
+  \centering
   \includegraphics[width=.6\linewidth]{gfx/coils/wiring}
   \caption
   [TODO]
@@ -583,8 +599,8 @@ to be driven with one current source. Two techniques may be used:
 With a simple use of additional resistors each coil may be still driven with only
 one power supply --- \emph{provide a figure}.
 
-\begin{figure}[bth]
-  \myfloatalign
+\begin{figure}
+  \centering
   \includegraphics[width=.6\linewidth]{gfx/coils/current_discretisation}
   \caption
   [TODO]
@@ -612,8 +628,8 @@ The main challenge of the nEDM experiment is reaching a magnetic field stability
 
 The main part of attenuation of the magnetic field is done by four layers of \mbox{μ-metal} --- material with very high permeability (around 400\,000). However, \mbox{μ-metal}, being a ferromagnetic, is itself susceptible to become magnetised and and create a magnetic field of its own. In order to keep the magnetisation stable the \mbox{μ-metal} shield has been surrounded by a system of large coils. The coils are driven in a feedback loop with magnetic filed sensors (see Fig.\,\ref{fig:nEDM_SFC}). The system has been described in the paper \citep{Afach2014}.
 
-\begin{figure}[bth]
-  \myfloatalign
+\begin{figure}
+  \centering
   \includegraphics[width=.6\linewidth]{gfx/nEDM_SFC}
   \caption
   [Sketch of the nEDM SFC system.]
