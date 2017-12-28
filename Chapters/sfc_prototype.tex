@@ -8,21 +8,14 @@ The goal was do demonstrate the feasibility of construction of the coils, develo
 It is based on the coil design method described earlier.
 
 
-\section{The first iteration}
-Start by describing the support structure. In the cable channels many coils may be laid. A structure was build. Some technical details: Item profiles, cut aluminum plates.
+\section{The first iteration -- coil structure}
+Start by describing the support structure. In the cable channels many coils may be laid. A structure was build. Some technical details: Item profiles, cut aluminum plates. Describe the coordinate system, too!
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03472.JPG}
   \caption{Mention, that it shows\ldots}
   \label{fig:prototype_photo}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03476.JPG}
-  \caption{Mention, that it shows\ldots}
-  \label{fig:prototype_photo_inside}
 \end{figure}
 
 \begin{figure}
@@ -34,16 +27,21 @@ Start by describing the support structure. In the cable channels many coils may 
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_y_decomposition.png}
-  \caption{Mention, that it shows\ldots}
-  \label{fig:prototype_coil_y_decomposition}
-\end{figure}
-
-\begin{figure}
-  \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_x_z_currents.png}
   \caption{Mention, that it shows\ldots}
   \label{fig:prototype_coil_x_z_currents}
+\end{figure}
+
+The first iteration of the prototype had 3 coils for the homogeneous field.
+Then describe how the coils were designed. The optimized current net is shown in Fig\,\ref{fig:prototype_coil_y_currents} (for the y-coil) and \ref{fig:prototype_coil_x_z_currents} (the x- and z-coils).
+
+It follows the already described coil design method, up to the point of the simplification algorithm. Here, The decomposition into loops was done by exploiting symmetries of the system. It is suboptimal in the sense, that there are more windings than there could be. The decompositions are depicted in Figs.\,\ref{fig:prototype_coil_y_decomposition} (the y-coil) and \ref{fig:prototype_coil_x_z_decomposition} (the x- and z-coils).
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{gfx/prototype/coil_y_decomposition.png}
+  \caption{Mention, that it shows\ldots}
+  \label{fig:prototype_coil_y_decomposition}
 \end{figure}
 
 \begin{figure}
@@ -53,7 +51,15 @@ Start by describing the support structure. In the cable channels many coils may 
   \label{fig:prototype_coil_x_z_decomposition}
 \end{figure}
 
-The first iteration of the prototype had 3 coils for the homogeneous field
+Explain how they were decomposed into the three ,,sub-coils''. Explain the nominal \SI{50}{\micro\tesla} field of each coil.
+
+
+
+\section{Mapping}
+
+To verify that the coils indeed produce a field of required homogeneity they were mapped. For that purpose a robot has been built---a fluxgate on an xyz-table, controlled with stepper motors.
+
+The first map, of the y-coil, was done by moving the fluxgate along the y direction. First only the first subcoil was on, then two and finally all three. Each time they were set for the nominal \SI{50}{\micro\tesla} field. The background field was also measured and subtracted. The result is in Fig\,\ref{fig:prototype_linear_map}. Comment on the result? The field is in $\SI{\pm0.2}{\micro\tesla}$ range around the average value.
 
 \begin{figure}
   \centering
@@ -69,6 +75,17 @@ The first iteration of the prototype had 3 coils for the homogeneous field
   \label{fig:prototype_plane_map}
 \end{figure}
 
+Now about the mapper. The device. A bar along the x direction with two timing belts fixed to it, wound around pulleys with stepper motors. The bar can slide along the y direction. Along the beam a cart can be moved in the same way with one stepper motor. On the cart three rods are mounted and a stepper motor with a threaded rod on its axis. A table can move along the three rods, with a threaded hole, when the threaded rod spins. (write in the past tense!)
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03476.JPG}
+  \caption{Mention, that it shows\ldots}
+  \label{fig:prototype_photo_inside}
+\end{figure}
+
+
+\section{DAQ}
 
 \begin{figure}
   \centering
@@ -78,7 +95,45 @@ The first iteration of the prototype had 3 coils for the homogeneous field
 \end{figure}
 
 
+Here write about the DAQ stack. Software in julia, ethercat, amplifiers, fluxgates.
 
+
+\section{The SFC matrix}
+Here describe the procedure of measuring the matrix, as well as the matrix itself.
+
+Describe how the matrix is inverted to measure near the zero-field! Describe traversing the sphere and how it get smaller and smaller.
+
+Then continue to analyse the matrix. Discuss the SVD decomposition and its singular values. Or is it the right place to do it here?
+
+
+\section{The feedback algorithm}
+Say, that implemented in software (julia). Write down the equation.
+
+
+\section{Characterisation}
+Write about the stability. Put the stability plot. State, that it does not require the output to be stable -- the stability is defined by the stability of the input. Say, that the level of stability reached with the system corresponds to the fluxgates' specified at 0.1K temperature drift - cannot be expected to be better than that in the laboratory.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/prototype/run7_field_stability.pdf}
+  \caption{Mention, that it shows\ldots}
+  \label{fig:prototype_stability}
+\end{figure}
+
+Then show the dynamic stabilisation plot.
+
+\begin{figure}
+  \centering
+  \subfloat{
+    \label{fig:prototype_compensation_time_1}
+    \includegraphics[width=.5\linewidth]{gfx/prototype/compensated_7_5m.png}}
+  \quad
+  \subfloat{
+    \label{fig:prototype_compensation_time_2}
+    \includegraphics[width=.5\linewidth]{gfx/prototype/uncompensated_7_5m.png}}
+  \caption{Following the algorithm to simplify a coil. The left column shows the net of a current with the total current along edges of tiles. In each iteration the loop with the highest current is found and transferred onto the simplified solution, shown in the right column. We show iterations, from top: zeroth, fourth and eighth.}
+  \label{fig:prototype_compensation_time}
+\end{figure}
 
 
 
