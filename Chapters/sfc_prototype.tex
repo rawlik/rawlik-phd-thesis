@@ -2,7 +2,7 @@
 \chapter{Next generation active magnetic field compensation}
 \label{ch:sfc-prototype}
 
-The coil design method described in the previous chapter opened the door to a next generation of active magnetic field compensation systems. Ones where the coil system is not much larger than the fiducial volume and where high-order terms of the magnetic field can be compensated. All while retaining a low number of controlled degrees of freedom.
+The coil design method described in the previous chapter opened the door to a next generation of active magnetic field compensation systems. Ones where the coil system is not much larger than the fiducial volume and where high-order terms of the magnetic field can be compensated, all while retaining a low number of controlled degrees of freedom.
 
 The large fiducial volume is of particular importance for the n2EDM experiment at PSI. The available area\ldots
 
@@ -23,8 +23,6 @@ When discussing the the coil design method we have already indicated a possible 
 
 The support frame was made of aluminum construction profiles. Thereon, on each side, was a large one-piece aluminum sheet, with square cut-outs leaving the material only directly below the cable channels. \note{Explain better, tricky.}
 
-and a close-up in \note{put a photo of a close-up, too}.
-
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_y_currents.png}
@@ -32,16 +30,14 @@ and a close-up in \note{put a photo of a close-up, too}.
   \label{fig:prototype_coil_y_currents}
 \end{figure}
 
-In its first version the system featured three coils for the homogeneous components of the magnetic field. The coils were designed following the method described in Ch.\,\ref{ch:coil_design} (excluding the simplification algorithm, as explained later). The fiducial volume was chosen to be a cuboid, centred in the system, \ldots away from the walls. The optimal current net for the $y$-coil is depicted in Fig.\,\ref{fig:prototype_coil_y_currents}. At the time when the system was constructed the simplification algorithm, as described in Ch.\,\ref{ch:coil_design} had not been developed, yet.
+In its first version the system featured three coils for the homogeneous components of the magnetic field. The coils were designed following the method described in Ch.\,\ref{ch:coil_design} (excluding the simplification algorithm, as explained later). The fiducial volume was chosen to be a cuboid, centred in the system, \ldots away from the walls. The optimal current net for the $y$-coil is depicted in Fig.\,\ref{fig:prototype_coil_y_currents}. At the time when the system was constructed the simplification algorithm, as described in Ch.\,\ref{ch:coil_design} had not been developed, yet. The decomposition, shown in Fig.\,\ref{fig:prototype_coil_y_decomposition} was done arbitrarily. From the symmetry the $x$ and $z$ coils are identical. The current net are depicted in Fig.\,\ref{fig:prototype_coil_x_z_currents} and the decomposition in Fig.\,\ref{fig:prototype_coil_x_z_decomposition}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.4\linewidth]{gfx/prototype/coil_y_decomposition.png}
-  \caption{Mention, that it shows\ldots}
+  \caption{The decomposition of the current net of the $y$-coil (Fig.\,\ref{fig:prototype_coil_y_currents}) into current loops. For clarity only a sixteenth part of the system is depicted, all others being identical on the grounds of symmetry. Each loop is indicated with a different colour. The currents are given per \SI{50}{\micro\tesla} of generated field. SHOW WHICH PART IS DEPICTED ON A SMALL 3D DRAWING}
   \label{fig:prototype_coil_y_decomposition}
 \end{figure}
-
-From the symmetry the $x$ and $z$ coils are identical.
 
 \begin{figure}
   \centering
@@ -50,13 +46,11 @@ From the symmetry the $x$ and $z$ coils are identical.
   \label{fig:prototype_coil_x_z_currents}
 \end{figure}
 
-up to the point of the simplification algorithm. Here, The decomposition into loops was done by exploiting symmetries of the system. It is suboptimal in the sense, that there are more windings than there could be.
+% up to the point of the simplification algorithm. Here, The decomposition into loops was done by exploiting symmetries of the system. It is suboptimal in the sense, that there are more windings than there could be.
 
-Then describe how the coils were designed. The optimized current net is shown in Fig\,\ref{fig:prototype_coil_y_currents} (for the y-coil) and \ref{fig:prototype_coil_x_z_currents} (the x- and z-coils).
+% Then describe how the coils were designed. The optimized current net is shown in Fig\,\ref{fig:prototype_coil_y_currents} (for the y-coil) and \ref{fig:prototype_coil_x_z_currents} (the x- and z-coils).
 
-It follows the already described coil design method, up to the point of the simplification algorithm. Here, The decomposition into loops was done by exploiting symmetries of the system. It is suboptimal in the sense, that there are more windings than there could be. The decompositions are depicted in Figs.\,\ref{fig:prototype_coil_y_decomposition} (the y-coil) and \ref{fig:prototype_coil_x_z_decomposition} (the x- and z-coils).
-
-
+% It follows the already described coil design method, up to the point of the simplification algorithm. Here, The decomposition into loops was done by exploiting symmetries of the system. It is suboptimal in the sense, that there are more windings than there could be. The decompositions are depicted in Figs.\,\ref{fig:prototype_coil_y_decomposition} (the y-coil) and \ref{fig:prototype_coil_x_z_decomposition} (the x- and z-coils).
 
 \begin{figure}
   \centering
@@ -65,13 +59,23 @@ It follows the already described coil design method, up to the point of the simp
   \label{fig:prototype_coil_x_z_decomposition}
 \end{figure}
 
-Explain how they were decomposed into the three ,,sub-coils''. Explain the nominal \SI{50}{\micro\tesla} field of each coil.
+Finally, the individual loops were discretised into \SI{5}{\ampere}, \SI{1}{\ampere} and \SI{0.1}{\ampere}, all per nominal \SI{50}{\micro\tesla}. For example, the \SI{19.48}{\ampere} current, indicated in black in Fig.\,\ref{fig:prototype_coil_y_decomposition}, was realised as three windings of the \SI{5}{\ampere} wire, four of the \SI{1}{\ampere} one and five of the \SI{0.1}{\ampere} one.
 
+An enameled was then laid in the cable channels according to the discretised design. For one current component of a coil, e.g.\ \SI{5}{\ampere} in the $x$-coil, a single, long piece of wire was laid, making up all the windings of all loops. For the three coils, each with three components, nine longs wires were laid, in total.
+\marginpar{Wire thickness was\ldots}
+
+Here would be a place for the close-up! and a close-up in \note{put a photo of a close-up, too}.
 
 
 \section{Mapping}
+To verify that the coils indeed produce a field of the required homogeneity they were mapped. For that purpose a robot has been built---a fluxgate on an xyz-table, controlled with stepper motors. The robot, called \emph{mapper}, is pictured in Fig.\,\ref{fig:prototype_photo_inside}.
 
-To verify that the coils indeed produce a field of required homogeneity they were mapped. For that purpose a robot has been built---a fluxgate on an xyz-table, controlled with stepper motors.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03476.JPG}
+  \caption{Mention, that it shows\ldots}
+  \label{fig:prototype_photo_inside}
+\end{figure}
 
 The first map, of the y-coil, was done by moving the fluxgate along the y direction. First only the first subcoil was on, then two and finally all three. Each time they were set for the nominal \SI{50}{\micro\tesla} field. The background field was also measured and subtracted. The result is in Fig\,\ref{fig:prototype_linear_map}. Comment on the result? The field is in $\SI{\pm0.2}{\micro\tesla}$ range around the average value.
 
@@ -91,12 +95,7 @@ The first map, of the y-coil, was done by moving the fluxgate along the y direct
 
 Now about the mapper. The device. A bar along the x direction with two timing belts fixed to it, wound around pulleys with stepper motors. The bar can slide along the y direction. Along the beam a cart can be moved in the same way with one stepper motor. On the cart three rods are mounted and a stepper motor with a threaded rod on its axis. A table can move along the three rods, with a threaded hole, when the threaded rod spins. (write in the past tense!)
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03476.JPG}
-  \caption{Mention, that it shows\ldots}
-  \label{fig:prototype_photo_inside}
-\end{figure}
+
 
 
 \section{DAQ}
