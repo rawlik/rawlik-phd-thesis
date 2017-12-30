@@ -73,7 +73,7 @@ To verify that the coils indeed produce a field of the required homogeneity they
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03476.JPG}
-  \caption{The inside of the active magnetic field compensation system.}
+  \caption{The inside of the active magnetic field compensation system. In the centre the mapping robot (\emph{mapper}) is visible, with a fluxgate magnetic field sensor mounted to a movable platform. Mounted on black, vertical beams there are eight fluxgates for the active feedback.}
   \label{fig:prototype_photo_inside}
 \end{figure}
 
@@ -90,12 +90,13 @@ A simple kind of map possible with the mapper is a linear one, whereby the fluxg
 
 On the left-hand of Fig.\,\ref{fig:prototype_linear_map} additionally the maps with only the \SI{5}{\ampere} component coil, and with \SI{5}{\ampere} and \SI{1}{\ampere} components coil are shown. It is interesting to note how much of the field is produced by each of the components. In the middle region the \SI{5}{\ampere}, \SI{1}{\ampere} and \SI{0.1}{\ampere} components produced 86\%, 11\% and 3\% of the field, respectively. At the edge the shares change to 70\%, 16\% and 14\%. \note{These numbers give also the relative requirements for the components. Five times less stable? Makes no sense\ldots What would the requirements really be? Linearity, for example! Could use worse power supplies.}
 
-Another type of map is a planar one. A horizontal map, in the middle $xy$-plane, of the $y$-coil is presented in Fig.\,\ref{fig:prototype_plane_map}. The plot shows the maximum deviation among all three components of the magnetic field, i.e.\ in the area enclosed by the \SI{1}{\micro\tesla}~isocountour all components of the field are within \SI{1}{\micro\tesla} from the nominal field. The border of the plot corresponds to planes where the wires of the coils are. The fiducial volume is marked with grey lines.
+Another type of map is a planar one. A horizontal map, in the middle $xy$-plane, of the $y$-coil is presented in Fig.\,\ref{fig:prototype_plane_map}. The plot shows the maximum deviation among all three components of the magnetic field, i.e.\ in the area enclosed by the \SI{1}{\micro\tesla}~isocountour all components of the field are within \SI{1}{\micro\tesla} from the nominal field. The border of the plot corresponds to planes where the wires of the coils are. The fiducial volume is marked with grey lines. The field inside the fiducial volume stays within \SI{1}{\micro\tesla} of the nominal one of \SI{50}{\micro\tesla}, so the relative homogeneity is 2\%.
+\mnote{Need to be clear about the specification---it wasn't supposed to be 2\% EVERYWHERE! Maybe bring forward the specification plot that decided on the grid size?}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/plane_map.png}
-  \caption{Mention, that it shows\ldots}
+  \caption{A horizontal map, in the middle $xy$-plane, of the $y$-coil. The maximum deviation among all three components of the magnetic field is plotted, i.e.\ in the area enclosed by the \SI{1}{\micro\tesla}~isocountour all components of the field are within \SI{1}{\micro\tesla} from the nominal field. The border of the plot corresponds to planes where the wires of the coils are. The fiducial volume is marked with grey lines.}
   \label{fig:prototype_plane_map}
 \end{figure}
 
@@ -112,8 +113,18 @@ Another type of map is a planar one. A horizontal map, in the middle $xy$-plane,
   \label{fig:prototype_photo_daq}
 \end{figure}
 
+The centre of the daq is software (written in julia). The software communicates with a lower-level Ethercat driver (cite the website!).
+
+The software-hardware interface is provided by an array of EtherCAT clamps: (give numbers) ADCs and DACs.
+
+The system works by exchanging EtherCAT packages every blabla (really put it?)
+
+The signals of DACs are amplified (SERVOWATT) and fed to the coils.
+
+The field is measured with eight fluxgates, visible in Fig.\,\ref{fig:prototype_photo_inside}, the analogue signals digitised with the ADCs.
 
 Here write about the DAQ stack. Software in julia, ethercat, amplifiers, fluxgates.
+
 
 
 \section{The SFC matrix}
