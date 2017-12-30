@@ -1,29 +1,47 @@
 % !TEX root = ../rawlik-phd-thesis.tex
-\chapter{SFC prototype}
+\chapter{Next generation active magnetic field compensation}
 \label{ch:sfc-prototype}
 
-Short introduction and overview\ldots
-The goal was do demonstrate the feasibility of construction of the coils, develop and test the electronic and software parts of the feedback algorithm, and test the whole system.
+The coil design method described in the previous chapter opened the door to a next generation of active magnetic field compensation systems. Ones where the coil system is not much larger than the fiducial volume and where high-order terms of the magnetic field can be compensated. All while retaining a low number of controlled degrees of freedom.
 
-It is based on the coil design method described earlier.
+The large fiducial volume is of particular importance for the n2EDM experiment at PSI. The available area\ldots
+
+In the laboratory at ETH Zürich an active magnetic field compensation system was constructed, based on the coil design method described earlier. The goal was do demonstrate the feasibility of construction of the coils, develop and test the electronic and software parts of the feedback algorithm, and test the whole system.
+
 
 
 \section{The first iteration -- coil structure}
-Start by describing the support structure. In the cable channels many coils may be laid. A structure was build. Some technical details: Item profiles, cut aluminum plates. Describe the coordinate system, too!
+When discussing the the coil design method we have already indicated a possible way to realise it in practice---construct a grid out of cable channels. The system, pictured in Fig.\,\ref{fig:prototype_photo}, was built as a $5 \times 9 \times 5$ square tiles. The tile size\ldots The total size\ldots
+\mnote{Introduce the coordinate system somewhere here.}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03472.JPG}
-  \caption{Mention, that it shows\ldots}
+  \caption{The active magnetic compensation system in the laboratory at ETH Zürich. It consists cable channels mounted on an aluminum support structure. In the channels copper wires making up the coils can be seen. On the left-hand side the control cabinet of the system is visible. Indicate the coordinate system here!}
   \label{fig:prototype_photo}
 \end{figure}
+
+The support frame was made of aluminum construction profiles. Thereon, on each side, was a large one-piece aluminum sheet, with square cut-outs leaving the material only directly below the cable channels. \note{Explain better, tricky.}
+
+and a close-up in \note{put a photo of a close-up, too}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_y_currents.png}
-  \caption{Mention, that it shows\ldots}
+  \caption{The optimal current net for the $y$-coil of the ETH active magnetic field compensation system. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted on the left-hand side. The rectangular faces are identical, too, and are depicted on the right-hand side. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right. CHECK}
   \label{fig:prototype_coil_y_currents}
 \end{figure}
+
+In its first version the system featured three coils for the homogeneous components of the magnetic field. The coils were designed following the method described in Ch.\,\ref{ch:coil_design} (excluding the simplification algorithm, as explained later). The fiducial volume was chosen to be a cuboid, centred in the system, \ldots away from the walls. The optimal current net for the $y$-coil is depicted in Fig.\,\ref{fig:prototype_coil_y_currents}. At the time when the system was constructed the simplification algorithm, as described in Ch.\,\ref{ch:coil_design} had not been developed, yet.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\linewidth]{gfx/prototype/coil_y_decomposition.png}
+  \caption{Mention, that it shows\ldots}
+  \label{fig:prototype_coil_y_decomposition}
+\end{figure}
+
+From the symmetry the $x$ and $z$ coils are identical.
 
 \begin{figure}
   \centering
@@ -32,17 +50,13 @@ Start by describing the support structure. In the cable channels many coils may 
   \label{fig:prototype_coil_x_z_currents}
 \end{figure}
 
-The first iteration of the prototype had 3 coils for the homogeneous field.
+up to the point of the simplification algorithm. Here, The decomposition into loops was done by exploiting symmetries of the system. It is suboptimal in the sense, that there are more windings than there could be.
+
 Then describe how the coils were designed. The optimized current net is shown in Fig\,\ref{fig:prototype_coil_y_currents} (for the y-coil) and \ref{fig:prototype_coil_x_z_currents} (the x- and z-coils).
 
 It follows the already described coil design method, up to the point of the simplification algorithm. Here, The decomposition into loops was done by exploiting symmetries of the system. It is suboptimal in the sense, that there are more windings than there could be. The decompositions are depicted in Figs.\,\ref{fig:prototype_coil_y_decomposition} (the y-coil) and \ref{fig:prototype_coil_x_z_decomposition} (the x- and z-coils).
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\linewidth]{gfx/prototype/coil_y_decomposition.png}
-  \caption{Mention, that it shows\ldots}
-  \label{fig:prototype_coil_y_decomposition}
-\end{figure}
+
 
 \begin{figure}
   \centering
@@ -110,27 +124,19 @@ Then continue to analyse the matrix. Discuss the SVD decomposition and its singu
 Say, that implemented in software (julia). Write down the equation.
 
 
-\section{Characterisation}
-Write about the stability. Put the stability plot. State, that it does not require the output to be stable -- the stability is defined by the stability of the input. Say, that the level of stability reached with the system corresponds to the fluxgates' specified at 0.1K temperature drift - cannot be expected to be better than that in the laboratory.
+\section{Dynamic stabilisation}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/run7_field_stability.pdf}
-  \caption{Mention, that it shows\ldots}
-  \label{fig:prototype_stability}
-\end{figure}
-
-Then show the dynamic stabilisation plot.
+Then show the dynamic stabilisation plot. A large permanent magnetic dipole was constructed (two neodymium magnets connected with an iron rod). It was moved
 
 \begin{figure}
   \centering
   \subfloat{
     \label{fig:prototype_compensation_time_1}
-    \includegraphics[width=.45\linewidth]{gfx/prototype/compensated_7_5m.png}}
+    \includegraphics[width=.45\linewidth]{gfx/prototype/uncompensated_7_5m.png}}
   \quad
   \subfloat{
     \label{fig:prototype_compensation_time_2}
-    \includegraphics[width=.45\linewidth]{gfx/prototype/uncompensated_7_5m.png}}
+    \includegraphics[width=.45\linewidth]{gfx/prototype/compensated_7_5m.png}}
   \caption{Following the algorithm to simplify a coil. The left column shows the net of a current with the total current along edges of tiles. In each iteration the loop with the highest current is found and transferred onto the simplified solution, shown in the right column. We show iterations, from top: zeroth, fourth and eighth.}
   \label{fig:prototype_compensation_time}
 \end{figure}
@@ -147,6 +153,17 @@ Then show the dynamic stabilisation plot.
     \includegraphics[width=.45\linewidth]{gfx/prototype/big_magnet_shielding_factor.pdf}}
   \caption{Following the algorithm to simplify a coil. The left column shows the net of a current with the total current along edges of tiles. In each iteration the loop with the highest current is found and transferred onto the simplified solution, shown in the right column. We show iterations, from top: zeroth, fourth and eighth.}
   \label{fig:prototype_compensation}
+\end{figure}
+
+
+\section{Long-term Stability}
+Write about the stability. Put the stability plot. State, that it does not require the output to be stable -- the stability is defined by the stability of the input. Say, that the level of stability reached with the system corresponds to the fluxgates' specified at 0.1K temperature drift - cannot be expected to be better than that in the laboratory.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/prototype/run7_field_stability.pdf}
+  \caption{Mention, that it shows\ldots}
+  \label{fig:prototype_stability}
 \end{figure}
 
 
