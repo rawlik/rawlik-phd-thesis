@@ -79,7 +79,7 @@ To verify that the coils indeed produce a field of the required homogeneity they
 
 A beam seen in the middle of Fig.\,\ref{fig:prototype_photo_inside} could move along the $y$ direction by the means ofith two timing belts fixed to it. The belts were wound around pulleys with stepper motors, visible to the left. Along the beam, the $x$ direction, a cart was moved in the same way---a timing belt and a stepper motor. On the cart three vertical rods were attached, with a plastic (POM) platform tightly threaded around them. On the platform there was a fluxgate magnetic field sensor. In the middle of the rods there was an aluminum threaded rod, passing through a threaded hole in the platform and mounted to a stepper motor on the cart. As the motor spun the threaded rod, the platform moved vertically, along the $z$ direction.
 
-A simple kind of map possible with the mapper is a linear one, whereby the fluxgate was moved along one direction only. A map of the $y$-coil, mapped along the $y$ direction (in the middle of $x$ and $z$), is shown on the right-hand side in Fig.\,\ref{fig:prototype_linear_map} (only the $y$-component of the magnetic field is plotted, the coil was set to produce \SI{50}{\micro\tesla}). The background field was also mapped and the plotted map has it already subtracted. The field stayed in a $\SI{\pm0.2}{\micro\tesla}$ range around the average value.
+A simple kind of map possible with the mapper is a linear one, whereby the fluxgate was moved along one direction only. A map of the $y$-coil, mapped along the $y$ direction (in the middle of $x$ and $z$), is shown on the right-hand side in Fig.\,\ref{fig:prototype_linear_map} (only the $y$-component of the magnetic field is plotted, the coil was set to produce \SI{50}{\micro\tesla}). The background field was also mapped and the plotted map has it already subtracted. The field stayed in a \SI{\pm 0.2}{\micro\tesla} range around the average value.
 
 \begin{figure}
   \centering
@@ -102,9 +102,23 @@ Another type of map is a planar one. A horizontal map, in the middle $xy$-plane,
 
 
 
-
-
 \section{DAQ}
+Before proceeding to discuss the active stabilisation system, we devote a section to the hardware. These are technical details, but for the more tech-savvy of the readers it may ease to follow the discussion to have the hardware setting given first.
+
+Already in Sec. \note{ref to the beginning} we set the frame of the active magnetic field stabilisation system. A change in the magnetic field is detected with an array of sensors, an appropriate response is calculated and applied by driving a change in currents flowing in the coils. The feedback loop is closed through the air when the sensors detect the change in the field caused by the coils.
+
+\marginpar{In a fluxgate a ferromagnetic core is periodically driven into saturation. When it is not saturated, it is highly permeable and sucks the external magnetic flux in. When saturated, it does not occur. A pickup coil detects the changes in the external flux as it is alternately sucked in and out of the core.}
+
+The field was measured with eight fluxgates, visible in Fig.\,\ref{fig:prototype_photo_inside}.
+The sensors were Stefan Mayer Instruments FLC3-70, three-axis sensors, $\SI{\pm 200}{\micro\tesla}$ range, $\SI{1}{\kilo\hertz}$ bandwidth, $\pm 1\% \pm \SI{0.5}{\micro\tesla}$.
+They were powered with an in-house--built double $\SI{\pm 5}{\volt}$ power supply. The outputs of the fluxgates were $\SI{\pm 5}{\volt}$ signals proportional to the magnetic field.
+The analogue signals were directly digitised with 16-bit Beckhoff EL3602 24-bit differential analogue-to-digital converters (ADCs) and the digital information collected in software running on a PC computer.
+
+The software stack, running under OpenSUSE Linux, consisted of a low-level Ethercat driver~\cite{etherlabcode} on top of which a custom program, written in \texttt{julia}~\cite{julia}, was running. This setup was optimised for high flexibility and close-to-zero turnaround time. In particular, it was possible to develop the software interactively \emph{while} the system was running. Besides the usual recording and graphically plotting the data, the main task of the software was to evaluate the optimal response for the measured magnetic field changes. The optimal response, the new currents to be applied to the coils, was sent to the digital-to-analogue converters (DACs).
+
+\marginpar{The main julia program published the data on a \texttt{ZMQ} \texttt{PUB} socket. The data were stored with a separate \texttt{julia} program, collecting the data on a \texttt{ZMQ} \texttt{SUB} socket. Similarily, the plotting program was separate, written in \texttt{Python}.}
+
+The DACs were 16-bit Beckhoff EL4134. The signals were then amplified with an array of four-quadrant SERVOWATT amplifiers, configured to amplify the voltage input to a current output. \note{Put here the exact amplifiers}. The currents were then directly fed into the coils.
 
 \begin{figure}
   \centering
@@ -113,18 +127,7 @@ Another type of map is a planar one. A horizontal map, in the middle $xy$-plane,
   \label{fig:prototype_photo_daq}
 \end{figure}
 
-The centre of the daq is software (written in julia). The software communicates with a lower-level Ethercat driver (cite the website!).
-
-The software-hardware interface is provided by an array of EtherCAT clamps: (give numbers) ADCs and DACs.
-
-The system works by exchanging EtherCAT packages every blabla (really put it?)
-
-The signals of DACs are amplified (SERVOWATT) and fed to the coils.
-
-The field is measured with eight fluxgates, visible in Fig.\,\ref{fig:prototype_photo_inside}, the analogue signals digitised with the ADCs.
-
-Here write about the DAQ stack. Software in julia, ethercat, amplifiers, fluxgates.
-
+Here a paragraph about the cabinet. The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototype_photo_daq}.
 
 
 \section{The SFC matrix}
@@ -137,6 +140,8 @@ Then continue to analyse the matrix. Discuss the SVD decomposition and its singu
 
 \section{The feedback algorithm}
 Say, that implemented in software (julia). Write down the equation.
+
+Write here about the measured delay and that it was crucial for the stability!
 
 
 \section{Dynamic stabilisation}
