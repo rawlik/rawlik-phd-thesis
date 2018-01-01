@@ -34,7 +34,7 @@ In its first version the system featured three coils for the homogeneous compone
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.4\linewidth]{gfx/prototype/coil_y_decomposition.png}
+  \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_y_decomposition.png}
   \caption{The decomposition of the current net of the $y$-coil (Fig.\,\ref{fig:prototype_coil_y_currents}) into current loops. For clarity only a sixteenth part of the system is depicted, all others being identical on the grounds of symmetry. Each loop is indicated with a different colour. The currents are given per \SI{50}{\micro\tesla} of generated field. SHOW WHICH PART IS DEPICTED ON A SMALL 3D DRAWING}
   \label{fig:prototype_coil_y_decomposition}
 \end{figure}
@@ -103,16 +103,16 @@ Another type of map is a planar one. A horizontal map, in the middle $xy$-plane,
 
 
 \section{DAQ}
-Before proceeding to discuss the active stabilisation system, we devote a section to the hardware. These are technical details, but for the more tech-savvy of the readers it may ease to follow the discussion to have the hardware setting given first.
+Before proceeding to discuss the active stabilisation system, we devote a section to the hardware. These are technical details, but for the more tech-savvy of the readers haveing the hardware setting given first may ease following the discussion.
 
 Already in Sec. \note{ref to the beginning} we set the frame of the active magnetic field stabilisation system. A change in the magnetic field is detected with an array of sensors, an appropriate response is calculated and applied by driving a change in currents flowing in the coils. The feedback loop is closed through the air when the sensors detect the change in the field caused by the coils.
 
 \marginpar{In a fluxgate a ferromagnetic core is periodically driven into saturation. When it is not saturated, it is highly permeable and sucks the external magnetic flux in. When saturated, it does not occur. A pickup coil detects the changes in the external flux as it is alternately sucked in and out of the core.}
 
 The field was measured with eight fluxgates, visible in Fig.\,\ref{fig:prototype_photo_inside}.
-The sensors were Stefan Mayer Instruments FLC3-70, three-axis sensors, $\SI{\pm 200}{\micro\tesla}$ range, $\SI{1}{\kilo\hertz}$ bandwidth, $\pm 1\% \pm \SI{0.5}{\micro\tesla}$.
-They were powered with an in-house--built double $\SI{\pm 5}{\volt}$ power supply. The outputs of the fluxgates were $\SI{\pm 5}{\volt}$ signals proportional to the magnetic field.
-The analogue signals were directly digitised with 16-bit Beckhoff EL3602 24-bit differential analogue-to-digital converters (ADCs) and the digital information collected in software running on a PC computer.
+The sensors were Stefan Mayer Instruments FLC3-70 three-axis fluxgates, \SI{\pm 200}{\micro\tesla} range, \SI{1}{\kilo\hertz} bandwidth, $\pm 1\% \pm \SI{0.5}{\micro\tesla}$.
+They were powered with an in-house--built double \SI{\pm 5}{\volt} power supply. The outputs of the fluxgates were \SI{\pm 5}{\volt} signals proportional to the magnetic field.
+The analogue signals were directly digitised with 16-bit Beckhoff EL3602 24-bit differential analogue-to-digital converters (ADCs). The digital information was collected in software running on a PC computer.
 
 The software stack, running under OpenSUSE Linux, consisted of a low-level Ethercat driver~\cite{etherlabcode} on top of which a custom program, written in \texttt{julia}~\cite{julia}, was running. This setup was optimised for high flexibility and close-to-zero turnaround time. In particular, it was possible to develop the software interactively \emph{while} the system was running. Besides the usual recording and graphically plotting the data, the main task of the software was to evaluate the optimal response for the measured magnetic field changes. The optimal response, the new currents to be applied to the coils, was sent to the digital-to-analogue converters (DACs).
 
@@ -122,12 +122,13 @@ The DACs were 16-bit Beckhoff EL4134. The signals were then amplified with an ar
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\linewidth,angle=90]{gfx/prototype/DSC03477.JPG}
-  \caption{Mention, that it shows\ldots}
+  \includegraphics[width=0.4\linewidth]{gfx/prototype/DSC03477_cropped.jpeg}
+  \caption{The 19-inch cabinet hosting the electronics for the active magnetic field stabilisation system. From top: a \SI{24}{V} power supply for the Beckhoff EtherCAT clamps and in-house--built \SI{\pm 5}{\volt} power supply for the fluxgates; spare EtherCAT clamps and control system for the mapper; a large array of EtherCAT DACs and ADCs for the active stabilisation system; breakout panel for the fluxgate cables (RJ-45 plugs); subrack with \SI{\pm 0.2}{A} amplifiers; subrack with \SI{\pm 2}{A} amplifiers; two subracks with \SI{\pm 10}{A} amplifiers; a general-purpose Kepco \SI{\pm 20}{V} \SI{\pm 20}{A} four-quadrant amplifier; the PC.}
   \label{fig:prototype_photo_daq}
 \end{figure}
 
-Here a paragraph about the cabinet. The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototype_photo_daq}.
+The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototype_photo_daq}. From top: a \SI{24}{V} power supply for the Beckhoff EtherCAT clamps and in-house--built \SI{\pm 5}{\volt} power supply for the fluxgates; spare EtherCAT clamps and control system for the mapper; a large array of EtherCAT DACs and ADCs for the active stabilisation system; breakout panel for the fluxgate cables (RJ-45 plugs); subrack with \SI{\pm 0.2}{A} amplifiers; subrack with \SI{\pm 2}{A} amplifiers; two subracks with \SI{\pm 10}{A} amplifiers; a general-purpose Kepco \SI{\pm 20}{V} \SI{\pm 20}{A} amplifier; the PC.
+
 
 
 \section{The SFC matrix}
