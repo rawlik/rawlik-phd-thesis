@@ -131,9 +131,24 @@ The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototy
 
 
 \section{The SFC matrix}
-The central element of the active magnetic field compensation is the response matrix of the system, also called the SFC matrix \note{need to establish the nomenclature}. The SFC matrix of the nEDM@PSI SFC system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}.
+The central element of the active magnetic field compensation is the response matrix of the system, also called the SFC matrix \note{need to establish the nomenclature}. It is the matrix of proportionality constants between the current in each coil and the readout of each magnetic field sensor. The SFC matrix of the nEDM@PSI SFC system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}.
 
-There is a fundamental difference between the matrix of the nEDM@PSI's system and the next generation one. The nEDM@PSI's matrix was not a priori known. The system was constructed and the matrix was measured as the system's property. This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable. Conversely, the new system takes the matrix into account already at the design phase. The coils are designed to produce magnetic field correspoding to expansion \note{Needs to be clear here!} and are orthogonal to one another situation like there with the weird combination will not happen Thanks to the coil design method, 
+There is a fundamental difference between the matrix of the nEDM@PSI system and the next generation one. The nEDM@PSI's matrix was not known a priori. The system was constructed and the matrix was measured as the system's property. This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable. Conversely, the new system takes the matrix into account already at the design phase. The coils are designed to produce magnetic field corresponding to the terms of the Cartesian harmonic expansion of the field. \note{Needs to be clear here!} This ensures that they are orthogonal to one another. We expect the matrix to have the condition number equal to 1.
+
+\note{Put a figure about the measurement of the matrix?}
+
+The active magnetic field compensation system constructed at ETH implemented a new way of measuring the matrix. Not only it changes currents in all the coils simultaneously, shortening the duration of the procedure, but can also measure in close-to-zero field conditions.
+
+To measure the matrix we consider the space spanned by all the coils. In this case it is three-dimensional---the current in the $x$-coil, in the $y$-coil and in the $z$ one. A point in this space corresponds to one configuration of the currents in the coils. We pick a set of points on an n-sphere in this space and continuously change the currents to walk from one point to another. As all the currents are changed simultaneously, the measurements of the sensors are recorded. Then for each readout channel ($8 \times 3 = 24$ in total) a linear model in fitted to estimate the proportionality constants between the readout and the currents in the coils:
+\begin{equation}
+  B_i = B_i^0 + \sum_{j=x,y,z} \mathbb{M}_{i,j} \, I_j \ ,
+\end{equation}
+where $B_i$ is the readout channel ($i$ going from 1 to 24), $I_j$ are the currents in the coils ($j$ going over $x$, $y$ and $z$) and $\mathbb{M}_{i,j}$ is the matrix of proportionality constants---the SFC matrix. $B_i^0$ is the free offset vector---the background field.
+\note{Sort out the indexes, which is which.}
+
+If the system is fully linear it doesn't matter. The center point and the radius. Typically the procedure: measure for (how long? 5-10 seconds) around the zero-currents point. Then measure around the zero-field points, by inverting the matrix! Here give the equation! Finally, reduce the radius of measurement. The nonlinearities may matter in a presence of mu-metal.
+
+A typical measured matrix is\ldots Estimate the field inhomogeneity right away from it! Give two at two distances, maybe?
 
 
 
