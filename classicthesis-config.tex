@@ -118,7 +118,9 @@
 
 \usepackage{units}
 \usepackage{siunitx}
-\sisetup{detect-all} % use the current font for typesetting
+% \sisetup{detect-all} % use the current font for typesetting
+\sisetup{detect-weight, detect-family, detect-shape} % use the current font for typesetting
+% detect-all additionally sets detect-mode to true. I want this to be false - always use the math mode font for numbers with units. In the text the figures are normally non-lining, but I don't want that with units.
 \usepackage{textcomp}
 \usepackage{gensymb}
 % ref. https://tex.stackexchange.com/questions/219310/too-many-math-alphabets-used-in-version-normal-when-using-4-packages-only
