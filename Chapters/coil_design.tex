@@ -131,6 +131,7 @@ This is the foundation of the method. We restrict ourselves to a grid on a cuboi
 
 
 \section{Coil design}
+\label{sec:coil_design}
 In the problem of coil design one wants to create a coil, or an arrangement of coils, which best approximates a given field in a certain volume, which we will call \emph{the volume of interest}. Rather than considering the whole volume, we pick an ensemble of $m$, points of interest on its surface (the surface is sufficient because $\nabla \cdot \mathbf{B} = 0$). Hence, we look at the magnetic field $\mathbf{B}(\mathbf{x})$ only at these points and gather the values $\mathbf{B}(\mathbf{x}_i)$ for $i = 1 .. m$ into a vector of dimension $3m$ ($B_x$, $B_y$ and $B_z$ in each point), which we shall denote $\mathbb{B}$.
 
 % Note, that magnetic field produced by a coil at a given point in space is proportional to the current in this coil. For a fixed direction in a fixed point in space it is a linear combination of currents of all coils in the system. Now, if we consider a vector of 3 spatial directions in $M$ points \ie, dimension $3M$. It can be obtained from an arbitrary coil $C$ by multiplying it by a $NNN \times 3M$ matrix $\mathbb{M}$. This matrix encodes the geometry of the system and may be pre-calculated.
