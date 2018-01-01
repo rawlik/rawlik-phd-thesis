@@ -127,11 +127,16 @@ The DACs were 16-bit Beckhoff EL4134. The signals were then amplified with an ar
   \label{fig:prototype_photo_daq}
 \end{SCfigure}
 
-The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototype_photo_daq}. From top: a \SI{24}{V} power supply for the Beckhoff EtherCAT clamps and in-house--built \SI{\pm 5}{\volt} power supply for the fluxgates; spare EtherCAT clamps and control system for the mapper; a large array of EtherCAT DACs and ADCs for the active stabilisation system; breakout panel for the fluxgate cables (RJ-45 plugs); subrack with \SI{\pm 0.2}{A} amplifiers; subrack with \SI{\pm 2}{A} amplifiers; two subracks with \SI{\pm 10}{A} amplifiers; a general-purpose Kepco \SI{\pm 20}{V} \SI{\pm 20}{A} amplifier; the PC.
-
+The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototype_photo_daq}. A detailed list of the components can be found in the Figure's caption. This is all that, additionally to the coils themselves, was used to set up the active magnetic field compensation.
 
 
 \section{The SFC matrix}
+The central element of the active magnetic field compensation is the response matrix of the system, also called the SFC matrix \note{need to establish the nomenclature}. The SFC matrix of the nEDM@PSI SFC system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}.
+
+There is a fundamental difference between the matrix of the nEDM@PSI's system and the next generation one. The nEDM@PSI's matrix was not a priori known. The system was constructed and the matrix was measured as the system's property. This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable. Conversely, the new system takes the matrix into account already at the design phase. The coils are designed to produce magnetic field correspoding to expansion \note{Needs to be clear here!} and are orthogonal to one another situation like there with the weird combination will not happen Thanks to the coil design method, 
+
+
+
 Here describe the procedure of measuring the matrix, as well as the matrix itself.
 
 Describe how the matrix is inverted to measure near the zero-field! Describe traversing the sphere and how it get smaller and smaller.
