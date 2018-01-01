@@ -131,9 +131,20 @@ The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototy
 
 
 \section{The SFC matrix}
-The central element of the active magnetic field compensation is the response matrix of the system, also called the SFC matrix \note{need to establish the nomenclature}. It is the matrix of proportionality constants between the current in each coil and the readout of each magnetic field sensor. The SFC matrix of the nEDM@PSI SFC system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}.
+The central element of the active magnetic field compensation is the response matrix of the system, also called the SFC matrix \note{need to establish the nomenclature}.
+It is the matrix of proportionality constants between the current in each coil and the readout of each magnetic field sensor:
+\begin{equation}
+  \mathbb{B} = \mathbb{M} \mathbb{I} + \mathbb{B}_0
+\end{equation}
+explain the letters\ldots \note{Need to see how much I explain in the nEDM SFC at the beginning.}
+\marginpar{We use the letter $\mathbb{B}$ for the values measured by the sensors to distinguish it from $\bm{B}$, which is used to denote the magnetic field in the whole space.}
 
-There is a fundamental difference between the matrix of the nEDM@PSI system and the next generation one. The nEDM@PSI's matrix was not known a priori. The system was constructed and the matrix was measured as the system's property. This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable. Conversely, the new system takes the matrix into account already at the design phase. The coils are designed to produce magnetic field corresponding to the terms of the Cartesian harmonic expansion of the field. \note{Needs to be clear here!} This ensures that they are orthogonal to one another. We expect the matrix to have the condition number equal to 1.
+The SFC matrix of the nEDM@PSI SFC system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}.
+
+There is a fundamental difference between the matrix of the nEDM@PSI system and the next generation one. The nEDM@PSI's matrix was not known a priori. The system was constructed and the matrix was measured as the system's property.
+This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable.
+Conversely, the new system takes the matrix into account already at the design phase. The coils are designed to produce magnetic field corresponding to the terms of the Cartesian harmonic expansion of the field.
+\note{Needs to be clear here!} This ensures that they are orthogonal to one another. We expect the matrix to have the condition number equal to 1.
 
 \note{Put a figure about the measurement of the matrix?}
 
