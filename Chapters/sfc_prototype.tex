@@ -162,6 +162,7 @@ In that case it is preferable to measure the matrix in the vicinity of the point
 \marginpar{It is possible to fit the linear model and estimate the uncertainty of the matrix elements \emph{while} measuring; the measurement can be stopped when the uncertainty drops below a threshold.}
 This gave the first estimate of the matrix. The next sphere is chosen to be centred around the zero field. This is the optimal, in the least-squares sense, solution of Eq.\,\ref{eq:SFC_matrix_model} with $\mathbb{B} = 0$ (exactly as it was the case in Eq.\,\ref{eq:requirement}):
 \begin{equation}
+  \label{eq:SFC_zero_field_requirement}
   \mathbb{I}_\text{zero-field} = \mathbb{M}^\dagger \, \mathbb{B}_0 \ ,
 \end{equation}
 where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits} and $\mathbb{M}^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $\mathbb{M}$. This gave the second estimate of the matrix. Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{0.1}{\micro\tesla}. The procedure was developed for a system with mu-metal. \note{but is beautiful in any way} In the case of an air system all consecutive estimates of the matrix were the same.
@@ -172,9 +173,36 @@ Then continue to analyse the matrix. Discuss the SVD decomposition and its singu
 
 
 \section{The feedback algorithm}
-Say, that implemented in software (julia). Write down the equation.
+The feedback is based on calculating the optimal solution of the Eq.\,\ref{eq:SFC_matrix_model} in each step. This is in contrast to stabilisation and control approach taken in the previous system.
 
-Write here about the measured delay and that it was crucial for the stability!
+We start at the $n$th iteration (the iteration index marked on top) with Eq.\,\ref{eq:SFC_matrix_model}:
+\begin{equation}
+  \mathbb{B}^n = \mathbb{M} \mathbb{I}^n + \mathbb{B}_0^n
+\end{equation}
+For the next iteration we want the field to be equal to the target field (which we allow to be any): $\mathbb{B}^{n+1} \overset{!}{=} \mathbb{B}_\text{target}$, which is leads to the following requirement for the next currents:
+\begin{align}
+  \mathbb{I}^{n+1} &=
+    \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}_0^{n+1} \right) \nonumber \\
+    &\approx \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}_0^{n} \right) \nonumber \\
+    &= \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^n + \mathbb{M} \mathbb{I}^n \right) \nonumber \\
+    &= \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^n \right) + \mathbb{M}^\dagger \mathbb{M} \mathbb{I}^n \nonumber \\
+    &= \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^n \right) + \mathbb{I}^n \ . \label{eq:current_update}
+\end{align}
+By defining $\Delta\mathbb{I}^n := \mathbb{I}^{n+1} - \mathbb{I}^{n}$ and $\Delta\mathbb{B}^n = \mathbb{B}^n - \mathbb{B}_\text{target}$ we obtain the intuitive rule for the current update:
+\begin{equation}
+  \Delta\mathbb{I}^n = - \mathbb{M}^\dagger \Delta\mathbb{B}^n
+\end{equation}
+A careful reader may be alarmed by the approximation $\mathbb{B}_0^{n+1} \approx \mathbb{B}_0^{n}$. It is true that it does not hold in practice, but is nevertheless an unfortunate necessity. For the calculation needs to be performed just before the iteration $n+1$, when $\mathbb{B}_0^{n+1}$ is not yet known. In other words, the correction is delayed by one iteration. This introduces a lag in the system and motivates high feedback frequencies.
+
+In practice the system had a delay of more than one iteration. Although the sensors could be read out as quickly as \SI{200}{\hertz} the quickest turnaround was three cycles. This was tested by applying a pulse on an DAC channel and observing the response on a directly connected ADC channel. Knowing that the magnetic field information is delayed, it was crucial to delay the current information, too, so that Eq.\,\ref{eq:current_update} became:
+\begin{equation}
+  \mathbb{I}^{n+1} = \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^{n-2} \right) + \mathbb{I}^{n-2} \ .
+\end{equation}
+Without accounting for the delay the system would spontaneously destabilise.
+
+\note{Put the step-response plot? Depending how crowded with plots it is later.}
+
+Overall the feedback frequency was \ldots and the delay \ldots
 
 
 \section{Dynamic stabilisation}
