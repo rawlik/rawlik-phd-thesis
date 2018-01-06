@@ -217,17 +217,18 @@ One of the ways the dynamic stabilisation was tested involved a strong permanent
   \subfloat{
     \label{fig:prototype_compensation_time_2}
     \includegraphics[width=.45\linewidth]{gfx/prototype/compensated_7_5m.png}}
-  \caption{Following the algorithm to simplify a coil. The left column shows the net of a current with the total current along edges of tiles. In each iteration the loop with the highest current is found and transferred onto the simplified solution, shown in the right column. We show iterations, from top: zeroth, fourth and eighth.}
+  \caption{Field variations caused by a dipole \SI{7.5}{\meter} away being rotated. Left-hand side: uncompensated field $\mathbb{B}_0$ (as calculated with Eq.\,\ref{eq:uncompensated_field}). Right-hand side: compensated field seen by the feedback sensors $\mathbb{B}$. The three colours correspond to the three spatial directions. Each line is one feedback sensor. The thick lines are downsampled data, the original being plotted in light colour below.}
   \label{fig:prototype_compensation_time}
 \end{figure}
 
 The result of the compensation of the dipole being rotated \SI{7.5}{\meter} away from the system's centre are plotted in Fig.\,\ref{fig:prototype_compensation_time}. The left-hand--side plot shows the field as it would be registered without compensation $\mathbb{B}_0$ calculated according to Eq.\,\ref{eq:SFC_matrix_model}):
 \begin{equation}
+  \label{eq:uncompensated_field}
   \mathbb{B}_0 = \mathbb{B} - \mathbb{M} \mathbb{I} \ .
 \end{equation}
 The three colours correspond to the three spatial components ($x$, $y$, $z$). Each line is one sensor. On the right-hand side the actually measured field $\mathbb{B}$ is depicted. We see that the amplitude of the changes was reduced from around \SI{1.75}{\micro\tesla} to \SI{0.4}{\micro\tesla} (factor four). Yet, the variation is not mitigated completely and the reason in quite fundamental.
 
-Take a look on the orange lines on left-hand side of Fig.\,\ref{fig:prototype_compensation_time}, each representing the readout of a different sensor in the $x$ direction. They do not overlap, which means that the field change was not homogeneous (which, of course, would be the same everywhere). The coils of the system, being able to generate only homogeneous fields, can only compensate the homogeneous part. Graphically it may be explained in the following way: each of the coils coil can keep all lines in one of the colours (one spatial component) steady, but it cannot bring them closer together (homogenise the field). This is what can be observed on the right-hand side of Fig.\,\ref{fig:prototype_compensation_time}. There lines are centred around zero, but their spread within one colour (spatial component) is not reduced. After all, the active compensation can compensate only as much as it can.
+Take a look on the orange lines on left-hand side of Fig.\,\ref{fig:prototype_compensation_time}, each representing the readout of a different sensor in the $y$ direction. They do not overlap, which means that the field change was not homogeneous (which, of course, would be the same everywhere). The coils of the system, being able to generate only homogeneous fields, can only compensate the homogeneous part. Graphically it may be explained in the following way: each of the coils coil can keep all lines in one of the colours (one spatial component) steady, but it cannot bring them closer together (homogenise the field). This is what can be observed on the right-hand side of Fig.\,\ref{fig:prototype_compensation_time}. There lines are centred around zero, but their spread within one colour (spatial component) is not reduced. After all, the active compensation can compensate only as much as it can.
 
 \begin{figure}
   \centering
@@ -238,7 +239,7 @@ Take a look on the orange lines on left-hand side of Fig.\,\ref{fig:prototype_co
   \subfloat{
     \label{fig:prototype_shielding_factor}
     \includegraphics[width=.45\linewidth]{gfx/prototype/big_magnet_shielding_factor.pdf}}
-  \caption{Following the algorithm to simplify a coil. The left column shows the net of a current with the total current along edges of tiles. In each iteration the loop with the highest current is found and transferred onto the simplified solution, shown in the right column. We show iterations, from top: zeroth, fourth and eighth.}
+  \caption{Performance of the active compensation system shielding a dipole disturbance, as a function of the distance to it. Left-hand side: the amplitude of the field variations, measured as the difference between the 75th and 25th quantiles, as uncompensated (blue), compensated seen by the feedback sensors (orange), a non-feedback sensor in the centre (green) and the numerical average of the feedback sensors (red). Right-hand side: the shielding factor, defined as the ratio of the curves in the plot to the left to the uncompensated variation.}
   \label{fig:prototype_compensation}
 \end{figure}
 
