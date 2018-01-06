@@ -194,7 +194,7 @@ By defining $\Delta\mathbb{I}^n := \mathbb{I}^{n+1} - \mathbb{I}^{n}$ and $\Delt
 \end{equation}
 A careful reader may be alarmed by the approximation $\mathbb{B}_0^{n+1} \approx \mathbb{B}_0^{n}$. It is true that it does not hold in practice, but is nevertheless an unfortunate necessity. For the calculation needs to be performed just before the iteration $n+1$, when $\mathbb{B}_0^{n+1}$ is not yet known. In other words, the correction is delayed by one iteration. This introduces a lag in the system and motivates high feedback frequencies.
 
-In practice the system had a delay of more than one iteration. Although the sensors could be read out as quickly as \SI{200}{\hertz} the quickest turnaround was three cycles. This was tested by applying a pulse on an DAC channel and observing the response on a directly connected ADC channel. Knowing that the magnetic field information is delayed, it was crucial to delay the current information, too, so that Eq.\,\ref{eq:current_update} became:
+In practice the system had a delay of more than one iteration. Although the system was operated at \SI{200}{\hertz} the quickest turnaround was three cycles. This was tested by applying a pulse on an DAC channel and observing the response on a directly connected ADC channel. Knowing that the magnetic field information is delayed, it was crucial to delay the current information, too, so that Eq.\,\ref{eq:current_update} became:
 \begin{equation}
   \mathbb{I}^{n+1} = \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^{n-2} \right) + \mathbb{I}^{n-2} \ .
 \end{equation}
@@ -202,12 +202,11 @@ Without accounting for the delay the system would spontaneously destabilise.
 
 \note{Put the step-response plot? Depending how crowded with plots it is later.}
 
-Overall the feedback frequency was \ldots and the delay \ldots
-
 
 \section{Dynamic stabilisation}
+One of the ways the dynamic stabilisation was tested involved a strong permanent magnetic dipole. It was build out of two extremely strong neodymium magnets (\SI{200}{\kilo\gram} force when attached to iron) connected with an iron rod. The dipole was moved by hand several meters from the system causing magnetic field disturbance.
 
-Then show the dynamic stabilisation plot. A large permanent magnetic dipole was constructed (two neodymium magnets connected with an iron rod). It was moved
+\mnote{Need to put the details of the geometry of the fluxgates here. Eight fluxgates on the corners of a cube of \ldots size.}
 
 \begin{figure}
   \centering
@@ -222,6 +221,13 @@ Then show the dynamic stabilisation plot. A large permanent magnetic dipole was 
   \label{fig:prototype_compensation_time}
 \end{figure}
 
+The result of the compensation of the dipole being rotated \SI{7.5}{\meter} away from the system's centre are plotted in Fig.\,\ref{fig:prototype_compensation_time}. The left-hand--side plot shows the field as it would be registered without compensation $\mathbb{B}_0$ calculated according to Eq.\,\ref{eq:SFC_matrix_model}):
+\begin{equation}
+  \mathbb{B}_0 = \mathbb{B} - \mathbb{M} \mathbb{I} \ .
+\end{equation}
+The three colours correspond to the three spatial components ($x$, $y$, $z$). Each line is one sensor. On the right-hand side the actually measured field $\mathbb{B}$ is depicted. We see that the amplitude of the changes was reduced from around \SI{1.75}{\micro\tesla} to \SI{0.4}{\micro\tesla} (factor four). Yet, the variation is not mitigated completely and the reason in quite fundamental.
+
+Take a look on the orange lines on left-hand side of Fig.\,\ref{fig:prototype_compensation_time}, each representing the readout of a different sensor in the $x$ direction. They do not overlap, which means that the field change was not homogeneous (which, of course, would be the same everywhere). The coils of the system, being able to generate only homogeneous fields, can only compensate the homogeneous part. Graphically it may be explained in the following way: each of the coils coil can keep all lines in one of the colours (one spatial component) steady, but it cannot bring them closer together (homogenise the field). This is what can be observed on the right-hand side of Fig.\,\ref{fig:prototype_compensation_time}. There lines are centred around zero, but their spread within one colour (spatial component) is not reduced. After all, the active compensation can compensate only as much as it can.
 
 \begin{figure}
   \centering
@@ -235,6 +241,12 @@ Then show the dynamic stabilisation plot. A large permanent magnetic dipole was 
   \caption{Following the algorithm to simplify a coil. The left column shows the net of a current with the total current along edges of tiles. In each iteration the loop with the highest current is found and transferred onto the simplified solution, shown in the right column. We show iterations, from top: zeroth, fourth and eighth.}
   \label{fig:prototype_compensation}
 \end{figure}
+
+The amplitude of the variations seen in Fig.\,\ref{fig:prototype_compensation_time} can be quantified as the difference between 75th and 25th quantiles of the readouts. This measure is plotted in the left-hand side of Fig.\,\ref{fig:prototype_compensation} as the function of the distance between the dipole disturbance and the centre of the system. The uppermost curve, blue, is the uncompensated field $\mathbb{B}_0$, the left-hand side of Fig.\,\ref{fig:prototype_compensation_time}. The orange one below is the compensated field seen by the feedback sensors $\mathbb{B}$, the right-hand side of Fig.\,\ref{fig:prototype_compensation_time}. We observe that the compensation improved with the distance to the dipole, as the field became more homogeneous. It is more clear in the right-hand side, where the ratio of the two curves, called the \emph{shielding factor}, is plotted in orange.
+
+The next curve, green, corresponds to the field measured by a sensor placed in the middle of the system. There the system compensates 1st-order changes (because they are anti-symmetric with respect to the centre). It suggests that the difference to the shielding factor for the feedback sensors, a factor three, can be attributed to the uncompensated variations of 1st-order gradients. Furthermore, it suggests that if the system would be extended by a addition of 1st-order coils the shielding factor for the feedback sensors (in the whole volume) would be as good as for the centre.
+
+The last, red, curve depicts the variations seen in the average readout of the feedback fluxgates. A perfect system should compensate it perfectly, regardless of the shape of the field changes. Yet the shielding factor for this measure was around 50. It also did not depend on the distance to the dipole (homogeneity of the field), suggesting that it is a property of the compensation system itself. The dominant factors are probably the finite reaction time and the inhomogeneity of the field created by the compensation coils. Even if the field changes, similar in magnitude and pace to the ones discussed, would be perfectly homogeneous, this system is not likely to compensate them better.
 
 
 \section{Long-term Stability}
