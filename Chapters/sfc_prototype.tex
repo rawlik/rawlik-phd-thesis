@@ -256,6 +256,8 @@ As we have just shown the active magnetic field compensation can stabilise the f
 
 As the measure of stability we use the \emph{Allan deviation}---a special case of the M-sample variance, defined originally by the Eq.\,11 in~\cite{Allan1966}, with $N=2$ and $T = \tau$. The interpretation is: Allan deviation gives the RMS sample-to-sample variation \note{Write more on that, but not too much.}
 
+To assess the stability the system run in the night, with no known activity in the immediate surrounding of the laboratory. The registered stability is plotted in Fig.\,\ref{fig:prototype_stability}. The colour convention follows the one of Fig.\,\ref{fig:prototype_compensation_time}---the three spatial components are depicted with blue, orange and yellow and each line corresponds to one sensor. The three uppermost groups of curves mark the stability of the uncompensated field $\mathbb{B}_0$ (as calculated with Eq.\,\ref{eq:uncompensated_field}). That the stability differs between the spatial components is not worrying---there is no reason to expect whatever caused the disturbance to be anisotropic. Below, at around \SI{30}{\nano\tesla} over a wide range of integration time, is large group of curves. Among them are ones of the compensated field $\mathbb{B}$. Even in the most quiet of the conditions in the laboratory the system improved the stability by a factor of around 10.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/run7_field_stability.pdf}
@@ -263,13 +265,17 @@ As the measure of stability we use the \emph{Allan deviation}---a special case o
   \label{fig:prototype_stability}
 \end{figure}
 
-To assess the stability the system run in the night, with no known activity in the immediate surrounding of the laboratory. The registered stability is plotted in Fig.\,\ref{fig:prototype_stability}. The colour convention follows the one of Fig.\,\ref{fig:prototype_compensation_time}---the three spatial components are depicted with blue, orange and yellow and each line corresponds to one sensor. The three uppermost groups of curves mark the stability of the uncompensated field $\mathbb{B}_0$ (as calculated with Eq.\,\ref{eq:uncompensated_field}). That the stability differs between the spatial components is not worrying---there is no reason to expect whatever caused the disturbance to be anisotropic. Below, at around \SI{30}{\nano\tesla} over a wide range of integration time, is large group of curves. Among them are ones of the compensated field $\mathbb{B}$. Even in the most quiet of the conditions in the laboratory the system improved the stability by a factor of around 10.
-
 In the previous section we already indicated that the field in the centre is stabilised better then the one at the feedback sensors in the case of high-order variations. In the plot the stability of the sensor in the centre is depicted with dashed lines. They lie in the large group around \SI{30}{\nano\tesla}, although rather on its lower side, suggesting that the variations during the measurement were homogeneous.
 
-Why was not the improvement better? In the plot there seems to be a fixed limit for the stability.
+Why was not the improvement better? In the plot there seems to be a fixed limit for the stability. Here about the fluxgate in a two-layer mu-metal shield.
+
+The temperature drift from the specs.
+
+Here a paragraph about how the stability depends only on the measurement chain---the sensors and ADCs. Instabilities of the output chain: DACs and amplifiers, indistinguishable from changes in the magnetic field, are corrected by the system itself.
 
 Write about the stability. Put the stability plot. State, that it does not require the output to be stable -- the stability is defined by the stability of the input. Say, that the level of stability reached with the system corresponds to the fluxgates' specified at 0.1K temperature drift - cannot be expected to be better than that in the laboratory.
+
+Quantisation noise of the 16-bit system. The digitisers were 24-bit.
 
 It should be noted that at PSI the stability registered was \ldots more stable than the ETH laboratory. Better sensors
 
