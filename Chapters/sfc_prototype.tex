@@ -204,7 +204,7 @@ Without accounting for the delay the system would spontaneously destabilise.
 
 
 \section{Dynamic stabilisation}
-One of the ways the dynamic stabilisation was tested involved a strong permanent magnetic dipole. It was build out of two extremely strong neodymium magnets (\SI{200}{\kilo\gram} force when attached to iron) connected with an iron rod. The dipole was moved by hand several meters from the system causing magnetic field disturbance.
+The dynamic stabilisation was tested with a strong permanent magnetic dipole. It was build out of two extremely strong neodymium magnets (\SI{200}{\kilo\gram} force when attached to iron) connected with an iron rod. The dipole was moved by hand several meters from the system causing magnetic field disturbance.
 
 \mnote{Need to put the details of the geometry of the fluxgates here. Eight fluxgates on the corners of a cube of \ldots size.}
 
@@ -251,7 +251,10 @@ The last, red, curve depicts the variations seen in the average readout of the f
 
 
 \section{Long-term Stability}
-Write about the stability. Put the stability plot. State, that it does not require the output to be stable -- the stability is defined by the stability of the input. Say, that the level of stability reached with the system corresponds to the fluxgates' specified at 0.1K temperature drift - cannot be expected to be better than that in the laboratory.
+\marginpar{In the PSI environment periods of strong magnetic field changes---tens of microteslas over an hour when nearby magnets ramp---are interleaved with ones of high stability---\SI{10}{\nano\tesla} at \SI{10}{\second} at night (Fig.\,5.3 in \cite{Franke2013}).}
+As we have just shown the active magnetic field compensation can stabilise the field in the case of strong variations. Yet, the system's internal stability is inevitably finite and when the magnetic environment is more stable, the system effectively worsens the conditions. The question is where is this limit and what sets it.
+
+As the measure of stability we use the \emph{Allan deviation}---a special case of the M-sample variance, defined originally by the Eq.\,11 in~\cite{Allan1966}, with $N=2$ and $T = \tau$. The interpretation is: Allan deviation gives the RMS sample-to-sample variation \note{Write more on that, but not too much.}
 
 \begin{figure}
   \centering
@@ -259,6 +262,17 @@ Write about the stability. Put the stability plot. State, that it does not requi
   \caption{Mention, that it shows\ldots}
   \label{fig:prototype_stability}
 \end{figure}
+
+To assess the stability the system run in the night, with no known activity in the immediate surrounding of the laboratory. The registered stability is plotted in Fig.\,\ref{fig:prototype_stability}. The colour convention follows the one of Fig.\,\ref{fig:prototype_compensation_time}---the three spatial components are depicted with blue, orange and yellow and each line corresponds to one sensor. The three uppermost groups of curves mark the stability of the uncompensated field $\mathbb{B}_0$ (as calculated with Eq.\,\ref{eq:uncompensated_field}). That the stability differs between the spatial components is not worrying---there is no reason to expect whatever caused the disturbance to be anisotropic. Below, at around \SI{30}{\nano\tesla} over a wide range of integration time, is large group of curves. Among them are ones of the compensated field $\mathbb{B}$. Even in the most quiet of the conditions in the laboratory the system improved the stability by a factor of around 10.
+
+In the previous section we already indicated that the field in the centre is stabilised better then the one at the feedback sensors in the case of high-order variations. In the plot the stability of the sensor in the centre is depicted with dashed lines. They lie in the large group around \SI{30}{\nano\tesla}, although rather on its lower side, suggesting that the variations during the measurement were homogeneous.
+
+Why was not the improvement better? In the plot there seems to be a fixed limit for the stability.
+
+Write about the stability. Put the stability plot. State, that it does not require the output to be stable -- the stability is defined by the stability of the input. Say, that the level of stability reached with the system corresponds to the fluxgates' specified at 0.1K temperature drift - cannot be expected to be better than that in the laboratory.
+
+It should be noted that at PSI the stability registered was \ldots more stable than the ETH laboratory. Better sensors
+
 
 
 
