@@ -256,16 +256,16 @@ As we have just shown the active magnetic field compensation can stabilise the f
 
 As the measure of stability we use the \emph{Allan deviation}---a special case of the M-sample variance, defined originally by the Eq.\,11 in~\cite{Allan1966}, with $N=2$ and $T = \tau$. The interpretation is: Allan deviation gives the RMS sample-to-sample variation \note{Write more on that, but not too much.}
 
-To assess the stability the system run in the night, with no known activity in the immediate surrounding of the laboratory. The registered stability is plotted in Fig.\,\ref{fig:prototype_stability}. The colour convention follows the one of Fig.\,\ref{fig:prototype_compensation_time}---the three spatial components are depicted with blue, orange and yellow and each line corresponds to one sensor. The three uppermost groups of curves mark the stability of the uncompensated field $\mathbb{B}_0$ (as calculated with Eq.\,\ref{eq:uncompensated_field}). That the stability differs between the spatial components is not worrying---there is no reason to expect whatever caused the disturbance to be anisotropic. Below, at around \SI{30}{\nano\tesla} over a wide range of integration time, is large group of curves. Among them are ones of the compensated field $\mathbb{B}$. Even in the most quiet of the conditions in the laboratory the system improved the stability several times.
+To assess the stability the system run in the night, with no known activity in the immediate surrounding of the laboratory. The registered stability is plotted in Fig.\,\ref{fig:prototype_stability}. The colour convention follows the one of Fig.\,\ref{fig:prototype_compensation_time}---the three spatial components are depicted with blue, orange and yellow and each line corresponds to one sensor. The three uppermost groups of curves mark the stability of the uncompensated field $\mathbb{B}_0$ (as calculated with Eq.\,\ref{eq:uncompensated_field}). That the stability differs between the spatial components is not worrying---there is no reason to expect whatever caused the disturbance to be anisotropic. Below, at around \SI{20}{\nano\tesla} over a wide range of integration time, is large group of curves. Among them are ones of the compensated field $\mathbb{B}$. Even in the most quiet of the conditions in the laboratory the system improved the stability several times.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/run7_field_stability.pdf}
-  \caption{Mention, that it shows\ldots}
+  \caption{The stability of the active magnetic field compensation. The Allan deviation is plotted as the function of integration time. The three colours depict the three spatial directions. The uppermost three groups of thin, solid lines depict the uncompensated field $\mathbb{B}_0$ measured by the feedback sensors. In the dense group of lines below, around \SI{20}{\nano\tesla} (corresponding to a temperature stability of \SI{0.1}{\kelvin}, as specified for the fluxgates), are: the compensated field measured by the feedback sensors $\mathbb{B}$ (solid), the compensated field measured by a non-feedback fluxgate in the centre of the system (dashed), field measured inside a two layer $\upmu$-metal shield (dotted). Below that depicted are: the stability of the readout of a short-cut ADC channel (red) and the limit set by the quantisation noise of the 16-bit DACs.}
   \label{fig:prototype_stability}
 \end{figure}
 
-In the previous section we already indicated that the field in the centre is stabilised better then the one at the feedback sensors in the case of high-order variations. In the plot the stability of the sensor in the centre is depicted with dashed lines. They lie in the large group around \SI{30}{\nano\tesla}, although rather on its lower side, suggesting that the variations during the measurement were homogeneous.
+In the previous section we already indicated that the field in the centre is stabilised better then the one at the feedback sensors in the case of high-order variations. In the plot the stability of the sensor in the centre is depicted with dashed lines. They lie in the large group around \SI{20}{\nano\tesla}, although rather on its lower side, suggesting that the variations during the measurement were homogeneous.
 
 Why was not the improvement better? In the plot there seems to be a fixed limit for the stability. Another set of curves, the dotted ones, provide a hint. They depict the stability of the field observed with an additional sensor mounted inside a two-layer $\upmu$-metal shield, which should provide a factor of a hundred in shielding (the second layer was a cylinder without end caps aligned with the $z$-axis of the sensor, hence the worse performance in this direction). Yet, the registered stability is no better than that of the active stabilisation system.
 
@@ -287,4 +287,23 @@ Interestingly, the stability is fully defined by the measurement chain---the sen
 
 
 \section{Open-design cage}
+The disadvantage of the first iteration design is that it is fully closed. It is difficult to put anything in or out.
 
+The next iteration is designed with one face (rectangular one, $Y-$) left open. Designed fully following the algorithm.
+
+\note{Need a nice figure with the coil design marked, somehow\ldots Draw by hand first!}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/prototype/open_design_Xcoil_field_XY_z0_33.png}
+  \includegraphics[width=\linewidth]{gfx/prototype/open_design_n8coil_field_XY_z0_33.png}
+  \caption{Simulation of the open-design cage. The colour represents the deviation from the target field, for the $x$, $y$ and $z$ components of the field. Section in the XY plane at height $z=\SI{33}{\centi\meter}$ is shown. The open face is on the bottom of the plots. Top: coil designed to produce a homogeneous field along $x$ (left-to-right on the plot). Bottom: $n=8$ gradient (see some table somewhere)\ldots}
+  \label{fig:prototype_open_design_simulation}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/prototype/open_design_Xcoil_coils.pdf}
+  \caption{X coils, first 22 coils, windings of 5A, 1A and 0.1A\ldots}
+  \label{fig:prototype_open_design_Xcoil_coils}
+\end{figure}
