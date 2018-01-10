@@ -4,17 +4,29 @@
 
 
 \section{The principle of an active magnetic shielding}
-\note{This is the first time the idea of an active comensation system is introduced! Need to be slow here.}
-Describe it only in general! That the experiment is in the centre, there are magnetic field sensors, normally fluxgates, and coils around. Do not set the feedback algorithm at this point, will explain later. Everything here is valid for both Bea's and my systems.
+\note{This is the first time the idea of an active compensation system is introduced! Need to be slow here.}
+Passive methods of shielding the magnetic field, like $\upmu$-metal shields, rely on magnetic properties of materials. In contrast, in active methods the disturbances are first detected, processed and then counteracted. It is not unlike the recently popular active-noise-cancellation headphones. Standard ones provide only passive damping of the ambient noise by covering the ears. Active ones additionally feature microphones that resolve the profile of incoming sound, which is then inverted and emitted from the speakers. The two waveforms, when overlaid, cancel.
 
-Say that there is a volume surrounded by magnetic field coils. There are sensors in the middle of the volume. In each step the sensors detect a change, he readouts are then processed to calculate a current response to the change detected. The signals is amplified and put into the coils.
+Active magnetic field compensation systems follow the same principle. A volume, sometimes called the fiducial volume, is encircled by coils, as well as has magnetic field sensors distributed in it. It is schematically presented in Fig.\,\ref{fig:sfc-scheme}: the fiducial volume is the violet structure in the middle, encircled by green dots depicting the magnetic field sensors. Around it there are three perpendicular Helmholtz-like pairs of coils, depicted in shades of orange. Variations of the magnetic field are detected by the sensors and processed to obtain the counteracting measure. The output signals are amplified and sent into the coils.
 
-The advantages are price and spatial constraints (as opposed to mu-mental) they do not enclose the volume completely. Mostly, they are effective in the different frequency regime. The shielding factor of mu-metal degrades by as much as two orders of magnitude for frequencies slower than 1-10Hz \cite{Brake1991}. At the same time active systems perform best at kHz all the way to DC. The combination of the two provides a stable magnetic field over a wide range of frequencies.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{gfx/nEDM_SFC/SFCplain.pdf}
+  \caption{\ldots. Adapted from~\cite{Franke2013}.1}
+  \label{fig:sfc-scheme}
+\end{figure}
 
-Systems like \cite{Kobayashi2012}, \cite{Spemann2003}, \cite{RetaHernandez1998}, \cite{Voigt2013}, \cite{Brake1991} were developed. And, notably the nEDM system~\cite{Afach2014}, about to be discussed in this chapter.
+Active shields do not substitute passive ones. The shielding factor
+\marginpar{Shielding factor, measured in \si{\decibel} is the ratio of the power in the magnetic field outside the shield to the one inside.} of passive shields degrades by as much as \SI{40}{\decibel} (two orders of magnitude in amplitude) for frequencies slower than \SI{1--10}{\hertz}~\cite{Brake1991}. At the same time the active systems perform best at DC and reach up to the kilohertz regime. The combination of the two provides a stable magnetic field over the whole range of frequencies~\cite{Kelha1982,Brake1991,Voigt2013}.
+
+In the overlapping range of frequencies, where the two kinds of magnetic shielding could compete, the two advantages of the active shielding would certainly be the cost and accessibility of the enclosed volume. \note{disadvantage: the high-order changes}
+
+Numerous active magnetic field compensation systems have been \cite{Kelha1982,Brake1991,RetaHernandez1998,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. Now why ours is so much different from the others? The SFC matrix! Over-determined system.
 
 
 \section{The nEDM SFC system}
+This chapter is devoted to the nEDM SFC, published \cite{Afach2014} and described in detail. Bea's thesis: \cite{Franke2013}.
+
 Here shortly about the history and Bea's thesis. The next section describes Say that the system was in operation and I have taken over the maintanence. Set my role!
 
 Aside from maintenance, understanding (data analysis). No improvements! Working system, after all, huh?
@@ -25,14 +37,9 @@ Say that it was published and cite it \cite{Afach2014}.
 
 
 \section{Introduction}
-\cite{Franke2013}
+Bea's thesis: \cite{Franke2013}.
 
-\subsection{Motivation}
-
-\subsection{The nEDM SFC system}
-
-\subsection{SFC matrix}
-\begin{figure}[bth]
+\begin{figure}
   \myfloatalign
   \includegraphics[width=.8\linewidth]{gfx/nEDM_SFC/nEDM_SFC_matrix}
   \caption
@@ -47,7 +54,7 @@ Say that it was published and cite it \cite{Afach2014}.
 \section{Influence of the SC magnet}
 The ultracold neutrons are polarised by passing through a superconducting magnet. The length of the path of the neutrons to the experiment should be small to minimise transport losses. For this reason the experiment is located close to the exit of the UCN beam--port and the magnet is fit in between.
 
-\begin{figure}[bth]
+\begin{figure}
   \myfloatalign
   \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/SCM_magn_map.pdf}
   \caption
@@ -56,7 +63,7 @@ The ultracold neutrons are polarised by passing through a superconducting magnet
   \label{fig:nEDM_SFC_SC_magnet_map}
 \end{figure}
 
-\begin{figure}[bth]
+\begin{figure}
   \myfloatalign
   \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
     \label{fig:nEDM_SFC_SC_magnet_influence_top_view}
@@ -68,7 +75,7 @@ The ultracold neutrons are polarised by passing through a superconducting magnet
   \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
 \end{figure}
 
-\begin{figure}[bth]
+\begin{figure}
   \myfloatalign
   \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/SC_magnet_optimal_coil_on_wall.png}
   \caption
@@ -77,7 +84,7 @@ The ultracold neutrons are polarised by passing through a superconducting magnet
   \label{fig:nEDM_SFC_SC_magnet_optimal_coil}
 \end{figure}
 
-\begin{figure}[bth]
+\begin{figure}
   \myfloatalign
   \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
     \label{fig:nEDM_SFC_SC_magnet_influence_top_view2}
