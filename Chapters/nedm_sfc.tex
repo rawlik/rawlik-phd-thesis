@@ -21,21 +21,39 @@ Active shields do not substitute passive ones. The shielding factor
 
 In the overlapping range of frequencies, where the two kinds of magnetic shielding could compete, the two advantages of the active shielding would certainly be the cost and accessibility of the enclosed volume. \note{disadvantage: the high-order changes}
 
-Numerous active magnetic field compensation systems have been \cite{Kelha1982,Brake1991,RetaHernandez1998,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. Now why ours is so much different from the others? The SFC matrix! Over-determined system.
+Numerous active magnetic field compensation systems have been \cite{Kelha1982,Brake1991,RetaHernandez1998,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. The last one, built for the nEDM@PSI experiment, is the focus of this chapter.
 
 
 \section{The nEDM SFC system}
-This chapter is devoted to the nEDM SFC, published \cite{Afach2014} and described in detail. Bea's thesis: \cite{Franke2013}.
+The construction of nEDM@PSI active magnetic field compensation system, called the SFC (Surrounding Field Compensation) system,
+\marginpar{There is an inside joke that SFC really stands for SULTAN Field Compensation, SULTAN being the magnet with by far the strongest influence on the magnetic field.}
+was a part of Beatrice Franke's PhD thesis~\cite{Franke2013} (later also published~\cite{Afach2014}). Thorough description of the system, as well as detailed characterisation, can be found there.
 
-Here shortly about the history and Bea's thesis. The next section describes Say that the system was in operation and I have taken over the maintanence. Set my role!
+The author was responsible for maintaining the system, with the goal of gaining enough of understanding and experience to design a next generation system for the n2EDM experiment. In this section the author presents the most important information about the SFC system, repeating after~\cite{Franke2013}, and shares some of his insights. \note{Making my role clear.}
 
-Aside from maintenance, understanding (data analysis). No improvements! Working system, after all, huh?
+The distinct feature of the nEDM@PSI's SFC system is the use of the matrix \note{Need to find a name. In Bea's thesis referred to as ,,the matrix $M$''. Response matrix? SFC matrix?}. Consider a single coil of any shape in air. For every point in space and for every spatial component the magnetic field is proportional to the current in the coil, with a certain fixed proportionality constant. The SFC system has six coils and measures the field in nine points, three spatial components in each---27 channels. In total there are $6 \times 27 = 162$ proportionality constants, which are gathered in a matrix $M$. The matrix $M$ is a property of the active compensation system, more precisely of the geometry of the coils and sensors. \note{Mention that ferromagnetic materials, in particular $\upmu$-metal, also affect the matrix.}
 
-Say that it was published and cite it \cite{Afach2014}.
+\note{Maybe some nice formula here for the matrix elements?}
 
-There the idea was to 
+\begin{figure}
+  \centering
+  \includegraphics[width=.8\linewidth]{gfx/nEDM_SFC/nEDM_SFC_matrix}
+  \caption{The SFC matrix measured by Franke on 2012-11-07 (see \cite{Franke2013}) in the thermohouse coordinates.}
+  \label{fig:nEDM_SFC_matrix}
+\end{figure}
+
+The following procedure was used to measure the matrix. A current in one coil is scanned over the whole available range, while the field change is measured with the sensors. Then for each sensor, and each spatial component, a linear regression is performed. The slope is the proportionality constant (the matrix $M$ element). The procedure is repeated of all coils. The matrix measured by Franke is depicted in Fig.\,\ref{fig:nEDM_SFC_matrix}.
+
+There is a fundamental meaning behind the matrix $M$. The currents in the six coils we can gather into a vector $\mathbb{I}$ in a space we call the \emph{current space}. Similarly, the 27 readouts of the magnetic field can be gathered into a vector $\mathbb{B}$ in the \emph{field space}. \note{think about the name}. Then the matrix $M$ provides the transition from the current into the field space. In particular, we have:
+\begin{equation}
+  \mathbb{B} = M \mathbb{I} + \mathbb{B}_\text{offset} \ .
+\end{equation}
+The other direction, from the field to the current space, cannot be done exactly. Nevertheless, the optimal, in the least-squares sense, transition can be done with the use of the Moore--Penrose pseudoinverse \note{cite something?} of the matrix $M$, denoted $M^\dagger$.\marginpar{Finding the Moore--Penrose pseudoinverse of a matrix $A$ is equivalent to finding least-squares solution of a system of linear equations described by the matrix $A$.}
+
+Still mention, that the system in over-determined.
 
 The SFC matrix is the fundament! Start with that! It provides the transition form one space to another exactly, and in the other direction in the least-squares way, optimal.
+
 
 In the old system the currents were controlled with a PID algorithm (as most of the previous systems, cite them)
 
@@ -62,14 +80,7 @@ At that moment the error value was zero, and so is the integral term, so, accord
 \section{Introduction}
 Bea's thesis: \cite{Franke2013}.
 
-\begin{figure}
-  \myfloatalign
-  \includegraphics[width=.8\linewidth]{gfx/nEDM_SFC/nEDM_SFC_matrix}
-  \caption
-  [TODO]
-  {The SFC matrix measured by Franke on 2012-11-07 (see \cite{Franke2013}) in the thermohouse coordinates.}
-  \label{fig:nEDM_SFC_matrix}
-\end{figure}
+
 
 \subsection{Fluxgates}
 
