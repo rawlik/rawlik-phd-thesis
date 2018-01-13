@@ -52,88 +52,28 @@ The other direction, from the field to the current space, cannot be done exactly
 \marginpar{Finding the pseudoinverse of a matrix $A$ is equivalent to finding least-squares solution of a system of linear equations described by the matrix $A$ (although more computationally complex).}
 In other words, the matrix $M$ tells us what field, as measured by the sensors, will a given set of currents produce. The matrix $M^\dagger$ tells us what currents to apply to best approximate a given field.
 
-The use of the matrix $M$ is what distinguished the nEDM@PSI's SFC system from other systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013}. More precisely, it was the first system to have treated $M$ generally. Other systems were, by design, special cases.  The fact that $M$ is not rectangular, as it Either using one or a weighted combination of several sensors for one coil.
-The matrix was first proposed by~\cite{RetaHernandez1998}. As their proposed system did not include $\upmu$-metal, they could calculate the matrix analytically.
+The use of the matrix $M$ was what distinguished the nEDM@PSI's SFC system from other systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013}. The others used either one component of a sensor, or a weighted combination of several components, to control one coil. The matrix was first proposed by~\cite{RetaHernandez1998}. As their proposed system did not include $\upmu$-metal, they could calculate the matrix analytically.
 
 
-\section{The nEDM feedback algorithm}
 
-Still mention, that the system in over-determined.
-
-The SFC matrix is the fundament! Start with that! It provides the transition form one space to another exactly, and in the other direction in the least-squares way, optimal.
-
-
+\section{The feedback algorithm}
 In the old system the currents were controlled with a PID algorithm (as most of the previous systems, cite them)
-
-The $j$th current in the $n$th iteration was given (cite!):
+The nEDM@PSI's SFC system followed the norm established by older systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005} \note{may want to verify} and used a PID loop to control the currents. (PI in this particular case, the derivative term was not used.) The $j$th current in the $n$th iteration was given~\cite{Franke2013}:
 \begin{equation}
   \label{eq:old_SFC_feedback}
-  I^n_j = I^0_j + \alpha^\mathcal{P}_j \, \Delta I^n_j + \alpha^\mathcal{I}_j \, \sum_m \Delta I^m_j
+  I^n_j = I^0_j +
+    \underbrace{ \alpha^\mathcal{P}_j \, \Delta I^n_j }_\text{proportional term} +
+    \underbrace{ \alpha^\mathcal{I}_j \, \sum_m \Delta I^m_j }_\text{integral term} \ .
 \end{equation}
 
-$\Delta I^n_j$ is the error value (in the current space). To obtain it we use the error value in the field space (the difference of the measured and target fields) and transform into the current space with the pseudoinverse of the matrix.
-
+$\Delta I^n_j$ is the error value in the current space. It was obtained by using the error value in the field space (the difference of the measured and target fields) and transforming it into the current space with the pseudoinverse of the matrix:
 \begin{equation}
-  \Delta I^n_j = \sum_{k'} \hat{M}^{-1}_{jk'} \, \Delta B^n_{k'}
+  \Delta I^n_j = \sum_{k'} \hat{M}^{-1}_{jk'} \, \Delta B^n_{k'} \ .
 \end{equation}
 
-Another interesting thing is the $I^0_j$ term. It seems weird to give such a big of a role to particular currents that happend to be there at the zeroth iteration. It has to do with another property of the system: the target field is always the one measured at the moment of switching the system from dynamic to static.
+Besides the proportional and integral terms the feedback formula also includes the $I^0_j$ term. It seems weird to give such a big of a role to particular currents that happened to be there at the zeroth iteration. It has to do with the following property of the system: the target field was always the one measured at the moment of switching the system from dynamic to static.
 \marginpar{The system when turned on was always static. Then the currents could be changed manually to achieve a desired field (or chosen from a predefined set). Then the system was switched to the dynamic mode.}
-At that moment the error value was zero, and so is the integral term, so, according to the Eq.\,\ref{eq:old_SFC_feedback} the output currents would immediately switch to zero. The system would violently destabilise. The additional term $I^0_j$ prevents that from happening. They would only stabilise after some time, after the (in a PID controller only the I term can produce a non-zero response by zero error value). Its a known problem \note{find some references for that}
-
-
-
-\section{Influence of the SC magnet}
-The ultracold neutrons are polarised by passing through a superconducting magnet. The length of the path of the neutrons to the experiment should be small to minimise transport losses. For this reason the experiment is located close to the exit of the UCN beam--port and the magnet is fit in between.
-
-\begin{figure}
-  \myfloatalign
-  \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/SCM_magn_map.pdf}
-  \caption
-  [TODO]
-  {Map of the magnetic field of the superconducting magnet. Courtesy of Dr. Geza Zsigmond}
-  \label{fig:nEDM_SFC_SC_magnet_map}
-\end{figure}
-
-\begin{figure}
-  \myfloatalign
-  \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
-    \label{fig:nEDM_SFC_SC_magnet_influence_top_view}
-    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_field_top_view.pdf}}
-  \quad
-  \subfloat[Displaying fields at two different times simultaneously, yellow and blue.]{
-    \label{fig:nEDM_SFC_SC_magnet_influence_front_view}
-    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_field_front_view.pdf}}
-  \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
-\end{figure}
-
-\begin{figure}
-  \myfloatalign
-  \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/SC_magnet_optimal_coil_on_wall.png}
-  \caption
-  [TODO]
-  {Map of the field of a potential correcting coil}
-  \label{fig:nEDM_SFC_SC_magnet_optimal_coil}
-\end{figure}
-
-\begin{figure}
-  \myfloatalign
-  \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
-    \label{fig:nEDM_SFC_SC_magnet_influence_top_view2}
-    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_improvement_top_view.pdf}}
-  \quad
-  \subfloat[Displaying fields at two different times simultaneously, yellow and blue.]{
-    \label{fig:nEDM_SFC_SC_magnet_influence_front_view2}
-    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_improvement_front_view.pdf}}
-  \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
-\end{figure}
-
-The improvement in the range of the field is 40-70\% (In different simulated runs, 21.7 to 12.6 (42\%), 22.2 to 12.9 (42\%), 19.3 to 5.8 (70\%), and 35.1 to 18.6 (57\%)), unit microteslas.
-
-
-\section{Magnetic field during sparks in HV}
-
-
+At that moment the error value was zero, and so was the integral term, so, according to the Eq.\,\ref{eq:old_SFC_feedback}, the output currents would immediately have switched to zero. In result, the system would violently destabilise. The additional term $I^0_j$ prevents that from happening.
 
 
 
@@ -152,8 +92,8 @@ Figure~\ref{fig:nEDM_SFC_svd} presents the spectrum of the nEDM SFC matrix. Firs
 
 It is interesting to ask why. A very small singular value means that there exists a coil, or a combination thereof, which has almost 20 times smaller influence on the field then others. In figure~\ref{fig:nEDM_SFC_svd} columns are the singular values with their corresponding coil--vectors. The first three, starting from the left, are easiest to interpret. Each of them is a pair of coils configured as Helmholtz--pair, with roughly the same current, producing a homogeneous field in each of the spatial directions. The smaller singular value, or the effect on the field, in the Y direction is explained by the fact that this is the longitudinal axis of the μ-metal cylinder. The last one has also a clear interpretation -- it is all pairs configured as anti--Helmholtz, with currents flowing in the opposite directions. The magnetic field that it creates is a very complicated, high-order field. The fact, that this combination has so little influence means, that it hardly changes any solution for currents when added upon it. It spans a valley in the parameter space in the least--squares problem.
 
-\begin{figure}[bth]
-  \myfloatalign
+\begin{figure}
+  \centering
   \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/coil-singular_vectors_of_the_nEDM_SFC_matrix}
   \caption
   [TODO]
@@ -164,10 +104,6 @@ It is interesting to ask why. A very small singular value means that there exist
 It is to note that the SFC matrix is defined solely by the configuration of the coils and sensors. It follows that care has to be taken already at the design stage to create a system that will be well defined.
 
 
-\section{Optimising the number of windings in the coils}
-Put the plots of the distributions of the currents, juxtapose them with the
-ranges of the power supplies.
-
 
 \section{Visualisation of the data}
 The data of the SFC system are difficult to visualise. Mostly because the magnetic field is a three dimensional field in a three dimensional space. It is much easier to explore if they are visualised interactively. Together with a student, Nils Ebeling, we created a visualisation.
@@ -176,8 +112,8 @@ Possibility to show the calculated external field!
 
 The program is cross--platform (Windows, OSX, Linux), fully based on open--source softwore. It is written in python and uses the following libraries: Qt4 (cross-platform GUI), pyqtgraph (fast interactive plotting), VTK (3D graphics) and SciPy (data handling).
 
-\begin{figure}[bth]
-  \myfloatalign
+\begin{figure}
+  \centering
   \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
     \label{fig:nEDM_SFC_visualisation1}
     \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/visualisation/visualisation1}}
@@ -204,8 +140,8 @@ Work of Nils Ebeling.
 \section{Performance during SULTAN ramps}
 Describe the fancy algorithm and show the results of the data analysis.
 
-\begin{figure}[bth]
-  \myfloatalign
+\begin{figure}
+  \centering
   \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
     \label{fig:nEDM_SFC_SC_magnet_influence_top_view}
     \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/field_seen_by_Hg_2015-2016}}
@@ -215,6 +151,73 @@ Describe the fancy algorithm and show the results of the data analysis.
     \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/gradient_seen_by_Cs_2015-2016}}
   \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
 \end{figure}
+
+
+
+
+\section{Influence of the SC magnet}
+The ultracold neutrons are polarised by passing through a superconducting magnet. The length of the path of the neutrons to the experiment should be small to minimise transport losses. For this reason the experiment is located close to the exit of the UCN beam--port and the magnet is fit in between.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/SCM_magn_map.pdf}
+  \caption
+  [TODO]
+  {Map of the magnetic field of the superconducting magnet. Courtesy of Dr. Geza Zsigmond}
+  \label{fig:nEDM_SFC_SC_magnet_map}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_top_view}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_field_top_view.pdf}}
+  \quad
+  \subfloat[Displaying fields at two different times simultaneously, yellow and blue.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_front_view}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_field_front_view.pdf}}
+  \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/SC_magnet_optimal_coil_on_wall.png}
+  \caption
+  [TODO]
+  {Map of the field of a potential correcting coil}
+  \label{fig:nEDM_SFC_SC_magnet_optimal_coil}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_top_view2}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_improvement_top_view.pdf}}
+  \quad
+  \subfloat[Displaying fields at two different times simultaneously, yellow and blue.]{
+    \label{fig:nEDM_SFC_SC_magnet_influence_front_view2}
+    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/SC_magnet_improvement_front_view.pdf}}
+  \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
+\end{figure}
+
+The improvement in the range of the field is 40-70\% (In different simulated runs, 21.7 to 12.6 (42\%), 22.2 to 12.9 (42\%), 19.3 to 5.8 (70\%), and 35.1 to 18.6 (57\%)), unit microteslas.
+
+
+\section{Magnetic field during sparks in HV}
+
+
+
+
+
+
+
+
+\section{Optimising the number of windings in the coils}
+Put the plots of the distributions of the currents, juxtapose them with the
+ranges of the power supplies.
+
+
+
 
 
 
