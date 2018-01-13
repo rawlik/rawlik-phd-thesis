@@ -21,7 +21,7 @@ Active shields do not substitute passive ones. The shielding factor
 
 In the overlapping range of frequencies, where the two kinds of magnetic shielding could compete, the two advantages of the active shielding would certainly be the cost and accessibility of the enclosed volume. \note{disadvantage: the high-order changes}
 
-Numerous active magnetic field compensation systems have been \cite{Kelha1982,Brake1991,RetaHernandez1998,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. The last one, built for the nEDM@PSI experiment, is the focus of this chapter.
+Numerous active magnetic field compensation systems have been built \cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. The last one, built for the nEDM@PSI experiment, is the focus of this chapter.
 
 
 \section{The nEDM SFC system}
@@ -48,7 +48,15 @@ There is a fundamental meaning behind the matrix $M$. The currents in the six co
 \begin{equation}
   \mathbb{B} = M \mathbb{I} + \mathbb{B}_\text{offset} \ .
 \end{equation}
-The other direction, from the field to the current space, cannot be done exactly. Nevertheless, the optimal, in the least-squares sense, transition can be done with the use of the Moore--Penrose pseudoinverse \note{cite something?} of the matrix $M$, denoted $M^\dagger$.\marginpar{Finding the Moore--Penrose pseudoinverse of a matrix $A$ is equivalent to finding least-squares solution of a system of linear equations described by the matrix $A$.}
+The other direction, from the field to the current space, cannot be done exactly. Nevertheless, the optimal, in the least-squares sense, transition can be done with the use of the Moore--Penrose inverse (pseudoinverse) \note{cite something?} of the matrix $M$, denoted $M^\dagger$.
+\marginpar{Finding the pseudoinverse of a matrix $A$ is equivalent to finding least-squares solution of a system of linear equations described by the matrix $A$ (although more computationally complex).}
+In other words, the matrix $M$ tells us what field, as measured by the sensors, will a given set of currents produce. The matrix $M^\dagger$ tells us what currents to apply to best approximate a given field.
+
+The use of the matrix $M$ is what distinguished the nEDM@PSI's SFC system from other systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013}. More precisely, it was the first system to have treated $M$ generally. Other systems were, by design, special cases.  The fact that $M$ is not rectangular, as it Either using one or a weighted combination of several sensors for one coil.
+The matrix was first proposed by~\cite{RetaHernandez1998}. As their proposed system did not include $\upmu$-metal, they could calculate the matrix analytically.
+
+
+\section{The nEDM feedback algorithm}
 
 Still mention, that the system in over-determined.
 
