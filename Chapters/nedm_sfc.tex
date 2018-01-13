@@ -33,6 +33,29 @@ Aside from maintenance, understanding (data analysis). No improvements! Working 
 
 Say that it was published and cite it \cite{Afach2014}.
 
+There the idea was to 
+
+The SFC matrix is the fundament! Start with that! It provides the transition form one space to another exactly, and in the other direction in the least-squares way, optimal.
+
+In the old system the currents were controlled with a PID algorithm (as most of the previous systems, cite them)
+
+The $j$th current in the $n$th iteration was given (cite!):
+\begin{equation}
+  \label{eq:old_SFC_feedback}
+  I^n_j = I^0_j + \alpha^\mathcal{P}_j \, \Delta I^n_j + \alpha^\mathcal{I}_j \, \sum_m \Delta I^m_j
+\end{equation}
+
+$\Delta I^n_j$ is the error value (in the current space). To obtain it we use the error value in the field space (the difference of the measured and target fields) and transform into the current space with the pseudoinverse of the matrix.
+
+\begin{equation}
+  \Delta I^n_j = \sum_{k'} \hat{M}^{-1}_{jk'} \, \Delta B^n_{k'}
+\end{equation}
+
+Another interesting thing is the $I^0_j$ term. It seems weird to give such a big of a role to particular currents that happend to be there at the zeroth iteration. It has to do with another property of the system: the target field is always the one measured at the moment of switching the system from dynamic to static.
+\marginpar{The system when turned on was always static. Then the currents could be changed manually to achieve a desired field (or chosen from a predefined set). Then the system was switched to the dynamic mode.}
+At that moment the error value was zero, and so is the integral term, so, according to the Eq.\,\ref{eq:old_SFC_feedback} the output currents would immediately switch to zero. The system would violently destabilise. The additional term $I^0_j$ prevents that from happening. They would only stabilise after some time, after the (in a PID controller only the I term can produce a non-zero response by zero error value). Its a known problem \note{find some references for that}
+
+
 
 
 
