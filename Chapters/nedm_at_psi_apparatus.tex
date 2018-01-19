@@ -1,31 +1,60 @@
-\chapter{The nEDM apparatus}
+\chapter{nEDM-at-PSI}
 \label{ch:nedm-at-psi-apparatus}
 
-As in the UKy presentation:
+\section{The collaboration}
+The nEDM-at-PSI collaboration \note{name?} has been founded to perform an nEDM measurement in the Paul Scherrer Institute (PSI) in Villigen, Switzerland. The experiment was planned in two stages. In the first stage, the apparatus used by the RAL--Sussex--ILL collaboration was moved to PSI, where it was installed to benefit from a new source of ultracold neutrons. The first stage finished in Autumn 2017, after having collected enough statistics to set the world's best limit, as depicted in Fig.\,\ref{fig:nEDM_accumulated_sensitivity}. As of Spring 2018 the analysis is still ongoing.
 
-First about the history of the experiment, the collaboration, when was it taking data, that it was disassembled in Autumn 2017. Has enough statistics to set the world's best limit. The analysis still ongoing.
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/nEDMatPSI/accumulated_sensitivity.pdf}
+  \caption{The accumulated statistical sensitivity of the nEDM-at-PSI experiment. The sensitivity of the data collected in 2015 is shown in green, of 2015 and 2016 in blue, and only 2016 in violet. The dashed region marks the yet unexplored area below the best limit. Courtesy of Dr. Philipp Schmidt-Wellenburg.}
+  \label{fig:nEDM_accumulated_sensitivity}
+\end{figure}
 
-Thou shall measure frequency
-What frequency? - Measurement principle.
-The neutron is a spin-one-half particle. In a magnetic field the hamiltonian is.
-Then in 
-\note{need to check that carefully}
-So we measure a change in the spin-up--spin-down transition frequency between the magnetic and electric field being parallel and anti-parallel.
-
-How is this frequency measured? Larmor precession, then Ramsey method.
-Then the Bloch sphere, a nice picture of the spin.
-Then the ramsey measurement principle.
+Already in the first stage the apparatus underwent numerous improvements, leaving only few parts of the original. The improvements were part of the research and development plan for the second stage: a newly built apparatus. The new experiment, designed by the personnel experienced with running, modifying and improving the first stage experiment, has the goal of exploring the \SI{e-27}{\elementarycharge\centi\meter} range.
 
 
+\section{The apparatus}
+This work focuses on the stage-one apparatus, which we now proceed do describe. A diagram of the system is shown in Fig.\,\ref{fig:nEDM_scheme}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/nEDMatPSI/apparatus-cartoon-main-and-sub-labels.pdf}
+  \caption{ Whom to credit for the image?}
+  \label{fig:nEDM_scheme}
+\end{figure}
+
+A single measurement cycle was triggered by a pulse of ultracold neutrons incoming from the PSI source. The neutrons were guided in metal-coated glass pipes. First they were polarised by passing a five-tesla magnet. Then a rotary three-directional valve, the switch, directed the neutrons upwards, where they filled the \SI{12}{\centi\meter}-high cylindrical \emph{precession chamber}. The chamber was submerged in a \SI{1}{\micro\tesla} vertical magnetic field $B_0$. From top and bottom the chamber was closed by high-voltage electrodes, charged to \SI{132}{\kilo\volt}, which created the electric field in the chamber. Once the neutrons filled the cylinder, the entrance was then shut and they were stored there for around \SI{200}{\second}, while undergoing the Ramsey procedure (Fig.\,\ref{fig:nEDM_Ramsey_principle}).
+
+First a pulse of
+
+First the path of the UCN, relate to the principle of the measurement. Here the experimental cycle is explained. Polarising magnet, switch, HV, neutron counting and detection.
+
+Now the importance of the magnetic field stability! Also, as a break in reading. Show the magnetic field scale plot? Maybe not, but at least say how little is the measurement goal in teslas.
+
+What countermeasures are taken? First, the mu-metal shield. A bit on the mu-metal, that it needs to be degaussed, for example.
+
+Then magnetometry. First the mercury comagnetometer. Maybe a bit on the systematic effects associated with it (gradient!). How the correction is done: looking at the R arrrrr.
+
+Then the Cs magnetometers. Need to be explained, they come back with the axions!
 
 
-How is it realised in practice?
-UNCs, curcial.
-The the apparatus, still in the context of the Ramsey measurement.
-Already with the procedure, somehow.
 
-Finally, the importance of the magnetic field.
+\section{Measurement procedure}
+Here needs to me clear what we infer from what, and the principles of the runs and cycles need to be explained. Then sketch the analysis scheme, with the crossing-point analysis. This is interesting in itself.
 
+
+The resonance frequency $f_n^{\,0}$ is determined with a fit of the resonance curve. Because the points are probed one after another, it is only possible after a set of data points, \emph{cycles}, have been measured. In order to extract the neutron precession frequency for each individual \emph{cycle}, one assumes that the only parameter of the resonance curve that varies on a cycle--to--cycle basis is the position of the resonance. With this assumption the shape of the curve, fitted to the whole set of \emph{cycles}, is used to calculate back the resonant frequency in each \emph{cycle} of the set.
+
+Together with the UCNs there is a polarised $^{199}$Hg gas precessing. Its precession is monitored with light, allowing for direct determination of the $^{199}$Hg Larmor frequecy and thus the magnetic field strength. In order to cancel the first-order magnetic field changes one looks at the value:
+\begin{equation}
+  R := f_n / f_{Hg} \ .
+\end{equation}
+However, the UCNs are cold enough to have their centre of mass shifted downwards a few centimeters by the gravity. The $^{199}$Hg gas, being much hotter then the UCNs, fills the precession volume homogeneously. In a presence of a vertical magnetic field gradient this causes the two species to see different magnetic fields.
+
+In the nEDM experiment at PSI data taking is divided into \emph{runs}. A single \emph{run} is carried out automatically with, in most cases, no human intervention. The machine cycles through the working points by itself. Also the charging of the electrodes creating the electric field is automatised. In between \emph{runs} manual interference happens, most importantly the magnetic field vertical gradient is altered.
+
+In order to mitigate the bias due to the human factor, the nEDM experiment implements \emph{data blinding}. The data is artificially altered in a way that mimics a non--zero neutron electric dipole moment, big enough to be visible in the data. The exact value is secret and will be revealed only after the analysis is complete.
 
 
 
