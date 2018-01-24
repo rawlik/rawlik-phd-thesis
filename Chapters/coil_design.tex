@@ -468,8 +468,7 @@ Mention the main feature of this approach --- the spatial constraint on the loca
 We begin by presenting a method to describe a subset of all possible coils that can be built on a surface on a square. Next we show how this can be used on a cube to describe coils around a volume. With this algebraic language the coil design is simplified to solving one linear least--squares problem.
 
 
-\section{Model}
-\subsection{Coils as a linear space}
+\section{Coils as a linear space}
 Consider all possible coils that can be constructed by laying wires on a surface of a square. The possibilities are as endless as they are hard to grasp mathematically. What is presented is a language that makes this problem suprisingly simple.
 
 Coils can be seen an vectors in a linear space. One coil spans a one--dimensional space of magnetic fields it can produce. Adding a second coil creates a system spanning a two--dimensional space of fields, thanks to the magnetic field being additive. Four square coils tiled to form a larger square form a four--dimensional space, which is a subset of coils possible to construct on the larger square's surface. This size of the subset we restrict ourselves to is controlled by $N$ --- the number of \emph{base coils} forming the grid. Any coil, member of the subset, is fully described by a vector of $N$ relative currents in each of the \emph{base coils} --- denoted by $\mathbb{I}$. The problem of coil design is thereby simplified to finding a vector $\mathbb{I}$ in a linear space.
@@ -497,7 +496,7 @@ The mechanical constrain can be of tremendous advantage. Every coil in this subs
 In a coil constructed in the presented scheme in general a lot of currents, flowing in an opposite direction along the same edge, would cancel. For each edge there are two adjacent \emph{base coils}, so inevitably some currents will, at least partially, cancel. A coil can always be simplified by simply adding the two currents flowing along each edge, as it is presented in Fig.\,\ref{fig:coils_tile_basis}.
 
 
-\subsection{Coil design}
+\section{Coil design}
 In the problem of coil design one wants to create \emph{a coil that will best approximate a given field in a certain volume}. Let us call this volume \emph{the volume of interest}. It can be of an arbitrary shape and is located fully inside the coil system (the cube). One can pick an ensemble of $n$ points on the surface of the \emph{volume of interest} (its surface is sufficient because $\nabla \mathbf{B} = 0$). Let us denote the combined vector, dimension $3n$, of magnetic field in each of the point by $\mathbb{B}$.
 
 % Note, that magnetic field produced by a coil at a given point in space is proportional to the current in this coil. For a fixed direction in a fixed point in space it is a linear combination of currents of all coils in the system. Now, if we consider a vector of 3 spatial directions in $M$ points \ie, dimension $3M$. It can be obtained from an arbitrary coil $C$ by multiplying it by a $NNN \times 3M$ matrix $\mathbb{M}$. This matrix encodes the geometry of the system and may be pre-calculated.
@@ -520,7 +519,7 @@ Solving the least--squares problem will produce for \emph{any} field $\mathbf{B}
 \emph{the} optimal coil in the restricted space. I emphasise, that the spatial restriction is
 may be highly desirable. Especially if a number of coils, each producing different field, is to be would around the volume. In the presented scheme adding a new coil will not cover the \emph{surface of the coils} more densely, as opposed to other schemes in the literature.
 
-\subsection{Examples}
+\section{Examples}
 The simplest magnetic field is a homogeneous one. Figures\,\ref{fig:coils_homogeneous_3d} and \ref{fig:coils_homogeneous_section} show a coil designed for the homogeneous field. The \emph{coil surface} is a $\unit[1]{m^3}$ cube, the \emph{volume of interest} is a $\unit[0.75^3]{m^3}$ cube. The cube has been divided into $5 \times 5 \times 6 = 150$ tiles. The system achieves a 2\% homogeneity in the whole \emph{volume of interest}.
 
 The full power of this scheme is visible, when the desired $B_0$ field is complicated. One may want to counteract a fixed nearby dipole source. A coil designed for that is presented in Fig.\,\ref{fig:coils_dipole_3d}.
@@ -620,7 +619,7 @@ Care has to be taken to balance voltage and current needs for the power supplies
 Parameters to vary: number of windings, thickness of cable (price). Note also
 the inductance of the coils.
 
-\subsection{Possible generalisations}
+\section{Possible generalisations}
 \begin{enumerate}
   \item the surface does not need to be cubic
   \item
@@ -628,8 +627,7 @@ the inductance of the coils.
 
 
 
-\section{Practical application --- SFC system}
-\subsection{Surrounding Field Compensation in the nEDM experiment}
+\section{Surrounding Field Compensation in the nEDM experiment}
 The main challenge of the nEDM experiment is reaching a magnetic field stability on the picotesla level on a timescale of minutes. At the same time the experiment is set up in a research facility, where strong magnets are common. In fact, at the experimental site the compass points in different directions throughout the day.
 
 The main part of attenuation of the magnetic field is done by four layers of \mbox{μ-metal} --- material with very high permeability (around 400\,000). However, \mbox{μ-metal}, being a ferromagnetic, is itself susceptible to become magnetised and and create a magnetic field of its own. In order to keep the magnetisation stable the \mbox{μ-metal} shield has been surrounded by a system of large coils. The coils are driven in a feedback loop with magnetic filed sensors (see Fig.\,\ref{fig:nEDM_SFC}). The system has been described in the paper \citep{Afach2014}.
@@ -648,7 +646,7 @@ The Helmholtz coil pairs are labeled (X+, X-),(X-, Y-) and (Z+,Z-). The coordina
 The SFC system operates since 2013, attenuating the magnetic field by factor more than 5, even during ramping of nearby magnets.
 
 
-\subsection{Design for n2EDM}
+\section{Design for n2EDM}
 
 The volume is cubic.
 
@@ -675,7 +673,7 @@ Design goals / challenges:
 \section{Prototype}
 A comprehensive setup for prototyping magnetic field related systems for n2EDM has been designed and is, as of today, under construction. Its main part is a scaled--down model of the outermost layer of n2EDM µ-metal shield. Design of a degaussing and SFC systems for the setup is ongoing. In the future the setup can host also a prototypes of an internal magnetic field mapper, a main holding--field coil and, possibly, other systems.
 
-\subsection{Maps}
+\section{Maps}
 
 \section{Potential problems}
 \begin{enumerate}
