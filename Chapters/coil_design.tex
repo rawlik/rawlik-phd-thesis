@@ -446,6 +446,7 @@ We would like to thank Georg Bison, Allard Schnabel and other members of the nED
 
 
 \section{Introduction}
+\note{This section, and the ones below, are an old draft.}
 
 Motivation... Where the problem is encountered. Need some citations here.
 
@@ -644,39 +645,3 @@ The Helmholtz coil pairs are labeled (X+, X-),(X-, Y-) and (Z+,Z-). The coordina
 \end{figure}
 
 The SFC system operates since 2013, attenuating the magnetic field by factor more than 5, even during ramping of nearby magnets.
-
-
-\section{Design for n2EDM}
-
-The volume is cubic.
-
-The SFC system is going to be very large --- $\unit[6x6x6]{m^3}$. Elaborate designs, such as wires of variable length, or arbitrarily bended wires would be complicated to realise in such scale.
-
-Moreover, the system is going to enclose the whole apparatus.
-Super crucial --- many coils on the same surface 3 for the first order compensation, but then 9 for gradients. That is already 12 coils. If one only restrict oneself to a surface, it is guaranteed to end up with it densely covered with wires. In this approach the geometry is limited by design.
-
-Mention, that the \micro-metal presence does not disturb much, as it is already placed in a small field.
-
-
-Design goals / challenges:
-\begin{enumerate}
-  \item Better shielding factor. Attenuation by a factor of 50 in the whole volume of the shield. The design goal has been set to reach at most 2\% of the ambient magnetic field in the
-  whole volume of the experiment. In \unit[50]{\micro T} this corresponds to a nice value of \unit[1]{\micro T}.
-  \item Very large fiducial volume --- due to spatial constrains of the experimental site --- biological shielding. PUT IMAGE!!! Not only is the compensation expected to be better, but also provide a much larger volume. Next version of the experiment --- much larger.
-  \item As is nEDM --- many coil system. But orthogonal, or at least close to one. Three coils for compensating the three homogeneous components of the magnetic field. Then 9 for gradients. The strongest fields are low--order, and only these require strong compensation coils (thick wires, big and expensive power supplies). The higher--order coils may be constructed with thinner wires and cheaper power supplies.
-  Additionally, this makes the control of the system simpler.
-  This also states the problem better. One has to design and construct coils that create homogeneous field in the volume occupied by the shield. Maybe elaborate more on the field decomposition!
-  \item Coil tailored for the specific magnetic environment of the n2EDM site. Coils tailored for nearby magnets.
-\end{enumerate}
-
-
-\section{Prototype}
-A comprehensive setup for prototyping magnetic field related systems for n2EDM has been designed and is, as of today, under construction. Its main part is a scaled--down model of the outermost layer of n2EDM µ-metal shield. Design of a degaussing and SFC systems for the setup is ongoing. In the future the setup can host also a prototypes of an internal magnetic field mapper, a main holding--field coil and, possibly, other systems.
-
-\section{Maps}
-
-\section{Potential problems}
-\begin{enumerate}
-  \item The numerical problem of subtracting numbers.
-  \item The discretisation is happening twice --- first is the division into tiles. Then the current in the solution needs to be discretised too.
-\end{enumerate}

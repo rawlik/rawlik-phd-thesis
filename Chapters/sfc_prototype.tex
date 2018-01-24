@@ -324,3 +324,42 @@ The calculation with the fiducal volume of\ldots done for homogenous and 1st gra
 \end{figure}
 
 
+
+
+\section{n2EDM design}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_system_top.png}
+  \caption{Replace with a better figure showing the design\ldots}
+  \label{fig:prototype_open_design_Xcoil_coils}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_field_Xcoil_XY_z6_4.png}
+  \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_field_n6coil_XY_z6_4.png}
+  \caption{Simulation of the n2EDM design. The colour represents the deviation from the target field, for the $x$, $y$ and $z$ components of the field. Section in the XY plane at height $z=\SI{6.4}{\meter}$ is shown. The open face is on the bottom of the plots. Top: coil designed to produce a homogeneous field along $x$ (left-to-right on the plot). Bottom: $n=6$ gradient (see some table somewhere)\ldots}
+  \label{fig:prototype_open_design_simulation}
+\end{figure}
+
+The volume is cubic.
+
+The SFC system is going to be very large --- $\unit[6x6x6]{m^3}$. Elaborate designs, such as wires of variable length, or arbitrarily bended wires would be complicated to realise in such scale.
+
+Moreover, the system is going to enclose the whole apparatus.
+Super crucial --- many coils on the same surface 3 for the first order compensation, but then 9 for gradients. That is already 12 coils. If one only restrict oneself to a surface, it is guaranteed to end up with it densely covered with wires. In this approach the geometry is limited by design.
+
+Mention, that the \micro-metal presence does not disturb much, as it is already placed in a small field.
+
+
+Design goals / challenges:
+\begin{enumerate}
+  \item Better shielding factor. Attenuation by a factor of 50 in the whole volume of the shield. The design goal has been set to reach at most 2\% of the ambient magnetic field in the
+  whole volume of the experiment. In \unit[50]{\micro T} this corresponds to a nice value of \unit[1]{\micro T}.
+  \item Very large fiducial volume --- due to spatial constrains of the experimental site --- biological shielding. PUT IMAGE!!! Not only is the compensation expected to be better, but also provide a much larger volume. Next version of the experiment --- much larger.
+  \item As is nEDM --- many coil system. But orthogonal, or at least close to one. Three coils for compensating the three homogeneous components of the magnetic field. Then 9 for gradients. The strongest fields are low--order, and only these require strong compensation coils (thick wires, big and expensive power supplies). The higher--order coils may be constructed with thinner wires and cheaper power supplies.
+  Additionally, this makes the control of the system simpler.
+  This also states the problem better. One has to design and construct coils that create homogeneous field in the volume occupied by the shield. Maybe elaborate more on the field decomposition!
+  \item Coil tailored for the specific magnetic environment of the n2EDM site. Coils tailored for nearby magnets.
+\end{enumerate}
