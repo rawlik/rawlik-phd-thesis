@@ -266,105 +266,105 @@ We would like to thank Georg Bison, Allard Schnabel and other members of the nED
 
 
 
-\section{Introduction}
-\note{This section, and the ones below, are an old draft.}
+% \section{Introduction}
+% \note{This section, and the ones below, are an old draft.}
 
-Motivation... Where the problem is encountered. Need some citations here.
+% Motivation... Where the problem is encountered. Need some citations here.
 
-Coils producing a magnetic field of desired spatial distribution are a necessary ingredient in many engineering and physics applications.
+% Coils producing a magnetic field of desired spatial distribution are a necessary ingredient in many engineering and physics applications.
 
-In active magnetic field stabilisation systems the desired field shape is not even known beforehand -- a system capable of producing a aoeu is desired.
-The need for coils producing magnetic fields of a desired spatial distribution has
-Elaborate methods have been developed, mostly focusing on precision of created field.
-Extensive literature to design sophisticated coils.
-See an overview by \citeauthor{Turner1993} \citep{Turner1993}.
+% In active magnetic field stabilisation systems the desired field shape is not even known beforehand -- a system capable of producing a aoeu is desired.
+% The need for coils producing magnetic fields of a desired spatial distribution has
+% Elaborate methods have been developed, mostly focusing on precision of created field.
+% Extensive literature to design sophisticated coils.
+% See an overview by \citeauthor{Turner1993} \citep{Turner1993}.
 
-In particular finds use in active magnetic field stabilisation systems, eg. in nEDM experiments or in PTB (really?).
+% In particular finds use in active magnetic field stabilisation systems, eg. in nEDM experiments or in PTB (really?).
 
-An interesting approach to coil design was presented by \citeauthor{Compton1982} \citep{Compton1982}. He proposed to divide a surface into small elements and solve for current density in each element. This is very general and powerful idea, albeit the solution is likely to be hard to build.
+% An interesting approach to coil design was presented by \citeauthor{Compton1982} \citep{Compton1982}. He proposed to divide a surface into small elements and solve for current density in each element. This is very general and powerful idea, albeit the solution is likely to be hard to build.
 
-Most of modern coil design approaches focus on increasing the precision of the created field, giving designs that are very difficult to manufacture. The presented approach focuses on versatility and ease of practical realisation, which makes it potentially useful for large scale builds and systems employing multiple coils.
+% Most of modern coil design approaches focus on increasing the precision of the created field, giving designs that are very difficult to manufacture. The presented approach focuses on versatility and ease of practical realisation, which makes it potentially useful for large scale builds and systems employing multiple coils.
 
-Mention the main feature of this approach --- the spatial constraint on the location of the wires? Needs some explanation probably.
+% Mention the main feature of this approach --- the spatial constraint on the location of the wires? Needs some explanation probably.
 
-We begin by presenting a method to describe a subset of all possible coils that can be built on a surface on a square. Next we show how this can be used on a cube to describe coils around a volume. With this algebraic language the coil design is simplified to solving one linear least--squares problem.
-
-
-\section{Coils as a linear space}
-Consider all possible coils that can be constructed by laying wires on a surface of a square. The possibilities are as endless as they are hard to grasp mathematically. What is presented is a language that makes this problem suprisingly simple.
-
-Coils can be seen an vectors in a linear space. One coil spans a one--dimensional space of magnetic fields it can produce. Adding a second coil creates a system spanning a two--dimensional space of fields, thanks to the magnetic field being additive. Four square coils tiled to form a larger square form a four--dimensional space, which is a subset of coils possible to construct on the larger square's surface. This size of the subset we restrict ourselves to is controlled by $N$ --- the number of \emph{base coils} forming the grid. Any coil, member of the subset, is fully described by a vector of $N$ relative currents in each of the \emph{base coils} --- denoted by $\mathbb{I}$. The problem of coil design is thereby simplified to finding a vector $\mathbb{I}$ in a linear space.
-% The four coils form a complete linear basis of coils on the surface for any coils that have wires going only along the edges --- see Fig.\,\ref{fig:coils_tile_basis}. This is a very convenient subspace of all coils possible to build on a square. The possible to realise subspace may be enlarged by refining the division into tiles. But as a coil is equivalent to the field it produces, one can just as well say that they form a four--dimensional \emph{space of coils}.
-
-\begin{figure}
-  \centering
-  \subfloat[A basis of four base--coils on a surface. Three vectors are presented together with their explicit coordinates in the basis.]
-  {\label{fig:coils_tile_basis}
-  \includegraphics[width=.45\linewidth]{gfx/tile_basis}}
-  \quad
-  \subfloat[A coil which spans one--dimensional subspace of coil--vectors on a cuboid that produces no magnetic field.]
-  {\label{fig:coils_tile_kernel}
-  \includegraphics[width=.45\linewidth]{gfx/tile_kernel}}
-  \caption{Coils as a vector space.}
-\end{figure}
-
-A cube consists of six square faces. Therefore the set of \emph{base coils} can be constructed by dividing each face into a grid. However, for a set of $N$ grid coils the space of fields possible to produce has dimension $N-1$. Consider six square coils combined into a cube form only a five--dimensional space of coils, as same current flowing in each of the coils produces no field, as explained in Fig.\,\ref{fig:coils_tile_kernel}. Dividing the faces of the cube into $N$ tiles provides a simple basis for many coils that can be built around a volume.
-
-% A cube consists of six square faces. On each a grid may be constructed, forming a set of $N$ \emph{base coils}.  smaller The problem of coil design is much simpler, as now it is a problem in a finite--, $N$--dimensional linear space. A $coil$ is fully described by a set of $N$ currents in each of the \emph{base coils} --- $\mathbb{I}$. At the cost of restraining oneself to coils that can have wires only along the edges of the tiles, one gains a tremendous simplification of the problem.
-% However, six square coils combined into a cube form only a five--dimensional space of coils, as same current flowing in each of the coils produces no field, as explained in Fig.\,\ref{fig:coils_tile_kernel}. Dividing the faces of the cube into $N$ tiles provides a simple basis for many coils that can be built around a volume.
-
-The mechanical constrain can be of tremendous advantage. Every coil in this subspace is guaranteed to be mechanically constrained to the edges of the tiles. Once a mechanical support is build, coil may be designed and added even later.
-
-In a coil constructed in the presented scheme in general a lot of currents, flowing in an opposite direction along the same edge, would cancel. For each edge there are two adjacent \emph{base coils}, so inevitably some currents will, at least partially, cancel. A coil can always be simplified by simply adding the two currents flowing along each edge, as it is presented in Fig.\,\ref{fig:coils_tile_basis}.
+% We begin by presenting a method to describe a subset of all possible coils that can be built on a surface on a square. Next we show how this can be used on a cube to describe coils around a volume. With this algebraic language the coil design is simplified to solving one linear least--squares problem.
 
 
-\section{Coil design}
-In the problem of coil design one wants to create \emph{a coil that will best approximate a given field in a certain volume}. Let us call this volume \emph{the volume of interest}. It can be of an arbitrary shape and is located fully inside the coil system (the cube). One can pick an ensemble of $n$ points on the surface of the \emph{volume of interest} (its surface is sufficient because $\nabla \mathbf{B} = 0$). Let us denote the combined vector, dimension $3n$, of magnetic field in each of the point by $\mathbb{B}$.
+% \section{Coils as a linear space}
+% Consider all possible coils that can be constructed by laying wires on a surface of a square. The possibilities are as endless as they are hard to grasp mathematically. What is presented is a language that makes this problem suprisingly simple.
 
-% Note, that magnetic field produced by a coil at a given point in space is proportional to the current in this coil. For a fixed direction in a fixed point in space it is a linear combination of currents of all coils in the system. Now, if we consider a vector of 3 spatial directions in $M$ points \ie, dimension $3M$. It can be obtained from an arbitrary coil $C$ by multiplying it by a $NNN \times 3M$ matrix $\mathbb{M}$. This matrix encodes the geometry of the system and may be pre-calculated.
+% Coils can be seen an vectors in a linear space. One coil spans a one--dimensional space of magnetic fields it can produce. Adding a second coil creates a system spanning a two--dimensional space of fields, thanks to the magnetic field being additive. Four square coils tiled to form a larger square form a four--dimensional space, which is a subset of coils possible to construct on the larger square's surface. This size of the subset we restrict ourselves to is controlled by $N$ --- the number of \emph{base coils} forming the grid. Any coil, member of the subset, is fully described by a vector of $N$ relative currents in each of the \emph{base coils} --- denoted by $\mathbb{I}$. The problem of coil design is thereby simplified to finding a vector $\mathbb{I}$ in a linear space.
+% % The four coils form a complete linear basis of coils on the surface for any coils that have wires going only along the edges --- see Fig.\,\ref{fig:coils_tile_basis}. This is a very convenient subspace of all coils possible to build on a square. The possible to realise subspace may be enlarged by refining the division into tiles. But as a coil is equivalent to the field it produces, one can just as well say that they form a four--dimensional \emph{space of coils}.
 
-Note, that magnetic field produced by a coil at a given point in space is proportional to the current in this coil. For a fixed direction in a fixed point in space it is a linear combination of currents of all coils in the system. In an absence of external magnetic field the system is thus described by a simple linear equation:
-\begin{equation}
-  \mathbb{B} = \mathbb{M} \, \mathbb{I}
-\end{equation}
-where $\mathbb{M}$ is a $3n \times N$ matrix encoding the geometry of the system.
+% \begin{figure}
+%   \centering
+%   \subfloat[A basis of four base--coils on a surface. Three vectors are presented together with their explicit coordinates in the basis.]
+%   {\label{fig:coils_tile_basis}
+%   \includegraphics[width=.45\linewidth]{gfx/tile_basis}}
+%   \quad
+%   \subfloat[A coil which spans one--dimensional subspace of coil--vectors on a cuboid that produces no magnetic field.]
+%   {\label{fig:coils_tile_kernel}
+%   \includegraphics[width=.45\linewidth]{gfx/tile_kernel}}
+%   \caption{Coils as a vector space.}
+% \end{figure}
 
-For rectangular tiles the matrix can be easily calculated using the formula given by \citeauthor{Reta-Hernandez1998}~\citep{Reta-Hernandez1998}). If the tiles are not rectangular then it can still be analytically obtained by integration of the Biot--Savart law.
+% A cube consists of six square faces. Therefore the set of \emph{base coils} can be constructed by dividing each face into a grid. However, for a set of $N$ grid coils the space of fields possible to produce has dimension $N-1$. Consider six square coils combined into a cube form only a five--dimensional space of coils, as same current flowing in each of the coils produces no field, as explained in Fig.\,\ref{fig:coils_tile_kernel}. Dividing the faces of the cube into $N$ tiles provides a simple basis for many coils that can be built around a volume.
 
-The goal is to design a coil that would best approximate a field $\mathbf{B}_0$ in the \emph{volume of interest}. In the $n$ points of interest the field has values $\mathbb{B}_0$ --- a vector similar to $\mathbb{B}$. The \emph{coil} is evaluated by solving the following linear problem for $\mathbb{I}$:
-\begin{equation}
-  \mathbb{M} \, \mathbb{I} \stackrel{!}{=} \mathbb{B}_0
-\end{equation}
-If one picks enough points that $\mathrm{dim}(\mathbb{B}) > \mathrm{dim}(I)$, then the equation is an over--determined set of linear equations. The solution is found by the ordinary least--squares method.
+% % A cube consists of six square faces. On each a grid may be constructed, forming a set of $N$ \emph{base coils}.  smaller The problem of coil design is much simpler, as now it is a problem in a finite--, $N$--dimensional linear space. A $coil$ is fully described by a set of $N$ currents in each of the \emph{base coils} --- $\mathbb{I}$. At the cost of restraining oneself to coils that can have wires only along the edges of the tiles, one gains a tremendous simplification of the problem.
+% % However, six square coils combined into a cube form only a five--dimensional space of coils, as same current flowing in each of the coils produces no field, as explained in Fig.\,\ref{fig:coils_tile_kernel}. Dividing the faces of the cube into $N$ tiles provides a simple basis for many coils that can be built around a volume.
 
-Solving the least--squares problem will produce for \emph{any} field $\mathbf{B}_0$
-\emph{the} optimal coil in the restricted space. I emphasise, that the spatial restriction is
-may be highly desirable. Especially if a number of coils, each producing different field, is to be would around the volume. In the presented scheme adding a new coil will not cover the \emph{surface of the coils} more densely, as opposed to other schemes in the literature.
+% The mechanical constrain can be of tremendous advantage. Every coil in this subspace is guaranteed to be mechanically constrained to the edges of the tiles. Once a mechanical support is build, coil may be designed and added even later.
 
-\section{Examples}
-The simplest magnetic field is a homogeneous one. Figures\,\ref{fig:coils_homogeneous_3d} and \ref{fig:coils_homogeneous_section} show a coil designed for the homogeneous field. The \emph{coil surface} is a $\unit[1]{m^3}$ cube, the \emph{volume of interest} is a $\unit[0.75^3]{m^3}$ cube. The cube has been divided into $5 \times 5 \times 6 = 150$ tiles. The system achieves a 2\% homogeneity in the whole \emph{volume of interest}.
+% In a coil constructed in the presented scheme in general a lot of currents, flowing in an opposite direction along the same edge, would cancel. For each edge there are two adjacent \emph{base coils}, so inevitably some currents will, at least partially, cancel. A coil can always be simplified by simply adding the two currents flowing along each edge, as it is presented in Fig.\,\ref{fig:coils_tile_basis}.
 
-The full power of this scheme is visible, when the desired $B_0$ field is complicated. One may want to counteract a fixed nearby dipole source. A coil designed for that is presented in Fig.\,\ref{fig:coils_dipole_3d}.
 
-\begin{figure}
-  \centering
-  \subfloat[A coil designed for a homogeneous $50\,\mathrm{\micro T}$ field along the x--axis. A net current along each edge is shown.]{
-    \label{fig:coils_homogeneous_3d}
-    \includegraphics[width=.45\linewidth]{gfx/coil_homogeneous}}
-  \quad
-  \subfloat[XY section in the middle --- achieved relative compensation of the homogeneous field.]{
-    \label{fig:coils_homogeneous_section}
-    \includegraphics[width=.45\linewidth]{gfx/coil_homogeneous_section}}
-  \\
-  \subfloat[A coil designed for a dipole disturbance, $3\,\mathrm{kNm/T}$, $2.2\,\mathrm{m}$ away from the centre with 5x5 base tiles per face.]{
-    \label{fig:coils_dipole_3d}
-    \includegraphics[width=.45\linewidth]{gfx/coil_dipole}}
-  \quad
-  \subfloat[XY section in the middle --- achieved relative compensation of the homogeneous field.]{
-    \label{fig:coils_dipole_section}
-    \includegraphics[width=.45\linewidth]{gfx/coil_dipole_section}}
-  \caption{Coils as a vector space.}
-\end{figure}
+% \section{Coil design}
+% In the problem of coil design one wants to create \emph{a coil that will best approximate a given field in a certain volume}. Let us call this volume \emph{the volume of interest}. It can be of an arbitrary shape and is located fully inside the coil system (the cube). One can pick an ensemble of $n$ points on the surface of the \emph{volume of interest} (its surface is sufficient because $\nabla \mathbf{B} = 0$). Let us denote the combined vector, dimension $3n$, of magnetic field in each of the point by $\mathbb{B}$.
+
+% % Note, that magnetic field produced by a coil at a given point in space is proportional to the current in this coil. For a fixed direction in a fixed point in space it is a linear combination of currents of all coils in the system. Now, if we consider a vector of 3 spatial directions in $M$ points \ie, dimension $3M$. It can be obtained from an arbitrary coil $C$ by multiplying it by a $NNN \times 3M$ matrix $\mathbb{M}$. This matrix encodes the geometry of the system and may be pre-calculated.
+
+% Note, that magnetic field produced by a coil at a given point in space is proportional to the current in this coil. For a fixed direction in a fixed point in space it is a linear combination of currents of all coils in the system. In an absence of external magnetic field the system is thus described by a simple linear equation:
+% \begin{equation}
+%   \mathbb{B} = \mathbb{M} \, \mathbb{I}
+% \end{equation}
+% where $\mathbb{M}$ is a $3n \times N$ matrix encoding the geometry of the system.
+
+% For rectangular tiles the matrix can be easily calculated using the formula given by \citeauthor{Reta-Hernandez1998}~\citep{Reta-Hernandez1998}). If the tiles are not rectangular then it can still be analytically obtained by integration of the Biot--Savart law.
+
+% The goal is to design a coil that would best approximate a field $\mathbf{B}_0$ in the \emph{volume of interest}. In the $n$ points of interest the field has values $\mathbb{B}_0$ --- a vector similar to $\mathbb{B}$. The \emph{coil} is evaluated by solving the following linear problem for $\mathbb{I}$:
+% \begin{equation}
+%   \mathbb{M} \, \mathbb{I} \stackrel{!}{=} \mathbb{B}_0
+% \end{equation}
+% If one picks enough points that $\mathrm{dim}(\mathbb{B}) > \mathrm{dim}(I)$, then the equation is an over--determined set of linear equations. The solution is found by the ordinary least--squares method.
+
+% Solving the least--squares problem will produce for \emph{any} field $\mathbf{B}_0$
+% \emph{the} optimal coil in the restricted space. I emphasise, that the spatial restriction is
+% may be highly desirable. Especially if a number of coils, each producing different field, is to be would around the volume. In the presented scheme adding a new coil will not cover the \emph{surface of the coils} more densely, as opposed to other schemes in the literature.
+
+% \section{Examples}
+% The simplest magnetic field is a homogeneous one. Figures\,\ref{fig:coils_homogeneous_3d} and \ref{fig:coils_homogeneous_section} show a coil designed for the homogeneous field. The \emph{coil surface} is a $\unit[1]{m^3}$ cube, the \emph{volume of interest} is a $\unit[0.75^3]{m^3}$ cube. The cube has been divided into $5 \times 5 \times 6 = 150$ tiles. The system achieves a 2\% homogeneity in the whole \emph{volume of interest}.
+
+% The full power of this scheme is visible, when the desired $B_0$ field is complicated. One may want to counteract a fixed nearby dipole source. A coil designed for that is presented in Fig.\,\ref{fig:coils_dipole_3d}.
+
+% \begin{figure}
+%   \centering
+%   \subfloat[A coil designed for a homogeneous $50\,\mathrm{\micro T}$ field along the x--axis. A net current along each edge is shown.]{
+%     \label{fig:coils_homogeneous_3d}
+%     \includegraphics[width=.45\linewidth]{gfx/coil_homogeneous}}
+%   \quad
+%   \subfloat[XY section in the middle --- achieved relative compensation of the homogeneous field.]{
+%     \label{fig:coils_homogeneous_section}
+%     \includegraphics[width=.45\linewidth]{gfx/coil_homogeneous_section}}
+%   \\
+%   \subfloat[A coil designed for a dipole disturbance, $3\,\mathrm{kNm/T}$, $2.2\,\mathrm{m}$ away from the centre with 5x5 base tiles per face.]{
+%     \label{fig:coils_dipole_3d}
+%     \includegraphics[width=.45\linewidth]{gfx/coil_dipole}}
+%   \quad
+%   \subfloat[XY section in the middle --- achieved relative compensation of the homogeneous field.]{
+%     \label{fig:coils_dipole_section}
+%     \includegraphics[width=.45\linewidth]{gfx/coil_dipole_section}}
+%   \caption{Coils as a vector space.}
+% \end{figure}
 
 
 \section{A good set of coils for an arbitrary field}
@@ -449,20 +449,20 @@ the inductance of the coils.
 
 
 
-\section{Surrounding Field Compensation in the nEDM experiment}
-The main challenge of the nEDM experiment is reaching a magnetic field stability on the picotesla level on a timescale of minutes. At the same time the experiment is set up in a research facility, where strong magnets are common. In fact, at the experimental site the compass points in different directions throughout the day.
+% \section{Surrounding Field Compensation in the nEDM experiment}
+% The main challenge of the nEDM experiment is reaching a magnetic field stability on the picotesla level on a timescale of minutes. At the same time the experiment is set up in a research facility, where strong magnets are common. In fact, at the experimental site the compass points in different directions throughout the day.
 
-The main part of attenuation of the magnetic field is done by four layers of \mbox{μ-metal} --- material with very high permeability (around 400\,000). However, \mbox{μ-metal}, being a ferromagnetic, is itself susceptible to become magnetised and and create a magnetic field of its own. In order to keep the magnetisation stable the \mbox{μ-metal} shield has been surrounded by a system of large coils. The coils are driven in a feedback loop with magnetic filed sensors (see Fig.\,\ref{fig:nEDM_SFC}). The system has been described in the paper \citep{Afach2014}.
+% The main part of attenuation of the magnetic field is done by four layers of \mbox{μ-metal} --- material with very high permeability (around 400\,000). However, \mbox{μ-metal}, being a ferromagnetic, is itself susceptible to become magnetised and and create a magnetic field of its own. In order to keep the magnetisation stable the \mbox{μ-metal} shield has been surrounded by a system of large coils. The coils are driven in a feedback loop with magnetic filed sensors (see Fig.\,\ref{fig:nEDM_SFC}). The system has been described in the paper \citep{Afach2014}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=.6\linewidth]{gfx/nEDM_SFC}
-  \caption
-  [Sketch of the nEDM SFC system.]
-  {%FIXME directly copied from the SFC paper
-Sketch of the SFC system consisting of six coils surrounding the Mu-metal magnetic shield of the nEDM spectrometer. The visible outermost layer of the cylindrical shield is mounted in its aluminum support structure.
-The Helmholtz coil pairs are labeled (X+, X-),(X-, Y-) and (Z+,Z-). The coordinate system of the experiment is given at the lower right. Its origin is at the center of the magnetic shield. Three--axis fluxgates (open circles) are mounted on the aluminium support of the experiment and numbered according to the fluxgate nomenclature given in the text. The positions 10 and 50 (full circles) depict previous locations of fluxgates FG 1 and FG 5 referred to in Sec. VB. FG 4 is omitted as it was removed from the system after a sensor failure.}
-  \label{fig:nEDM_SFC}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=.6\linewidth]{gfx/nEDM_SFC}
+%   \caption
+%   [Sketch of the nEDM SFC system.]
+%   {%FIXME directly copied from the SFC paper
+% Sketch of the SFC system consisting of six coils surrounding the Mu-metal magnetic shield of the nEDM spectrometer. The visible outermost layer of the cylindrical shield is mounted in its aluminum support structure.
+% The Helmholtz coil pairs are labeled (X+, X-),(X-, Y-) and (Z+,Z-). The coordinate system of the experiment is given at the lower right. Its origin is at the center of the magnetic shield. Three--axis fluxgates (open circles) are mounted on the aluminium support of the experiment and numbered according to the fluxgate nomenclature given in the text. The positions 10 and 50 (full circles) depict previous locations of fluxgates FG 1 and FG 5 referred to in Sec. VB. FG 4 is omitted as it was removed from the system after a sensor failure.}
+%   \label{fig:nEDM_SFC}
+% \end{figure}
 
-The SFC system operates since 2013, attenuating the magnetic field by factor more than 5, even during ramping of nearby magnets.
+% The SFC system operates since 2013, attenuating the magnetic field by factor more than 5, even during ramping of nearby magnets.
