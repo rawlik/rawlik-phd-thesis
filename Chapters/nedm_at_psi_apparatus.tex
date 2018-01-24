@@ -33,21 +33,22 @@ The purpose of rest of the components, which is, in fact, the majority, is eithe
 
 
 \section{Magnetic fields}
-Recall the principle of the measurement, as depicted in Fig.\,\ref{fig:nEDM_measurement_principle}. $d_n$ is proportional to the difference in measured energy separations between the field configurations. Let us ask ourselves the following question: how big is a change in the magnetic field that causes a comparable change in the separation of the states?
+% Recall the principle of the measurement, as depicted in Fig.\,\ref{fig:nEDM_measurement_principle}. $d_n$ is proportional to the difference in measured energy separations between the field configurations. Let us ask ourselves the following question: how big is a change in the magnetic field that causes a comparable change in the separation of the states?
 
-The per-cycle sensitivity of the experiment was in the order of \SI{e-27}{\elementarycharge\centi\meter}. This corresponds to an energy
-\begin{equation}
-  \Delta_{E\uparrow\downarrow} = 4 d_n E = \SI{4e-27}{\elementarycharge\centi\meter} \ \frac{ \SI{132}{\kilo\volt} }{ \SI{12}{\centi\meter} } = \SI{4.4e-23}{\electronvolt} \ .
-\end{equation}
-With the neutron magnetic dipole moment
-\begin{equation}
-  \mu_n = \SI{-9.7e-27}{\joule\per\tesla} = \SI{-6e-8}{\electronvolt\per\tesla} \ ,
-\end{equation}
-the size of a change in magnetic field corresponding to this energy is
-\begin{equation}
-  \frac{ \Delta_{E\uparrow\downarrow} }{2 \mu_n} = \SI{3.7e-16}{\tesla} = \SI{0.37}{\femto\tesla} \ .
-\end{equation}
-This is about the strength of the magnetic field of a car passing several kilometers away. Even in the most quiet of nights the magnetic field at the experimental site was not more stable than about a nanotesla, and during a day the variations reached tens of microteslas.
+% The per-cycle sensitivity of the experiment was in the order of \SI{e-27}{\elementarycharge\centi\meter}. This corresponds to an energy
+% \begin{equation}
+%   \Delta_{E\uparrow\downarrow} = 4 d_n E = \SI{4e-27}{\elementarycharge\centi\meter} \ \frac{ \SI{132}{\kilo\volt} }{ \SI{12}{\centi\meter} } = \SI{4.4e-23}{\electronvolt} \ .
+% \end{equation}
+% With the neutron magnetic dipole moment
+% \begin{equation}
+%   \mu_n = \SI{-9.7e-27}{\joule\per\tesla} = \SI{-6e-8}{\electronvolt\per\tesla} \ ,
+% \end{equation}
+% the size of a change in magnetic field corresponding to this energy is
+% \begin{equation}
+%   \frac{ \Delta_{E\uparrow\downarrow} }{2 \mu_n} = \SI{3.7e-16}{\tesla} = \SI{0.37}{\femto\tesla} \ .
+% \end{equation}
+% This is about the strength of the magnetic field of a car passing several kilometers away. Even in the most quiet of nights the magnetic field at the experimental site was not more stable than about a nanotesla, and during a day the variations reached tens of microteslas.
+Intro paragraph about the importance of the magnetic field stability.
 
 As the first countermeasure the vacuum chamber, with the chamber where the neutrons precessed, was covered by four layers of highly permeable material, called $\upmu$-metal. Each layer attenuated the magnetic field changes by a factor approximately ten. High magnetic permeability of $\upmu$-metal makes the magnetic field much rather go inside the metal and around the volume it encloses, than to penetrate into the volume. Even though $\upmu$-metal provided excellent shielding properties, it is a ferromagnetic: it distorts the field both outside and inside the shield. As it can be magnetised, it had to be regularly demagnetised.
 
@@ -106,7 +107,7 @@ $\Delta$ encapsulates all higher-order terms and systematic effects. In particul
 
 To get the $d_n$ estimate the electric field needed to be modulated. The experiment automatically reversed the polarisation of the electric field every 72 cycles. In between the two polarisations a few cycles were measured without the electric field (a total of 10\% of the data, which are not sensitive to the nEDM). Then a linear model of  $R$ vs. $E$ yielded an estimate of $d_n$ (Eq.\,\ref{eq:Rdefinition}).
 
-Those estimates, however, still contained a large contribution of a systematic effect. As a result of a conspiracy between radial magnetic field components and rotating magnetic components arising from the Lorentz transformation of the large applied electric field into the rest frame of the mercury atoms, a frequency shift proportional to the applied electric field was observed, mimicking the effect of a non-zero electric dipole moment of the neutron --- a “false EDM”. This effect is, however, directly proportional to the gradient of the applied vertical magnetic field dBz/dz, and reverses with the sign of the applied magnetic field. The false EDM effect has been analysed in more detail in \note{cite false edm paper(s)} and a direct measurement of this effect was made in \note{cite false edm measurement}. 
+Those estimates, however, still contained a large contribution of a systematic effect. As a result of a conspiracy between radial magnetic field components and rotating magnetic components arising from the Lorentz transformation of the large applied electric field into the rest frame of the mercury atoms, a frequency shift proportional to the applied electric field was observed, mimicking the effect of a non-zero electric dipole moment of the neutron --- a “false EDM”. This effect is, however, directly proportional to the gradient of the applied vertical magnetic field dBz/dz, and reverses with the sign of the applied magnetic field. The false EDM effect has been analysed in more detail in \cite{Pendlebury2004,PhysRevA.71.032104,PhysRevA.73.014101} and a direct measurement of this effect was made in~\cite{Afach2015falseEDM}. 
 
 The solution was to operate in different gradients and then interpolate to the effect-free zero gradient. Every few hundred cycles a different gradient (up to \SI{60}{\pico\tesla\per\centi\meter}) was set.
 %We set the magnetic configuration (homogenise the field, maybe mention the variometer method), apply a gradient (one of i don't remember how many), calibrate the Cs magnetometers (marginnote why) and measure continuously cycle after cycle in this configuration.
