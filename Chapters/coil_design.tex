@@ -70,7 +70,7 @@ In this system a coil is fully described by a vector of $N$ currents, one in eac
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{gfx/coils/tile_basis.pdf}
+  \includegraphics[width=0.6\linewidth]{gfx/coils/tile_basis.pdf}
   \caption{a) A basis of four tile coils on a flat square. Any coil which has its wires restricted to lie on the $2 \times 2$ grid can be represented as a linear combination of the four base tile coils. b, c, d) Three coils are presented together with their explicit coordinates in the basis.}
   \label{fig:coils_tile_basis}
 \end{figure}
@@ -116,7 +116,7 @@ Depending on the properties of $\mathbb{M}$ the optimum may be multidimensional.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/coils/homogeneous_tiles_norm_1000.pdf}
+  \includegraphics[width=0.6\linewidth]{gfx/coils/homogeneous_tiles_norm_1000.pdf}
   \caption{A solution of a tile system with $N = 6 \times (3 \times 3)$ tiles on a unit cube for a homogeneous field. The volume of interest is a cube with side length 0.75, centered inside the unit cube. Numbers indicate currents in the tile coils in arbitrary units. The currents are normalized so that the highest is 1000. For clarity, the coils are depicted slightly smaller; in the model their edges overlap. The currents on the three invisible faces are by symmetry analogous to the visible ones.}
   \label{fig:homogeneous_tiles}
 \end{figure}
@@ -233,14 +233,11 @@ Third, the unique property of designing on a predefined grid makes the large-sca
 \section{Conclusion}
 Coil design is a complicated and very technical problem, especially when high accuracy is required. We presented a method that is simple in terms of both underlying math and computational effort. We believe that the design method can find its niche in practical applications, where spatial constraints play a significant role and a percent level in accuracy of the produced field is acceptable.
 
-For the sake of clarity we explained the method on a simple example. We designed a coil for a homogeneous field with only few tiles. However, the method is much more powerful. We conclude by presenting, in
-\note{Need to find a way to put that figure in}
-% Figs.\,\ref{fig:coils_arb_3d} and \ref{fig:coils_arb_3d},
-a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source. \note{Could not manage to put those figure in - the document stops to compile. Leave it for now.}
+For the sake of clarity we explained the method on a simple example. We designed a coil for a homogeneous field with only few tiles. However, the method is much more powerful. We conclude by presenting, in Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source.
 
-We publish the software implementation of the coil design, including examples, as open-source \cite{Coilsjlcode}.
+We publish the software implementation of the coil design, including examples, as open-source~\cite{Coilsjlcode}.
 
-We would like to thank Georg Bison, Allard Schnabel and other members of the nEDM at PSI collaboration for fruitful discussions. This work was supported by the Swiss National Science Foundation under grant 200020\_162574.
+We would like to thank Georg Bison, Allard Schnabel and other members of the nEDM at PSI collaboration for fruitful discussions. This work was supported by the Swiss National Science Foundation under grants 200020\_162574 and 200020\_172639.
 
 \begin{figure*}
   \centering
