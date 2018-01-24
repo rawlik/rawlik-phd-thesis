@@ -4,27 +4,27 @@
 
 
 \section{The principle of an active magnetic shielding}
-\note{This is the first time the idea of an active compensation system is introduced! Need to be slow here.}
-Passive methods of shielding the magnetic field, like $\upmu$-metal shields, rely on magnetic properties of materials. In contrast, in active methods the disturbances are first detected, processed and then counteracted. It is not unlike the recently popular active-noise-cancellation headphones. Standard ones provide only passive damping of the ambient noise by covering the ears. Active ones additionally feature microphones that resolve the profile of incoming sound, which is then inverted and emitted from the speakers. The two waveforms, when overlaid, cancel.
-
-Active magnetic field compensation systems follow the same principle. A volume, sometimes called the fiducial volume, is encircled by coils, as well as has magnetic field sensors distributed in it. It is schematically presented in Fig.\,\ref{fig:sfc-scheme}: the fiducial volume is the violet structure in the middle, encircled by green dots depicting the magnetic field sensors. Around it there are three perpendicular Helmholtz-like pairs of coils, depicted in shades of orange. Variations of the magnetic field are detected by the sensors and processed to obtain the counteracting measure. The output signals are amplified and sent into the coils.
+Passive methods of shielding the magnetic field, like $\upmu$-metal shields, rely on magnetic properties of materials. In contrast, in active methods the disturbances are first detected, processed and then counteracted. It is not unlike the recently popular active-noise-cancellation headphones. Standard ones provide only passive damping of the ambient noise by covering the ears. Active headphones additionally feature microphones that resolve the profile of incoming sound, which is then inverted and emitted from the speakers. The two waveforms, when overlaid, cancel.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{gfx/nEDM_SFC/SFCplain.pdf}
-  \caption{\ldots. Adapted from~\cite{Franke2013}.1}
+  \caption{The nEDM-at-PSI active magnetic field compensation system. The experiment, in violet, is in the middle, with nine magnetic field sensors, depicted as green circles, attached to it. Everything is encircled by six coils (orange). Adapted from~\cite{Franke2013}.}
   \label{fig:sfc-scheme}
 \end{figure}
 
+Active magnetic field compensation systems follow the same principle. A volume, often called the fiducial volume, is encircled by coils, additionally to having magnetic field sensors distributed in it. It is schematically presented in Fig.\,\ref{fig:sfc-scheme}, taking the nEDM-at-PSI's system as the example: the fiducial volume is the violet structure in the middle, encircled by green dots depicting the magnetic field sensors. Around it there are three perpendicular Helmholtz-like pairs of coils, depicted in shades of orange. Variations of the magnetic field are detected by the sensors and a counteraction is calculated. The action, in form of output signals, is amplified and sent into the coils.
+
 Active shields do not substitute passive ones. The shielding factor
-\marginpar{Shielding factor, measured in \si{\decibel} is the ratio of the power in the magnetic field outside the shield to the one inside.} of passive shields degrades by as much as \SI{40}{\decibel} (two orders of magnitude in amplitude) for frequencies slower than \SIrange[range-phrase = --]{1}{10}{\hertz}~\cite{Brake1991}. At the same time the active systems perform best at DC and reach up to the kilohertz regime. The combination of the two provides a stable magnetic field over the whole range of frequencies~\cite{Kelha1982,Brake1991,Voigt2013}.
+\marginpar{Shielding factor, measured in \si{\decibel} is the ratio of the power in the magnetic field outside the shield to the one inside.} of passive shields degrades by as much as \SI{40}{\decibel} (two orders of magnitude in amplitude) for frequencies slower than \SIrange[range-phrase = --]{1}{10}{\hertz}~\cite{Brake1991}. At the same time the active systems perform best at DC and reach up to the kilohertz regime. The combination of the two provides a stable magnetic field over the whole range of frequencies~\cite{Brake1991,Kelha1982,Voigt2013}.
 
-In the overlapping range of frequencies, where the two kinds of magnetic shielding could compete, the two advantages of the active shielding would certainly be the cost and accessibility of the enclosed volume. \note{disadvantage: the high-order changes}
+Since 1980s numerous active magnetic field compensation systems have been built \cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. The applications span from ion beams, through biomagnetism, all the way to nEDM measurements. The system built for the nEDM-at-PSI project is the focus of this chapter.
 
-Numerous active magnetic field compensation systems have been built \cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. The last one, built for the nEDM@PSI experiment, is the focus of this chapter.
+\note{Don't discuss it here: In the overlapping range of frequencies, where the two kinds of magnetic shielding could compete, the two advantages of the active shielding would certainly be the cost and accessibility of the enclosed volume.}
 
 
-\section{The nEDM SFC system}
+
+\section{The nEDM-at-PSI SFC system}
 The construction of nEDM@PSI active magnetic field compensation system, called the SFC (Surrounding Field Compensation) system,
 \marginpar{There is an inside joke that SFC really stands for SULTAN Field Compensation, SULTAN being the magnet with by far the strongest influence on the magnetic field.}
 was a part of Beatrice Franke's PhD thesis~\cite{Franke2013} (later also published~\cite{Afach2014}). Thorough description of the system, as well as detailed characterisation, can be found there.
@@ -84,7 +84,7 @@ The SFC matrix used during the data taking of the nEDM experiment (2014, 15 and 
 Let us elaborate on regularisation. The SFC matrix represents coefficients in a set of linear equations that need to be solved in order to determine the best currents to apply for a given goal field. As the set of equation is over--determined, the best solution is found by the least--squares, which is exactly equivalent to calculating the pseudoinverse matrix. A solution can be found reliably if the system is well--defined, i.e. the solution ,,dip'' is steep in every direction in the parameter space. If the ,,dip'' becomes a valley in some directions, the solution is not globally well--defined, although it still may be defied up to a parameter (the one pointing in the direction of the valley). We then speak of an ill--defined set of equations, or an ill--defined matrix. Regularisation helps ill--defined problem to become better, at the cost of the least--squares in the solution.
 
 
-A real matrix $\mathbb{M}$ may be decomposed into $\mathbb{M} = \mathbb{U} \mathbb{S} \mathbb{V}^T$, where $\mathbb{U}$ and $\mathbb{V}$ are unitary, and $\mathbb{S}$ is diagonal. This is called the \emph{Singular Value Decomposition} (SVD). The singular values lie on the diagonal of $\mathbb{S}$, which is call the \emph{spectrum}. The spectrum of the SFC matrix is of uttermost importance. Pseudoinverting a matrix with small singular values is an ill--posed problem similar, as inverting small numbers.
+A real matrix $\mathbb{M}$ may be decomposed into $\mathbb{M} = \mathbb{U} \mathbb{S} \mathbb{V}^T$, where $\mathbb{U}$ and $\mathbb{V}$ are unitary, and $\mathbb{S}$ is diagonal. This is called the \emph{Singular Value Decomposition} (SVD). The singular values lie on the diagonal of $\mathbb{S}$, which is call the \emph{spectrum}. The spectrum of the SFC matrix is of uttermost importance. Pseudo-inverting a matrix with small singular values is an ill--posed problem similar, as inverting small numbers.
 
 One defines the \emph{condition number} of a matrix as the ratio of extreme values of its spectrum. For a matrix with a flat spectrum, all singular values equal, the condition number is 1 and the set of linear equations this matrix represents is well defined. The more they differ, the higher the condition number and the worse defined the problem is. The effect in the solution is that noise in the original matrix becomes amplified by the condition number in the pseudoinverse.
 
