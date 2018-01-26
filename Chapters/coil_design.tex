@@ -5,7 +5,7 @@
 \section{Introduction}
 How to design a coil, or more generally, an arrangement of coils, producing a desired magnetic field? In its simplest form this is a textbook problem (e.g. ex. 6.55 and 6.62 in~\cite{Purcell}). Yet, in a general setting it is surprisingly hard and the solutions, how the wires making up the coils should be laid, complicated. The most widespread application of high-performance coils is Magnetic Resonance Imaging (MRI), where gradient coils give the possibility to produce spatial images. Already in the 1980's elaborate methods of MRI coil design have been developed. They range from optimizing positions of discrete windings, where the use is made of symmetries specific to MRI, to analytical methods yielding surface current density, which is then discretized. A general overview can be found in~\cite{Turner1993}. Another field known for complex, precise coils is plasma confinement, in particular stellarators~\cite{Beidler1990}. There analytical solutions for the surface current density find their use, too.
 
-\note{Cite also this: \cite{Del-Pino-Lopez2015}, they use a genetic algorithm to optimize the coils.}4
+\note{Cite also this: \cite{Del-Pino-Lopez2015}, they use a genetic algorithm to optimize the coils.}
 
 Here, we present a new method that may not be competitive in terms of precision, but is distinct in its simplicity, also when it comes to construction of its designs. It relies on an algebraic representation of the problem, where coil design is simplified to a simple linear least squares problem. In our method the coils are restricted to a user--defined mesh, making it easy to deal with spatial constraints.
 
@@ -214,6 +214,36 @@ Yet another way is to split the loops into decades of currents. In the coil we u
 In this way one can reach better than 1\% accuracy in reproducing the solution in practice with only 3 different currents to control, even for complicated designs. Those can be either separately controlled or split with a current divider.
 
 We do not consider any of the above ways superior. It is up to the particular application which is the best suited one.
+
+
+
+\section{A good set of coils for an arbitrary field}
+When one wants to be able to produce an arbitrary field, it is best to use an orthogonal expansion, in analogy to the Taylor expansion for functions. Furthermore, it is desired that the terms of the expansions are natural for the system considered (as spherical harmonics used to describe the wavefunctions of electrons in atomic systems are solutions to the Schrödinger equation themselves). Also, from the point of view of control, it is much easier to control an orthogonal system. See eg. \,\citep{Branch1984} for detailed motivation (really?). In an expansion one can gradually improve the system.
+
+Such an expansion exists: \emph{carthesian harmonic polynomials}.
+\begin{equation}
+  \mathbf{B}(\mathbf{r}) = \sum_{n}\,H_n\mathbf{P}_n(\mathbf{r})
+\end{equation}
+where $H_n$ are the expansion coefficients. They satisfy Maxwell's equations, so it is always theoretically possible to create a coil that produces the eigenfunctions. The table~\ref{tab:coils_carthesian_harmonics} presents first few of them.
+
+\begin{table}
+  \centering
+  \begin{tabular}{c|ccc}
+    n & $P_n^x(\mathbf{r})$ & $P_n^y(\mathbf{r})$ & $P_n^y(\mathbf{r})$ \\ \hline
+    1 & 1 & 0 & 0 \\
+    2 & 0 & 1 & 0 \\
+    3 & 0 & 0 & 1 \\ \hline
+    4 & $x$ &  0  & $-z$ \\
+    5 & $y$ & $x$ &   0  \\
+    6 &  0  & $y$ & $-z$ \\
+    7 & $z$ &  0  & $ x$ \\
+    8 &  0  & $z$ & $-y$ \\
+  \end{tabular}
+  \caption{Carthesian harmonic polynomials.}
+  \label{tab:coils_carthesian_harmonics}
+\end{table}
+
+The first three terms are homogeneous fields. Further five are the five independent gradients.
 
 
 

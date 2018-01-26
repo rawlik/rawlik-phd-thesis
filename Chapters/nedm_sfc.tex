@@ -107,36 +107,6 @@ It is to note that the feedback matrix is defined solely by the configuration of
 
 
 
-\section{A good set of coils for an arbitrary field}
-When one wants to be able to produce an arbitrary field, it is best to use an orthogonal expansion, in analogy to the Taylor expansion for functions. Furthermore, it is desired that the terms of the expansions are natural for the system considered (as spherical harmonics used to describe the wavefunctions of electrons in atomic systems are solutions to the Schrödinger equation themselves). Also, from the point of view of control, it is much easier to control an orthogonal system. See eg. \,\citep{Branch1984} for detailed motivation (really?). In an expansion one can gradually improve the system.
-
-Such an expansion exists: \emph{carthesian harmonic polynomials}.
-\begin{equation}
-  \mathbf{B}(\mathbf{r}) = \sum_{n}\,H_n\mathbf{P}_n(\mathbf{r})
-\end{equation}
-where $H_n$ are the expansion coefficients. They satisfy Maxwell's equations, so it is always theoretically possible to create a coil that produces the eigenfunctions. The table~\ref{tab:coils_carthesian_harmonics} presents first few of them.
-
-\begin{table}
-  \centering
-  \begin{tabular}{c|ccc}
-    n & $P_n^x(\mathbf{r})$ & $P_n^y(\mathbf{r})$ & $P_n^y(\mathbf{r})$ \\ \hline
-    1 & 1 & 0 & 0 \\
-    2 & 0 & 1 & 0 \\
-    3 & 0 & 0 & 1 \\ \hline
-    4 & $x$ &  0  & $-z$ \\
-    5 & $y$ & $x$ &   0  \\
-    6 &  0  & $y$ & $-z$ \\
-    7 & $z$ &  0  & $ x$ \\
-    8 &  0  & $z$ & $-y$ \\
-  \end{tabular}
-  \caption{Carthesian harmonic polynomials.}
-  \label{tab:coils_carthesian_harmonics}
-\end{table}
-
-The first three terms are homogeneous fields. Further five are the five independent gradients.
-
-
-
 
 \section{Design challenges for n2EDM}
 Give the situational plan.
