@@ -3,12 +3,6 @@
 \label{ch:coil_design}
 
 \section{Introduction}
-An active magnetic field compensation system has a fixed set of coils. With them, it can only compensate these fields, which the coils can create. For example, it is natural to expect most of the variations in the field to come from sources that are far away, so that they are approximately homogeneous.
-To compensate them, the coils need to create a homogeneous counteracting field.
-However, for a pair of Helmholtz coils the size of the volume where the field is homogeneous on a 2\% level is only around 0.4 that of the size of the coils~\cite{Kirschvink1992}. In other words, an active compensation system can only stabilise the  field in a limited volume.
-
-In nEDM-at-PSI the size of the coils was \SIrange[range-phrase = --]{6}{8}{\meter}, while the outermost $\upmu$-metal shield of the experiment was only around \SI{2}{\meter} large. In the n2EDM the shield is going to be \SI{5}{\meter} large, while the experimental area can hardly accommodate larger coils. So for the design of the n2EDM's active shielding it was necessary to come up with coils that would the field to be compensated in the whole volume occupied by the shield.
-
 How to design a coil, or more generally, an arrangement of coils, producing a desired magnetic field? In its simplest form this is a textbook problem (e.g. ex. 6.55 and 6.62 in~\cite{Purcell}). Yet, in a general setting it is surprisingly hard and the solutions, how the wires making up the coils should be laid, complicated. The most widespread application of high-performance coils is Magnetic Resonance Imaging (MRI), where gradient coils give the possibility to produce spatial images. Already in the 1980's elaborate methods of MRI coil design have been developed. They range from optimizing positions of discrete windings, where the use is made of symmetries specific to MRI, to analytical methods yielding surface current density, which is then discretized. A general overview can be found in~\cite{Turner1993}. Another field known for complex, precise coils is plasma confinement, in particular stellarators~\cite{Beidler1990}. There analytical solutions for the surface current density find their use, too.
 
 \note{Cite also this: \cite{Del-Pino-Lopez2015}, they use a genetic algorithm to optimize the coils.}4
@@ -366,34 +360,6 @@ We would like to thank Georg Bison, Allard Schnabel and other members of the nED
 %   \caption{Coils as a vector space.}
 % \end{figure}
 
-
-\section{A good set of coils for an arbitrary field}
-When one wants to be able to produce an arbitrary field, it is best to use an orthogonal expansion, in analogy to the Taylor expansion for functions. Furthermore, it is desired that the terms of the expansions are natural for the system considered (as spherical harmonics used to describe the wavefunctions of electrons in atomic systems are solutions to the Schrödinger equation themselves). Also, from the point of view of control, it is much easier to control an orthogonal system. See eg. \,\citep{Branch1984} for detailed motivation (really?). In an expansion one can gradually improve the system.
-
-Such an expansion exists: \emph{carthesian harmonic polynomials}.
-\begin{equation}
-  \mathbf{B}(\mathbf{r}) = \sum_{n}\,H_n\mathbf{P}_n(\mathbf{r})
-\end{equation}
-where $H_n$ are the expansion coefficients. They satisfy Maxwell's equations, so it is always theoretically possible to create a coil that produces the eigenfunctions. The table~\ref{tab:coils_carthesian_harmonics} presents first few of them.
-
-\begin{table}
-  \centering
-  \begin{tabular}{c|ccc}
-    n & $P_n^x(\mathbf{r})$ & $P_n^y(\mathbf{r})$ & $P_n^y(\mathbf{r})$ \\ \hline
-    1 & 1 & 0 & 0 \\
-    2 & 0 & 1 & 0 \\
-    3 & 0 & 0 & 1 \\ \hline
-    4 & $x$ &  0  & $-z$ \\
-    5 & $y$ & $x$ &   0  \\
-    6 &  0  & $y$ & $-z$ \\
-    7 & $z$ &  0  & $ x$ \\
-    8 &  0  & $z$ & $-y$ \\
-  \end{tabular}
-  \caption{Carthesian harmonic polynomials.}
-  \label{tab:coils_carthesian_harmonics}
-\end{table}
-
-The first three terms are homogeneous fields. Further five are the five independent gradients.
 
 
 \section{Construction}
