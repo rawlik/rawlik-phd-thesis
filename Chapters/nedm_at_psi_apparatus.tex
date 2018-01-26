@@ -2,20 +2,21 @@
 \label{ch:nedm-at-psi-apparatus}
 
 % \section{The collaboration}
-The nEDM-at-PSI collaboration \note{name?} has been founded to perform an nEDM measurement in the Paul Scherrer Institute (PSI) in Villigen, Switzerland. The experiment was planned in two stages. In the first stage, the apparatus used by the RAL--Sussex--ILL collaboration was moved to PSI, where it was installed to benefit from a new source of ultracold neutrons. The first stage finished in Autumn 2017, after having collected enough statistics to set the world's best limit, as depicted in Fig.\,\ref{fig:nEDM_accumulated_sensitivity}. As of Spring 2018 the analysis is still ongoing.
+The nEDM-at-PSI collaboration \note{name?} has been founded to perform an nEDM measurement in the Paul Scherrer Institute (PSI) in Villigen, Switzerland. The experiment was planned in two stages. In the first stage, the apparatus used in the ILL experiment was moved to PSI, where it was installed to benefit from a new, highly intense source of ultracold neutrons~\cite{Lauss2014}. The first stage finished in Autumn 2017, after having collected enough statistics to set the world's best limit (Fig.\,\ref{fig:nEDM_accumulated_sensitivity}). As of Spring 2018 the analysis is still ongoing.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/nEDMatPSI/accumulated_sensitivity.pdf}
-  \caption{The accumulated statistical sensitivity of the nEDM-at-PSI experiment. The sensitivity of the data collected in 2015 is shown in green, of 2015 and 2016 in blue, and only 2016 in violet. The dashed region marks the yet unexplored area below the best limit. Courtesy of Dr. Philipp Schmidt-Wellenburg.}
+  \includegraphics[width=0.8\linewidth]{gfx/nEDMatPSI/accumulated_sensitivity.pdf}
+  \caption{The accumulated statistical sensitivity of the nEDM-at-PSI experiment. The sensitivity of the data collected in 2015 is shown in green, of 2015 and 2016 in blue, and only 2016 in violet. The dashed region marks the yet unexplored area below the best limit~\cite{Pendlebury2015}. Courtesy of Dr. Philipp Schmidt-Wellenburg.}
   \label{fig:nEDM_accumulated_sensitivity}
 \end{figure}
 
-Already in the first stage the apparatus underwent numerous improvements, leaving only few parts of the original. The improvements were part of the research and development plan for the second stage: a newly built apparatus. The new experiment, designed by the personnel experienced with running, modifying and improving the first stage experiment, has the goal of exploring the \SI{e-27}{\elementarycharge\centi\meter} range.
+Already in the first stage the apparatus underwent numerous improvements, leaving only few parts of the original. The improvements were part of the research and development plan for the second stage, a newly built apparatus called n2EDM. The new experiment, designed by the personnel experienced with running, modifying and improving the first stage, has the goal of exploring the \SI{e-27}{\elementarycharge\centi\meter} range.
 
 
 \section{The apparatus}
-This work focuses on the stage-one apparatus, which we now proceed do describe. A diagram of the system is shown in Fig.\,\ref{fig:nEDM_scheme}.
+This work focuses on the stage-one apparatus, which we now proceed do describe. A
+The stage-one apparatus employed the Ramsey method with ultracold neutrons stored for the time of the precession. The neutrons produced in the source were guided with a pipe system into the storage chamber, where they underwent the Ramsey procedure. The polarisation was then measured by letting the neutrons fall into a spin-state--sensitive neutron detector. A diagram of the system is shown in Fig.\,\ref{fig:nEDM_scheme}.
 
 \begin{figure}
   \centering
@@ -24,48 +25,38 @@ This work focuses on the stage-one apparatus, which we now proceed do describe. 
   \label{fig:nEDM_scheme}
 \end{figure}
 
-A single measurement cycle was triggered by a pulse of ultracold neutrons incoming from the PSI source. The neutrons were guided in metal-coated glass pipes. First they were polarised by passing a five-tesla magnet. Then a rotary three-directional valve, the switch, directed the neutrons upwards into a vacuum tank, where they filled the \SI{12}{\centi\meter}-high cylindrical \emph{precession chamber}. The chamber was submerged in a \SI{1}{\micro\tesla} vertical magnetic field $B_0$. From top and bottom the chamber was closed by high-voltage electrodes, charged to \SI{132}{\kilo\volt}, which created the electric field in the chamber. Once the neutrons filled the cylinder, the entrance was then shut and they were stored there for around \SI{200}{\second}, while undergoing the Ramsey procedure (Fig.\,\ref{fig:nEDM_Ramsey_principle}).
+A single measurement cycle was triggered by a pulse of ultracold neutrons incoming from the PSI source. The neutrons were guided in metal-coated glass pipes. First they were polarised by passing a five-tesla magnet. Then a rotary three-way valve, the switch, directed the neutrons upwards into a vacuum tank, where they filled a \SI{12}{\centi\meter}-high cylindrical precession chamber. The chamber was submerged in a \SI{1}{\micro\tesla} vertical magnetic field $B_0$. The chamber was sandwiched between high-voltage electrodes, charged to \SI{132}{\kilo\volt}, which created the electric field in the chamber. Once the neutrons filled the cylinder, the entrance was shut close and the particles were stored for around \SI{200}{\second}, while undergoing the Ramsey procedure.
 
-First a pulse of oscillating, transverse field was applied, with its amplitude and length tuned, so that the the neutrons' spins flip from the vertical orientation, along the $B_0$ field, to the horizontal plane. This set the spins into Larmor precession. After \SI{180}{\second} a second pulse, in phase with the first one, was applied. Then the chamber's entrance was opened, and the neutrons were allowed to fall through a switch and a spin analyser into the neutron detector.
-\marginpar{The nEDM-at-PSI experiment the neutrons were dropped into two-armed detector, capable of counting both spin states simultaneausly~\cite{Afach2015USSA}.}
+First, a pulse of oscillating transverse field was applied, with its amplitude and length tuned, so that the the neutrons' spins flip from the vertical orientation, along the $B_0$ field, to the horizontal plane. This set the spins into a Larmor precession.
+\marginpar{The nEDM-at-PSI experiment the neutrons were dropped into two-armed detector, capable of counting both spin states simultaneously~\cite{Afach2015USSA}.}
+After \SI{180}{\second} a second pulse, in phase with the first one, was applied. Then the chamber's entrance was opened, and the neutrons were allowed to fall through the switch and a spin analyser into the neutron detector.
 
-The purpose of rest of the components, which is, in fact, the majority, is either providing a stable magnetic field environment or measuring the field.
+
+The purpose of rest of the components, the majority, in fact, is either providing a stable magnetic field environment in the precession chamber or measuring the field.
+
+
 
 
 \section{Magnetic fields}
-% Recall the principle of the measurement, as depicted in Fig.\,\ref{fig:nEDM_measurement_principle}. $d_n$ is proportional to the difference in measured energy separations between the field configurations. Let us ask ourselves the following question: how big is a change in the magnetic field that causes a comparable change in the separation of the states?
+The most important measure of stabilising the magnetic field is passive shielding. The vacuum tank, with the precession chamber in it, was covered by four layers of highly permeable material, called $\upmu$-metal.
+\marginpar{The exact attenuation factor of the shield depended on the direction and varied from 1600 to 13300~\cite{Komposch2017}.}
+Each layer attenuated the magnetic field changes by a factor approximately ten. High magnetic permeability of the $\upmu$-metal makes the magnetic field much rather go inside the metal and around the volume it encloses, than to penetrate into the volume. Even though $\upmu$-metal provided excellent shielding properties, it is a ferromagnetic: it distorts the field both outside and inside the shield. Also it had to be regularly demagnetised.
 
-% The per-cycle sensitivity of the experiment was in the order of \SI{e-27}{\elementarycharge\centi\meter}. This corresponds to an energy
-% \begin{equation}
-%   \Delta_{E\uparrow\downarrow} = 4 d_n E = \SI{4e-27}{\elementarycharge\centi\meter} \ \frac{ \SI{132}{\kilo\volt} }{ \SI{12}{\centi\meter} } = \SI{4.4e-23}{\electronvolt} \ .
-% \end{equation}
-% With the neutron magnetic dipole moment
-% \begin{equation}
-%   \mu_n = \SI{-9.7e-27}{\joule\per\tesla} = \SI{-6e-8}{\electronvolt\per\tesla} \ ,
-% \end{equation}
-% the size of a change in magnetic field corresponding to this energy is
-% \begin{equation}
-%   \frac{ \Delta_{E\uparrow\downarrow} }{2 \mu_n} = \SI{3.7e-16}{\tesla} = \SI{0.37}{\femto\tesla} \ .
-% \end{equation}
-% This is about the strength of the magnetic field of a car passing several kilometers away. Even in the most quiet of nights the magnetic field at the experimental site was not more stable than about a nanotesla, and during a day the variations reached tens of microteslas.
-Intro paragraph about the importance of the magnetic field stability.
+Inside the shield, on the vacuum chamber, there were a number of coils wound. The main magnetic field $B_0$ was produced by a cos-theta coil.
+\marginpar{In an ensemble precessing in an inhomogenous field, members in different places precess at slightly different rates. This leads to depolarisation by the loss of coherence.}
+Besides, there were numerous others, producing field of various shapes.
+They were, on one hand, used to homogenise the field, which reduced the depolarisation rate of the neutrons,
+and on the other to deliberately apply vertical gradients $\partial_z B_0$. Operating in different gradients was part of the measurement procedure and is explained later in this chapter.
 
-As the first countermeasure the vacuum chamber, with the chamber where the neutrons precessed, was covered by four layers of highly permeable material, called $\upmu$-metal. Each layer attenuated the magnetic field changes by a factor approximately ten. High magnetic permeability of $\upmu$-metal makes the magnetic field much rather go inside the metal and around the volume it encloses, than to penetrate into the volume. Even though $\upmu$-metal provided excellent shielding properties, it is a ferromagnetic: it distorts the field both outside and inside the shield. As it can be magnetised, it had to be regularly demagnetised.
-
-Inside the shield, on the vacuum chamber, there were a number of coils wound. The main magnetic field $B_0$ was produced by a cos-theta coil. Besides, there were numerous other, producing field of various shapes.
-\marginpar{In an ensemble precessing in an inhomogenous field, members in different places precess at slightly different rates. This leads to loss of coherence---depolarisation.}
-They were used to on one hand homogenise the field (which reduced the depolarisation time of the neutrons),
-and on the other to deliberately apply vertical gradients. Operating in different gradients was part of the measurement procedure and is explained later in this chapter.
-
-The stability of the field inside the shield is still the picotesla range. The remaining changes are measured and corrected for. The primary magnetometer in the nEDM-at-PSI experiment was based on mercury. Below the precession chamber there was a cell containing a vapour of polarised $^{199}$Hg atoms, which was released into the precession chamber, once it had been filled with neutrons.
+The stability of the field inside the shield was in the picotesla range. The remaining variations are measured and corrected for, primarily with the mercury-based magnetometer. Below the precession chamber there was a cell containing a vapour of polarised $^{199}$Hg atoms, which was released into the precession chamber once it had been filled with neutrons.
 \marginpar{In the \SI{1}{\micro\tesla} $B_0$ field the precession frequencies of neutrons and $^{199}$Hg atoms are approximately \SI{30}{\hertz} and \SI{8}{\hertz}, respectively. The respective spin-flip pulses affect the other spices only very slightly.}
-There a dedicated spin-flip pulse of an oscillating transverse magnetic field started their coherent precession. The precession of the mercury atoms was read on-line optically. A mercury discharge lamp shone a circularly polarised light through the precession chamber onto a photomultiplier tube. As the mercury atoms' photon-capture cross-section depended on the phase of the precession, the transparency of the chamber to the polarised light varied together with the precession, resulting in an oscillating signal on the photomultiplier. This signal was then analysed to estimate its frequency, proportional to the $B_0$ field, as averaged by the mercury atoms.
+There, a dedicated spin-flip pulse of an oscillating transverse magnetic field started their coherent precession, which was read on-line optically~\cite{Fertl2013,Komposch2017}. A mercury discharge lamp shone a circularly polarised light through the precession chamber onto a photomultiplier tube. As the mercury atoms' photon-capture cross-section depended on the phase of the precession, the transparency of the chamber to the polarised light oscillated at the mercury's Larmor frequency. The oscillating signal of the photomultiplier was then analysed to estimate its frequency, proportional to the $B_0$ field, as averaged by the mercury atoms.
 
-The mercury comagnetometer may seem a an ideal measure to correct the neutron measurement for the drifts of the magnetic field, as the two spices filled exactly the same volume. Only, not exactly. The ultracold neutrons were slow enough to be affected by the gravity, which shifted their centre of mass around \SI{2.4}{\milli\meter} relative to the homogeneous mercury vapour \note{CITE SOMETHING}. In a presence of a vertical gradient, the two spices saw different fields.
+The mercury comagnetometer may seem a an ideal measure to correct the neutron measurement for the drifts of the magnetic field, as the two spices filled exactly the same volume. Only, not exactly. The ultracold neutrons were slow enough to be affected by the gravity, which shifted their centre of mass around \SI{2.4}{\milli\meter} relative to the homogeneous mercury vapour~\note{Afach2014magmoment}. In a presence of a vertical gradient, the two spices saw different fields. Additional, smaller systematic effects related to this magnetometer, are discussed in~\cite{\note{Afach2014magmoment}.
 
-A way to measure vertical gradients, as well as other high-order components of the magnetic field, was provided by an array of Caesium magnetometers. These around \SI{10}{\centi\meter} large sensors were located inside the electrodes---seven in the top one, nine in the bottom one. Each magnetometer was a cell filled with Caesium vapour, through which a circuraly polarised light, delivered with a light guide, shone at \SI{45}{\degree} inclination angle. The light simultaneously polarised the atoms and, as it met a surface of a photodiode behind the cell, probed their precession. A coil wound around the cell, axial with the light beam, was driven in a feedback loop with the diode's signal to resonantly drive the Larmor precession. Even though the magnetometers measured only the magnitude of the magnetic field, they provided information about the higher-order components of the field thanks to their distribution around the chamber. For example, one could na\"\i vely estimate the vertical gradient $\partial_z B_z$ by evaluating the average readings of the sensors in each electrode, taking the difference and dividing by the vertical separation. Actually, the high-order field terms, including the vertical gradient, were obtained by fitting a second-order parametrization of the magnetic field to the readings of the sensors~\cite{WurstenThesis}.
+A way to measure vertical gradients, as well as other high-order components of the magnetic field, was provided by an array of Caesium magnetometers. These sensors were located inside the electrodes---seven in the top one, nine in the bottom one. Each magnetometer was a cell filled with Caesium vapour, through which a circuraly polarised light, delivered with a light guide, shone at \SI{45}{\degree} inclination angle. The light simultaneously polarised the atoms and, as it met a surface of a photodiode behind the cell, probed their precession. A coil wound around the cell, axial with the light beam, was driven in a feedback loop with the diode's signal to resonantly drive the Larmor precession. Even though the magnetometers measured only the magnitude of the magnetic field, they provided information about the higher-order components of the field thanks to their distribution around the chamber. For example, one could na\"\i vely estimate the vertical gradient $\partial_z B_z$ by evaluating the average readings of the sensors in each electrode, taking the difference and dividing by the vertical separation. Actually, the high-order field terms, including the vertical gradient, were obtained by fitting a second-order parametrization of the magnetic field to the readings of the sensors~\cite{WurstenThesis}.
 
-Now we proceed to explain how all these components come together to perform a measurement of the electric dipole moment of the neutron.
+Now we proceed to explain how all these components came together to perform a measurement of the electric dipole moment of the neutron.
 
 
 
