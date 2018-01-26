@@ -8,55 +8,56 @@ Passive methods of shielding the magnetic field, like $\upmu$-metal shields, rel
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{gfx/nEDM_SFC/SFCplain.pdf}
+  \includegraphics[width=0.7\linewidth]{gfx/nEDM_SFC/SFCplain.pdf}
   \caption{The nEDM-at-PSI active magnetic field compensation system. The experiment, in violet, is in the middle, with nine magnetic field sensors, depicted as green circles, attached to it. Everything is encircled by six coils (orange). Adapted from~\cite{Franke2013}.}
   \label{fig:sfc-scheme}
 \end{figure}
 
-Active magnetic field compensation systems follow the same principle. A volume, often called the fiducial volume, is encircled by coils, additionally to having magnetic field sensors distributed in it. It is schematically presented in Fig.\,\ref{fig:sfc-scheme}, taking the nEDM-at-PSI's system as the example: the fiducial volume is the violet structure in the middle, encircled by green dots depicting the magnetic field sensors. Around it there are three perpendicular Helmholtz-like pairs of coils, depicted in shades of orange. Variations of the magnetic field are detected by the sensors and a counteraction is calculated. The action, in form of output signals, is amplified and sent into the coils.
+Active magnetic field compensation systems follow the same principle. A volume, often called the fiducial volume, is encircled by coils, additionally to having magnetic field sensors distributed in it. It is schematically presented in Fig.\,\ref{fig:sfc-scheme}, taking the nEDM-at-PSI's system as the example: the fiducial volume is the violet structure in the middle, encircled by green dots depicting the magnetic field sensors. Around it there are three perpendicular Helmholtz-like pairs of coils, depicted in shades of orange. Variations of the magnetic field are detected by the sensors, an appropriate counteraction is calculated and sent into the coils.
 
 Active shields do not substitute passive ones. The shielding factor
-\marginpar{Shielding factor, measured in \si{\decibel} is the ratio of the power in the magnetic field outside the shield to the one inside.} of passive shields degrades by as much as \SI{40}{\decibel} (two orders of magnitude in amplitude) for frequencies slower than \SIrange[range-phrase = --]{1}{10}{\hertz}~\cite{Brake1991}. At the same time the active systems perform best at DC and reach up to the kilohertz regime. The combination of the two provides a stable magnetic field over the whole range of frequencies~\cite{Brake1991,Kelha1982,Voigt2013}.
+\marginpar{Shielding factor, measured in \si{\decibel} is the ratio of the power of the magnetic field as if it were not compensated to the compensated one.} of passive shields degrades by as much as \SI{40}{\decibel} (two orders of magnitude in amplitude) for frequencies slower than \SIrange[range-phrase = --]{1}{10}{\hertz}~\cite{Brake1991}. At the same time the active systems perform best at DC and reach up to the kilohertz regime. The combination of the two provides a stable magnetic field over the whole range of frequencies~\cite{Brake1991,Kelha1982,Voigt2013}.
 
 Since 1980s numerous active magnetic field compensation systems have been built \cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. The applications span from ion beams, through biomagnetism, all the way to nEDM measurements. The system built for the nEDM-at-PSI project is the focus of this chapter.
 
-\note{Don't discuss it here: In the overlapping range of frequencies, where the two kinds of magnetic shielding could compete, the two advantages of the active shielding would certainly be the cost and accessibility of the enclosed volume.}
+% \note{Don't discuss it here: In the overlapping range of frequencies, where the two kinds of magnetic shielding could compete, the two advantages of the active shielding would certainly be the cost and accessibility of the enclosed volume.}
 
 
 
 \section{The nEDM-at-PSI SFC system}
 \marginpar{There was an inside joke that SFC really stands for SULTAN Field Compensation, SULTAN having been the magnet with by far the strongest influence on the magnetic field.}
 The construction of nEDM-at-PSI active magnetic field compensation system, called the SFC (Surrounding Field Compensation) system,
-was a part of Beatrice Franke's PhD thesis~\cite{Franke2013}, later also published~\cite{Afach2014}. The author was responsible for maintaining the system, with the goal of gaining enough of understanding and experience to design a next generation system for the n2EDM experiment. In this the most important information about the SFC system are presented, repeating after~\cite{Franke2013}, and shares some of his insights. This also serves as a introduction to the later discussion, or does it?\note{Making my role clear.}
+was a part of Beatrice Franke's PhD thesis~\cite{Franke2013}, later also published~\cite{Afach2014}. The author of this work was responsible for maintaining the system, with the goal of gaining enough of understanding and experience to design a next generation system for the n2EDM experiment. In the beginning of this chapter the most important information about the SFC system is presented. Then a few new insights into this system are discussed. This serves as an introduction to the original developments, to which the remaining three sections of this part are dedicated.
 
-The distinct feature of the nEDM@PSI's SFC system is the use of the matrix \note{Need to find a name. In Bea's thesis referred to as ,,the matrix $M$''. Response matrix? SFC matrix?}. Consider a single coil of any shape in air. For every point in space and for every spatial component the magnetic field is proportional to the current in the coil, with a certain fixed proportionality constant. The SFC system has six coils and measures the field in nine points, three spatial components in each---27 channels. In total there are $6 \times 27 = 162$ proportionality constants, which are gathered in a matrix $M$. The matrix $M$ is a property of the active compensation system, more precisely of the geometry of the coils and sensors. \note{Mention that ferromagnetic materials, in particular $\upmu$-metal, also affect the matrix.}
+The distinct feature of the PSI's SFC system was the use of the feedback matrix. Consider a single coil of any shape in air. For every point in space and for every spatial component the magnetic field is directly proportional to the current in the coil. The SFC system had six coils and measures the field in nine points, three spatial components in each: 27 channels. In total there were $6 \times 27 = 162$ proportionality constants, which are gathered in the feedback matrix $M$. The matrix $M$ is a property of the active compensation system, more precisely of the geometry of the coils and sensors. Ferromagnetic materials, in particular $\upmu$-metal, distort the field created by the coils and thereby the feedback matrix. Moreover, they make the system non-linear, which we are going to, for now, neglect.
 
-\note{Maybe some nice formula here for the matrix elements?}
+% \note{Maybe some nice formula here for the matrix elements?}
 
 \begin{figure}
   \centering
   \includegraphics[width=.8\linewidth]{gfx/nEDM_SFC/nEDM_SFC_matrix}
-  \caption{The SFC matrix measured by Franke on 2012-11-07 (see \cite{Franke2013}) in the thermohouse coordinates.}
+  \caption{The SFC matrix measured by Franke on 2012-11-07~\cite{Franke2013}). For each coil (rows) and each channel of the magnetic field measurement (columns) the proportionality constant between the current in the coil and the field measured by the sensor is depicted. The coils and the sensors are labelled as in Fig.\,\ref{fig:sfc-scheme}.}
   \label{fig:nEDM_SFC_matrix}
 \end{figure}
 
-The following procedure was used to measure the matrix. A current in one coil is scanned over the whole available range, while the field change is measured with the sensors. Then for each sensor, and each spatial component, a linear regression is performed. The slope is the proportionality constant (the matrix $M$ element). The procedure is repeated of all coils. The matrix measured by Franke is depicted in Fig.\,\ref{fig:nEDM_SFC_matrix}.
+\marginpar{The matrix was first proposed by~\cite{RetaHernandez1998}. As their proposed system did not include $\mu$-metal, they could calculate the matrix analytically.}
+The following procedure was used to measure the matrix. A current in one coil was scanned over the whole available range, while the field change was measured with the sensors. Then for each sensor, and each spatial component, a linear regression was performed. The slope was the proportionality constant (the matrix $M$ element). The procedure was repeated of all coils. The matrix measured by Franke is depicted in Fig.\,\ref{fig:nEDM_SFC_matrix}.
 
-There is a fundamental meaning behind the matrix $M$. The currents in the six coils we can gather into a vector $\mathbb{I}$ in a space we call the \emph{current space}. Similarly, the 27 readouts of the magnetic field can be gathered into a vector $\mathbb{B}$ in the \emph{field space}. \note{think about the name}. Then the matrix $M$ provides the transition from the current into the field space. In particular, we have:
+There is a fundamental meaning behind the matrix $M$. The currents in the six coils we can gather into a vector $\mathbb{I}$ in a space we call the \emph{current space}. Similarly, the 27 readouts of the magnetic field can be gathered into a vector $\mathbb{B}$ in the \emph{field space}. Then, the matrix $M$ provides the transition from the current into the field space. In particular, we have:
 \begin{equation}
   \mathbb{B} = M \mathbb{I} + \mathbb{B}_\text{offset} \ .
 \end{equation}
-The other direction, from the field to the current space, cannot be done exactly. Nevertheless, the optimal, in the least-squares sense, transition can be done with the use of the Moore--Penrose inverse (pseudoinverse) \note{cite something?} of the matrix $M$, denoted $M^\dagger$.
+Which is read: The measured values are a linear combination of the currents in the coils plus the ambient field.
+The other direction, from the field to the current space, cannot be done exactly. Nevertheless, the optimal, in the least-squares sense, transition can be done with the use of the Moore--Penrose inverse (pseudoinverse) of the matrix $M$, denoted $M^\dagger$~\cite{penrose_1955}.
 \marginpar{Finding the pseudoinverse of a matrix $A$ is equivalent to finding least-squares solution of a system of linear equations described by the matrix $A$ (although more computationally complex).}
 In other words, the matrix $M$ tells us what field, as measured by the sensors, will a given set of currents produce. The matrix $M^\dagger$ tells us what currents to apply to best approximate a given field.
 
-The use of the matrix $M$ was what distinguished the nEDM@PSI's SFC system from other systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013}. The others used either one component of a sensor, or a weighted combination of several components, to control one coil. The matrix was first proposed by~\cite{RetaHernandez1998}. As their proposed system did not include $\upmu$-metal, they could calculate the matrix analytically.
+The use of the matrix $M$ was what distinguished the PSI's SFC system from other systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013}, which used either one component of a sensor, or a weighted combination of several components, to control one coil.
 
 
 
 \section{The feedback algorithm}
-In the old system the currents were controlled with a PID algorithm (as most of the previous systems, cite them)
-The nEDM@PSI's SFC system followed the norm established by older systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005} \note{may want to verify} and used a PID loop to control the currents. (PI in this particular case, the derivative term was not used.) The $j$th current in the $n$th iteration was given~\cite{Franke2013}:
+The PSI's SFC system followed the established norm~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005} and used a PID loop to control the currents. (PI in this particular case, the derivative term was not used.) The $j$th current in the $n$th iteration was~\cite{Franke2013}:
 \begin{equation}
   \label{eq:old_SFC_feedback}
   I^n_j = I^0_j +
@@ -64,42 +65,43 @@ The nEDM@PSI's SFC system followed the norm established by older systems~\cite{K
     \underbrace{ \alpha^\mathcal{I}_j \, \sum_m \Delta I^m_j }_\text{integral term} \ .
 \end{equation}
 
-$\Delta I^n_j$ is the error value in the current space. It was obtained by using the error value in the field space (the difference of the measured and target fields) and transforming it into the current space with the pseudoinverse of the matrix:
+$\Delta I^n_j$ is the error value in the current space. It was obtained by using the error value in the field space (the difference of the measured and target fields) and transforming it into the current space with the pseudoinverse of the matrix~\cite{Franke2013}:
 \begin{equation}
   \Delta I^n_j = \sum_{k'} \hat{M}^{-1}_{jk'} \, \Delta B^n_{k'} \ .
 \end{equation}
 
+\marginpar{The system when turned on was always static. Then the currents could be changed manually to achieve a desired field (or chosen from a predefined set). Then the system was switched to the dynamic mode.~\cite{Franke2013}}
 Besides the proportional and integral terms the feedback formula also includes the $I^0_j$ term. It seems weird to give such a big of a role to particular currents that happened to be there at the zeroth iteration. It has to do with the following property of the system: the target field was always the one measured at the moment of switching the system from dynamic to static.
-\marginpar{The system when turned on was always static. Then the currents could be changed manually to achieve a desired field (or chosen from a predefined set). Then the system was switched to the dynamic mode.}
 At that moment the error value was zero, and so was the integral term, so, according to the Eq.\,\ref{eq:old_SFC_feedback}, the output currents would immediately have switched to zero. In result, the system would violently destabilise. The additional term $I^0_j$ prevents that from happening.
 
 
 
 \section{The spectrum of the SFC matrix}
 \label{sec:nedm_sfc_matrix}
-The SFC matrix used during the data taking of the nEDM experiment (2014, 15 and 16) is the one measured by Franke \cite{Franke2013}. The matrix not only needed to be inverted, but also additionally regularised. While it has been thoroughly discussed how to do the regularisation, the question of why was it needed at all was neither posed nor answered.
+The feedback matrix used during the data taking of the nEDM-at-PSI experiment (2014--17) was the one measured by Franke~\cite{Franke2013}. This matrix not only needed to be inverted, but also additionally regularised. While it has been thoroughly discussed how to do the regularisation, the question of why was it needed at all was neither posed nor answered.
 
-Let us elaborate on regularisation. The SFC matrix represents coefficients in a set of linear equations that need to be solved in order to determine the best currents to apply for a given goal field. As the set of equation is over--determined, the best solution is found by the least--squares, which is exactly equivalent to calculating the pseudoinverse matrix. A solution can be found reliably if the system is well--defined, i.e. the solution ,,dip'' is steep in every direction in the parameter space. If the ,,dip'' becomes a valley in some directions, the solution is not globally well--defined, although it still may be defied up to a parameter (the one pointing in the direction of the valley). We then speak of an ill--defined set of equations, or an ill--defined matrix. Regularisation helps ill--defined problem to become better, at the cost of the least--squares in the solution.
+Let us elaborate on regularisation. The feedback matrix represents coefficients in a system of linear equations that need to be solved in order to make the optimal transition from the field to the current space. As the system of equations is over-determined, the best solution is found by the least-squares, which is equivalent to calculating the pseudoinverse matrix. A solution can be found reliably if the system is well-defined, i.e. the least-squares well is steep in every direction in the parameter space. If the well becomes a valley in some directions, the solution is not globally well-defined, although it still may be defied up to a parameter (the one pointing in the direction of the valley). We then speak of an ill-defined set of equations, or an ill-defined matrix. Regularisation helps an ill-defined problem to become better defined, at the cost of the solution having larger sum of the residuals squared.
 
+A real matrix $M$ may be decomposed into $M = U S V^T$, where $U$ and $V$ are unitary, and $S$ is diagonal. This is called the \emph{Singular Value Decomposition} (SVD). The singular values lie on the diagonal of $S$, which is called the \emph{spectrum}. The spectrum of the feedback matrix is of uttermost importance. Pseudo-inverting a matrix with small singular values is an ill-posed problem. Similarily, as inverting small numbers.
 
-A real matrix $\mathbb{M}$ may be decomposed into $\mathbb{M} = \mathbb{U} \mathbb{S} \mathbb{V}^T$, where $\mathbb{U}$ and $\mathbb{V}$ are unitary, and $\mathbb{S}$ is diagonal. This is called the \emph{Singular Value Decomposition} (SVD). The singular values lie on the diagonal of $\mathbb{S}$, which is call the \emph{spectrum}. The spectrum of the SFC matrix is of uttermost importance. Pseudo-inverting a matrix with small singular values is an ill--posed problem similar, as inverting small numbers.
+One defines the \emph{condition number} of a matrix as the ratio of extreme values of its spectrum. For a matrix with a flat spectrum, all singular values equal, the condition number is 1 and the set of linear equations this matrix represents is well defined. The more they differ, the higher the condition number and the worse defined the problem is. The effect is that the noise in the original matrix becomes amplified by the condition number in the pseudoinverse.
 
-One defines the \emph{condition number} of a matrix as the ratio of extreme values of its spectrum. For a matrix with a flat spectrum, all singular values equal, the condition number is 1 and the set of linear equations this matrix represents is well defined. The more they differ, the higher the condition number and the worse defined the problem is. The effect in the solution is that noise in the original matrix becomes amplified by the condition number in the pseudoinverse.
+Figure~\ref{fig:nEDM_SFC_svd} presents the spectrum of the PSI's SFC feedback matrix. First thing to note is that its condition number is $9.6 / 0.51 = 18.2$. A factor of 18 amplification of noise clearly explains why regularisation was necessary.
 
-Figure~\ref{fig:nEDM_SFC_svd} presents the spectrum of the nEDM SFC matrix. First thing to note is that the condition number is $9.6 / 0.51 = 18.2$. This is a factor of 20 amplification in noise and it clearly explains why regularisation was necessary.
-
-It is interesting to ask why. A very small singular value means that there exists a coil, or a combination thereof, which has almost 20 times smaller influence on the field then others. In figure~\ref{fig:nEDM_SFC_svd} columns are the singular values with their corresponding coil--vectors. The first three, starting from the left, are easiest to interpret. Each of them is a pair of coils configured as Helmholtz--pair, with roughly the same current, producing a homogeneous field in each of the spatial directions. The smaller singular value, or the effect on the field, in the Y direction is explained by the fact that this is the longitudinal axis of the μ-metal cylinder. The last one has also a clear interpretation -- it is all pairs configured as anti--Helmholtz, with currents flowing in the opposite directions. The magnetic field that it creates is a very complicated, high-order field. The fact, that this combination has so little influence means, that it hardly changes any solution for currents when added upon it. It spans a valley in the parameter space in the least--squares problem.
+It is interesting to ask \emph{why} the system had an ill-defined feedback matrix. A very small singular value means that there exists a coil, or a combination thereof, which has about 18 times smaller influence on the field then others. In Fig.\,\ref{fig:nEDM_SFC_svd} the columns are the singular values with their corresponding coil-vectors. The first three, starting from the left, are easiest to interpret. Each of them is a pair of coils configured as Helmholtz-pair with roughly the same current, producing a homogeneous field in each of the spatial directions.
+%The smaller singular value, or the effect on the field, in the Y direction is explained by the fact that this is the longitudinal axis of the μ-metal cylinder.
+The last column has also a clear interpretation: it corresponds to all pairs configured as anti-Helmholtz, with currents flowing in the opposite directions. The magnetic field that it created was a complicated and high-order. The fact, that this combination has so little influence on the measured field means, that it hardly changes any solution for currents when added upon it. It spans a valley in the parameter space in the least-squares problem. If not regularised, a small change in the measured field would cause a large change in the currents along the valley. Rapid oscillations in this direction would render the system unstable.
 
 \begin{figure}
   \centering
   \includegraphics[width=.7\linewidth]{gfx/nEDM_SFC/coil-singular_vectors_of_the_nEDM_SFC_matrix}
   \caption
   [TODO]
-  {The coil-singular values of the SFC matrix. Columns correspond to singular combinations of the coils. For each column the corresponding singular value is indicated. See text for details.}
+  {The coil-singular values of the SFC matrix. Columns correspond to singular combinations of the coils. For each column the corresponding singular value is indicated.}
   \label{fig:nEDM_SFC_svd}
 \end{figure}
 
-It is to note that the SFC matrix is defined solely by the configuration of the coils and sensors. It follows that care has to be taken already at the design stage to create a system that will be well defined.
+It is to note that the SFC matrix is defined solely by the configuration of the coils, sensors and ferromagnetic materials. It follows that care has to be taken already at the design stage to create a system that will be well defined.
 
 
 

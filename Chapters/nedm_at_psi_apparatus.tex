@@ -70,7 +70,7 @@ Now we proceed to explain how all these components came together to perform a me
 
 Recall the Ramsey method (Fig.\,\ref{fig:nEDM_Ramsey_principle}). Two coherent pulses of a transverse oscillating field are applied to an ensemble of polarised neutrons, with a period of free precession in between. Measuring the polarisation after the second pulse as the function of the frequency of the transverse field yields a resonance curve. The curve measured in the nEDM-at-PSI experiment is reproduced in Fig.\,\ref{fig:ramsey_scan}. Comparing it with Ramsey's original curve (Fig.\,\ref{fig:nEDM_Ramsey_original_curve}) summarises fifty years of progress in measuring the electric dipole moment of the neutron.
 
-In the normal operation not the whole curve was sampled, but only the region most sensitive to the position of the central fringe---its steepest slope. In Fig.\,\ref{fig:nEDM_Ramsey_principle} the four \emph{working points} are marked, which the experiment was programmed to aim at. Assuming all the data are taken in this most sensitive region the sensitivity for the nEDM is~\note{FertlThesis}:
+In the normal operation not the whole curve was sampled, but only the region most sensitive to the position of the central fringe---its steepest slope. In Fig.\,\ref{fig:nEDM_Ramsey_principle} the four \emph{working points} are marked, which the experiment was programmed to aim at. Assuming all the data are taken in this most sensitive region the sensitivity for the nEDM is~\cite{FertlThesis}:
 \begin{equation}
   \sigma(d_\text{n}) = \frac{\hbar}{ 2 \alpha E T \sqrt{N} } \ ,
 \end{equation}
@@ -97,27 +97,28 @@ $\Delta$ encapsulates all higher-order terms and systematic effects. In particul
 
 % The largest effect in $\Delta$ has to do with the gradient of the magnetic field. The neutrons and mercury did not sample exactly the same field. The mercury vapour was at room temperature and filled the precession volume homogeneously. At the same time, the ultracold neutrons had an energy of only around \SI{300}{\nano\electronvolt}, while their gravitational potential is $m_\text{n} = \SI{102}{\nano\electronvolt\per\meter}$ steep~\cite{Zenner2013}. In effect, they filled, and sampled, the bottom of the chamber more then the top. The difference between centres of masses of the mercury and the neutrons was around \SI{4}{\mili\meter}
 
+
+To get the $d_n$ estimate the electric field needed to be modulated. The experiment automatically reversed the polarisation of the electric field every 72 cycles. In between the two polarisations a few cycles were measured without the electric field (a total of 10\% of the data, which are not sensitive to the nEDM). Then a linear model of  $R$ vs. $E$ yielded an estimate of $d_n$ (Eq.\,\ref{eq:Rdefinition}, Fig.\,\ref{fig:crossing_lines}).
+
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{gfx/nEDMatPSI/crossing_lines.pdf}
-  \caption{\ldots}
+  \includegraphics[width=0.9\linewidth]{gfx/nEDMatPSI/crossing_lines.pdf}
+  \caption{The crossing lines in the nEDM estimation. Left: For each sequence, data taken in one magnetic field configuration, $d_n^*$ is estimated as the slope of a linear regression of $R$ vs. $E$ (Eq.\,\ref{eq:Rdefinition}). The two lines correspond to the parallel and anti-parallel configurations of the magnetic and electric fields. The $d_n^*$ are tainted by a systematic effect proportional to the gradient. Right: a linear regression is done on $d_n^*$ vs. $R$, $R$ being an estimate of the gradient. The crossing point of the two lines, one for the magnetic field pointing upwards, one for downwards, is the estimate of $d_n$ at zero gradient, so free from the gradient-proportional systematic effect.}
   \label{fig:crossing_lines}
 \end{figure}
-
-To get the $d_n$ estimate the electric field needed to be modulated. The experiment automatically reversed the polarisation of the electric field every 72 cycles. In between the two polarisations a few cycles were measured without the electric field (a total of 10\% of the data, which are not sensitive to the nEDM). Then a linear model of  $R$ vs. $E$ yielded an estimate of $d_n$ (Eq.\,\ref{eq:Rdefinition}).
 
 Those estimates, however, still contained a large contribution of a systematic effect. As a result of a conspiracy between radial magnetic field components and rotating magnetic components arising from the Lorentz transformation of the large electric field into the rest frame of the mercury atoms, a frequency shift proportional to the applied electric field was observed, mimicking the effect of a non-zero electric dipole moment of the neutron, a false EDM. This effect is, however, directly proportional to the gradient of the applied vertical magnetic field $\partial_z B_z$, and reverses with the sign of the applied magnetic field. The false EDM effect has been analysed in more detail in \cite{Pendlebury2004,PhysRevA.71.032104,PhysRevA.73.014101} and a direct measurement of this effect was made in~\cite{Afach2015falseEDM}.
 
 The solution was to operate in different gradients and then interpolate to the effect-free zero gradient. Every few hundred cycles a different gradient (up to \SI{60}{\pico\tesla\per\centi\meter}) was set.
 %We set the magnetic configuration (homogenise the field, maybe mention the variometer method), apply a gradient (one of i don't remember how many), calibrate the Cs magnetometers (marginnote why) and measure continuously cycle after cycle in this configuration.
 % We call a set of data taken in one configuration of the magnetic field a \emph{sequence}.
-Finally, a for each direction of the magnetic field, a linear regression $d_n$ vs $R$, $R$ itself being an estimate of the gradient, was performed. The vertical position of the intersection of the two lines corresponded to the $d_n$ measured at zero gradient, free from this systematic effect.
+Finally, a for each direction of the magnetic field, a linear regression $d_n$ vs $R$, $R$ itself being an estimate of the gradient, was performed (Fig.\,\ref{fig:crossing_lines}). The vertical position of the intersection of the two lines corresponded to the $d_n$ measured at zero gradient, free from this systematic effect.
 
 % In the nEDM experiment at PSI data taking is divided into \emph{runs}. A single \emph{run} is carried out automatically with, in most cases, no human intervention. The machine cycles through the working points by itself. Also the charging of the electrodes creating the electric field is automatised. In between \emph{runs} manual interference happens, most importantly the magnetic field vertical gradient is altered.
 
-In order to mitigate the bias due to the human factor, the nEDM experiment implements \emph{data blinding}. The data is artificially altered in a way that mimics a non--zero neutron electric dipole moment, big enough to be visible in the data. The exact value is secret and will be revealed only after the analysis is complete.
+On top of that, in order to mitigate the bias due to the human factor, the nEDM experiment implemented data blinding. The data was artificially altered in a way that mimicked a non-zero neutron electric dipole moment, big enough to be visible in the data. The exact offset value is secret and would be revealed only after the analysis was complete.
 
-\note{A nice wrap-up paragraph here.}
+The experiment was quite complex. We discussed only those elements necessary for understanding the original work presented in the next chapters. More details can be found in the following publications:~\cite{Zenner2013,Afach2015falseEDM,Afach2015,Afach2014magmoment,FertlThesis,Komposch2017}. \note{Sort the publications by topic? Where can I get the complete list of the collaboration's publications?}
 
 
 
