@@ -134,10 +134,10 @@ The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototy
 The system, fluxgates and coils, is fundamentally linear. The magnetic field seen by each of the 24 sensors is linear with the currents in the three coils, not unlike the discussion in Sec.\,\ref{ch:coil_design}. All readouts, gathered in a vector $\mathbb{B}$ (dimension 24) can be written as a linear combination of the currents in the coils $\mathbb{I}$ (dimension 3):
 \begin{equation}
   \label{eq:SFC_matrix_model}
-  \mathbb{B} = \mathbb{M} \mathbb{I} + \mathbb{B}_0 \ .
+  \mathbb{B} = M \mathbb{I} + \mathbb{B}_0 \ .
 \end{equation}
 \marginpar{We use the letter $\mathbb{B}$ for the values measured by the sensors to distinguish it from $\bm{B}$, which is used to denote the magnetic field in the whole space.}
-$\mathbb{B}_0$ is the free offset. The matrix of proportionality constants $\mathbb{M}$, dimension $24 \times 3$ \note{verify}, is the central element of the active magnetic field compensation. It is called the response matrix or the SFC matrix \note{need to establish the nomenclature}. 
+$\mathbb{B}_0$ is the free offset. The matrix of proportionality constants $M$, dimension $24 \times 3$ \note{verify}, is the central element of the active magnetic field compensation. It is called the response matrix or the SFC matrix \note{need to establish the nomenclature}. 
 \note{Need to see how much I explain in the nEDM SFC at the beginning.}
 
 The SFC matrix of the nEDM@PSI SFC system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}. There is a fundamental difference between the matrix of the nEDM@PSI system and the next generation one. The nEDM@PSI's matrix was not known a priori. The system was constructed and the matrix was measured as the system's property.
@@ -152,9 +152,9 @@ The active magnetic field compensation system constructed at ETH implemented a n
 To measure the matrix we considered the space spanned by all the coils. In this case it was three-dimensional---the current in the $x$-coil, in the $y$-coil and in the $z$ one. A point in this space corresponds to one configuration of the currents in the coils. We picked a set of points on an n-sphere in this space and continuously changed the currents to walk from one point to another. As all the currents were simultaneously changed, the measurements of the sensors were recorded. Then for each readout channel ($8 \times 3 = 24$ in total) a linear model was fitted to estimate the proportionality constants between the readout and the currents in the coils:
 \begin{equation}
   \label{eq:SFC_matrix_linear_fits}
-  B_i = B_i^0 + \sum_{j=x,y,z} \mathbb{M}_{i,j} \, I_j \ ,
+  B_i = B_i^0 + \sum_{j=x,y,z} M_{i,j} \, I_j \ ,
 \end{equation}
-where $B_i$ is the readout channel ($i$ going from 1 to 24), $I_j$ are the currents in the coils ($j$ going over $x$, $y$ and $z$) and $\mathbb{M}_{i,j}$ is the matrix of proportionality constants---the SFC matrix. $B_i^0$ is the free offset vector---the background field.
+where $B_i$ is the readout channel ($i$ going from 1 to 24), $I_j$ are the currents in the coils ($j$ going over $x$, $y$ and $z$) and $M_{i,j}$ is the matrix of proportionality constants---the SFC matrix. $B_i^0$ is the free offset vector---the background field.
 \note{Sort out the indexes, which is which.}
 
 If the system is perfectly linear it does not matter where in the current-space the n-sphere is located, nor how large it is (though larger give more precise estimates per point). We expect, however, nonlinearities to appear in the presence of a mu-metal shield.
@@ -163,9 +163,9 @@ In that case it is preferable to measure the matrix in the vicinity of the point
 This gave the first estimate of the matrix. The next sphere is chosen to be centred around the zero field. This is the optimal, in the least-squares sense, solution of Eq.\,\ref{eq:SFC_matrix_model} with $\mathbb{B} = 0$ (exactly as it was the case in Eq.\,\ref{eq:requirement}):
 \begin{equation}
   \label{eq:SFC_zero_field_requirement}
-  \mathbb{I}_\text{zero-field} = \mathbb{M}^\dagger \, \mathbb{B}_0 \ ,
+  \mathbb{I}_\text{zero-field} = M^\dagger \, \mathbb{B}_0 \ ,
 \end{equation}
-where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits} and $\mathbb{M}^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $\mathbb{M}$. This gave the second estimate of the matrix. Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{0.1}{\micro\tesla}. The procedure was developed for a system with mu-metal. \note{but is beautiful in any way} In the case of an air system all consecutive estimates of the matrix were the same.
+where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits} and $M^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $M$. This gave the second estimate of the matrix. Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{0.1}{\micro\tesla}. The procedure was developed for a system with mu-metal. \note{but is beautiful in any way} In the case of an air system all consecutive estimates of the matrix were the same.
 
 A typical measured matrix is\ldots Estimate the field inhomogeneity right away from it! Give two at two distances, maybe?
 
