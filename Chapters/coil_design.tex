@@ -240,20 +240,11 @@ Using the method presented here to design coils of an active compensation system
   \label{tab:coils_carthesian_harmonics}
 \end{table}
 
-Secondly, the method allows to construct a coil for any field. In particular, one may choose to construct coils that produce fields orthogonal to one another. \note{What does it mean that two fields are orthogonal?} This makes a compensation system significantly easier to control~\cite{MRM:MRM1910010107} and avoids a potential problem of the high condition number due to pathological combinations of coils. One of the possible orthogonal decompositions of the field is the one into \emph{carthesian harmonic polynomials}:
+Secondly, the method allows to construct a coil for any field. In particular, one may choose to construct coils that produce fields orthogonal to one another (as $\mathbb{R}^3 \rightarrow \mathbb{R}^3$ functions). This makes a compensation system significantly easier to control~\cite{MRM:MRM1910010107} and avoids a potential problem of the high condition number due to pathological combinations of coils. One of the possible orthogonal decompositions of the field is the one into \emph{carthesian harmonic polynomials}~\cite{Franke2013}:
 \begin{equation}
   \mathbf{B}(\mathbf{r}) = \sum_{n}\,H_n\mathbf{P}_n(\mathbf{r}) \ ,
 \end{equation}
-where $H_n$ are the expansion coefficients, the first eight of which are presented in Table~\ref{tab:coils_carthesian_harmonics}. Each term satisfies Maxwell's equations, so it is possible to construct a coil for each. The first three terms are homogeneous fields, the next five are the five independent linear gradients. Further ones correspond to higher-order gradients.
-
-Additionally, one can consider constructing dedicated coils to counteract a particular known disturbance.
-
-Last, but not least, the method's unique property of designing on a predefined grid makes the large-scale construction particularly feasible. It makes it easy to be incorporated into the existing structures, by defining the grid in a conflict-free way first.
-
-
-
-\section{Conclusion}
-Coil design is a complicated and very technical problem, especially when high accuracy is required. We presented a method that is simple in terms of both underlying math and computational effort. We believe that the design method can find its niche in practical applications, where spatial constraints play a significant role and a percent level in accuracy of the produced field is acceptable.
+where $H_n$ are the expansion coefficients, the first eight of which are presented in Table~\ref{tab:coils_carthesian_harmonics}. Each term satisfies by itself the Maxwell's equations, so it is possible to construct a coil for each. The first three terms are homogeneous fields, the next five are the five independent linear gradients. Further ones correspond to higher-order gradients.
 
 \begin{figure*}
   \centering
@@ -268,11 +259,20 @@ Coil design is a complicated and very technical problem, especially when high ac
   \label{fig:showcase}
 \end{figure*}
 
-For the sake of clarity we explained the method on a simple example. We designed a coil for a homogeneous field with only few tiles. However, the method is much more powerful. We conclude by presenting, in Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source.
+Additionally, one can consider constructing dedicated coils to counteract a particular known disturbance. In Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source is presented.
+
+Last, but not least, the method's unique property of designing on a predefined grid makes the large-scale construction particularly feasible. It makes it easy to be incorporated into the existing structures, by defining the grid in a conflict-free way first.
+
+
+
+\section{Conclusion}
+Coil design is a complicated and very technical problem, especially when high accuracy is required. We presented a method that is simple in terms of both underlying math and computational effort. We believe that the design method can find its niche in practical applications, where spatial constraints play a significant role and a percent level in accuracy of the produced field is acceptable.
+
+% For the sake of clarity we explained the method on a simple example. We designed a coil for a homogeneous field with only few tiles. However, the method is much more powerful. We conclude by presenting, in Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source.
 
 We publish the software implementation of the coil design, including examples, as open-source~\cite{Coilsjlcode}.
 
-We proceed to describe how the coil design method was used to construct an active magnetic field compensation system at ETH Zürich.
+The method has particular advantages when used to design coils of an active magnetic field compensation system. We proceed to describe how it was applied in construction of compensation system at ETH Zürich.
 
 % We would like to thank Georg Bison, Allard Schnabel and other members of the nEDM at PSI collaboration for fruitful discussions. This work was supported by the Swiss National Science Foundation under grants 200020\_162574 and 200020\_172639.
 
