@@ -4,17 +4,19 @@
 
 \section{Introduction}
 \marginpar{This chapter is largely adapted from the author's publication CITE WHEN AVAILABLE}
+\note{Correct the langague and style to be consistent with the rest of the work. In particular, don't use so much \emph{we}.}
 How to design a coil, or more generally, an arrangement of coils, producing a desired magnetic field? In its simplest form this is a textbook problem (e.g. ex. 6.55 and 6.62 in~\cite{Purcell}). Yet, in a general setting it is surprisingly hard and the solutions, how the wires making up the coils should be laid, complicated. The most widespread application of high-performance coils is Magnetic Resonance Imaging (MRI), where gradient coils give the possibility to produce spatial images. Already in the 1980's elaborate methods of MRI coil design have been developed. They range from optimizing positions of discrete windings, where the use is made of symmetries specific to MRI, to analytical methods yielding surface current density, which is then discretized. A general overview can be found in~\cite{Turner1993}. Another field known for complex, precise coils is plasma confinement, in particular stellarators~\cite{Beidler1990}. There analytical solutions for the surface current density find their use, too.
 
-\note{Cite also this: \cite{Del-Pino-Lopez2015}, they use a genetic algorithm to optimize the coils.}
+% \note{Cite also this: \cite{Del-Pino-Lopez2015}, they use a genetic algorithm to optimize the coils.}
 
-Here, we present a new method that may not be competitive in terms of precision, but is distinct in its simplicity, also when it comes to construction of its designs. It relies on an algebraic representation of the problem, where coil design is simplified to a simple linear least squares problem. In our method the coils are restricted to a user--defined mesh, making it easy to deal with spatial constraints.
+Here, we present a new method that may not be competitive in terms of precision, but is distinct in its simplicity, also when it comes to construction of its designs. It relies on an algebraic representation of the problem, where coil design is simplified to a simple linear least squares problem. In our method the coils are restricted to a user-defined mesh, making it easy to deal with spatial constraints.
 
 We base our discussion on textbook linear algebra techniques, notably solving an over-determined system of linear equations, thoroughly discussed e.g.\ in~\cite{Anton}. The main physics problem, calculating the magnetic field of coils composed of straight wire segments, is briefly discussed here. More in-depth discussions can be found, for example, in~\cite{Griffith}. Furthermore, we publish an easily accesible software implementation of the problems we discuss, including examples~\cite{Coilsjlcode}.
 
-The method has originally been developed to design coils of the active magnetic field stabilization system of the neutron electric dipole moment (nEDM) experiment at the Paul Scherrer Institute in Villigen, Switzerland. This application, described in detail in~\cite{Afach2014}, which we discuss later in the paper, requires large (6--8 meters side length) coils. In the presented method the coil system is designed on a predefined grid. This makes the construction of complicated coils feasible, despite the size.
+% The method has originally been developed to design coils of the active magnetic field stabilization system of the neutron electric dipole moment (nEDM) experiment at the Paul Scherrer Institute in Villigen, Switzerland. This application, described in detail in~\cite{Afach2014}, which we discuss later in the paper, requires large (6--8 meters side length) coils. In the presented method the coil system is designed on a predefined grid. This makes the construction of complicated coils feasible, despite the size.
 
 We begin with a description of our model for a restricted 2-dimensional case and generalize it to three dimensions. We then present how the model is used to design a coil, based on an example. Further we discuss possibilities of simplifying the solution. Another section is devoted to practical considerations, significant for the eventual construction. Finally, we analyze the design method in the particular case of the magnetic field stabilization system of the nEDM experiment at the Paul Scherrer Institute.
+\note{Last sentence baaaad.}
 
 
 
@@ -54,12 +56,12 @@ This formulation is independent of the coordinate system (coordinate-system depe
   \label{fig:biot-savart}
 \end{figure}
 
-Let us imagine four wire segments making up a square loop -- a coil. It produces a certain magnetic field in the entire space $\mathbf{B}(\mathbf{x})$, given, following the superposition principle, by a sum of the fields produced by each segment of the coil.
-By changing the current in the coil we alter only one parameter of the magnetic field -- the magnitude, but not its shape. It can therefore be said that one coil spans a one-dimensional space of magnetic fields it can produce. Adding a second, different coil creates a system spanning a two--dimensional space of fields, as the magnetic field is additive. Going a step further, four square coils tiled to form a larger square form a four-dimensional space, as shown in Fig.\,\ref{fig:coils_tile_basis}. Any coil restricted to the $2 \times 2$ grid can be represented in the base of the four tile-coils.
+Let us imagine four wire segments making up a square loop---a coil. It produces a certain magnetic field in the entire space $\mathbf{B}(\mathbf{x})$, given, following the superposition principle, by a sum of the fields produced by each segment of the coil.
+By changing the current in the coil we alter only one parameter of the magnetic field---the magnitude, but not its shape. It can, therefore, be said that one coil spans a one-dimensional space of magnetic fields it can produce. Adding a second, different coil creates a system spanning a two-dimensional space of fields, as the magnetic field is additive. Going a step further, four square coils tiled to form a larger square form a four-dimensional space, as shown in Fig.\,\ref{fig:coils_tile_basis}. Any coil restricted to the $2 \times 2$ grid can be represented in the base of the four tile-coils.
 
-The range of magnetic field reachable by coils restricted to a grid is a subset of all possible fields that can be created with coils constructed on the square's surface. The size of the subset is controlled by $N$, the number of tile--coils forming the grid.
+The range of magnetic field reachable by coils restricted to a grid is a subset of all possible fields that can be created with coils constructed on the square's surface. The size of the subset is controlled by $N$, the number of tile-coils forming the grid.
 % It is worthwhile to note that, in fact, a coil is equivalent to the field it produces . By constructing the grid we have thus restricted ourselves to a subset of \emph{coils} that are possible to construct on the square.
-In this system a coil is fully described by a vector of $N$ currents, one in each of the tile--coils, denoted by $\mathbb{I}$. The problem of coil design is thereby simplified to finding a vector $\mathbb{I}$.
+In this system a coil is fully described by a vector of $N$ currents, one in each of the tile-coils, denoted by $\mathbb{I}$. The problem of coil design is thereby simplified to finding a vector $\mathbb{I}$.
 % The four coils form a complete linear basis of coils on the surface for any coils that have wires going only along the edges --- see Fig.\,\ref{fig:coils_tile_basis}. This is a very convenient subspace of all coils possible to build on a square. The possible to realise subspace may be enlarged by refining the division into tiles. But as a coil is equivalent to the field it produces, one can just as well say that they form a four--dimensional \emph{space of coils}.
 
 
@@ -218,14 +220,8 @@ We do not consider any of the above ways superior. It is up to the particular ap
 
 
 
-\section{A good set of coils for an arbitrary field}
-When one wants to be able to produce an arbitrary field, it is best to use an orthogonal expansion, in analogy to the Taylor expansion for functions. Furthermore, it is desired that the terms of the expansions are natural for the system considered (as spherical harmonics used to describe the wavefunctions of electrons in atomic systems are solutions to the Schrödinger equation themselves). Also, from the point of view of control, it is much easier to control an orthogonal system. See eg. \,\citep{Branch1984} for detailed motivation (really?). In an expansion one can gradually improve the system.
-
-Such an expansion exists: \emph{carthesian harmonic polynomials}.
-\begin{equation}
-  \mathbf{B}(\mathbf{r}) = \sum_{n}\,H_n\mathbf{P}_n(\mathbf{r})
-\end{equation}
-where $H_n$ are the expansion coefficients. They satisfy Maxwell's equations, so it is always theoretically possible to create a coil that produces the eigenfunctions. The table~\ref{tab:coils_carthesian_harmonics} presents first few of them.
+\section{Application to active magnetic field shielding}
+Using the method presented here to design coils of an active compensation system offers improvements in two areas. Firstly, the size of the coils could be decreased, or the size of the experimental set-up increased, without loss of performance. Better homogeneity in a given volume can always be achieved by choosing a denser gird. Given the tight spatial constraints this was a crucial development for the design of the n2EDM's active compensation system.
 
 \begin{table}
   \centering
@@ -244,25 +240,20 @@ where $H_n$ are the expansion coefficients. They satisfy Maxwell's equations, so
   \label{tab:coils_carthesian_harmonics}
 \end{table}
 
-The first three terms are homogeneous fields. Further five are the five independent gradients.
+Secondly, the method allows to construct a coil for any field. In particular, one may choose to construct coils that produce fields orthogonal to one another. \note{What does it mean that two fields are orthogonal?} This makes a compensation system significantly easier to control~\cite{MRM:MRM1910010107} and avoids a potential problem of the high condition number due to pathological combinations of coils. One of the possible orthogonal decompositions of the field is the one into \emph{carthesian harmonic polynomials}:
+\begin{equation}
+  \mathbf{B}(\mathbf{r}) = \sum_{n}\,H_n\mathbf{P}_n(\mathbf{r}) \ ,
+\end{equation}
+where $H_n$ are the expansion coefficients, the first eight of which are presented in Table~\ref{tab:coils_carthesian_harmonics}. Each term satisfies Maxwell's equations, so it is possible to construct a coil for each. The first three terms are homogeneous fields, the next five are the five independent linear gradients. Further ones correspond to higher-order gradients.
 
+Additionally, one can consider constructing dedicated coils to counteract a particular known disturbance.
 
-
-\section{Application to the n2EDM-at-PSI}
-Using the method presented here to design the active compensation coils offers improvements in two areas. Firstly, the size of the coils could be decreased, or the size of the experimental set-up increased, without loss of performance. Secondly, more coils could be built, extending the range of possible fields to be compensated. These could either be generic: e.g. pure independent gradients, or coils dedicated to counteract a particular known disturbance, designed based on a field map as the goal field in the described method.
-
-Third, the unique property of designing on a predefined grid makes the large-scale construction particularily feasible. It makes it easy to be incorporated into the existing structures, by defining the grid in a conflict-free way first.
+Last, but not least, the method's unique property of designing on a predefined grid makes the large-scale construction particularly feasible. It makes it easy to be incorporated into the existing structures, by defining the grid in a conflict-free way first.
 
 
 
 \section{Conclusion}
 Coil design is a complicated and very technical problem, especially when high accuracy is required. We presented a method that is simple in terms of both underlying math and computational effort. We believe that the design method can find its niche in practical applications, where spatial constraints play a significant role and a percent level in accuracy of the produced field is acceptable.
-
-For the sake of clarity we explained the method on a simple example. We designed a coil for a homogeneous field with only few tiles. However, the method is much more powerful. We conclude by presenting, in Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source.
-
-We publish the software implementation of the coil design, including examples, as open-source~\cite{Coilsjlcode}.
-
-We would like to thank Georg Bison, Allard Schnabel and other members of the nEDM at PSI collaboration for fruitful discussions. This work was supported by the Swiss National Science Foundation under grants 200020\_162574 and 200020\_172639.
 
 \begin{figure*}
   \centering
@@ -276,6 +267,16 @@ We would like to thank Georg Bison, Allard Schnabel and other members of the nED
   \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of 0.75. On the left-hand side the total current along each edge of the dipole compensation coil is depicted. On the right-hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at 0.1 and 100\,µT). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}
   \label{fig:showcase}
 \end{figure*}
+
+For the sake of clarity we explained the method on a simple example. We designed a coil for a homogeneous field with only few tiles. However, the method is much more powerful. We conclude by presenting, in Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source.
+
+We publish the software implementation of the coil design, including examples, as open-source~\cite{Coilsjlcode}.
+
+We proceed to describe how the coil design method was used to construct an active magnetic field compensation system at ETH Zürich.
+
+% We would like to thank Georg Bison, Allard Schnabel and other members of the nEDM at PSI collaboration for fruitful discussions. This work was supported by the Swiss National Science Foundation under grants 200020\_162574 and 200020\_172639.
+
+
   
 
 
@@ -393,56 +394,56 @@ We would like to thank Georg Bison, Allard Schnabel and other members of the nED
 
 
 
-\section{Construction}
-The first step is to define the \emph{coil surface}. Afterwards the surface has to be divided into tiles. The tiles need not necessarily be squared. They may not be rectangular, on even not flat. The finer the division, the better the field can be approximated, but also the harder it is to construct the system. A simple choice is to choose the coil surface to be a cuboid and the tiles to be rectangles.
+% \section{Construction}
+% The first step is to define the \emph{coil surface}. Afterwards the surface has to be divided into tiles. The tiles need not necessarily be squared. They may not be rectangular, on even not flat. The finer the division, the better the field can be approximated, but also the harder it is to construct the system. A simple choice is to choose the coil surface to be a cuboid and the tiles to be rectangles.
 
 
-Exploit symmetries --- a homogeneous coil may be viewed a sum of a number of
-much simpler to construct coils, which are then connected in series.
+% Exploit symmetries --- a homogeneous coil may be viewed a sum of a number of
+% much simpler to construct coils, which are then connected in series.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=.6\linewidth]{gfx/coils/wiring}
-  \caption
-  [TODO]
-  {%FIXME directly copied from the SFC paper
-The wiring solution.}
-  \label{fig:coils_wiring}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=.6\linewidth]{gfx/coils/wiring}
+%   \caption
+%   [TODO]
+%   {%FIXME directly copied from the SFC paper
+% The wiring solution.}
+%   \label{fig:coils_wiring}
+% \end{figure}
 
-Each edge can have any real current (albeit the Kirchoff law is fulfilled).
-However, to keep the number of control channels reasonably small, they need
-to be driven with one current source. Two techniques may be used:
-\begin{enumerate}
-  \item using a different number of wires, connected in series --- only discrete
-  \item varying resistance of different parts of the coil connected in parallel
-  --- can be adjusted continuously, but causes power dissipation.
-\end{enumerate}
+% Each edge can have any real current (albeit the Kirchoff law is fulfilled).
+% However, to keep the number of control channels reasonably small, they need
+% to be driven with one current source. Two techniques may be used:
+% \begin{enumerate}
+%   \item using a different number of wires, connected in series --- only discrete
+%   \item varying resistance of different parts of the coil connected in parallel
+%   --- can be adjusted continuously, but causes power dissipation.
+% \end{enumerate}
 
-1A, 0.1A, 0.001A wires solution --- keeps the number of windings reasonably small.
-With a simple use of additional resistors each coil may be still driven with only
-one power supply --- \emph{provide a figure}.
+% 1A, 0.1A, 0.001A wires solution --- keeps the number of windings reasonably small.
+% With a simple use of additional resistors each coil may be still driven with only
+% one power supply --- \emph{provide a figure}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=.6\linewidth]{gfx/coils/current_discretisation}
-  \caption
-  [TODO]
-  {%FIXME directly copied from the SFC paper
-The wirining solution.}
-  \label{fig:coils_current_discretisation}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=.6\linewidth]{gfx/coils/current_discretisation}
+%   \caption
+%   [TODO]
+%   {%FIXME directly copied from the SFC paper
+% The wirining solution.}
+%   \label{fig:coils_current_discretisation}
+% \end{figure}
 
-Care has to be taken to balance voltage and current needs for the power supplies.
+% Care has to be taken to balance voltage and current needs for the power supplies.
 
-Parameters to vary: number of windings, thickness of cable (price). Note also
-the inductance of the coils.
+% Parameters to vary: number of windings, thickness of cable (price). Note also
+% the inductance of the coils.
 
-\section{Possible generalisations}
-\begin{enumerate}
-  \item the surface does not need to be cubic
-  \item
-\end{enumerate}
+% \section{Possible generalisations}
+% \begin{enumerate}
+%   \item the surface does not need to be cubic
+%   \item
+% \end{enumerate}
 
 
 
