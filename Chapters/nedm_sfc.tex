@@ -115,6 +115,19 @@ It is to note that the feedback matrix is defined solely by the configuration of
 
 
 \section{Design challenges for n2EDM}
+Assume, that all there is to compensate are homogeneous fields. Which is the zeroth order approximation concerning the space expansion of the magnetic field. To compensate them, a system needs to have coils that can produce a homogeneous field. Yet, the volume where the field of a coil system is homogeneous is limited. For example, in a case of a Helmholtz pair, the size of the volume where the generated field is homogeneous on a 2\% level is only around 0.4 that of the size of the coils. Increasing the relative size of the homogeneous volume requires more elaborate designs~\cite{Kirschvink1992}. When three Helmholtz pairs are used to compensate a homogeneous change, they only do so inside this limited volume. Outside, the field may even be more unstable, the extreme case being right next to the coils, where the field can get arbitrarily large. The situation is similar for any type of field to be compensated. An active magnetic field compensation system can only stabilise the field in a limited volume.
+
+% If a Helmholtz system were used to compensate a homogeneous change in the field, it would only do that where the field it creates would be homogeneous. Outside this volume, close to the wires, the field would actually be effectively destabilised (need to explain more, it may not be immediately clear, what I mean here).
+% Near the wires a large field is created only to create the \emph{right} field inside.
+% It follows that an active magnetic field compensation system can only stabilise the field in a limited volume. Outside this volume.
+
+% The reasoning holds still if we consider fv
+
+
+% An active magnetic field compensation system has a fixed set of coils. With them, it can only compensate these fields, which the coils can create. For example, it is natural to expect most of the variations in the field to come from sources that are far away, so that they are approximately homogeneous.
+% To compensate them, the coils need to create a homogeneous counteracting field.
+% Yet, for example, in a case of a Helmholtz pair, the size of the volume where the generated field is homogeneous on a 2\% level is only around 0.4 that of the size of the coils~\cite{Kirschvink1992}. It follows that, an active compensation system can only stabilise the field in a limited volume. Increasing the volume, while keeping the size of the coils constant, requires more elaborate coils~\cite{Kirschvink1992}.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{gfx/nEDM_SFC/n2EDM_SFC_situation.png}
@@ -122,16 +135,8 @@ It is to note that the feedback matrix is defined solely by the configuration of
   \label{fig:n2EDM_sfc_situational_plan}
 \end{figure}
 
-Give the situational plan.
+In the SFC the size of the coils was \SIrange[range-phrase = --]{6}{8}{\meter}, while the outermost $\upmu$-metal shield of the experiment was only around \SI{2}{\meter} large. In the next phase of the nEDM measurement at PSI, n2EDM, the passive magnetic shield is going to be \SI{5}{\meter} large and the experimental area can hardly accommodate larger coils (Fig.\,\ref{fig:n2EDM_sfc_situational_plan}). So for the design of the n2EDM's active shielding it was necessary to come up with coils that could produce a field they are likely to compensate in the whole volume occupied by the shield.
 
-Very tight space. Lots of spatial constraints. Very, very large!
-
-This all calls for spetail coils.
-
-An active magnetic field compensation system has a fixed set of coils. With them, it can only compensate these fields, which the coils can create. For example, it is natural to expect most of the variations in the field to come from sources that are far away, so that they are approximately homogeneous.
-To compensate them, the coils need to create a homogeneous counteracting field.
-However, for a pair of Helmholtz coils the size of the volume where the field is homogeneous on a 2\% level is only around 0.4 that of the size of the coils~\cite{Kirschvink1992}. In other words, an active compensation system can only stabilise the  field in a limited volume.
-
-In nEDM-at-PSI the size of the coils was \SIrange[range-phrase = --]{6}{8}{\meter}, while the outermost $\upmu$-metal shield of the experiment was only around \SI{2}{\meter} large. In the n2EDM the shield is going to be \SI{5}{\meter} large, while the experimental area can hardly accommodate larger coils. So for the design of the n2EDM's active shielding it was necessary to come up with coils that would the field to be compensated in the whole volume occupied by the shield.
+Unfortunately, no known design can be used because of spatial constraints. Some come from the experimental hall itself. For example an emergency exit from a nearby accelerator and a staircase leading to it (see Fig.\,\ref{fig:n2EDM_sfc_situational_plan}). Other constraints are due to higher-priority components of the experiment itself: legs on which the shield stands, the magnet used to polarise the neutrons, the neutron detection system, and the door of the magnetic shield.
 
 The spatial constraints, together with the concern about ensuring a low condition number of the system, called for a in-depth investigation about the geometry of the future system's coils.
