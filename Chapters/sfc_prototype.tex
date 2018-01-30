@@ -6,35 +6,40 @@ The coil design method described in the previous chapter opened the door to a ne
 
 % The large fiducial volume is of particular importance for the n2EDM experiment at PSI. The available area\ldots
 
-In the laboratory at ETH Zürich an active magnetic field compensation system was constructed, based on the coil design method described earlier. The goal was do demonstrate the feasibility of construction of the coils, develop and test the electronic and software parts of the feedback algorithm, and test the whole system.
+In the laboratory at ETH Zürich an active magnetic field compensation system was constructed, based on the coil design. The goal was do demonstrate the feasibility of construction of the coils, develop and test the electronic and software parts of the feedback algorithm, and test system as the whole.
 
+\note{Schwammig, work on it!}
 
 
 \section{The first iteration -- coil structure}
-When discussing the the coil design method we have already indicated a possible way to realise it in practice---construct a grid out of cable channels. The system, pictured in Fig.\,\ref{fig:prototype_photo}, was built as a $5 \times 9 \times 5$ square tiles. The tile size\ldots The total size\ldots
-\mnote{Introduce the coordinate system somewhere here.}
+When discussing the coil design method we have already indicated a possible way to realise it in practice---construct a grid out of cable channels. The system, pictured in Fig.\,\ref{fig:prototype_photo}, was built as $5 \times 9 \times 5$ grid of square tiles. Each tile had side length \SI{262}{\milli\meter}, the total size was $1310 \times 1310 \times \SI{2358}{\milli\meter}$. The vertical axis we refer to as $z$, the long horizontal one as $y$, and the remaining as $x$.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03472.JPG}
-  \caption{The active magnetic compensation system in the laboratory at ETH Zürich. It consists cable channels mounted on an aluminum support structure. In the channels copper wires making up the coils can be seen. On the left-hand side the control cabinet of the system is visible. Indicate the coordinate system here!}
+  \caption{The active magnetic compensation system in the laboratory at ETH Zürich. It consists cable channels mounted on an aluminum support structure. In the channels copper wires making up the coils can be seen. On the left-hand side the control cabinet of the system is visible.}
   \label{fig:prototype_photo}
 \end{figure}
 
-The support frame was made of aluminum construction profiles. Thereon, on each side, was a large one-piece aluminum sheet, with square cut-outs leaving the material only directly below the cable channels. \note{Explain better, tricky.}
+The support frame was made of aluminum construction profiles. To support the cable channels, on each side there was a large, one-piece aluminum sheet with square cut-outs leaving the material only directly below the cable channels. The plastic cable channels were glued onto the aluminum.
+
+In its first version the system featured three coils for the homogeneous components of the magnetic field. The coils were designed following the method described in the previous chapter, but excluding the simplification algorithm, which was not yet ready at the time. The simplification was carried out manually.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_y_currents.png}
-  \caption{The optimal current net for the $y$-coil of the ETH active magnetic field compensation system. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted on the left-hand side. The rectangular faces are identical, too, and are depicted on the right-hand side. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right. CHECK}
+  % \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_y_currents.png}
+  \includegraphics[height=0.3\linewidth]{gfx/prototype/coil_design_y_100uT_1.pdf}
+  \quad\quad
+  \includegraphics[height=0.3\linewidth]{gfx/prototype/coil_design_y_100uT_2.pdf}
+  \caption{The optimal current net for the $y$-coil of the ETH active magnetic field compensation system. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted on the left-hand side. The rectangular faces are identical, too, and are depicted on the right-hand side. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right.}
   \label{fig:prototype_coil_y_currents}
 \end{figure}
 
-In its first version the system featured three coils for the homogeneous components of the magnetic field. The coils were designed following the method described in Ch.\,\ref{ch:coil_design} (excluding the simplification algorithm, as explained later). The fiducial volume was chosen to be a cuboid, centred in the system, \ldots away from the walls. The optimal current net for the $y$-coil is depicted in Fig.\,\ref{fig:prototype_coil_y_currents}. At the time when the system was constructed the simplification algorithm, as described in Ch.\,\ref{ch:coil_design} had not been developed, yet. The decomposition, shown in Fig.\,\ref{fig:prototype_coil_y_decomposition} was done arbitrarily. From the symmetry the $x$ and $z$ coils are identical. The current net are depicted in Fig.\,\ref{fig:prototype_coil_x_z_currents} and the decomposition in Fig.\,\ref{fig:prototype_coil_x_z_decomposition}.
+The fiducial volume was chosen to be a cuboid, centred in the system, \SI{155}{\milli\meter} away from the walls. The optimal current net for the $y$-coil (producing a homogeneous field in the $y$ direction) is depicted in Fig.\,\ref{fig:prototype_coil_y_currents}. The manual into loops decomposition is shown in Fig.\,\ref{fig:prototype_coil_y_decomposition}. The other two coils, $x$ and $z$, are identical on the symmetry ground. The current net are depicted in Fig.\,\ref{fig:prototype_coil_x_z_currents} and the decomposition in Fig.\,\ref{fig:prototype_coil_x_z_decomposition}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_y_decomposition.png}
+  \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_y_decomposition.pdf}
   \caption{The decomposition of the current net of the $y$-coil (Fig.\,\ref{fig:prototype_coil_y_currents}) into current loops. For clarity only a sixteenth part of the system is depicted, all others being identical on the grounds of symmetry. Each loop is indicated with a different colour. The currents are given per \SI{50}{\micro\tesla} of generated field. SHOW WHICH PART IS DEPICTED ON A SMALL 3D DRAWING}
   \label{fig:prototype_coil_y_decomposition}
 \end{figure}
@@ -202,6 +207,12 @@ Without accounting for the delay the system would spontaneously destabilise.
 
 \note{Put the step-response plot? Depending how crowded with plots it is later.}
 
+\note{A paragraph (or a margin note) comparing the feedback algorithm to the old one. Requires no parameters, any field may be the target field.}
+
+\note{Has been tested with the big system, but it did not outperform in terms of stability (do I have a plot to prove that?). Nick Schwegler's project report! I could just cite it here, it was inconclusive. But for sure I can say it.}
+
+
+
 
 \section{Dynamic stabilisation}
 The dynamic stabilisation was tested with a strong permanent magnetic dipole. It was build out of two extremely strong neodymium magnets (\SI{200}{\kilo\gram} force when attached to iron) connected with an iron rod. The dipole was moved by hand several meters from the system causing magnetic field disturbance.
@@ -273,7 +284,7 @@ The limit comes from the temperature drifts. According to the specification of t
 
 However, below is another limitation. Figure\,\ref{fig:prototype_stability} features also a red line labeled ,,\SI{50}{\ohm} ADC shortcut''. This is the stability of the readout of an ADC channel with the terminals connected with a \SI{50}{\ohm} resistor. Even if the magnetic field sensors would have output a perfectly stable voltage, the digitised information would be only this stable. A higher class digitisers could perform better.
 
-The lowest curve on the plot is the limit on the stability due to the bit depth of the DACs. A quantisation resolution $Delta$ corresponds, on average, to a white noise with RMS amplitude $\Delta / \sqrt{12}$ (derived for example in Sec.\,IV.A in \cite{Gray1998}). This noise scales then down as $\tau^{-1/2}$ with the integration time. The system's 16-bit DACs had $2^{16}$ levels mapped onto a $\SI{\pm 100}{\micro\tesla}$ range. This defines the quantisation at the feedback time of inverse $\SI{200}{\hertz}$. In total the limit from the quantisation at the integration time $\tau$ is:
+The lowest curve on the plot is the limit on the stability due to the bit depth of the DACs. A quantisation resolution $\Delta$ corresponds, on average, to a white noise with RMS amplitude $\Delta / \sqrt{12}$ (derived for example in Sec.\,IV.A in \cite{Gray1998}). This noise scales then down as $\tau^{-1/2}$ with the integration time. The system's 16-bit DACs had $2^{16}$ levels mapped onto a $\SI{\pm 100}{\micro\tesla}$ range. This defines the quantisation at the feedback time of inverse $\SI{200}{\hertz}$. In total the limit from the quantisation at the integration time $\tau$ is:
 \begin{equation}
   \frac{ \SI{200}{\micro\tesla} }{ 2^{16} \ \sqrt{12} \ \sqrt{ \SI{200}{\hertz}\ \tau} }
 \end{equation}
@@ -287,10 +298,10 @@ Interestingly, the stability is fully defined by the measurement chain---the sen
 \note{The process of winding a coil? Should be described!}
 
 
-\section{Testing the new feedback with the big system}
-Not sure where to put it, but somewhere in this chapter.
+% \section{Testing the new feedback with the big system}
+% Not sure where to put it, but somewhere in this chapter.
 
-Does not outperform, but is for example completely parameter-free (no I parameters), any field can be used as the target field.
+% Does not outperform, but is for example completely parameter-free (no I parameters), any field can be used as the target field.
 
 
 \section{Open-design cage}
