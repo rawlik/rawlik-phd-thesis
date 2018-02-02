@@ -146,14 +146,14 @@ The DACs were 16-bit Beckhoff EL4134. The signals were then amplified with an ar
 The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototype_photo_daq}. A detailed list of the components can be found in the Figure's caption. All these components, additionally to the coils themselves, were used to run the active magnetic field compensation.
 
 
-\section{The SFC matrix}
-The system, fluxgates and coils, is fundamentally linear. The magnetic field seen by each of the 24 sensors is linear with the currents in the three coils, not unlike the discussion in Sec.\,\ref{ch:coil_design}. All readouts, gathered in a vector $\mathbb{B}$ (dimension 24) can be written as a linear combination of the currents in the coils $\mathbb{I}$ (dimension 3):
+\section{The feedback matrix}
+The system, magnetic field sensors and coils, is fundamentally linear. The magnetic field measured by each of the 24 sensors is linear with the currents in the three coils, not unlike the discussion in Sec.\,\ref{ch:coil_design}. All readouts, gathered in a vector $\mathbb{B}$ (dimension 24) can be written as a linear combination of the currents in the coils $\mathbb{I}$ (dimension 3):
 \begin{equation}
   \label{eq:SFC_matrix_model}
-  \mathbb{B} = M \mathbb{I} + \mathbb{B}_0 \ .
+  \mathbb{B} = M \mathbb{I} + \mathbb{B}_0 \ ,
 \end{equation}
 \marginpar{We use the letter $\mathbb{B}$ for the values measured by the sensors to distinguish it from $\bm{B}$, which is used to denote the magnetic field in the whole space.}
-$\mathbb{B}_0$ is the free offset. The matrix of proportionality constants $M$, dimension $24 \times 3$ \note{verify}, is the central element of the active magnetic field compensation. It is called the response matrix or the SFC matrix \note{need to establish the nomenclature}. 
+where $\mathbb{B}_0$ is the free offset. The matrix of proportionality constants $M$, dimension $24 \times 3$, is the central element of the active magnetic field compensation. It is called the response matrix or the SFC matrix \note{need to establish the nomenclature}. 
 \note{Need to see how much I explain in the nEDM SFC at the beginning.}
 
 The SFC matrix of the nEDM@PSI SFC system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}. There is a fundamental difference between the matrix of the nEDM@PSI system and the next generation one. The nEDM@PSI's matrix was not known a priori. The system was constructed and the matrix was measured as the system's property.
