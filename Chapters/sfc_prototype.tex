@@ -23,7 +23,7 @@ When discussing the coil design method we have already indicated a possible way 
 
 The support frame was made of aluminum construction profiles. To support the cable channels, on each side there was a large, one-piece aluminum sheet with square cut-outs leaving the material only directly below the cable channels. The plastic cable channels were glued onto the aluminum.
 
-In its first version the system featured three coils for the homogeneous components of the magnetic field. The coils were designed following the method described in the previous chapter, but excluding the not ready at the time simplification algorithm. The simplification was carried out manually, instead.
+In its first version the system featured three coils for the homogeneous components of the magnetic field (the first three cartesian harmonics). The coils were designed following the method described in the previous chapter, but excluding the not ready at the time simplification algorithm. The simplification was carried out manually, instead.
 
 \begin{figure}
   \centering
@@ -147,75 +147,78 @@ The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototy
 
 
 \section{The feedback matrix}
-The system, magnetic field sensors and coils, is fundamentally linear. The magnetic field measured by each of the 24 sensors is linear with the currents in the three coils, not unlike the discussion in Sec.\,\ref{ch:coil_design}. All readouts, gathered in a vector $\mathbb{B}$ (dimension 24) can be written as a linear combination of the currents in the coils $\mathbb{I}$ (dimension 3):
+The system utilises the feedback matrix, as described in Ch.\,\ref{ch:nedm_sfc}. The magnetic field measured by each of the 24 sensors is linear with the currents in the three coils. All readouts, gathered in a vector $\mathbb{B}$ (dimension~24) can be written as a linear combination of the currents in the coils $\mathbb{I}$ (dimension~3):
+\marginpar{We use the symbol $\mathbb{B}$ for the values measured by the sensors to distinguish it from $\bm{B}$, which is used to denote the magnetic field in the whole space.}
 \begin{equation}
   \label{eq:SFC_matrix_model}
   \mathbb{B} = M \mathbb{I} + \mathbb{B}_0 \ ,
 \end{equation}
-\marginpar{We use the letter $\mathbb{B}$ for the values measured by the sensors to distinguish it from $\bm{B}$, which is used to denote the magnetic field in the whole space.}
-where $\mathbb{B}_0$ is the free offset. The matrix of proportionality constants $M$, dimension $24 \times 3$, is the central element of the active magnetic field compensation. It is called the response matrix or the SFC matrix \note{need to establish the nomenclature}. 
-\note{Need to see how much I explain in the nEDM SFC at the beginning.}
+where $\mathbb{B}_0$ is the free offset. The matrix of proportionality constants $M$, dimension $24 \times 3$, is the central element of the active magnetic field compensation.
 
-The SFC matrix of the nEDM@PSI SFC system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}. There is a fundamental difference between the matrix of the nEDM@PSI system and the next generation one. The nEDM@PSI's matrix was not known a priori. The system was constructed and the matrix was measured as the system's property.
-This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable.
-Conversely, the new system takes the matrix into account already at the design phase. The coils are designed to produce magnetic field corresponding to the terms of the Cartesian harmonic expansion of the field.
-\note{Needs to be clear here!} This ensures that they are orthogonal to one another. We expect the matrix to have the condition number equal to 1.
+Let us recall the discussion of the PSI system's matrix in Sec.\,\ref{fig:nEDM_SFC_matrix}. There, we pointed out that its high condition number, and the need for regularisation, was due to the geometry of the system. In particular, some linear combinations of the coils created high-order fields which, despite high currents, had little influence on the sensors' readout.
+% The matrix of the PSI system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}.
+There is a fundamental difference between the matrix of the PSI's system and the one of the next generation's one. The PSI matrix was not known a priori. The system was constructed and the matrix was measured as the system's property.
+% This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable.
+Conversely, the new system takes the matrix into account already at the design phase. The coils are designed to produce magnetic field corresponding to the terms of the cartesian harmonic expansion of the field.
+This ensures that they are orthogonal to one another. We expect, by design, the matrix to have the condition number equal to 1. It has been measured to be 1.06.
 
-\note{Put a figure about the measurement of the matrix?}
+% \note{Put a figure about the measurement of the matrix?}
 
-The active magnetic field compensation system constructed at ETH implemented a new way of measuring the matrix. Not only it changes currents in all the coils simultaneously, shortening the duration of the procedure, but can also measure in close-to-zero field conditions.
+The active magnetic field compensation system constructed at ETH implemented a new way of measuring the matrix. The procedure changed currents in all the coils simultaneously, shortening the duration of the procedure, and could measure in close-to-zero field conditions.
 
-To measure the matrix we considered the space spanned by all the coils. In this case it was three-dimensional---the current in the $x$-coil, in the $y$-coil and in the $z$ one. A point in this space corresponds to one configuration of the currents in the coils. We picked a set of points on an n-sphere in this space and continuously changed the currents to walk from one point to another. As all the currents were simultaneously changed, the measurements of the sensors were recorded. Then for each readout channel ($8 \times 3 = 24$ in total) a linear model was fitted to estimate the proportionality constants between the readout and the currents in the coils:
+To measure the matrix, the space spanned by all the coils was considered. In this case it was three-dimensional---the current in the $x$-coil, in the $y$-coil and in the $z$ one. A point in this space corresponded to one configuration of the currents in the coils. A set of points on an n-sphere in this space was picked and all currents were changed simultaneously making their way from one point to another. As the currents were changed, the measurements of the sensors were recorded. Then, for each readout channel, 24 in total, a linear model was fitted to estimate the proportionality constants between the readout and the currents in the coils:
 \begin{equation}
   \label{eq:SFC_matrix_linear_fits}
   B_i = B_i^0 + \sum_{j=x,y,z} M_{i,j} \, I_j \ ,
 \end{equation}
-where $B_i$ is the readout channel ($i$ going from 1 to 24), $I_j$ are the currents in the coils ($j$ going over $x$, $y$ and $z$) and $M_{i,j}$ is the matrix of proportionality constants---the SFC matrix. $B_i^0$ is the free offset vector---the background field.
-\note{Sort out the indexes, which is which.}
+where $B_i$ is the readout channel ($i$ going from 1 to 24), $I_j$ are the currents in the coils ($j$ going over $x$, $y$ and $z$) and $M_{i,j}$ is the matrix of proportionality constants---the feedback matrix. $B_i^0$ is the free offset vector---the background field.
+% \note{Sort out the indexes, which is which.}
 
-If the system is perfectly linear it does not matter where in the current-space the n-sphere is located, nor how large it is (though larger give more precise estimates per point). We expect, however, nonlinearities to appear in the presence of a mu-metal shield.
+If the system is perfectly linear it does not matter where in the current-space the n-sphere is located, nor how large it is (though larger ones give more precise estimates per point). We expect, however, nonlinearities to appear in the presence of a mu-metal shield inside the system.
 In that case it is preferable to measure the matrix in the vicinity of the point where the system is later operated. Following this motivation the following procedure of the matrix measurement was employed: First an n-sphere centred at n-zero and a radius of \SI{50}{\micro\tesla} was chosen. Then the system walked over ten random points on the sphere, taking two seconds to go from one to the next (\SI{20}{\second} in total).
 \marginpar{It is possible to fit the linear model and estimate the uncertainty of the matrix elements \emph{while} measuring; the measurement can be stopped when the uncertainty drops below a threshold.}
-This gave the first estimate of the matrix. The next sphere is chosen to be centred around the zero field. This is the optimal, in the least-squares sense, solution of Eq.\,\ref{eq:SFC_matrix_model} with $\mathbb{B} = 0$ (exactly as it was the case in Eq.\,\ref{eq:requirement}):
+This gave the first estimate of the matrix. The next sphere was chosen to be centred around the zero field. This is the optimal, in the least-squares sense, solution of Eq.\,\ref{eq:SFC_matrix_model} with $\mathbb{B} = 0$:
 \begin{equation}
   \label{eq:SFC_zero_field_requirement}
   \mathbb{I}_\text{zero-field} = M^\dagger \, \mathbb{B}_0 \ ,
 \end{equation}
-where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits} and $M^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $M$. This gave the second estimate of the matrix. Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{0.1}{\micro\tesla}. The procedure was developed for a system with mu-metal. \note{but is beautiful in any way} In the case of an air system all consecutive estimates of the matrix were the same.
+where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits} and $M^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $M$. This gave the second estimate of the matrix. Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{1}{\micro\tesla}. The procedure was developed for a system with mu-metal. In the case of an air system all consecutive estimates of the matrix were the same.
+\note{Hopefully I still do get to measure the matrix with the $\upmu$-metal cube inside. Then I will describe it here.}
 
-A typical measured matrix is\ldots Estimate the field inhomogeneity right away from it! Give two at two distances, maybe?
+A typical measured matrix is\ldots Estimate the field inhomogeneity right away from it! Give two at two distances, maybe? The one I looked at has around 0.5\% std homogeneity at the sensors' positions.
 
 Then continue to analyse the matrix. Discuss the SVD decomposition and its singular values. Or is it the right place to do it here?
 
 
-\section{The feedback algorithm}
-The feedback is based on calculating the optimal solution of the Eq.\,\ref{eq:SFC_matrix_model} in each step. This is in contrast to stabilisation and control approach taken in the previous system.
 
-We start at the $n$th iteration (the iteration index marked on top) with Eq.\,\ref{eq:SFC_matrix_model}:
+
+\section{The feedback algorithm}
+The feedback was based on calculating the optimal solution of the Eq.\,\ref{eq:SFC_matrix_model} in each step. In the $n$th iteration (the iteration index marked on top) the equation is:
 \begin{equation}
-  \mathbb{B}^n = \mathbb{M} \mathbb{I}^n + \mathbb{B}_0^n
+  \mathbb{B}^n = M \mathbb{I}^n + \mathbb{B}_0^n \ .
 \end{equation}
-For the next iteration we want the field to be equal to the target field (which we allow to be any): $\mathbb{B}^{n+1} \overset{!}{=} \mathbb{B}_\text{target}$, which is leads to the following requirement for the next currents:
+In the next iteration we want the field to be equal to the target field (which we allow to be any): $\mathbb{B}^{n+1} \overset{!}{=} \mathbb{B}_\text{target}$, which leads to the following requirement for the next currents:
 \begin{align}
   \mathbb{I}^{n+1} &=
-    \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}_0^{n+1} \right) \nonumber \\
-    &\approx \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}_0^{n} \right) \nonumber \\
-    &= \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^n + \mathbb{M} \mathbb{I}^n \right) \nonumber \\
-    &= \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^n \right) + \mathbb{M}^\dagger \mathbb{M} \mathbb{I}^n \nonumber \\
-    &= \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^n \right) + \mathbb{I}^n \ . \label{eq:current_update}
+    M^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}_0^{n+1} \right) \nonumber \\
+    &\approx M^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}_0^{n} \right) \nonumber \\
+    &= M^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^n + M \mathbb{I}^n \right) \nonumber \\
+    &= M^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^n \right) + M^\dagger M \mathbb{I}^n \nonumber \\
+    &= M^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^n \right) + \mathbb{I}^n \ . \label{eq:current_update}
 \end{align}
 By defining $\Delta\mathbb{I}^n := \mathbb{I}^{n+1} - \mathbb{I}^{n}$ and $\Delta\mathbb{B}^n = \mathbb{B}^n - \mathbb{B}_\text{target}$ we obtain the intuitive rule for the current update:
 \begin{equation}
-  \Delta\mathbb{I}^n = - \mathbb{M}^\dagger \Delta\mathbb{B}^n
+  \Delta\mathbb{I}^n = - M^\dagger \Delta\mathbb{B}^n \ .
 \end{equation}
-A careful reader may be alarmed by the approximation $\mathbb{B}_0^{n+1} \approx \mathbb{B}_0^{n}$. It is true that it does not hold in practice, but is nevertheless an unfortunate necessity. For the calculation needs to be performed just before the iteration $n+1$, when $\mathbb{B}_0^{n+1}$ is not yet known. In other words, the correction is delayed by one iteration. This introduces a lag in the system and motivates high feedback frequencies.
+A careful reader may be alarmed by the approximation $\mathbb{B}_0^{n+1} \approx \mathbb{B}_0^{n}$. It is an unfortunate necessity, yor the calculation needed to be performed just before the iteration $n+1$, when $\mathbb{B}_0^{n+1}$ is not yet known. In other words, the correction was delayed by one iteration. This introduced a lag in the system and motivated high feedback frequencies.
 
-In practice the system had a delay of more than one iteration. Although the system was operated at \SI{200}{\hertz} the quickest turnaround was three cycles. This was tested by applying a pulse on an DAC channel and observing the response on a directly connected ADC channel. Knowing that the magnetic field information is delayed, it was crucial to delay the current information, too, so that Eq.\,\ref{eq:current_update} became:
+In practice, the system had a delay of more than one iteration. Although the system was operated at \SI{200}{\hertz}, the quickest turnaround was three cycles. This was tested by applying a pulse on an DAC channel and observing the response on a directly connected ADC channel. Knowing that the magnetic field information is delayed, it was crucial to delay the current information, too, so that Eq.\,\ref{eq:current_update} became:
 \begin{equation}
-  \mathbb{I}^{n+1} = \mathbb{M}^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^{n-2} \right) + \mathbb{I}^{n-2} \ .
+  \mathbb{I}^{n+1} = M^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^{n-2} \right) + \mathbb{I}^{n-2} \ .
 \end{equation}
 Without accounting for the delay the system would spontaneously destabilise.
 
+It is worth to compare the 
 \note{Put the step-response plot? Depending how crowded with plots it is later.}
 
 \note{A paragraph (or a margin note) comparing the feedback algorithm to the old one. Requires no parameters, any field may be the target field.}
