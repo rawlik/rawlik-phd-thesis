@@ -9,7 +9,7 @@ Passive methods of shielding the magnetic field, like $\upmu$-metal shields, rel
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{gfx/nEDM_SFC/SFCplain.pdf}
-  \caption{The nEDM-at-PSI active magnetic field compensation system. The experiment, in violet, is in the middle, with nine 3-axis magnetic field sensors, depicted as green circles, attached to it. Everything is encircled by six coils (orange). Adapted from~\cite{Franke2013}.}
+  \caption{The nEDM-at-PSI active magnetic field compensation system. The experiment, in violet, was in the middle, with nine 3-axis magnetic field sensors, depicted as green circles, attached to it. Everything was encircled by six coils (orange). Adapted from~\cite{Franke2013}.}
   \label{fig:sfc-scheme}
 \end{figure}
 
@@ -26,10 +26,11 @@ Since 1980s numerous active magnetic field compensation systems have been built 
 
 \section{The nEDM-at-PSI SFC system}
 \marginpar{There was an inside joke that SFC really stands for SULTAN Field Compensation, SULTAN having been the magnet with by far the strongest influence on the magnetic field.}
-The construction of nEDM-at-PSI active magnetic field compensation system, called the SFC (Surrounding Field Compensation) system,
-was a part of Beatrice Franke's PhD thesis~\cite{Franke2013}, later also published~\cite{Afach2014}. The author of this work was responsible for maintaining the system, with the goal of gaining enough of understanding and experience to design a next generation system for the n2EDM experiment. In the beginning of this chapter the most important information about the SFC system is presented, followed by a few new insights. This serves as an introduction to the original developments, to which the remaining three sections of this part are dedicated.
+The construction of active magnetic field compensation system for the nEDM measurement at the PSI, called the SFC (Surrounding Field Compensation) system,
+was a part of Beatrice Franke's PhD thesis~\cite{Franke2013}, later also published~\cite{Afach2014}. The author of this work was responsible for maintaining the system, with the goal of gaining enough of understanding and experience to design a next generation system for the n2EDM experiment. In the beginning of this chapter the most important information about the SFC system is presented, followed by a few new insights. This serves as an introduction to the original developments, to which the remaining three chapters of part II are dedicated.
 
-The distinct feature of the PSI's SFC system was the use of the feedback matrix. Consider a single coil of any shape in air. For every point in space, and for every spatial component, the magnetic field is directly proportional to the current in the coil. The SFC system had six coils and measured the field in nine points, three spatial components in each (27 channels). In total there were $6 \times 27 = 162$ proportionality constants, which are gathered in the feedback matrix $M$. The matrix $M$ is a property of the active compensation system, more precisely of the geometry of the coils and sensors. Ferromagnetic materials, in particular $\upmu$-metal, distort the field created by the coils and thereby the feedback matrix. Moreover, they make the system non-linear, which we are going to, for now, neglect.
+The distinct feature of the PSI's SFC system was the use of a feedback matrix. Consider a single coil of any shape in air. For every point in space, and for every spatial component, the magnetic field is directly proportional to the current in the coil. The SFC system had six coils and measured the field in nine points, three spatial components in each---27 channels. In total there were $6 \times 27 = 162$ proportionality constants, which were gathered in the feedback matrix $M$. The matrix $M$ was a property of the active compensation system, more precisely of the geometry of the coils and sensors. Ferromagnetic materials, in particular the $\upmu$-metal shield, distorted the field created by the coils and thereby affected the feedback matrix.
+% Moreover, they make the system non-linear, which we are going to, for now, neglect.
 
 % \note{Maybe some nice formula here for the matrix elements?}
 
@@ -41,7 +42,7 @@ The distinct feature of the PSI's SFC system was the use of the feedback matrix.
 \end{figure}
 
 \marginpar{A matrix-based feedback was first proposed by~\cite{RetaHernandez1998}. As their proposed system did not include $\mu$-metal, they could calculate the matrix analytically.}
-The following procedure was used to measure the matrix. A current in one coil was scanned over the whole available range, while the field change was measured with the sensors. Then for each sensor, and each spatial component, a linear regression was performed. The slope was the proportionality constant, the matrix $M$ element. The procedure was repeated of all coils. The matrix measured by Franke is depicted in Fig.\,\ref{fig:nEDM_SFC_matrix}.
+To measure the matrix the following procedure was used: A current in one coil was scanned in steps over the whole available range, while the field change was measured with the sensors. Then for each sensor, and each spatial component, a linear regression was performed. The slope was the proportionality constant, the matrix $M$ element. The procedure was repeated of all coils. The matrix measured by Franke is depicted in Fig.\,\ref{fig:nEDM_SFC_matrix}.
 
 The use of the matrix $M$ was what distinguished the PSI's SFC system from other systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013}, which used either one component of a sensor, or a weighted combination of several components, to control one coil.
 
@@ -63,7 +64,7 @@ $\Delta I^n_j$ is the error value. It was obtained from the deviation of the mea
 \end{equation}
 
 \marginpar{The system, when started, was static. Then the currents could be changed manually to achieve a desired field (or chosen from a predefined set). Then the system was switched to the dynamic mode.~\cite{Franke2013}}
-Besides the proportional and integral terms the feedback formula also includes the $I^0_j$ term. It seems weird to give such a big of a role to particular currents that happened to be there at the zeroth iteration. It has to do with the following property of the system: the target field was always the one measured at the moment of switching the system from dynamic to static.
+Besides the proportional and integral terms, the feedback formula also included the $I^0_j$ term. It may seem puzzling to give such a big of a role to particular currents that had happened to be there at the zeroth iteration. It had to do with the property of the system, that the target field was always the one measured at the moment of switching the system from dynamic to static.
 At that moment the error value was zero, and so was the integral term, so, according to the Eq.\,\ref{eq:old_SFC_feedback}, the output currents would immediately have switched to zero. In result, the system would violently destabilise. The additional term $I^0_j$ prevented that from happening.
 
 Here we conclude the brief description of the system and proceed to present original insights of the author.
@@ -78,25 +79,25 @@ There is a fundamental meaning behind the matrix $M$. The currents in the six co
 \marginpar{Finding the pseudoinverse of a matrix $A$ is equivalent to finding least-squares solution of a system of linear equations described by the matrix $A$ (although more computationally complex).}
 Which is read: The measured values are a linear combination of the currents in the coils plus the ambient field.
 The other direction, from the field to the current space, cannot be done exactly. Nevertheless, the optimal, in the least-squares sense, transition can be done with the use of the Moore--Penrose inverse (pseudoinverse) of the matrix $M$, denoted $M^\dagger$~\cite{penrose_1955}.
-In other words, the matrix $M$ tells us what field, as measured by the sensors, will a given set of currents produce. The matrix $M^\dagger$ tells us what currents to apply to best approximate a given field.
+In other words, the matrix $M$ tells us what field, as measured by the sensors, will a given set of currents produce. The matrix $M^\dagger$ tells us, what currents to apply to best approximate a given field.
 
 
 
 \section{The spectrum of the feedback matrix}
 \label{sec:nedm_sfc_matrix}
-The feedback matrix used during the data taking of the nEDM-at-PSI experiment (2014--17) was the one measured by Franke~\cite{Franke2013}. This matrix not only needed to be inverted, but also additionally regularised. While it has been thoroughly discussed how to do the regularisation, the question of why was it needed at all was neither posed nor answered.
+The feedback matrix used during the data taking of the nEDM-at-PSI experiment (2014--17) was the one measured by Franke~\cite{Franke2013} (Fig.\,\ref{fig:nEDM_SFC_matrix}). This matrix not only needed to be inverted, but also additionally regularised. While it has been thoroughly discussed how to do the regularisation, the question of why was it needed at all was neither posed nor answered.
 
-Let us elaborate on regularisation. The feedback matrix represents coefficients in a system of linear equations that need to be solved in order to make the optimal transition from the field to the current space. As the system of equations is over-determined, the best solution is found by the least-squares, which is equivalent to calculating the pseudoinverse matrix. A solution can be found reliably if the system is well-defined, i.e. the least-squares well is steep in every direction in the parameter space. If the well stretches like a valley in some directions, the solution is not globally well-defined, although it still may be defied up to a parameter (the one pointing in the direction of the valley). We then speak of an ill-defined set of equations, or an ill-defined matrix. Regularisation helps an ill-defined problem to become better defined, at the cost of the solution having larger sum of the residuals squared.
+Let us elaborate on regularisation. The feedback matrix represents coefficients in a system of linear equations that need to be solved in order to make the optimal transition from the field to the current space. As the system of equations is over-determined, the best solution is found by the least-squares, which is equivalent to calculating the pseudoinverse matrix. A solution can be found reliably if the system is well-defined, i.e. the least-squares well is steep in every direction in the parameter space. If the well stretches, like a valley, in some directions, the solution is not globally well-defined, although it still may be defied up to a parameter (the one pointing in the direction of the valley). We then speak of an ill-defined set of equations, or an ill-defined matrix. Regularisation helps an ill-defined problem to become better defined, at the cost of the solution having larger sum of the residuals squared.
 
-A real matrix $M$ may be decomposed into $M = U S V^T$, where $U$ and $V$ are unitary, and $S$ is diagonal. This is called the \emph{Singular Value Decomposition} (SVD)~\cite{Golub1965}. The singular values lie on the diagonal of $S$, which is called the \emph{spectrum}. The spectrum of the feedback matrix is of uttermost importance. Pseudo-inverting a matrix with small singular values is an ill-posed problem. Similarily, as inverting small numbers.
+A real matrix $M$ may be decomposed into $M = U S V^T$, where $U$ and $V$ are unitary, and $S$ is diagonal (the \emph{Singular Value Decomposition} (SVD)~\cite{Golub1965}). The singular values lie on the diagonal of $S$, which is called the \emph{spectrum}. The spectrum of the feedback matrix is of uttermost importance. Pseudo-inverting a matrix with small singular values is an ill-posed problem. Similarily, as inverting small numbers.
 
-One defines the \emph{condition number} of a matrix as the ratio of extreme values of its spectrum~\cite{Regression}. For a matrix with a flat spectrum, all singular values equal, the condition number is 1 and the set of linear equations this matrix represents is well defined. The more they differ, the higher the condition number and the worse defined the problem is. The effect is that the noise in the original matrix becomes amplified by the condition number in the pseudoinverse.
+One defines the \emph{condition number} of a matrix as the ratio of extreme values of its spectrum~\cite{Regression}. For a matrix with a flat spectrum, all singular values equal, the condition number is 1 and the set of linear equations this matrix represents is well defined. The more they differ, the higher the condition number and the worse defined the problem is. The effect is, that the noise in the original matrix becomes amplified by the condition number in the pseudoinverse.
 
 Figure~\ref{fig:nEDM_SFC_svd} presents the spectrum of the PSI's SFC feedback matrix. First thing to note is that its condition number is $9.6 / 0.51 = 18.2$. A factor of 18 amplification of noise clearly explains why regularisation was necessary.
 
 It is interesting to ask \emph{why} the system had an ill-defined feedback matrix. A very small singular value means that there exists a coil, or a combination thereof, which has about 18 times smaller influence on the field then others. In Fig.\,\ref{fig:nEDM_SFC_svd} the columns are the singular values with their corresponding coil-vectors. The first three, starting from the left, are easiest to interpret. Each of them is a pair of coils configured as Helmholtz-pair with roughly the same current, producing a homogeneous field in each of the spatial directions.
 %The smaller singular value, or the effect on the field, in the Y direction is explained by the fact that this is the longitudinal axis of the μ-metal cylinder.
-The last column has also a clear interpretation: it corresponds to all pairs configured as anti-Helmholtz, with currents flowing in the opposite directions. The magnetic field that it created was a complicated and high-order. The fact, that this combination has so little influence on the measured field means, that it hardly changes any solution for currents when added upon it. It spans a valley in the parameter space in the least-squares problem. If not regularised, a small change in the measured field would cause a large change in the currents along the valley. Rapid oscillations in this direction would render the system unstable.
+The last column has also a clear interpretation: it corresponds to all pairs configured as anti-Helmholtz, with currents flowing in the opposite directions. The magnetic field that was created by such a configuration was a complicated and very high-order. The fact, that this combination has so little influence on the measured field means, that it hardly changes any solution for currents when added upon it. It spans a valley in the parameter space in the least-squares problem. If not regularised, a small change in the measured field would cause a large change in the currents along the valley. Rapid oscillations in this direction would render the system unstable.
 
 \begin{figure}
   \centering
@@ -107,7 +108,7 @@ The last column has also a clear interpretation: it corresponds to all pairs con
   \label{fig:nEDM_SFC_svd}
 \end{figure}
 
-It is to note that the feedback matrix is defined solely by the configuration of the coils, sensors and ferromagnetic materials. It follows that care has to be taken already at the design stage to create a system that will be well defined.
+An important observation is that the feedback matrix is defined solely by the configuration of the coils, sensors and ferromagnetic materials. It follows, that care has to be taken already at the design stage to create a system that will be well defined.
 
 % \note{Propose here immediately a solution: orthogonal system for elements of expansion! Any combination of 1st order gradients is a 1st order gradient.}
 
