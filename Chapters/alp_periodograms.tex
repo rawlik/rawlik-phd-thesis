@@ -190,9 +190,9 @@ The probability that a hypothetical oscillation of amplitude $A$ and frequency $
 \end{equation}
 This probability is the p-value for the hypothesis $H(\omega, A)$ rejection. The distribution of $P^{H(\omega, A)}(\omega)$ is obtained with the Monte Carlo method. Here also the CDF's tail is extrapolated; this time, however, the one on the low-power side. We assume a functional form as eq.\,(15) in \cite{Scargle1982}. This test is repeated for different $\omega$ and $A$, each time covering a pixel of the space of possible hypotheses, as schematically shown in Fig.\,\ref{fig:exclusion_region}. The set of hypotheses excluded at most at certain p-value forms an exclusion region. We take the threshold p-value to be 5\%, which corresponds to a traditional confidence level of 95\%.
 
-In this case, we cover the frequency spectrum much less densely than is the case in the null hypothesis test. This procedure is essentially evaluating the sensitivity of the measurement, which is solely determined by the timing and precision of the measurement points. We do not expect any highly resonant structures to appear therein.
+The frequency spectrum is covered much less densely than is the case in the null hypothesis test. This procedure is essentially evaluating the sensitivity of the measurement, which is solely determined by the timing and precision of the measurement points. No highly resonant structures are expected to appear therein.
 
-\mnote{During the Monte Carlo simulations we assume a perfectly coherent signal. The width of a real peak is not resolvable, as already mentioned.}
+\marginpar{During the Monte Carlo simulations a perfectly coherent signal is assumed. The width of a real axion-induced peak is not resolvable by the nEDM experiment.}
 
 % \begin{figure}
 %   \myfloatalign
@@ -220,18 +220,20 @@ In this case, we cover the frequency spectrum much less densely than is the case
   \label{fig:axions_exclusions}
 \end{figure}
 
-The result of this procedure applied to the simple signal in Fig.\,\ref{fig:basic_signal} is presented on the left--hand side in Fig.\,\ref{fig:axions_exclusion_noCLs}. Looking at the exclusion region, depicted in black, we see that the sensitivity to exclude drops for both high and low frequencies. This can be understood by looking at Fig.\,\ref{fig:sensitivity}, where the power obtained in the Monte Carlo generation for various hypotheses is plotted on top of the signal periodogram. For hypotheses with the same assumed amplitude of oscillation, the amplitude seen in the periodogram is constant for periods between the separation of the data points and the total length of the data set. Longer periods are harder to exclude, as it is always possible that one is near an antinode of an extremely slow oscillation. This manifests itself as a high amplitude seen even when the null hypothesis is assumed. High frequencies are suppressed because the the measurements are not point--like, but rather the oscillation is averaged over \unit[1]{s}. There little amplitude is visible, despite assuming an oscillation of a large one. In particular, there are dips at the approximate sampling frequency (the data have not been taken perfectly regularly) and its multiples.
+The result of this procedure applied to the toy time series (Fig.\,\ref{fig:basic_signal}) is presented on the left-hand side in Fig.\,\ref{fig:axions_exclusion_noCLs}. In the space of possible signals, the colour depicts the confidence level for rejecting the signals. The black region, corresponding to high confidence, is excluded. The region goes down to small amplitudes only in the region between \SI{e-2}{\hertz} (the time series is around \SI{200}{\second} long) and \SI{1}{\hertz} (a toy measurement was taken every 2 seconds).
+
+Why is the sensitivity constrained to this region can be understood by looking at Fig.\,\ref{fig:sensitivity}, where the power obtained in the Monte Carlo generation for various hypotheses is plotted on top of the signal periodogram. For hypotheses with the same assumed amplitude of oscillation, the amplitude seen in the periodogram is constant for periods between the separation of the data points and the total length of the data set. Longer periods are harder to exclude, as it is always possible that one is near an antinode of an extremely slow oscillation. This manifests itself as a high amplitude seen even when the null hypothesis is assumed. High frequencies are suppressed because the the measurements are not point--like, but rather the oscillation is averaged over \unit[1]{s}. There little amplitude is visible, despite assuming an oscillation of a large one. In particular, there are dips at the approximate sampling frequency (the data have not been taken perfectly regularly) and its multiples.
 
 In particular, it is interesting to consider the difference between the 0 (offset) and the next frequency. Oscillations with a period longer than the span of the time series  appear in the series as a linear drift, if the measurements were taken in the linear part of the sine, or a quadratic change, if taken in the apex. Fitting such an oscillation is then equivalent to looking for a up--to--second--order drift in the data. Naturally, we expect the sensitivity to quickly worsen for these very long oscillations.
 
 \begin{figure}
-  \centering \includegraphics[width=\linewidth]{gfx/axions/sensitivity.png}
+  \centering \includegraphics[width=0.8\linewidth]{gfx/axions/basic_exclusion_sensitivity.pdf}
   \caption{For each frequency $f$, $\sqrt{\text{power}}$ is plotted for the dataset (black line) and MC--generated signal hypothesis of frequency $f$ and various amplitudes (different colours). For both high and low frequencies, the MC results approach the null hypothesis (blue). Also, a dip in power is nicely visible for oscillations coherent with the sampling frequency (and its multiples). The vertical lines depict the time--span of the dataset and the median separation between centres of runs.  The plot was produced with a test dataset, very different from the ILL dataset.}
   \label{fig:sensitivity}
 \end{figure}
 
 \begin{figure}
-  \centering \includegraphics[width=\linewidth]{gfx/axions/CLs.png}
+  \centering \includegraphics[width=0.8\linewidth]{gfx/axions/CLs.png}
   \caption{The CLs method effectively suppresses power of hypotheses rejection if they are close to the null hypothesis.}
   \label{fig:CLs}
 \end{figure}
