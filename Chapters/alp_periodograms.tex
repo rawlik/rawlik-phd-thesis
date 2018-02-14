@@ -52,11 +52,11 @@ When choosing the spacing between the frequencies, the \emph{spectral resolution
 
 \begin{figure}
   \centering \includegraphics[width=0.8\linewidth]{gfx/axions/basic_periodogram_loglog.pdf}
-  \caption{The two periodograms as in Fig.\,\ref{fig:basic_periodogram} plotten on a log-log scale. The amplitude of the noise appears to be increasing with frequency, but it is not true. Only the density of the evaluated points increases, making the extreme deviations more pronounce.}
+  \caption{The two periodograms as in Fig.\,\ref{fig:basic_periodogram} plotted on a log-log scale. The range of frequencies where the periodogram is evaluated is extended. The amplitude of the noise appears to be increasing with frequency, but it is not true. Only the density of the evaluated points increases, making the extreme deviations more pronounce.}
   \label{fig:basic_periodogram_loglog}
 \end{figure}
 
-Figure~\ref{fig:basic_periodogram_loglog} shows the same two periodograms in a log-log scale. This scale is useful, when the potential signals span orders of magnitude in both frequency and amplitude. Unfortunately, it can lead to misunderstandings. Specifically, the noise appears to increase in amplitude with frequency, but the effect is purely cognitive. The spacing of the points is linear, so on a logarithmic scale the density of points increases for high amplitudes, making the extreme deviations more likely to appear in the same plot area, despite the noise amplitude being the same.
+Figure~\ref{fig:basic_periodogram_loglog} shows the same two periodograms in a log-log scale. Additionally, the range of frequencies where the periodogram is evaluated has been extended to show its behaviour in the extremes. The logarithmic scale, albeit useful when the potential signals span orders of magnitude in both frequency and amplitude, can lead to misunderstandings. Specifically, the noise appears to increase in amplitude with frequency, but the effect is purely cognitive. The spacing of the points is linear, so on a logarithmic scale the density of points increases for high amplitudes, making the extreme deviations more likely to appear in the same plot area, despite the noise amplitude being the same.
 
 An oscillation in the time series produces a peak in the periodogram. The position of the peak is the frequency of the oscillation, the width corresponds to the coherence of the signal. However, there are the periodogram many peaks besides the one corresponding to the oscillation used when generating the data. Some are even bigger and there are many smaller ones. In the next section we will consider what, besides an oscillating signal, may give rise to a peak. Most importantly a way of determining whether a peak is caused by an oscillation is presented.
 
@@ -179,7 +179,7 @@ In order to answer this question, the data need to be tested against being compa
 
 \begin{figure}
   \centering \includegraphics[width=\linewidth]{gfx/axions/exclusion_region.png}
-  \caption{The general scheme of the exclusion limit determination. Note that in practice not the whole periodogram needs to be generated, but only its value at $f_H$.}
+  \caption{The general scheme for the determination of the exclusion region. First, a hypothesis about a signal, parametrised by its amplitude and frequency $f_H$, is assumed. Then, the distribution of the LSSA power at the freqeuncy $f_H$ is estimated under this assumption. The p-value of the time series' power, evaluated against the estimated distribution, is the measure of the confidence level on which the signal hypothesis can be rejected. This is repeated to cover the space of possible signals.}
   \label{fig:exclusion_region}
 \end{figure}
 
@@ -190,7 +190,7 @@ The probability that a hypothetical oscillation of amplitude $A$ and frequency $
 \end{equation}
 This probability is the p-value for the hypothesis $H(\omega, A)$ rejection. The distribution of $P^{H(\omega, A)}(\omega)$ is obtained with the Monte Carlo method. Here also the CDF's tail is extrapolated; this time, however, the one on the low-power side. We assume a functional form as eq.\,(15) in \cite{Scargle1982}. This test is repeated for different $\omega$ and $A$, each time covering a pixel of the space of possible hypotheses, as schematically shown in Fig.\,\ref{fig:exclusion_region}. The set of hypotheses excluded at most at certain p-value forms an exclusion region. We take the threshold p-value to be 5\%, which corresponds to the traditional confidence level of 95\%.
 
-The frequency spectrum is covered much less densely than is the case in the null hypothesis test. This procedure is essentially evaluating the sensitivity of the measurement, which is solely determined by the timing and precision of the measurement points. No highly resonant structures are expected to appear therein. Also, here we have chosen to cover a broader frequency range, logarithmically spaced \SIrange[range-phrase=--,range-units=single]{e-3}{10}{\hertz}, in comparison to linearly spaced \SIrange[range-phrase=--,range-units=single]{5e-3}{1}{\hertz}, in order to illustrate the behaviour of sensitivity of the method for extreme frequencies.
+The frequency spectrum is covered much less densely than is the case in the null hypothesis test. This procedure is essentially evaluating the sensitivity of the measurement, which is solely determined by the timing and precision of the measurement points. No highly resonant structures are expected to appear therein. Also, a broader frequency range is covered, logarithmically spaced \SIrange[range-phrase=--,range-units=single]{e-3}{10}{\hertz}, in comparison to linearly spaced \SIrange[range-phrase=--,range-units=single]{5e-3}{1}{\hertz} in the test of the null hypothesis, in order to illustrate the behaviour of sensitivity of the method for extreme frequencies.
 
 \marginpar{During the Monte Carlo simulations a perfectly coherent signal is assumed. The width of a real axion-induced peak is not resolvable by the nEDM experiment.}
 
@@ -208,12 +208,13 @@ The frequency spectrum is covered much less densely than is the case in the null
   %FIXME directly copied from Elise's presentation on the 2015 PSI collaboration meeting
   \myfloatalign
   \subfloat
-  [The not--yet--real data tested against hypothetical signals. Each pixel is one signal hypothesis. The white line connects points of 95\% C.L., surrounding an exclusion region. Note how deep into low amplitudes the line goes for couple of frequencies. See the text for the explanation. \note{Put a white line for the 95\% C.L. exclusion.}]
+  [The toy time series tested against hypothetical signals. The signal space is spanned by their frequency and amplitude. The colour depicts the confidence level with which the signal can be rejected. The black region is excluded.]
+  % The white line connects points of 95\% C.L., surrounding an exclusion region. Note how deep into low amplitudes the line goes for couple of frequencies. See the text for the explanation. \note{Put a white line for the 95\% C.L. exclusion.}]
   {\label{fig:axions_exclusion_noCLs}
   \includegraphics[width=.45\linewidth]{gfx/axions/basic_exclusion_noCls.pdf}}
   \quad
   \subfloat
-  [The not--yet--real data tested against hypothetical signals using the \emph{CLs method}, in which hypotheses to which the experiment is not sensitive to get a statistical penalty. ]
+  [The tests as to the left, but thi the use of the CLs method. Those hypotheses to which the measurement is not sensitive to get a statistical penalty.]
   {\label{fig:axions_exclusion_CLs}
   \includegraphics[width=.45\linewidth]{gfx/axions/basic_exclusion.pdf}}
   \caption{Exclusion region --- signals that can be excluded at 95\% confidence level..}
