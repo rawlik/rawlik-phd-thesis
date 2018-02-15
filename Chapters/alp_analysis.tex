@@ -39,7 +39,7 @@ Should the neutron electric dipole moment oscillate, $R$ would oscillate as well
   \caption{The data taking scheme in the nEDM experiment at PSI.}
 \end{figure}
 
-Of course, the least-squares spectral analysis could not be applied directly to the complicated $R$ time series. Note, that the time series is still a part of a harmonic oscillation, when only one electric field polarity is considered. Or, to be exact, one relative configuration of the electric and magnetic fields. In the analysis the $R$ time series was split according to this condition into three: one without the electric field (not sensitive to an oscillation of nEDM), one with the electric and magnetic fields parallel and one with anti-parallel. The last having the hypothetical oscillation in the opposite phase then the parallel one. Each of those was treated separately.
+Of course, the least-squares spectral analysis could not be applied directly to the complicated $R$ time series. Note, that the time series is still a part of a harmonic oscillation, when only one electric field polarity is considered. Or, to be exact, one relative configuration of the electric and magnetic fields. In the analysis the $R$ time series was split according to this condition into three: one without the electric field (not sensitive to an oscillation of nEDM), one with the electric and magnetic fields parallel and one with anti-parallel. The last having the hypothetical oscillation in the opposite phase then the parallel one. We will refer to the three data sets as $E=0$, $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$, respectively. Each of those was treated separately.
 
 % \begin{figure}[bth]
 %   %FIXME directly copied from Elise's presentation on the 2015 PSI collaboration meeting
@@ -79,43 +79,41 @@ where $C_i$ is the free offset in the $i$th sequence and $\Pi_i(t)$ is a gate fu
 
 
 \section{Systematic Effects}
-A prominent systematic effect were variations of the vertical gradient of the magnetic field. Luckily, it could be corrected for with the use of the cesium magnetometers. On a cycle basis, a second-order parametrisation of the field was fitted to their readouts, giving an estimate of the gradient~\cite{Afach2014magmoment,WurstenThesis}. Due to unknown random offsets in the magnetometers' readings the correction was only relative---correcting for the variations of the gradient. In between runs the caesium magnetometers were calibrated, which altered the offsets. For this reason the correction could not extend across a run boundary. 
+In the analysis the compatibility of the periodogram of the $R$ time series with the one of pure noise, the null hypothesis, was tested. Variations in $R$, harmonic in particular, but not only, would have resulted in an additional power in the periodogram and could, therefore, be considered a systematic effect.
+
+Most prominently, $R$ followed the changes in the vertical gradient of the magnetic field. Because of the centre of height difference between the neutron and mercury atom ensembles they saw, on average, a different field in a presence of the vertical gradient.  Luckily, it could be corrected for with the use of the cesium magnetometers. On a cycle basis, a second-order parametrisation of the field was fitted to their readouts, giving an estimate of the gradient~\cite{Afach2014magmoment,WurstenThesis}. Due to unknown random offsets in the magnetometers' readings the correction was only relative---correcting for the variations of the gradient. In between runs the caesium magnetometers were calibrated, which altered the offsets. For this reason the correction could not extend across a run boundary. 
 % , which changed in between runs which changing after this correction could only be relative in a run.
 % \marginpar{STILL CHANGE RUN TO SEQUENCE!!!}
 
-While the run-level analysis can benefit from all of the systematic studies done for the constant nEDM measurement, this is not the case for the lower level cycle-level analysis. An important decision has to be taken on how to treat the systematic effects. There are three options:
-% \begin{enumerate}
-%   \item Perform a detailed study of time--dependent systematic effect.
-%   \item Determine \emph{delicate} frequencies and cut them out.
-%   \item Assume there are no systematic effects.
-% \end{enumerate}
+There could have been, potentially, other effects causing the time series of $R$ not to be fully random. An important decision had to be taken on how to treat those. Two possibilities were considered.
 
 \paragraph{Perform a detail study of time-dependent systematic effect.}
-Here we would assume that any excess in power, in any dataset ($E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$) is a signature of some kind of a signal. All effects that can potentially result in that should be identified before the analysis is performed and corrected for. This would require a long and careful systematic study, a task much bigger then this analysis itself. Moreover, the full-fledged systematic studies for the constant nEDM analysis of the PSI data are still ongoing. Even though we acknowledge that this would be \emph{the} proper way to go, we consider it to be unrealistic and unnecessary for this analysis.
+Here any excess in power, in any dataset ($E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$) would be treated as a signature of some kind of a signal. All effects that could potentially result in that would have to be identified before the analysis was performed and corrected for. This would have required a long and careful systematic study. Moreover, the full-fledged systematic studies for the constant nEDM analysis of the PSI data were still ongoing at the time.
 
-\paragraph{Determine delicate frequencies and cut them out.}
-Looking at periodograms of raw data one sees that there are several typical frequencies where peaks appear. Typically at inverse specific time constants at which the experiment operates: cycle separation, day, week, , HV-reversal, B0-reversal. We may decide that all systematic effects are constrained to these frequencies and do not perform the analysis there at all.
+This approach was considered to be, albeit careful, not necessary for this analysis. Instead, an easier alternative was taken:
+
+% \paragraph{Determine delicate frequencies and cut them out.}
+% The experiment run 
+% Looking at periodograms of raw data one sees that there are several typical frequencies where peaks appear. Typically at inverse specific time constants at which the experiment operates: cycle separation, day, week, , HV-reversal, B0-reversal. We may decide that all systematic effects are constrained to these frequencies and do not perform the analysis there at all.
 
 \paragraph{Assume there are no systematic effects.}
 An axion would produce a very specific signal, in particular:
 \begin{enumerate}
   \item There would be no signal in the $E=0$ dataset.
-  \item The signal would appear in both $E~\uparrow~\uparrow~B$ and $E~\uparrow~\downarrow~B$ datasets, with equal amplitude.
-  \item The signals in $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ would be shifted in phase by 180~degrees.
+  \item The signal would appear in both $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ datasets, with equal amplitude.
+  \item The signals in $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ data sets would be shifted in phase by \ang{180}.
   \item The signals would have to have a high coherence of $\delta f / f = 10^{-6}$.
 \end{enumerate}
-In case we see an excess in power, we would only call it a candidate for an axion--signal if the three above conditions are met. Otherwise we attribute it to a, potentially unknown, systematic effect. We do realise the danger of making the systematic search dependent of the act of finding a signal. This automatically opens a line of attack on this analysis: we would not make a discovery, because a systematic effect has canceled the real signal out. We would not have seen a signal and therefore not looked for systematic effects. This is certainly valid. Nevertheless, we argue that the extremely low probability of this event, due to the high coherence of the axion field, makes it negligible. In order to cancel the axion signal, a systematic effect would not only need to be as coherent as the axion field, but additionally fine--tuned over at least 5 orders of magnitude magnitude of tested frequencies. With the coherence of $\delta f / f = 10^{-6}$ this is a tuning of $10^{-30}$. It would also need to be fine--tuned in amplitude over $\sim 20$ orders of magnitude, which gives a rough estimate of the cancellation probability: $10^{-50}$. As we are presenting limits with 95\% C.L., we feel this approach is justified.
+In a case when an excess in the power would be observed, it would only be called a candidate for an axion signal, if the three above conditions would have been met. Otherwise, it would be attributed to a, potentially unknown, systematic effect.
 
-Out of the three, we opt for the third option, but leave the subject open to discussion for the collaboration.
-
-
-
-
+Naturally, this made the systematic study dependent of the fact of having found a signal, opening a line of attack on the analysis. The analysis might be claimed not to have the right to exclude signals, because there might have been a systematic effect that cancelled a real signal out, but was never found nor even looked for. Nevertheless, such an event is highly improbable due to the high coherence of the axion field. In order to cancel the axion signal, a systematic effect would not only need to be as coherent as the axion field, but additionally fine-tuned over at least 5 orders of magnitude magnitude of tested frequencies. With the coherence of $\delta f / f = \num{e-6}$ this is a tuning of \num{e-30}. It would also need to be fine-tuned in amplitude over $\sim 20$ orders of magnitude, which gives a rough estimate of the cancellation probability of $e-50$. As the exclusions are anyway probabilistic in nature, in this case a 95\% C.L. threshold is claimed, we consider this approach to be justified.
 
 
 
 
 \section{The PSI 2015-16 data set}
+\note{uniform spelling of data set}
+
 The PSI data set is taken 2015-07-03, 14:21:30 to 2016-12-18, 19:51:23. It has been a regular nEDM run. Per cycle one $R = f_\mathrm{n} / f_\mathrm{Hg}$ estimate is obtained. The complete data set used in the analysis is shown in Fig.\,\ref{fig:PSI_dataset_time_domain}.
 
 \mnote{Idea: present a scheme of the timing structure of the nEDM data taking, where a cycle, sequence are defined, and HV and B field reversals are shown.}
