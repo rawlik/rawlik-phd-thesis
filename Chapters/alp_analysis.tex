@@ -102,37 +102,51 @@ Instead, an easier approach was taken. An axion would produce a very specific si
 \end{enumerate}
 In a case when an excess in the power would be observed, it would only be called a candidate for an axion signal, if the three above conditions would have been met. Otherwise, it would be attributed to a, potentially unknown, systematic effect.
 
-Naturally, this made the systematic study dependent of the fact of having found a signal, opening a line of attack on the analysis. The analysis might be claimed not to have the right to exclude signals, because there might have been a systematic effect that cancelled a real signal out, but was never found nor even looked for. Nevertheless, such an event was highly improbable due to the high coherence of the axion field. In order to cancel the axion signal, a systematic effect would have not only needed to be as coherent as the axion field, but additionally fine-tuned over at least 5 orders of magnitude magnitude of tested frequencies. With the coherence of $\delta f / f = \num{e-6}$ this is a tuning of \num{e-30}. It would also have needed to be fine-tuned in amplitude over $\sim 20$ orders of magnitude, which gives a rough estimate of the cancellation probability of $e-50$. As the exclusions are anyway probabilistic in nature, in this case a 95\% C.L. threshold is claimed, we consider this approach to be justified.
+Naturally, this made the systematic study dependent of the fact of having found a signal, opening a line of attack on the analysis. The analysis might be claimed not to have the right to exclude signals, because there might have been a systematic effect that cancelled a real signal out, but was never found nor even looked for. Nevertheless, such an event was highly improbable due to the high coherence of the axion field. In order to cancel the axion signal, a systematic effect would have not only needed to be as coherent as the axion field, but additionally fine-tuned over at least 5 orders of magnitude magnitude of tested frequencies. With the coherence of $\delta f / f = \num{e-6}$ this is a tuning of \num{e-30}. It would also have needed to be fine-tuned in amplitude over $\sim 20$ orders of magnitude, which gives a rough estimate of the cancellation probability of \num{e-50}. As the exclusions are anyway probabilistic in nature, in this case a 95\% C.L. threshold is claimed, we consider this approach to be justified.
 
 
 
 
-\section{The PSI 2015-16 data set}
+\section{The PSI 2015--16 data set}
 \note{uniform spelling of data set}
 
-The PSI data set is taken 2015--07--03, 14:21:30 to 2016--12--18, 19:51:23. It has been a regular nEDM run. Per cycle one $R = f_\mathrm{n} / f_\mathrm{Hg}$ estimate is obtained. The complete data set used in the analysis is shown in Fig.\,\ref{fig:PSI_dataset_time_domain}.
-
-% \mnote{Idea: present a scheme of the timing structure of the nEDM data taking, where a cycle, sequence are defined, and HV and B field reversals are shown.}
-The time structure ias follows: The atomic measurement is called a cycle, which gives an estimate of the average precession frequency of the neutrons $f_\mathrm{n}$ and mercury $f_\mathrm{Hg}$. Their ratio $R = f_\mathrm{n} / f_\mathrm{Hg}$ is show in Fig.\,\ref{fig:PSI_dataset_time_domain}. An automatic system executes one cycle after another (triggered on a signal from the UCN source). A series of automatically executed cycles is called a \emph{run}. The $R$ time series of a typical run, 1-3 days long, is shown in the lower-right corner. During a run the electric field automatically changes polarity every \ldots \mnote{Find out how many cycles for one HV cycle} cycles. In between \ldots cycles with no electric field are measured. These have no sensitivity to the electric dipole moment, but provide a control data set.
-
-A run is taken always in one magnetic field configuration. No change of the trim coil currents.\mnote{Explain the R-curve and crossing-lines analysis already in the beginning, so that it is clear that we measure in different magnetic field configurations. You do not need to know the timing structure of your data to do that. Mention the $R$ equation there!} During the measurements the vertical magnetic field gradient $\partial B_z / \partial z$ is modulated from cycle-to-cycle (up to \SI{60}{\pico\tesla} in \SI{10}{\pico\tesla} steps) so that related systematic effects (which scale linearly with the magnitude of the gradient) with it can be extracted and corrected for (see some equation that has been introduced at the beginning. These large changes in the vertical gradient cause the different runs to be scattered in the plot.
-
-During a single run the magnetic field is kept as stable as the team can manage. The drifts of the homogeneous part of the field are cancelled in $R$, but the gradients are not. So drifts of the gradient directly cause changes in $R$. These, however, can be corrected for using the Cs magnetometers. They are mounted on the top and bottom electrode and they can be used to correct for the in-run gradient drifts. They do not provide an accurate measure of the gradient. \mnote{Remember the reasoning why the cross-run gradient-drift correction can't be done: to large a change and the calibration issues}.
-
-Sometimes for technical reasons there is a pause in the measurements. Then the collected data may still belong to one run One such sequence is shown in the lower-right inset in Fig.\,\ref{fig:PSI_dataset_time_domain}.
-
-Typically... Sometimes stopped... Define a sequence
-
-
-
-Really, really first, show some example runs. 
+% What is it that I really want to communicate here? First introduce the time series and point to the plot. Then explain the structure by walking the reader through the plot!
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/axions/deltah4mm_time_domain_inset_no_yerr.pdf}
-  \caption{The complete PSI data set used in the analysis. It spans from July 2015 to December 2016. Two sequences are enlarged. Due to high density of the measurements individual points cannot be resolved. The $R$ time series has been corrected for gradient drifts.}
+  \caption{The complete PSI data set used in the analysis. It spans from July 2015 to December 2016. Two sequences are enlarged. Due to high density of the measurements individual points cannot be resolved. Each point is plotted with its error bar. The colours depict the relative orientation of the magnetic and electric fields: $E \uparrow \uparrow B$ (orange), $E \uparrow \downarrow B$ (blue) and $E=0$ (black). The $R$ time series has been corrected for gradient drifts.}
   \label{fig:PSI_dataset_time_domain}
 \end{figure}
+
+The data used in the analysis were collected in PSI between 2015--07--03, 14:21:30 and 2016--12--18, 19:51:23. The measurements were performed primarily to obtain the estimate of the constant nEDM\@. The time series of the ratio of the precession frequencies of the neutrons and mercury atoms $R = \nu_\text{n} / \nu_\text{Hg}$ is presented in Fig.\,\ref{fig:PSI_dataset_time_domain}.
+
+Take a look first at the inset in the lower-right corner. It zooms into data collected within one \emph{sequence}, typically 1--3 days long.
+\marginpar{A technical term for uninterupted operation was a run. Sometimes a run was stopped due to technical reasons a new started afterwards. A sequence combines those consecutive runs, that could be one run if not for the interruption.}
+During a sequence the apparatus completed one cycle after another, one every \SI{300}{\second}, each yielding an estimate of $R$.
+The electric field was automatically changed between three states: pointing upwards, being zero and pointing downwards. The different relative orientations of the electric and magnetic fields are depicted in colour in the figure. Sometimes there were technical breaks in the data taking during a sequence, as in the case of the one shown in the lower-left corner of Fig.\,\ref{fig:PSI_dataset_time_domain}.
+
+% Here what it is and what's done Sometimes the automatic process was interrupted, but the sequence still continued, as seen in the other inset.
+
+% REFER TO WHAT WAS IN HOW THE SIGNAL WOULD LOOK LIKE! But, repeating a bit will not hurt. The reader should already be prepared, now just reiterate.
+
+% \mnote{Idea: present a scheme of the timing structure of the nEDM data taking, where a cycle, sequence are defined, and HV and B field reversals are shown.}
+% The time structure ias follows: The atomic measurement is called a cycle, which gives an estimate of the average precession frequency of the neutrons $f_\mathrm{n}$ and mercury $f_\mathrm{Hg}$. Their ratio $R = f_\mathrm{n} / f_\mathrm{Hg}$ is show in Fig.\,\ref{fig:PSI_dataset_time_domain}. An automatic system executes one cycle after another (triggered on a signal from the UCN source). A series of automatically executed cycles is called a \emph{run}. The $R$ time series of a typical run, 1-3 days long, is shown in the lower-right corner. During a run the electric field automatically changes polarity every \ldots \mnote{Find out how many cycles for one HV cycle} cycles. In between \ldots cycles with no electric field are measured. These have no sensitivity to the electric dipole moment, but provide a control data set.
+
+A sequence was taken always in one magnetic field configuration. The in-sequence variations of the vertical gradient of the magnetic field $\partial_z B_z$ were corrected for using the field model fits to the readings of the Caesium magnetometers. In between the sequences the vertical gradient was changed in \SI{10}{\pico\tesla} steps, up to \SI{60}{\pico\tesla}, so that those systematic effects, which scale linearly with the gradient, could be extrapolated to zero (see Sec.\,\label{sec:measurement_procedure}). These large changes in the vertical gradient caused the large shifts in $R$ from sequence to sequence.
+
+The $R$ time series was sliced into three separate based on the relative direction of the magnetic and electric fields: $E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$. In each a search for a harmonic oscillation was performed.
+
+% During a single run the magnetic field is kept as stable as the team can manage. The drifts of the homogeneous part of the field are cancelled in $R$, but the gradients are not. So drifts of the gradient directly cause changes in $R$. These, however, can be corrected for using the Cs magnetometers. They are mounted on the top and bottom electrode and they can be used to correct for the in-run gradient drifts. They do not provide an accurate measure of the gradient. \mnote{Remember the reasoning why the cross-run gradient-drift correction can't be done: to large a change and the calibration issues}.
+
+% Sometimes for technical reasons there is a pause in the measurements. Then the collected data may still belong to one run One such sequence is shown in the lower-right inset in Fig.\,\ref{fig:PSI_dataset_time_domain}.
+
+% Typically... Sometimes stopped... Define a sequence
+
+
+
+% Really, really first, show some example runs. 
+
 
 
 \section{The analysis itself}
@@ -178,7 +192,7 @@ No signals fulfilling the detection criteria are found.
 Having observed no significant signal, we could place limits on the coupling strength as the function of axion mass.
 The result are presented in Fig.\,\ref{fig:axions_limits_coupling} and are labeled \emph{short time-base} (the next paragraph is devoted to the \emph{long time-base} limits).
 The limits we evaluated using Monte Carlo techniques, as described \ldots.
-The results are presented in the landscape of already existing limits: axions with a mass below \ldots have their Compton wavelength larger than the size of the smallest dwarf \emph{galaxies} and, therefore, could not be the sole constituent of dark matter; the influence of axions in the red-shaded area on the \emph{Big Bang nucleosynthesis} would result in an underproduction of\ldots .
+The results are presented in the landscape of already existing limits: axions with a mass below \ldots have their Compton wavelength larger than the size of the smallest dwarf \emph{galaxies} and, therefore, could not be the sole constituent of dark matter; the influence of axions in the red-shaded area on the \emph{Big Bang nucleosynthesis} would result in an underproduction of\ldots
 \mnote{Need to research and explain all those.}
 
 \begin{figure}
@@ -225,15 +239,15 @@ where $\mathrm{erfc}$ is the complementary error function (intuitively understoo
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/axions/P_look-elsewhere.png}
-  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value -- global p-value transition. The fit with the model \dots gives the number of frequencies.}
+  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value---global p-value transition. The fit with the model \dots gives the number of frequencies.}
   \label{fig:P_look-elsewhere}
 \end{figure}
 
-We see, that the discrete estimate from the MC simulation can only go down to the $2\sigma$ false-alarm threshold. To go lower would require many more MC samples. To observe a single $5\sigma$ event, roughly one-in-a-million, needs typically a million samples. To reduce the computational effort we exploit the fact, that we know the expected functional form of the CDF:
+We see, that the discrete estimate from the MC simulation can only go down to the $2\sigma$ false-alarm threshold. To go lower would require many more MC samples. To observe a single $5\sigma$ event, roughly one-in-a-million, needs typically a million samples. To reduce the computational effort we exploit the fact, that we know the expected functional form of the CDF\@:
 \begin{equation}
   F(p) = 1 - (1-p)^N\ ,
 \end{equation}
-\mnote{Ref. for the formula? PDF statistics? Scargle?}
+\mnote{Ref.\,for the formula? PDF statistics? Scargle?}
 where $N$ is the total number of frequencies. This corresponds to $N$ \emph{independent} statistical tests. We refrain from using for $N$ the actual number of frequencies, \num{156198}, because we cannot guarantee that the power estimates at different frequencies are independent\footnote{They are in a case of periodograms of evenly sampled series}. Instead, we fit $N$ to the observed CDF obtaining \num{177844}. CDFs corresponding to both values of $N$ are depicted in Fig.\,\ref{fig:P_look-elsewhere} and are almost overlapping.
 
 Now for each frequency the local p-values corresponding the the false-alarm thresholds are known. They are depicted in Fig.\,\ref{fig:P_best_signal_candidate}. There, the power CDF (at this frequency) can be used to express the thresholds in power or evaluate the global significance of an arbitrary power. Here, too, the problem is that the discretely estimated CDF does not reach far enough in the tails, and, again, we exploit the functional form to extrapolate the CDF. We expect the power to be exponentially distributed in a no-signal case \cite{Scargle1982}, which corresponds to a straight line on the CDF plot with a logarithmic y-scale.
