@@ -5,7 +5,7 @@
 \section{Introduction}
 \marginpar{This chapter is largely adapted from the author's publication CITE WHEN AVAILABLE}
 % \note{Correct the langague and style to be consistent with the rest of the work. In particular, don't use so much \emph{we}.}
-How to design a coil, or more generally, an arrangement of coils, producing a desired magnetic field? In its simplest form this is a textbook problem (e.g. ex. 6.55 and 6.62 in~\cite{Purcell}). Yet, in a general setting it is surprisingly hard and the solutions, how the wires making up the coils should be laid, complicated. The most widespread application of high-performance coils is Magnetic Resonance Imaging (MRI), where gradient coils give the possibility to produce spatial images. Already in the 1980's elaborate methods of MRI coil design have been developed. They range from optimizing positions of discrete windings, where the use is made of symmetries specific to MRI, to analytical methods yielding surface current density, which is then discretized. A general overview can be found in~\cite{Turner1993}. Another field known for complex, precise coils is plasma confinement, in particular stellarators~\cite{Beidler1990}. There analytical solutions for the surface current density find their use, too.
+How to design a coil, or more generally, an arrangement of coils, producing a desired magnetic field? In its simplest form this is a textbook problem (e.g. ex. 6.55 and 6.62 in~\cite{Purcell}). Yet, in a general setting it is surprisingly hard and the solutions, how the wires making up the coils should be laid, complicated. The most widespread application of high-performance coils is Magnetic Resonance Imaging (MRI), where gradient coils give the possibility to produce spatial images. Already in the 1980's elaborate methods of MRI coil design have been developed. They range from optimizing positions of discrete windings, where the use is made of symmetries specific to MRI, to analytical methods yielding surface current density, which is then discretised. A general overview can be found in~\cite{Turner1993}. Another field known for complex, precise coils is plasma confinement, in particular stellarators~\cite{Beidler1990}. There analytical solutions for the surface current density find their use, too.
 
 % \note{Cite also this: \cite{Del-Pino-Lopez2015}, they use a genetic algorithm to optimize the coils.}
 
@@ -52,8 +52,7 @@ This formulation is independent of the coordinate system (coordinate-system depe
 \begin{figure}
   \centering
   \includegraphics[width=0.6\linewidth]{gfx/coils/biot_savart.pdf}
-  \caption{The setting for calculating the magnetic field produced in point $\bm{p}$ by a straight wire segment from $\bm{x}_1$ to $\bm{x}_2$.}
-  \label{fig:biot-savart}
+  \caption{The setting for calculating the magnetic field produced in point $\bm{p}$ by a straight wire segment from $\bm{x}_1$ to $\bm{x}_2$.}\label{fig:biot-savart}
 \end{figure}
 
 Imagine four wire segments making up a square loop---a coil. It produces a certain magnetic field in the entire space $\mathbf{B}(\mathbf{x})$, given, following the superposition principle, by a sum of the fields produced by each segment of the coil.
@@ -68,8 +67,7 @@ In this system a coil is fully described by a vector of $N$ currents, one in eac
 \begin{figure}
   \centering
   \includegraphics[width=0.6\linewidth]{gfx/coils/tile_basis.pdf}
-  \caption{a) A basis of four tile coils on a flat square. Any coil which has its wires restricted to lie on the $2 \times 2$ grid can be represented as a linear combination of the four base tile coils. b, c, d) Three coils are presented together with their explicit coordinates in the basis.}
-  \label{fig:coils_tile_basis}
+  \caption{a) A basis of four tile coils on a flat square. Any coil which has its wires restricted to lie on the $2 \times 2$ grid can be represented as a linear combination of the four base tile coils. b, c, d) Three coils are presented together with their explicit coordinates in the basis.}\label{fig:coils_tile_basis}
 \end{figure}
 
 Generalisation onto a cube is simple, a cube being made up of six square faces. Interestingly, for the assembly in the three-dimensional space one degree of freedom is lost.  Figure~\ref{fig:coils_tile_kernel} illustrates, in the simplest case $N = 6$, a configuration in which finite currents in all six coils cancel and no magnetic field is produced. Such a combination of currents can be added to any solution with no effect on the produced field. Effectively, the space of the fields they can produce has dimension five (i.e.\ $N-1$). In other words, the mapping of $\mathbb{I}$ onto fields $\mathbf{B}(\mathbf{x})$ has in this case a one-dimensional kernel. This fact is of importance when it comes to numerically solving the system.
@@ -77,8 +75,7 @@ Generalisation onto a cube is simple, a cube being made up of six square faces. 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{gfx/coils/tile_kernel2.pdf}
-  \caption{An arrangement of $N = 6$ tile coils on a cube which produces no magnetic field. The currents in the tiles are equal and flow in the directions as indicated. The currents on the invisible faces are analogous to the ones seen in front. For clarity, the coils are depicted slightly smaller; in the model the currents are identical with the edges of the cube.}
-  \label{fig:coils_tile_kernel}
+  \caption{An arrangement of $N = 6$ tile coils on a cube which produces no magnetic field. The currents in the tiles are equal and flow in the directions as indicated. The currents on the invisible faces are analogous to the ones seen in front. For clarity, the coils are depicted slightly smaller; in the model the currents are identical with the edges of the cube.}\label{fig:coils_tile_kernel}
 \end{figure}
 
 This is the foundation of the method. The restriction to a grid on a cuboid enables all coils in the restricted space to be described by a vector of $N$ numbers.
@@ -101,11 +98,11 @@ Equation~\ref{eq:matrix}, for $3m > N - 1$, is an over-determined system of line
 \begin{equation}
   \label{eq:requirement}
   % M \, \mathbb{I} \stackrel{!}{=} \mathbb{B}_0
-  \mathbb{I}_0 = \mathrm{arg}\,\min_{\mathbb{I}} \left( M \mathbb{I} - \mathbb{B}_0 \right)^2 \ .
+  \mathbb{I}_0 = \arg\,\min_{\mathbb{I}} {\left( M \mathbb{I} - \mathbb{B}_0 \right)}^2 \ .
 \end{equation}
 The optimal solution can be calculated with the normal equation~\cite{Anton}:
 \begin{equation}
-  \mathbb{I}_0 = \left( M^\mathrm{T} M \right)^{-1} M^\mathrm{T} \mathbb{B}_0 \ ,
+  \mathbb{I}_0 = {\left( M^\mathrm{T} M \right)}^{-1} M^\mathrm{T} \mathbb{B}_0 \ ,
 \end{equation}
 \marginpar{Least-squares is solved with a backslash operator in MATLAB-like languages:\\
 \texttt{I0 = M \textbackslash{} B0.}}
@@ -116,21 +113,17 @@ Depending on the properties of $M$ the optimum may be multidimensional. In parti
 \begin{figure}
   \centering
   \includegraphics[width=0.6\linewidth]{gfx/coils/homogeneous_tiles_norm_1000.pdf}
-  \caption{A solution of a tile system with $N = 6 \times (3 \times 3)$ tiles on a unit cube for a homogeneous field. The volume of interest is a cube with side length 0.75, centered inside the unit cube. Numbers indicate currents in the tile coils in arbitrary units. The currents are normalized so that the highest is 1000. For clarity, the coils are depicted slightly smaller; in the model their edges overlap. The currents on the three invisible faces are by symmetry analogous to the visible ones.}
-  \label{fig:homogeneous_tiles}
+  \caption{A solution of a tile system with $N = 6 \times (3 \times 3)$ tiles on a unit cube for a homogeneous field. The volume of interest is a cube with side length 0.75, centered inside the unit cube. Numbers indicate currents in the tile coils in arbitrary units. The currents are normalized so that the highest is 1000. For clarity, the coils are depicted slightly smaller; in the model their edges overlap. The currents on the three invisible faces are by symmetry analogous to the visible ones.}\label{fig:homogeneous_tiles}
 \end{figure}
 
 \begin{figure*}
   \centering
-  \subfloat{
-    \label{fig:homogeneous_performance_a}
+  \subfloat{\label{fig:homogeneous_performance_a}
     \includegraphics[width=.45\linewidth]{gfx/coils/homogeneous_performance.pdf}}
   \quad
-  \subfloat{
-    \label{fig:homogeneous_performance_b}
+  \subfloat{\label{fig:homogeneous_performance_b}
     \includegraphics[width=.45\linewidth]{gfx/coils/homogeneous_performance_smaller_volume.pdf}}
-  \caption{Magnetic field produced by a coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles on a unit cube. The field lines are depicted in grey. Contours show boundaries of 0.5, 1 and 10\% magnitude deviation from an ideal homogeneous field. Horizontal cross sections in the middle-height plane are shown. Two designs are presented. Left-hand side: the volume of interest is a cube with side length 0.75 (the individual tile coil currents are depicted in Fig.\,\ref{fig:homogeneous_tiles}), right-hand side: the size of volume of interest is reduced to 0.5.}
-    \label{fig:homogeneous_performance}
+  \caption{Magnetic field produced by a coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles on a unit cube. The field lines are depicted in grey. Contours show boundaries of 0.5, 1 and 10\% magnitude deviation from an ideal homogeneous field. Horizontal cross sections in the middle-height plane are shown. Two designs are presented. Left-hand side: the volume of interest is a cube with side length 0.75 (the individual tile coil currents are depicted in Fig.\,\ref{fig:homogeneous_tiles}), right-hand side: the size of volume of interest is reduced to 0.5.}\label{fig:homogeneous_performance}
 \end{figure*}
 
 Let us consider an example of a coil design on a unit cube with the number of tiles $N = 6 \times (3 \times 3)$ (see Fig.\,\ref{fig:homogeneous_tiles}). As the volume of interest we pick a cube, centered with the unit one, with side length 0.75 (with a regular mesh of $10 \times 10$ points on each face, a total of $m = 488$ points of interest). For the sake of simplicity we design a coil for a homogeneous field along an axis of the cube. The solution of Eq.\,\ref{eq:requirement}, $\mathbb{I}_0$, directly gives the currents in each tile, which are graphically depicted in Fig.\,\ref{fig:homogeneous_tiles}. Note, that many currents almost cancel each other, in particular those along horizontal edges. The magnetic field produced by the solution is shown in Fig.\,\ref{fig:homogeneous_performance_a}, as a horizontal cut along the central plane. Contours show the relative deviation from the homogeneous field. Inside the volume of interest, depicted with a dashed line, the design goal of a homogeneous field, is reproduced with few per cent accuracy. The solution, and thus the contours too, depend on the choice of the volume of interest. In general, the further away the volume of interest is from the coils, the better the accuracy. If the side length of the volume of interest is decreased to 0.5, the accuracy improves to 1\%, as shown in Fig.\,\ref{fig:homogeneous_performance_b}. The optimal solution, and thereby the shape of the precision contours, change. Naturally, the accuracy of the field reproduction can also be improved by increasing the number of tiles.
@@ -151,38 +144,30 @@ The tile system may find an interesting practical application. Once independentl
   %   \label{fig:coils_homogeneous_section}
   %   \includegraphics[width=.45\linewidth]{coil_homogeneous_section}}
   % \\
-  \subfloat{
-    \label{fig:coils_dipole_3d_1}
+  \subfloat{\label{fig:coils_dipole_3d_1}
     \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_net_1.pdf}}
   \quad
-  \subfloat{
-    \label{fig:coils_dipole_section_0}
+  \subfloat{\label{fig:coils_dipole_section_0}
     \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_simplified_0.pdf}}
   \\
-  \subfloat{
-    \label{fig:coils_dipole_3d_3}
+  \subfloat{\label{fig:coils_dipole_3d_3}
     \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_net_3.pdf}}
   \quad
-  \subfloat{
-    \label{fig:coils_dipole_section_2}
+  \subfloat{\label{fig:coils_dipole_section_2}
     \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_simplified_2.pdf}}
   \\
-  \subfloat{
-    \label{fig:coils_dipole_3d_5}
+  \subfloat{\label{fig:coils_dipole_3d_5}
     \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_net_5.pdf}}
   \quad
-  \subfloat{
-    \label{fig:coils_dipole_section_4}
+  \subfloat{\label{fig:coils_dipole_section_4}
     \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_simplified_4.pdf}}
-  \caption{Following the algorithm to simplify a coil. The left column shows the net of a current with the total current along edges of tiles. In each iteration the loop with the highest current is found and transferred onto the simplified solution, shown in the right column. We show iterations, from top: zeroth, fourth and eighth.}
-  \label{fig:simplification_algorithm}
+  \caption{Following the algorithm to simplify a coil. The left column shows the net of a current with the total current along edges of tiles. In each iteration the loop with the highest current is found and transferred onto the simplified solution, shown in the right column. We show iterations, from top: zeroth, fourth and eighth.}\label{fig:simplification_algorithm}
 \end{figure*}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.6\linewidth]{gfx/coils/algorithm_simplified_5.pdf}
-  \caption{The coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles (Fig.\,\ref{fig:homogeneous_tiles}), simplified by adding the currents along each edge and decomposing into current loops.}
-  \label{fig:homogeneous_coils}
+  \caption{The coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles (Fig.\,\ref{fig:homogeneous_tiles}), simplified by adding the currents along each edge and decomposing into current loops.}\label{fig:homogeneous_coils}
 \end{figure}
 
 One starts by adding the currents of the adjacent tiles and assigning the sum to each common edge. The result is a complicated net of currents (upper left corner of Fig.\,\ref{fig:simplification_algorithm}). Still, each node fulfills Kirchhoff's laws. The net can then be decomposed into simple current loops by following the algorithm: First find in the net the loop with the highest current. In the example it is either of the ``597" loops on the front and back faces. This loop will make the first one in the simplified solution (it can be seen in the middle of the right column in Fig.\,\ref{fig:simplification_algorithm}, together with the next three loops). Then subtract from the net the current of the first loop along its edges (the net that remains after subtracting the first four loops is depicted in the middle of the left column in Fig.\,\ref{fig:simplification_algorithm}). Finally, continue to find the loop with the highest current in the modified net, which will give the next loop and repeat until the current net is empty. The net remaining after eight loops are found is depicted in the bottom row of Fig.\,\ref{fig:simplification_algorithm}, next to the first eight loops. The final simplified solution is shown in Fig.\,\ref{fig:homogeneous_coils}. The currents in the simplified coil system are much smaller, the highest being 597 instead of 1000 and they always add constructively. Also, the number of separate loops is decreased from 42 to 10. Still, the total current along each edge of a tile is exactly the same as in the tile configuration.
@@ -230,18 +215,18 @@ Using the method presented here to design coils of an active compensation system
 \begin{table}
   \centering
   \begin{tabular}{c|ccc}
-    n & $\mathbf{P}_n^x(\mathbf{r})$ & $P_n^y(\mathbf{r})$ & $P_n^y(\mathbf{r})$ \\ \hline
+    n & $\mathbf{P}_n^x(\mathbf{r})$ & $P_n^y(\mathbf{r})$ & $P_n^y(\mathbf{r})$ \\ \midrule
     1 & 1 & 0 & 0 \\
     2 & 0 & 1 & 0 \\
-    3 & 0 & 0 & 1 \\ \hline
+    3 & 0 & 0 & 1 \\
+    \midrule
     4 & $x$ &  0  & $-z$ \\
     5 & $y$ & $x$ &   0  \\
     6 &  0  & $y$ & $-z$ \\
     7 & $z$ &  0  & $ x$ \\
     8 &  0  & $z$ & $-y$ \\
   \end{tabular}
-  \caption{Carthesian harmonic polynomials.}
-  \label{tab:coils_carthesian_harmonics}
+  \caption{Carthesian harmonic polynomials.}\label{tab:coils_carthesian_harmonics}
 \end{table}
 
 Secondly, the method allows to construct a coil for any field. In particular, one may choose to construct coils that produce fields orthogonal to one another. 
@@ -254,15 +239,12 @@ where $H_n$ are the expansion coefficients, and $\mathbf{P}_n(\mathbf{r})$ are t
 
 \begin{figure*}
   \centering
-  \subfloat{
-    \label{fig:coils_dipole_3d}
+  \subfloat{\label{fig:coils_dipole_3d}
     \includegraphics[width=.35\linewidth]{gfx/coils/coil_dipole.pdf}}
   \quad
-  \subfloat{
-    \label{fig:coils_dipole_section}
+  \subfloat{\label{fig:coils_dipole_section}
     \includegraphics[width=.55\linewidth]{gfx/coils/coil_dipole_section_with_dipole.pdf}}
-  \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of 0.75. On the left-hand side the total current along each edge of the dipole compensation coil is depicted. On the right-hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at \num{0.1} and \SI{100}{\micro\tesla}). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}
-  \label{fig:showcase}
+  \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of 0.75. On the left-hand side the total current along each edge of the dipole compensation coil is depicted. On the right-hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at \num{0.1} and \SI{100}{\micro\tesla}). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}\label{fig:showcase}
 \end{figure*}
 
 Additionally, one can consider constructing dedicated coils to counteract a particular known disturbance. In Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source is presented.

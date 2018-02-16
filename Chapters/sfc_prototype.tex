@@ -11,14 +11,13 @@ In the laboratory at ETH Zürich an active magnetic field compensation system wa
 \note{Schwammig, work on it!}
 
 
-\section{The first iteration -- coil structure}
+\section{The first iteration --- coil structure}
 When discussing the coil design method we have already indicated a possible way to realise it in practice---construct a grid out of cable channels. The system, pictured in Fig.\,\ref{fig:prototype_photo}, was built as $5 \times 9 \times 5$ grid of square tiles. Each tile had side length \SI{262}{\milli\meter}, the total size was $1310 \times 1310 \times \SI{2358}{\milli\meter}$. The vertical axis we refer to as $z$, the long horizontal one as $y$, and the remaining as $x$.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03472.JPG}
-  \caption{The active magnetic compensation system in the laboratory at ETH Zürich. It consists cable channels mounted on an aluminum support structure. In the channels copper wires making up the coils can be seen. On the left-hand side the control cabinet of the system is visible.}
-  \label{fig:prototype_photo}
+  \includegraphics[width=\linewidth]{gfx/prototype/DSC03472.JPG}
+  \caption{The active magnetic compensation system in the laboratory at ETH Zürich. It consists cable channels mounted on an aluminum support structure. In the channels copper wires making up the coils can be seen. On the left-hand side the control cabinet of the system is visible.}\label{fig:prototype_photo}
 \end{figure}
 
 The support frame was made of aluminum construction profiles. To support the cable channels, on each side there was a large, one-piece aluminum sheet with square cut-outs leaving the material only directly below the cable channels. The plastic cable channels were glued onto the aluminum.
@@ -294,9 +293,9 @@ In the previous section we already indicated that the field in the centre is sta
 
 Why was not the improvement better? In the plot there seems to be a fixed limit for the stability. Another set of curves, the dotted ones, provide a hint. They depict the stability of the field observed with an additional sensor mounted inside a two-layer $\upmu$-metal shield, which should provide a factor of a hundred in shielding (the second layer was a cylinder without end caps aligned with the $z$-axis of the sensor, hence the worse performance in this direction). Yet, the registered stability is no better than that of the active stabilisation system.
 
-The limit comes from the temperature drifts. According to the specification of the Stefan Mayer Instruments FLC3-70 sensor it drifts \SI{2}{\nano\tesla\per\kelvin}, so the observed stability corresponds to temperature stability as small as \SI{0.2}{\kelvin}. Even at night the temperature in a not air-conditioned laboratory cannot be expected to be more stable that that. This limit can be pushed a factor twenty lower with higher-quality (and higher-price) sensors. Commercially available Stefan Mayer Instruments FL1-100 and Bartington Mag-03 are specified to drift \SI{0.1}{\nano\tesla\per\kelvin} with a $\SI{\pm 100}{\micro\tesla}$ measuring range.
+The limit comes from the temperature drifts. According to the specification of the Stefan Mayer Instruments FLC3--70 sensor it drifts \SI{2}{\nano\tesla\per\kelvin}, so the observed stability corresponds to temperature stability as small as \SI{0.2}{\kelvin}. Even at night the temperature in a not air-conditioned laboratory cannot be expected to be more stable that that. This limit can be pushed a factor twenty lower with higher-quality (and higher-price) sensors. Commercially available Stefan Mayer Instruments FL1-100 and Bartington Mag-03 are specified to drift \SI{0.1}{\nano\tesla\per\kelvin} with a $\SI{\pm 100}{\micro\tesla}$ measuring range.
 
-However, below is another limitation. Figure\,\ref{fig:prototype_stability} features also a red line labeled ,,\SI{50}{\ohm} ADC shortcut''. This is the stability of the readout of an ADC channel with the terminals connected with a \SI{50}{\ohm} resistor. Even if the magnetic field sensors would have output a perfectly stable voltage, the digitised information would be only this stable. A higher class digitisers could perform better.
+However, below is another limitation. Figure\,\ref{fig:prototype_stability} features also a red line labeled ``\SI{50}{\ohm} ADC shortcut''. This is the stability of the readout of an ADC channel with the terminals connected with a \SI{50}{\ohm} resistor. Even if the magnetic field sensors would have output a perfectly stable voltage, the digitised information would be only this stable. A higher class digitisers could perform better.
 
 The lowest curve on the plot is the limit on the stability due to the bit depth of the DACs. A quantisation resolution $\Delta$ corresponds, on average, to a white noise with RMS amplitude $\Delta / \sqrt{12}$ (derived for example in Sec.\,IV.A in \cite{Gray1998}). This noise scales then down as $\tau^{-1/2}$ with the integration time. The system's 16-bit DACs had $2^{16}$ levels mapped onto a $\SI{\pm 100}{\micro\tesla}$ range. This defines the quantisation at the feedback time of inverse $\SI{200}{\hertz}$. In total the limit from the quantisation at the integration time $\tau$ is:
 \begin{equation}
