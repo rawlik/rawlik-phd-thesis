@@ -165,47 +165,58 @@ The periodogram of the subset of data with the electric and magnetic field paral
 There are two regions of expected rise in the oscillation amplitude due to the time structure of the data collection.
 \marginpar{Recall the discussion in Sec.\,\ref{sec:a_null_hypothesis_test} about the peaks in the periodogram solely due to the time structure of the series.}
 The one around \SI{28}{\micro\hertz} (the inverse of 10 hours) corresponds to the period of the reversal of the electric field.
-The other, around \SI{3.3}{\mili\hertz}, the inverse of \SI{300}{\second}, corresponds to the cycle repetition rate.
-There are five
+The other, around \SI{3.3}{\milli\hertz}, the inverse of \SI{300}{\second}, corresponds to the cycle repetition rate.
+
+The periodogram of the $R$ time array without the gradient-drift correction is shown in pink in Fig.\,\ref{fig:axions_PSI_detection}. The correction had an effect only for frequencies slower than the period of the reversal of the electric field (the region around inverse \SI{300}{\second}, the cycle frequency, is also sensitive to slow oscillations). The period of the electric field change had been deliberately chosen such, that was possibly infrequent (it took \note{how much} to ramp), but still occurring when the magnetic field had not drifted significantly away.
+
+In the periodogram of the gradient-corrected time series here are five
 %\note{NA does anybody know what style guide says about when numbers should be written in words i.e. seven vs 7? I personally think small numbers without units should be words but this comes down to preference} ***I THINK LESS THAN TEN IT IS IN WORDS - MALCOLM ***
 trial frequencies for which the $3\upsigma$ false-alarm threshold is exceeded,
 %\note{PMM: use words like 'surpassed', or 'exceeded' instead of penetrated}
 two of which, including the largest excess with a $6\upsigma$ significance, occur in a \SI{100}{\micro\hertz} region around the inverse of \SI{300}{\second}, while the other three are in the low-frequency region, longer than an inverse length of a sequence.
 % \note{FP: Can you maybe also explicitly state the positions of these three lines in Hz or inverse time?}
  The periodograms for the other two datasets, very similar to this one, can be found in App.\,\ref{ch:alp_appendix}.
-In the other sensitive set, there are three excesses of the $3\upsigma$ threshold (the highest is $5\upsigma$), all constrained to the same two regions. In the control dataset, only the $1\upsigma$ threshold is exceeded.
+In the other sensitive set, there are three excesses of the $3\upsigma$ threshold (the highest is $5\upsigma$), all constrained to the same two regions. In the control dataset, only the $1\upsigma$ threshold is exceeded. Among those, none fulfill the detection criteria, in particular the requirement to be present in both $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ periodograms, with opposite phases.
 %\note{MR: We may consider not discussing the false--alarm threshold penetrations, and just state in the next paragraph that we do not find a signal which meets our criteria.}
-The periodogram of the $R$ time array without the gradient-drift correction is shown in pink in Fig.\,\ref{fig:axions_PSI_detection}. The correction has an effect only for frequencies slower than the period of the reversal of the electric field. It is not a 
-It is not by chance. The period of the high voltage was chosen to be when the field is stable.  that  to visualize the frequencies where the correction has an effect.
 
-\mnote{Here a brief discussion about the Cs-gradient-drift correction.}
-It is interesting to observe, that the periodograms with and without the gradient drift correction diverge only for frequencies below \SI{6e-5}{\hertz}, the period of the high-voltage reversal (the disagreement around inverse \SI{300}{\second} is folded from the low frequencies). This is not a coincidence. The period of the high-voltage reversal has been deliberately chosen, so that\ldots\mnote{Was the period really chosen such?}
+% \mnote{Here a brief discussion about the Cs-gradient-drift correction.}
+% It is interesting to observe, that the periodograms with and without the gradient drift correction diverge only for frequencies below \SI{6e-5}{\hertz}, the period of the high-voltage reversal (the disagreement around inverse \SI{300}{\second} is folded from the low frequencies). This is not a coincidence. The period of the high-voltage reversal has been deliberately chosen, so that\ldots\mnote{Was the period really chosen such?}
 
-No signals fulfilling the detection criteria are found.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{gfx/axions/psi_ill_1e-26ecm.pdf}
+  \caption{
+    %The 95\% C.L. limits on the amplitude of oscillation in the quantity dn − ðμn =μHg ÞdHg, as a function of frequency thereof. The limits from the long-time-base (ILL data) and short-time-base (PSI data) analyses are depicted by the red and blue curves, respectively, with the area above these curves being excluded. The raw limits delivered by the analysis, with substantial noise, are depicted by the light lines, while the smoothed versions are given in bold.
+  The numerically obtained limits are depicted with faint lines; thick lines are smoothed. }
+\label{fig:axions_limits_nEDM}
+\end{figure}
 
-Having observed no significant signal, we could place limits on the coupling strength as the function of axion mass.
+As no significant signals have been observed, limits could be placed to exclude the observations that would have been detected. The limits, obtained numerically in a way discussed in Sec.\,\ref{sec:signal_hypotheses_tests}, are depicted in Fig.\,\ref{fig:axions_limits_nEDM} in blue (labelled ``short time-base''). This analysis was most sensitive for periods between the duration of a sequence, around two days, and cycle repetition, \SI{300}{\second}. In that region amplitudes down to \SI{5e-26}{\elementarycharge\centi\meter} could be excluded on the 95\%~C.L. The limits of the long time-base analysis, the one of the ILL-based experiment's data, are depicted in red~\cite{AyresThesis,PhysRevX.7.041034}. Complimentarily, they are sensitive to periods just below the duration of a sequence and go down to about a decade.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{gfx/axions/psi_ill_axion_limits_v7.pdf}
+  \caption{Mention, that it shows\ldots}
+\label{fig:axions_limits_coupling}
+\end{figure}
+
+The limits were interpreted as ones on the axion-gluon coupling.
 The result are presented in Fig.\,\ref{fig:axions_limits_coupling} and are labeled \emph{short time-base} (the next paragraph is devoted to the \emph{long time-base} limits).
 The limits we evaluated using Monte Carlo techniques, as described \ldots.
 The results are presented in the landscape of already existing limits: axions with a mass below \ldots have their Compton wavelength larger than the size of the smallest dwarf \emph{galaxies} and, therefore, could not be the sole constituent of dark matter; the influence of axions in the red-shaded area on the \emph{Big Bang nucleosynthesis} would result in an underproduction of\ldots
 \mnote{Need to research and explain all those.}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\linewidth]{gfx/axions/psi_ill_axion_limits_v7.pdf}
-  \caption{Mention, that it shows\ldots}
-  \label{fig:axions_limits_coupling}
-\end{figure}
 
-The Fig.\,\ref{fig:axions_limits_coupling} features the \emph{short time-base} limits, the ones described in this work, as well as \emph{long time-base} ones.
-This work was performed with close collaboration with Nicholas Ayres of the University of Sussex. The Sussex group was part of the collaboration running the predecesor of the nEDM experiment at PSI --- the measurement performed in the Institute Laue-Langevin in Grenoble, France, in the years 1998--2002~\cite{Pendlebury2015}.
-An analysis analogous to this work was performed on those data, with an important difference, which made it sensitive to lower frequencies (or lighter axions)~\cite{AyresThesis}.
-Namely, the time series consisted of one point per run, in contrast to one per cycle in the short time-base analysis.
-On one hand it limits the sensitivity to oscillation periods corresponding to one run (1--2 days).
-On the other, the sensitivity to low frequencies is not deteriorated, as there is no need to use multiple free offsets in the LSSA fit (Eq.\,(\ref{eq:axions_LSSA})). In fact the free offset is assumed to be zero on the ground that the experiment delivered a zero-compatible result.
-% in the process of calculating the per-run nEDM estimate the gradient fluctuations are averaged out, so there is 
-\mnote{What about the gradient-related systematics (nEDM vs R' curve)? Was it corrected for? Wrote an email to Nick.}
+% The Fig.\,\ref{fig:axions_limits_coupling} features the \emph{short time-base} limits, the ones described in this work, as well as \emph{long time-base} ones.
+% This work was performed with close collaboration with Nicholas Ayres of the University of Sussex. The Sussex group was part of the collaboration running the predecesor of the nEDM experiment at PSI --- the measurement performed in the Institute Laue-Langevin in Grenoble, France, in the years 1998--2002~\cite{Pendlebury2015}.
+% An analysis analogous to this work was performed on those data, with an important difference, which made it sensitive to lower frequencies (or lighter axions)~\cite{AyresThesis}.
+% Namely, the time series consisted of one point per run, in contrast to one per cycle in the short time-base analysis.
+% On one hand it limits the sensitivity to oscillation periods corresponding to one run (1--2 days).
+% On the other, the sensitivity to low frequencies is not deteriorated, as there is no need to use multiple free offsets in the LSSA fit (Eq.\,(\ref{eq:axions_LSSA})). In fact the free offset is assumed to be zero on the ground that the experiment delivered a zero-compatible result.
+% % in the process of calculating the per-run nEDM estimate the gradient fluctuations are averaged out, so there is 
+% \mnote{What about the gradient-related systematics (nEDM vs R' curve)? Was it corrected for? Wrote an email to Nick.}
 
-Despite close collaboration the two analyses shared no common code. As a mean of cross-check, the two codes were compared on artifical datasets, more on that in the appendix.
+% Despite close collaboration the two analyses shared no common code. As a mean of cross-check, the two codes were compared on artifical datasets, more on that in the appendix.
 
 
 
