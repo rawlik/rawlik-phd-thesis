@@ -83,6 +83,7 @@ The structures in the $P(\omega_i)$ PDFs are caused solely by the non-uniformity
 %We will be using the Cumulative Density Function (CDF) formalism.
 We denote the cumulative density function (CDF) of the power estimator at the $i$th frequency as $F_i(z)$ ($z$ would be the power estimated at frequency $\omega_i$). In an evenly sampled, signal-free case it has a functional form
 \begin{equation}
+  \label{eq:local_functional_form}
   F_i(z) = 1 - e^{-z} \ .
 \end{equation}
 In our case it can be estimated from the MC simulations. Then the $i$th p-value is directly
@@ -90,7 +91,29 @@ In our case it can be estimated from the MC simulations. Then the $i$th p-value 
   p_i = 1 - F_i\left( P^D(\omega_i) \right) \ .
 \end{equation}
 \marginpar{P-value is the the probability that at least this much power would arise only as a result of a random fluctuation.}
-The most significant peak is the one with the lowest p-value. Yet, in the example signal there are 15 peaks with p-values on a 2$\upsigma$ level, much more than expected (a 2$\upsigma$ event is a five-in-a-hundred one). This is due to the so-called \emph{look-elsewhere effect}, best explained as follows: one-in-a-thousand event in a system is not a surprise, if it occurs in one of a thousand different systems. By looking at the Fig.\,\ref{fig:basic_detection} and comparing the periodogram of the signal with the $\upsigma$ bands, one essentially performs many, as many as the number of frequencies, largely independent statistical tests, cherry-picking among them the most significant peaks. The p-values $p_i$ are called \emph{local}, because they only measure the local significance at $\omega_i$.
+The most significant peak is the one with the lowest p-value.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/axions/P_best_signal_candidate.png}
+  \caption{1 - CDF for the parallel data set. This provides the power to local p-value transition, for each frequency separately. The extrapolation based on Eq.\ldots is shown.}
+  \label{fig:P_best_signal_candidate}
+\end{figure}
+
+\note{Make the figure for the example at the frequency of the signal}.
+To estimate the CDF all the MC-generated power estimates were sorted into an array. Then, the discrete CDF estimate was obtained by putting the power on the $x$-axis and the place in the sorted array, normalised to one, on the $y$-axis.
+\marginpar{The CDF has this advantage over the PDF, that it does not require binning to be estimated.}
+The discrete CDF estimate, or actually one-minus-CDF, so that the logarithmic $y$-scale can be leveraged to resolve the high-power tail, for the signal frequency \SI{0.17}{\hertz} is depicted in Fig.\,\ref{fig:P_best_signal_candidate} by green dots.
+
+When the power in the time series is very high, as it is the case for the signal frequency \SI{0.17}{\hertz} in the example, obtaining the discrete CDF estimate would require unrealistically many Monte Carlo samples. An easy solution was to extrapolate the discrete CDF by a linear fit of the form
+\begin{equation}
+  F_i(z) = 1 - A_i \, e^{-B_i z} \ ,
+\end{equation}
+where $A_i$ and $B_i$ were free parameters, motivated by Eq.\,(\ref{eq:local_functional_form}). The result of the fit is depicted in Fig.\,\ref{fig:P_best_signal_candidate} with a blue line.
+
+% First how the local p-values were obtained. In Fig.\,\ref{fig:P_best_signal_candidate} the cumulative distribution function (CDF) \mnote{define CDF somewhere and then just continue to use it. Maybe even a table of abbreviations at the end?} of the power at one frequency (a special one, where the least probable peak is). CDF has this advantage over the PDF, that it does not require binning to be estimated. To estimate the CDF all the MC-generated power estimates are sorted into an array. Then the discrete CDF estimate is plotted by putting the power on the x-axis and the place in the sorted array, normalised to one, on the y-axis. Fig.\,\ref{fig:P_best_signal_candidate} actually shows $1 - \mathrm{CDF}$, so that the logarithmic y-scale can be leveraged to resolve the high-power tail. The plot also includes a extrapolating fit line and false-alarm thresholds, which we now proceed to explain.
+
+In the example signal there are 15 peaks with p-values on a 2$\upsigma$ level, much more than expected (a 2$\upsigma$ event is a five-in-a-hundred one). This is due to the so-called \emph{look-elsewhere effect}, best explained as follows: one-in-a-thousand event in a system is not a surprise, if it occurs in one of a thousand different systems. By looking at the Fig.\,\ref{fig:basic_detection} and comparing the periodogram of the signal with the $\upsigma$ bands, one essentially performs many, as many as the number of frequencies, largely independent statistical tests, cherry-picking among them the most significant peaks. The p-values $p_i$ are called \emph{local}, because they only measure the local significance at $\omega_i$.
 
 There is an another way of understanding this phenomenon. The height of the most significant peak is a statistic itself. Its distribution can also be estimated from the MC-generated null hypothesis signals. The distribution is depicted on the right-hand size in Fig.\,\ref{fig:basic_detection}. Even when no signal is present, the most significant peak will most of the times have a height placing it between 2- and 3$\upsigma$ local significance bands.
 
@@ -129,8 +152,8 @@ Let us now consider the local p-value of the most significant peak: $p_\text{min
 \begin{align}\label{eq:Fpmin}
   F_p(p) &= p \\
   F_{p_\text{max}}(p) &= p^N \\
-  &\text{with}\ p' := 1 - p :\\
-  F_{p_\text{min}}(p) &= 1 - F_{p'_\text{max}}(p') = 1 - {(1 - p)}^N \ ,
+  &\text{with}\ p' := 1 - p : \nonumber \\
+  F_{p_\text{min}}(p) &= 1 - F_{p'_\text{max}}(p') = 1 - {(1 - p)}^N \ , \label{eq:global_CDF_functional_form}
 \end{align}
 where $N$ is the number of frequencies tested.
 % We Correlations in the periodogram, for example due to non-uniform sampling of the time-series, effectively lower $N$. If three dice are rolled in a way that two always give the same result, this is the same as rolling two dice when minimum roll is concerned.
@@ -138,6 +161,30 @@ The CDF of $p_\text{min} \, | H_0$, which we call $F^g$, can be estimated from t
 \begin{equation}
   p^g = F^g(p_\text{min}^D) \ .
 \end{equation}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/axions/P_look-elsewhere.png}
+  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value---global p-value transition. The fit with the model \dots gives the number of frequencies.}
+  \label{fig:P_look-elsewhere}
+\end{figure}
+
+The discrete estimate of $p_\text{min} \, | H_0$ CDF is depicted with green dots in Fig.\,\ref{fig:P_look-elsewhere}. It has been obtained by generating many periodograms assuming $H_0$, evaluating the p-value of the most significant peak in each, and then ordering the p-values. The plot has the local p-value on the $x$-axis and the normalised position in the ordered array on the $y$-axis.
+As in the case of the local p-value estimation, to access the low-probability tail without straining the computational effort, the functional for of the CDF is used.
+In a case where the power estimates for all the of $N$ tested frequencies are uncorrelated, the CDF would be given exactly by Eq.\,(\ref{eq:global_CDF_functional_form}).
+However, it cannot be guaranteed that the power estimates at different frequencies are independent in a case of a periodogram of an unevenly sampled time series.
+Instead, the parameter $N$ was obtained by fitting a curve described by Eq.\,(\ref{eq:global_CDF_functional_form}) to the discrete CDF estimate. CDFs corresponding to both values of $N$, the actual number of frequencies and the fitted one, are depicted in Fig.\,\ref{fig:P_look-elsewhere} and are almost overlapping.
+
+% As in the case of the local p-value estimation, to access the low-probability tail without straining the computational effort the CDF has been extrapolated with a fit. Equation~(\ref{eq:global_CDF_functional_form}) was used as the model, $N$ having been the free fit parameter.
+
+
+
+% To reduce the computational effort we exploit the fact, that we know the expected functional form of the CDF\@:
+% \begin{equation}
+%   F(p) = 1 - {(1-p)}^N\ ,
+% \end{equation}
+% \mnote{Ref.\,for the formula? PDF statistics? Scargle?}
+% where $N$ is the total number of frequencies. This corresponds to $N$ \emph{independent} statistical tests. We refrain from using for $N$ the actual number of frequencies, \num{156198}, because we cannot guarantee that the power estimates at different frequencies are independent\footnote{They are in a case of periodograms of evenly sampled series}. Instead, we fit $N$ to the observed CDF obtaining \num{177844}. CDFs corresponding to both values of $N$ are depicted in Fig.\,\ref{fig:P_look-elsewhere} and are almost overlapping.
 
 We can further determine the global false-alarm thresholds. Traditionally, they are chosen to be at p-values of the normal distribution at integer multiples of its width $\upsigma$. The \emph{global} threshold p-value we call $p^g_{f.a.}$. The \emph{local} threshold p-value is:
 \begin{equation}
@@ -151,6 +198,21 @@ To claim a discovery of a significant oscillating signal, the false alarm probab
 
 In order to resolve the the tail of the CDF all the way down to 5$\upsigma$ false-alarm threshold, generating at least $10^8$ samples is necessary. Generic solutions of this problem are known (see for example section 39.3.2.2 \emph{The look-elsewhere effect} in~\cite{PDG2016}). Here, a more specific approach is taken. We assume, that even though the CDF will deviate from the strictly derived equations in~\cite{Scargle1982}, the functional form of the tails will be preserved. Under the null hypothesis $F_{P_i}$ has the form $1 - e^{-P}$~\cite{Scargle1982}. For $F^g$ we assume a form of Eq.\,(\ref{eq:Fpmin}), where $N$ is a parameter that we have to fit to account for correlations in the periodogram. Those functional forms can be used to extrapolate tails of CDF estimated with much fewer MC samples.
 
+Once every MC-generated power estimate has a local p-value associated with it, we find for each generated periodogram the minimal local p-value and treat it as a statistic in itself. We estimate the CDF of the minimal local p-value. The result is plotted in Fig.\,\ref{fig:P_look-elsewhere}. The plot can be understood in the following way: it states how probable it is (y-axis) for a peak of a given local significance (x-axis) to occur anywhere in a periodogram. In other words, the y-axis corresponds to the \emph{global} p-value. The global p-value for an $n\,\sigma$ level is given by:
+\begin{equation}
+  \mathrm{erfc}\left( \frac{n}{\sqrt{2}} \right)\ ,
+\end{equation}
+where $\mathrm{erfc}$ is the complementary error function (intuitively understood as ``one minus the integral of the gaussion distribution''). We mark the global p-values corresponding to $1,\ldots,5\sigma$ levels and via the CDF find the corresponding local p-value thresholds.
+
+% We see, that the discrete estimate from the MC simulation can only go down to the $2\sigma$ false-alarm threshold. To go lower would require many more MC samples. To observe a single $5\sigma$ event, roughly one-in-a-million, needs typically a million samples. To reduce the computational effort we exploit the fact, that we know the expected functional form of the CDF\@:
+% \begin{equation}
+%   F(p) = 1 - {(1-p)}^N\ ,
+% \end{equation}
+% \mnote{Ref.\,for the formula? PDF statistics? Scargle?}
+% where $N$ is the total number of frequencies. This corresponds to $N$ \emph{independent} statistical tests. We refrain from using for $N$ the actual number of frequencies, \num{156198}, because we cannot guarantee that the power estimates at different frequencies are independent\footnote{They are in a case of periodograms of evenly sampled series}. Instead, we fit $N$ to the observed CDF obtaining \num{177844}. CDFs corresponding to both values of $N$ are depicted in Fig.\,\ref{fig:P_look-elsewhere} and are almost overlapping.
+
+Now for each frequency the local p-values corresponding the the false-alarm thresholds are known. They are depicted in Fig.\,\ref{fig:P_best_signal_candidate}. There, the power CDF (at this frequency) can be used to express the thresholds in power or evaluate the global significance of an arbitrary power. Here, too, the problem is that the discretely estimated CDF does not reach far enough in the tails, and, again, we exploit the functional form to extrapolate the CDF. We expect the power to be exponentially distributed in a no-signal case \cite{Scargle1982}, which corresponds to a straight line on the CDF plot with a logarithmic y-scale.
+
 
 % In Fig.\,\ref{fig:ILL_detection} we present the periodogram of a fake ILL dataset (generated with the same run timings and uncertainties as in the real dataset, with run EDM values generated according to gaussian distribution with mean of $0$ and standard deviation equal to that run's uncertainty). We decided not to analyse the real data set until we are fully happy with the method.
 %
@@ -161,6 +223,46 @@ In order to resolve the the tail of the CDF all the way down to 5$\upsigma$ fals
 %     \label{fig:ILL_detection}
 %   \end{center}
 % \end{figure}
+
+
+
+% \section{False-alarm thresholds}
+% \mnote{In this section we will dive in more deeply into statistics associated with the data.}
+
+% Remind: for each of the three data sets we have a periodogram, one value for the power estimate for each frequency. Then we have a collection of simulated periodograms, many power estimates for each frequency, generate1d assuming the null hypothesis --- only white noise in the data.
+
+% First how the local p-values were obtained. In Fig.\,\ref{fig:P_best_signal_candidate} the cumulative distribution function (CDF) \mnote{define CDF somewhere and then just continue to use it. Maybe even a table of abbreviations at the end?} of the power at one frequency (a special one, where the least probable peak is). CDF has this advantage over the PDF, that it does not require binning to be estimated. To estimate the CDF all the MC-generated power estimates are sorted into an array. Then the discrete CDF estimate is plotted by putting the power on the x-axis and the place in the sorted array, normalised to one, on the y-axis. Fig.\,\ref{fig:P_best_signal_candidate} actually shows $1 - \mathrm{CDF}$, so that the logarithmic y-scale can be leveraged to resolve the high-power tail. The plot also includes a extrapolating fit line and false-alarm thresholds, which we now proceed to explain.
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{gfx/axions/P_best_signal_candidate.png}
+%   \caption{1 - CDF for the parallel data set. This provides the power to local p-value transition, for each frequency separately. The extrapolation based on Eq.\ldots is shown.}
+%   \label{fig:P_best_signal_candidate}
+% \end{figure}
+
+% Once every MC-generated power estimate has a local p-value associated with it, we find for each generated periodogram the minimal local p-value and treat it as a statistic in itself. We estimate the CDF of the minimal local p-value. The result is plotted in Fig.\,\ref{fig:P_look-elsewhere}. The plot can be understood in the following way: it states how probable it is (y-axis) for a peak of a given local significance (x-axis) to occur anywhere in a periodogram. In other words, the y-axis corresponds to the \emph{global} p-value. The global p-value for an $n\,\sigma$ level is given by:
+% \begin{equation}
+%   \mathrm{erfc}\left( \frac{n}{\sqrt{2}} \right)\ ,
+% \end{equation}
+% where $\mathrm{erfc}$ is the complementary error function (intuitively understood as ``one minus the integral of the gaussion distribution''). We mark the global p-values corresponding to $1,\ldots,5\sigma$ levels and via the CDF find the corresponding local p-value thresholds.
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{gfx/axions/P_look-elsewhere.png}
+%   \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value---global p-value transition. The fit with the model \dots gives the number of frequencies.}
+%   \label{fig:P_look-elsewhere}
+% \end{figure}
+
+% We see, that the discrete estimate from the MC simulation can only go down to the $2\sigma$ false-alarm threshold. To go lower would require many more MC samples. To observe a single $5\sigma$ event, roughly one-in-a-million, needs typically a million samples. To reduce the computational effort we exploit the fact, that we know the expected functional form of the CDF\@:
+% \begin{equation}
+%   F(p) = 1 - (1-p)^N\ ,
+% \end{equation}
+% \mnote{Ref.\,for the formula? PDF statistics? Scargle?}
+% where $N$ is the total number of frequencies. This corresponds to $N$ \emph{independent} statistical tests. We refrain from using for $N$ the actual number of frequencies, \num{156198}, because we cannot guarantee that the power estimates at different frequencies are independent\footnote{They are in a case of periodograms of evenly sampled series}. Instead, we fit $N$ to the observed CDF obtaining \num{177844}. CDFs corresponding to both values of $N$ are depicted in Fig.\,\ref{fig:P_look-elsewhere} and are almost overlapping.
+
+% Now for each frequency the local p-values corresponding the the false-alarm thresholds are known. They are depicted in Fig.\,\ref{fig:P_best_signal_candidate}. There, the power CDF (at this frequency) can be used to express the thresholds in power or evaluate the global significance of an arbitrary power. Here, too, the problem is that the discretely estimated CDF does not reach far enough in the tails, and, again, we exploit the functional form to extrapolate the CDF. We expect the power to be exponentially distributed in a no-signal case \cite{Scargle1982}, which corresponds to a straight line on the CDF plot with a logarithmic y-scale.
+
+% The thresholds powers are different for each frequency and are depicted in orange in Fig.\,\ref{fig:axions_PSI_detection}. They provide an intuitive interpretation of the plot: the most significant signal candidate is the one piercing furthest into the false-alarm thresholds. Its statistical significance is equal to the last threshold it crossed.
 
 
 
