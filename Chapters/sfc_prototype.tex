@@ -16,7 +16,7 @@ In the discussion of the coil design method a possible way to realise it in prac
 
 \begin{sidewaysfigure}
   \centering
-  \includegraphics[width=0.8\linewidth]{gfx/prototype/DSC03472.JPG}
+  \includegraphics[width=0.75\linewidth]{gfx/prototype/DSC03472.JPG}
   \caption{The active magnetic compensation system in the laboratory at ETH Zürich. It consists cable channels mounted on an aluminum support structure. In the channels copper wires making up the coils can be seen. On the left-hand side the control cabinet of the system is visible.}\label{fig:prototype_photo}
 \end{sidewaysfigure}
 
@@ -29,7 +29,8 @@ In the discussion of the coil design method a possible way to realise it in prac
   \caption{The optimal current net for the $y$-coil of the ETH active magnetic field compensation system. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted on the left-hand side. The rectangular faces are all identical, and are depicted on the right-hand side. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_y_currents}
 \end{figure}
 
-In its first version the system featured three coils for the homogeneous components of the magnetic field (the first three cartesian harmonics). The coils were designed following the method described in the previous chapter, but excluding the, not ready at the time, simplification algorithm. The simplification was carried out manually instead. The fiducial volume was chosen to be a cuboid centred in the system, with each of its face \SI{155}{\milli\meter} away from the surface of the coils. The optimal current net for the $y$-coil (producing a homogeneous field in the $y$ direction) is depicted in Fig.\,\ref{fig:prototype_coil_y_currents} and its manual decomposition into loops in Fig.\,\ref{fig:prototype_coil_y_decomposition}. The design promised a 2\% homogeneity inside the fiducial volume. The other two coils, $x$ and $z$, are identical on the symmetry ground. The current net for those is depicted in Fig.\,\ref{fig:prototype_coil_x_z_currents}
+In its first version the system featured three coils for the homogeneous components of the magnetic field (the first three cartesian harmonics). The coils were designed following the method described in the previous chapter, but excluding the, not ready at the time, simplification algorithm. The simplification was carried out manually instead. The fiducial volume was chosen to be a cuboid centred in the system, with each of its face \SI{155}{\milli\meter} away from the surface of the coils. The optimal current net for the $y$-coil (producing a homogeneous field in the $y$ direction) is depicted in Fig.\,\ref{fig:prototype_coil_y_currents} and its manual decomposition into loops in Fig.\,\ref{fig:prototype_coil_y_decomposition}. The design promised a 2\% homogeneity inside the fiducial volume. The current net for $x$- and $z$-coils, identical to each other on symmetry grounds, is depicted in Fig.\,\ref{fig:prototype_coil_x_z_currents}.
+Finally, the individual loops were discretised into \SI{10}{\ampere}, \SI{2}{\ampere} and \SI{0.2}{\ampere}, per nominal \SI{100}{\micro\tesla}. For example, the \SI{38.96}{\ampere} current, indicated in black in Fig.\,\ref{fig:prototype_coil_y_decomposition}, was realised as three windings of the \SI{10}{\ampere} wire, four of the \SI{2}{\ampere} one and five of the \SI{0.2}{\ampere} one.
 % and the decomposition in Fig.\,\ref{fig:prototype_coil_x_z_decomposition}.
 
 \begin{figure}
@@ -57,8 +58,6 @@ In its first version the system featured three coils for the homogeneous compone
 %   \label{fig:prototype_coil_x_z_decomposition}
 % \end{figure}
 
-Finally, the individual loops were discretised into \SI{10}{\ampere}, \SI{2}{\ampere} and \SI{0.2}{\ampere}, per nominal \SI{100}{\micro\tesla}. For example, the \SI{38.96}{\ampere} current, indicated in black in Fig.\,\ref{fig:prototype_coil_y_decomposition}, was realised as three windings of the \SI{10}{\ampere} wire, four of the \SI{2}{\ampere} one and five of the \SI{0.2}{\ampere} one.
-
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/wires_close_up.jpg}
@@ -76,12 +75,12 @@ A close-up of the wires in the cable channels, for all three coils, is shown in 
 \section{Mapping}
 The coils were mapped in order to verify that the coils really produce a field of the required homogeneity. For that purpose a robot has been built---a fluxgate on an xyz-table, controlled with stepper motors. The robot, called \emph{mapper}, is pictured in Fig.\,\ref{fig:prototype_photo_inside}.
 
-\begin{figure}
+\begin{sidewaysfigure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/DSC03476.JPG}
+  \includegraphics[width=0.75\linewidth]{gfx/prototype/DSC03476.JPG}
   \caption{The inside of the active magnetic field compensation system. In the centre the mapping robot (\emph{mapper}) is visible, with a fluxgate magnetic field sensor mounted to a movable platform. Mounted on black, vertical beams there are eight fluxgates for the active feedback.}
   \label{fig:prototype_photo_inside}
-\end{figure}
+\end{sidewaysfigure}
 
 A beam seen in the middle of Fig.\,\ref{fig:prototype_photo_inside} could move along the $y$ direction, pulled by two timing belts. The belts were wound around pulleys attached to stepper motors, visible to the left. Along the beam, the $x$ direction, a cart was moved in the same way---a timing belt and a stepper motor. On the cart three vertical rods were attached, with a plastic (POM) platform tightly threaded on them. On the platform there was a fluxgate magnetic field sensor.
 \marginpar{In a fluxgate a ferromagnetic core is periodically driven into saturation. When it is not saturated, it is highly permeable and sucks the external magnetic flux in. When saturated, it does not occur. A pickup coil detects the changes in the external flux as it is alternately sucked in and out of the core.}
@@ -91,9 +90,8 @@ A simple kind of map was a linear one, whereby the fluxgate was moved along one 
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/linear_map.png}
-  \caption{Right-hand side: Linear map of the homogeneous field $y$-coil. The map is along the $y$-direction, in the middle of $x$ and $z$. The $y$-component of the magnetic field is plotted. On the left-hand side additionally maps with only the \SI{5}{\ampere} component coil, and with \SI{5}{\ampere} and \SI{1}{\ampere} components coil are shown. \note{TODO redo without the titles on top, make the position in cm.}}
-  \label{fig:prototype_linear_map}
+  \includegraphics[width=0.8\linewidth]{gfx/prototype/y_scan_all_double.pdf}
+  \caption{Linear map of the homogeneous field $y$-coil. The map is along the $y$-direction, in the middle of $x$ and $z$. The $y$-component of the magnetic field is plotted. The green curve depicts the field with only the \SI{5}{\ampere}/\SI{50}{\micro\tesla} wire, the blue with additionally the \SI{1}{\ampere}/\SI{50}{\micro\tesla} one, and the orange, also zoomed in at the very top, all three wires together.}\label{fig:prototype_linear_map}
 \end{figure}
 
 On the left-hand of Fig.\,\ref{fig:prototype_linear_map} additionally the maps with only the \SI{10}{\ampere} component coil, and with \SI{10}{\ampere} and \SI{2}{\ampere} components coil are shown. It is interesting to note how much of the field is produced by each of the components. In the middle region the \SI{5}{\ampere}, \SI{1}{\ampere} and \SI{0.1}{\ampere} components produced 86\%, 11\% and 3\% of the \SI{50}{\micro\tesla} field, respectively. At the edge the shares change to 70\%, 16\% and 14\%.
@@ -227,15 +225,9 @@ The dynamic stabilisation was tested with a strong permanent magnetic dipole. It
 
 \begin{figure}
   \centering
-  \subfloat{
-    \label{fig:prototype_compensation_time_1}
-    \includegraphics[width=.45\linewidth]{gfx/prototype/uncompensated_7_5m.png}}
-  \quad
-  \subfloat{
-    \label{fig:prototype_compensation_time_2}
-    \includegraphics[width=.45\linewidth]{gfx/prototype/compensated_7_5m.png}}
-  \caption{Field variations caused by a dipole \SI{7.5}{\meter} away being rotated. Left-hand side: uncompensated field $\mathbb{B}_0$ (as calculated with Eq.\,\ref{eq:uncompensated_field}). Right-hand side: compensated field seen by the feedback sensors $\mathbb{B}$. The three colours correspond to the three spatial directions. Each line is one feedback sensor. The thick lines are downsampled data, the original being plotted in light colour below.}
-  \label{fig:prototype_compensation_time}
+  \includegraphics[width=.8\linewidth]{gfx/prototype/compensated_7_5m_double.pdf}
+  \caption{Field variations caused by a rotating dipole \SI{7.5}{\meter} away.
+  The upper part shows in colours corresponding to the spatial directions the uncompensated field $\mathbb{B}_0$ for all eight sensors, calculated according to Eq.\,\ref{eq:uncompensated_field}. The compensated field $\mathbb{B}$ is depicted in grey in the upper part and is enlarged in the lower part of the plot, in colour.}\label{fig:prototype_compensation_time}
 \end{figure}
 
 The result of the compensation of the dipole being rotated \SI{7.5}{\meter} away from the system's centre are plotted in Fig.\,\ref{fig:prototype_compensation_time}. The left-hand--side plot shows the field as it would be registered without compensation $\mathbb{B}_0$ calculated according to Eq.\,\ref{eq:SFC_matrix_model}):
@@ -249,15 +241,8 @@ Take a look on the orange lines on left-hand side of Fig.\,\ref{fig:prototype_co
 
 \begin{figure}
   \centering
-  \subfloat{
-    \label{fig:prototype_compensation_performance}
-    \includegraphics[width=.45\linewidth]{gfx/prototype/big_magnet_performance.pdf}}
-  \quad
-  \subfloat{
-    \label{fig:prototype_shielding_factor}
-    \includegraphics[width=.45\linewidth]{gfx/prototype/big_magnet_shielding_factor.pdf}}
-  \caption{Performance of the active compensation system shielding a dipole disturbance, as a function of the distance to it. Left-hand side: the amplitude of the field variations, measured as the difference between the 75th and 25th quantiles, as uncompensated (blue), compensated seen by the feedback sensors (orange), a non-feedback sensor in the centre (green) and the numerical average of the feedback sensors (red). Right-hand side: the shielding factor, defined as the ratio of the curves in the plot to the left to the uncompensated variation.}
-  \label{fig:prototype_compensation}
+  \includegraphics[width=0.75\linewidth]{gfx/prototype/big_magnet_performance_shielding_factor.pdf}
+  \caption{Performance of the active compensation system shielding a dipole disturbance, as a function of the distance to it. Upper part: the amplitude of the field variations, measured as the difference between the 75th and 25th quantiles, as uncompensated (black), compensated seen by the feedback sensors (orange), a non-feedback sensor in the centre (blue) and the numerical average of the feedback sensors (green). Lower part: the shielding factor, defined as the ratio of the curves in the plot to the left to the uncompensated variation.}\label{fig:prototype_compensation}
 \end{figure}
 
 The amplitude of the variations seen in Fig.\,\ref{fig:prototype_compensation_time} can be quantified as the difference between 75th and 25th quantiles of the readouts. This measure is plotted in the left-hand side of Fig.\,\ref{fig:prototype_compensation} as the function of the distance between the dipole disturbance and the centre of the system. The uppermost curve, blue, is the uncompensated field $\mathbb{B}_0$, the left-hand side of Fig.\,\ref{fig:prototype_compensation_time}. The orange one below is the compensated field seen by the feedback sensors $\mathbb{B}$, the right-hand side of Fig.\,\ref{fig:prototype_compensation_time}. We observe that the compensation improved with the distance to the dipole, as the field became more homogeneous. It is more clear in the right-hand side, where the ratio of the two curves, called the \emph{shielding factor}, is plotted in orange.
@@ -268,7 +253,7 @@ The last, red, curve depicts the variations seen in the average readout of the f
 
 
 \section{Long-term Stability}
-\marginpar{In the PSI environment periods of strong magnetic field changes---tens of microteslas over an hour when nearby magnets ramp---are interleaved with ones of high stability---\SI{10}{\nano\tesla} at \SI{10}{\second} at night (Fig.\,5.3 in \cite{Franke2013}).}
+\marginpar{In the PSI environment periods of strong magnetic field changes---tens of microteslas over an hour when nearby magnets ramp---are interleaved with ones of high stability---\SI{10}{\nano\tesla} at \SI{10}{\second} at night (Fig.\,5.3 in~\cite{Franke2013}).}
 As we have just shown the active magnetic field compensation can stabilise the field in the case of strong variations. Yet, the system's internal stability is inevitably finite and when the magnetic environment is more stable, the system effectively worsens the conditions. The question is where is this limit and what sets it.
 
 As the measure of stability we use the \emph{Allan deviation}---a special case of the M-sample variance, defined originally by the Eq.\,11 in~\cite{Allan1966}, with $N=2$ and $T = \tau$. The interpretation is: Allan deviation gives the RMS sample-to-sample variation \note{Write more on that, but not too much.}
@@ -278,8 +263,7 @@ To assess the stability the system run in the night, with no known activity in t
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/run7_field_stability.pdf}
-  \caption{The stability of the active magnetic field compensation. The Allan deviation is plotted as the function of integration time. The three colours depict the three spatial directions. The uppermost three groups of thin, solid lines depict the uncompensated field $\mathbb{B}_0$ measured by the feedback sensors. In the dense group of lines below, around \SI{20}{\nano\tesla} (corresponding to a temperature stability of \SI{0.1}{\kelvin}, as specified for the fluxgates), are: the compensated field measured by the feedback sensors $\mathbb{B}$ (solid), the compensated field measured by a non-feedback fluxgate in the centre of the system (dashed), field measured inside a two layer $\upmu$-metal shield (dotted). Below that depicted are: the stability of the readout of a short-cut ADC channel (red) and the limit set by the quantisation noise of the 16-bit DACs.}
-  \label{fig:prototype_stability}
+  \caption{The stability of the active magnetic field compensation. The Allan deviation is plotted as the function of integration time. The three colours depict the three spatial directions. The uppermost three groups of thin, solid lines depict the uncompensated field $\mathbb{B}_0$ measured by the feedback sensors. In the dense group of lines below, around \SI{20}{\nano\tesla} (corresponding to a temperature stability of \SI{0.1}{\kelvin}, as specified for the fluxgates), are: the compensated field measured by the feedback sensors $\mathbb{B}$ (solid), the compensated field measured by a non-feedback fluxgate in the centre of the system (dashed), field measured inside a two layer $\upmu$-metal shield (dotted). Below that depicted are: the stability of the readout of a short-cut ADC channel (red) and the limit set by the quantisation noise of the 16-bit DACs.}\label{fig:prototype_stability}
 \end{figure}
 
 In the previous section we already indicated that the field in the centre is stabilised better then the one at the feedback sensors in the case of high-order variations. In the plot the stability of the sensor in the centre is depicted with dashed lines. They lie in the large group around \SI{20}{\nano\tesla}, although rather on its lower side, suggesting that the variations during the measurement were homogeneous.
@@ -290,7 +274,7 @@ The limit comes from the temperature drifts. According to the specification of t
 
 However, below is another limitation. Figure\,\ref{fig:prototype_stability} features also a red line labeled ``\SI{50}{\ohm} ADC shortcut''. This is the stability of the readout of an ADC channel with the terminals connected with a \SI{50}{\ohm} resistor. Even if the magnetic field sensors would have output a perfectly stable voltage, the digitised information would be only this stable. A higher class digitisers could perform better.
 
-The lowest curve on the plot is the limit on the stability due to the bit depth of the DACs. A quantisation resolution $\Delta$ corresponds, on average, to a white noise with RMS amplitude $\Delta / \sqrt{12}$ (derived for example in Sec.\,IV.A in \cite{Gray1998}). This noise scales then down as $\tau^{-1/2}$ with the integration time. The system's 16-bit DACs had $2^{16}$ levels mapped onto a $\SI{\pm 100}{\micro\tesla}$ range. This defines the quantisation at the feedback time of inverse $\SI{200}{\hertz}$. In total the limit from the quantisation at the integration time $\tau$ is:
+The lowest curve on the plot is the limit on the stability due to the bit depth of the DACs. A quantisation resolution $\Delta$ corresponds, on average, to a white noise with RMS amplitude $\Delta / \sqrt{12}$ (derived for example in Sec.\,IV.A in~\cite{Gray1998}). This noise scales then down as $\tau^{-1/2}$ with the integration time. The system's 16-bit DACs had $2^{16}$ levels mapped onto a $\SI{\pm 100}{\micro\tesla}$ range. This defines the quantisation at the feedback time of inverse $\SI{200}{\hertz}$. In total the limit from the quantisation at the integration time $\tau$ is:
 \begin{equation}
   \frac{ \SI{200}{\micro\tesla} }{ 2^{16} \ \sqrt{12} \ \sqrt{ \SI{200}{\hertz}\ \tau} }
 \end{equation}
@@ -323,7 +307,7 @@ The third way was to design a system with out wires on one face at all. This sol
 
 A next improvement are 1st gradient coils. Even in the laboratory homogeneity\ldots bla, bla\ldots
 
-The calculation with the fiducal volume of\ldots done for homogenous and 1st gradient coils. Fig.\,\ref{fig:prototype_open_design_simulation} presents the sections for... Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} shows the first 22 (out of 64) current loops. \note{All with 1A wires? not much more} The numbers show the number of windings in the 5A, 1A and 0.1A scheme.
+The calculation with the fiducial volume of\ldots done for homogenous and 1st gradient coils. Fig.\,\ref{fig:prototype_open_design_simulation} presents the sections for\ldots Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} shows the first 22 (out of 64) current loops. \note{All with 1A wires? not much more} The numbers show the number of windings in the 5A, 1A and 0.1A scheme.
 
 Then, the Y-coil has been would and mapped. Looks alright!
 
@@ -331,30 +315,26 @@ Then, the Y-coil has been would and mapped. Looks alright!
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/open_design_Xcoil_field_XY_z0_33.png}
   \includegraphics[width=\linewidth]{gfx/prototype/open_design_n8coil_field_XY_z0_33.png}
-  \caption{Simulation of the open-design cage. The colour represents the deviation from the target field, for the $x$, $y$ and $z$ components of the field. Section in the XY plane at height $z=\SI{33}{\centi\meter}$ is shown. The open face is on the bottom of the plots. Top: coil designed to produce a homogeneous field along $x$ (left-to-right on the plot). Bottom: $n=8$ gradient (see some table somewhere)\ldots}
-  \label{fig:prototype_open_design_simulation}
+  \caption{Simulation of the open-design cage. The colour represents the deviation from the target field, for the $x$, $y$ and $z$ components of the field. Section in the XY plane at height $z=\SI{33}{\centi\meter}$ is shown. The open face is on the bottom of the plots. Top: coil designed to produce a homogeneous field along $x$ (left-to-right on the plot). Bottom: $n=8$ gradient (see some table somewhere)\ldots}\label{fig:prototype_open_design_simulation}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/open_design_Xcoil_coils.pdf}
-  \caption{X coils, first 22 coils, windings of 5A, 1A and 0.1A\ldots}
-  \label{fig:prototype_open_design_Xcoil_coils}
+  \caption{X coils, first 22 coils, windings of 5A, 1A and 0.1A\ldots}\label{fig:prototype_open_design_Xcoil_coils}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.45\linewidth,trim={5cm 0 0 0},clip]{gfx/prototype/open_planar_map_Y_Bx.pdf}\quad
   \includegraphics[width=0.45\linewidth,trim={5cm 0 0 0},clip]{gfx/prototype/open_planar_map_Y_By.pdf}
-  \caption{Left: the $x$ component of the field. Right: the $y$ component, relative to the reference value of \SI{49.854}{\micro\tesla} as measured in the middle.}
-  \label{fig:prototype_open_design_Ycoil_maps}
+  \caption{Left: the $x$ component of the field. Right: the $y$ component, relative to the reference value of \SI{49.854}{\micro\tesla} as measured in the middle.}\label{fig:prototype_open_design_Ycoil_maps}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{gfx/prototype/open_planar_map_Y_By_section.pdf}
-  \caption{\ldots}
-  \label{fig:prototype_open_design_Ycoil_map_section}
+  \caption{\ldots}\label{fig:prototype_open_design_Ycoil_map_section}
 \end{figure}
 
 \section{n2EDM design}
@@ -362,16 +342,14 @@ Then, the Y-coil has been would and mapped. Looks alright!
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_system_top.png}
-  \caption{Replace with a better figure showing the design\ldots}
-  \label{fig:n2EDM_design_top}
+  \caption{Replace with a better figure showing the design\ldots}\label{fig:n2EDM_design_top}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_field_Xcoil_XY_z6_4.png}
   \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_field_n6coil_XY_z6_4.png}
-  \caption{Simulation of the n2EDM design. The colour represents the deviation from the target field, for the $x$, $y$ and $z$ components of the field. Section in the XY plane at height $z=\SI{6.4}{\meter}$ is shown. The open face is on the bottom of the plots. Top: coil designed to produce a homogeneous field along $x$ (left-to-right on the plot). Bottom: $n=6$ gradient (see some table somewhere)\ldots}
-  \label{fig:n2EDM_design_fields}
+  \caption{Simulation of the n2EDM design. The colour represents the deviation from the target field, for the $x$, $y$ and $z$ components of the field. Section in the XY plane at height $z=\SI{6.4}{\meter}$ is shown. The open face is on the bottom of the plots. Top: coil designed to produce a homogeneous field along $x$ (left-to-right on the plot). Bottom: $n=6$ gradient (see some table somewhere)\ldots}\label{fig:n2EDM_design_fields}
 \end{figure}
 
 The volume is cubic.
