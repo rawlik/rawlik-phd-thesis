@@ -2,6 +2,8 @@
 \chapter{Coil design} % Chapter title
 \label{ch:coil_design}
 
+In this chapter we present a method to design a coil producing an arbitrarily shaped magnetic field by restricting the path of the coil's wires to a regular grid. The solution is then found by a simple least squares minimum. We discuss practical applications, in particular in the active magnetic field stabilization system of the nEDM experiment at PSI\@. Also, the software implementation of the method is published.
+
 \section{Introduction}
 \marginpar{This chapter is largely adapted from the author's publication CITE WHEN AVAILABLE}
 % \note{Correct the langague and style to be consistent with the rest of the work. In particular, don't use so much \emph{we}.}
@@ -181,7 +183,7 @@ The primary practical advantage of the new design method is that the coils are c
 
 A limitation associated with the finite size of the channels is the strength of the magnetic field that can be created, which, for given available power, is limited by the thickness of the wire. At the same time, the finite size of the cable channels can be neglected in the calculations only as long as it is small compared to the distance between the coils and the volume of interest. Using an enameled wire, rather than a standard, PVC-insulated cable, can reduce the overall thickness.
 
-% Nooooo, make it more concrete!
+% Make it more concrete!
 
 % The size of the cable channels needs The finite size of the cable channels, especially for small systems.
 
@@ -287,7 +289,7 @@ The software implementation of the coil design, including examples, has been pub
 
 % Coils producing a magnetic field of desired spatial distribution are a necessary ingredient in many engineering and physics applications.
 
-% In active magnetic field stabilisation systems the desired field shape is not even known beforehand -- a system capable of producing a aoeu is desired.
+% In active magnetic field stabilisation systems the desired field shape is not even known beforehand -- a system capable of producing a is desired.
 % The need for coils producing magnetic fields of a desired spatial distribution has
 % Elaborate methods have been developed, mostly focusing on precision of created field.
 % Extensive literature to design sophisticated coils.
@@ -305,7 +307,7 @@ The software implementation of the coil design, including examples, has been pub
 
 
 % \section{Coils as a linear space}
-% Consider all possible coils that can be constructed by laying wires on a surface of a square. The possibilities are as endless as they are hard to grasp mathematically. What is presented is a language that makes this problem suprisingly simple.
+% Consider all possible coils that can be constructed by laying wires on a surface of a square. The possibilities are as endless as they are hard to grasp mathematically. What is presented is a language that makes this problem surprisingly simple.
 
 % Coils can be seen an vectors in a linear space. One coil spans a one--dimensional space of magnetic fields it can produce. Adding a second coil creates a system spanning a two--dimensional space of fields, thanks to the magnetic field being additive. Four square coils tiled to form a larger square form a four--dimensional space, which is a subset of coils possible to construct on the larger square's surface. This size of the subset we restrict ourselves to is controlled by $N$ --- the number of \emph{base coils} forming the grid. Any coil, member of the subset, is fully described by a vector of $N$ relative currents in each of the \emph{base coils} --- denoted by $\mathbb{I}$. The problem of coil design is thereby simplified to finding a vector $\mathbb{I}$ in a linear space.
 % % The four coils form a complete linear basis of coils on the surface for any coils that have wires going only along the edges --- see Fig.\,\ref{fig:coils_tile_basis}. This is a very convenient subspace of all coils possible to build on a square. The possible to realise subspace may be enlarged by refining the division into tiles. But as a coil is equivalent to the field it produces, one can just as well say that they form a four--dimensional \emph{space of coils}.
@@ -399,7 +401,7 @@ The software implementation of the coil design, including examples, has been pub
 %   \label{fig:coils_wiring}
 % \end{figure}
 
-% Each edge can have any real current (albeit the Kirchoff law is fulfilled).
+% Each edge can have any real current (albeit the Kirchhoff law is fulfilled).
 % However, to keep the number of control channels reasonably small, they need
 % to be driven with one current source. Two techniques may be used:
 % \begin{enumerate}
@@ -418,7 +420,7 @@ The software implementation of the coil design, including examples, has been pub
 %   \caption
 %   [TODO]
 %   {%FIXME directly copied from the SFC paper
-% The wirining solution.}
+% The wiring solution.}
 %   \label{fig:coils_current_discretisation}
 % \end{figure}
 
