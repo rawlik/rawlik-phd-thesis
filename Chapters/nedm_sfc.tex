@@ -2,6 +2,8 @@
 
 \label{ch:nedm_sfc}
 
+At the beginning of this section the principle of active magnetic field shielding is introduced. Then the system used in PSI for the measurement of nEDM is described, in particular its matrix-based feedback algorithm, which serves as an introduction to further Further, we elaborate on the properties of the matrix. Finally, the challenges for the design of a next-generation system for the n2EDM experiment at PSI are discussed, motivating the topic of the next chapter---a novel method of coil design.
+
 
 \section{The principle of an active magnetic shielding}
 Passive methods of shielding the magnetic field, like $\upmu$-metal shields, rely on magnetic properties of materials. In contrast, in active methods the disturbances are first detected, processed and then counteracted. It is not unlike the recently popular active-noise-cancellation headphones. Standard ones provide only passive damping of the ambient noise by covering the ears. Active headphones additionally feature microphones that resolve the profile of incoming sound, which is then inverted and emitted from the speakers. The two waveforms, when overlaid, cancel.
@@ -17,7 +19,7 @@ Active magnetic field compensation systems follow the same principle. A volume, 
 Active shields do not substitute passive ones. The shielding factor
 \marginpar{Shielding factor, measured in \si{\decibel} is the ratio of the power of the magnetic field as if it were not compensated to the compensated one.} of passive shields degrades by as much as \SI{40}{\decibel} (two orders of magnitude in amplitude) for frequencies slower than \SIrange[range-phrase = --]{1}{10}{\hertz}~\cite{Brake1991}. At the same time active systems perform best at DC and reach up to the kilohertz regime. The combination of the two shielding methods provides a stable magnetic field over the whole range of frequencies~\cite{Brake1991,Kelha1982,Voigt2013}.
 
-Since 1980s numerous active magnetic field compensation systems have been built \cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. The applications span from ion beams, through biomagnetism, all the way to nEDM measurements. The system built for the nEDM measurement in PSI is the focus of this chapter.
+Since 1980s numerous active magnetic field compensation systems have been built~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. The applications span from ion beams, through bio-magnetism, all the way to nEDM measurements, in particular the one conducted in PSI\@.
 
 % \note{Don't discuss it here: In the overlapping range of frequencies, where the two kinds of magnetic shielding could compete, the two advantages of the active shielding would certainly be the cost and accessibility of the enclosed volume.}
 
@@ -28,7 +30,8 @@ Since 1980s numerous active magnetic field compensation systems have been built 
 The construction of active magnetic field compensation system for the nEDM measurement at the PSI, called the SFC (Surrounding Field Compensation) system,
 was a part of Beatrice Franke's PhD thesis~\cite{Franke2013}, later also published~\cite{Afach2014}. The author of this work was responsible for maintaining the system, with the goal of gaining enough of understanding and experience to design a next generation system for the n2EDM experiment. In the beginning of this chapter the most important information about the SFC system is presented, followed by a few new insights. This serves as an introduction to the original developments, to which the remaining three chapters of part II are dedicated.
 
-The distinct feature of the PSI's SFC system was the use of a feedback matrix. Consider a single coil of any shape in air. For every point in space, and for every spatial component, the magnetic field is directly proportional to the current in the coil. The SFC system had six coils and measured the field in nine points, three spatial components in each---27 channels. In total there were $6 \times 27 = 162$ proportionality constants, which were gathered in the feedback matrix $M$. The matrix $M$ was a property of the active compensation system, more precisely of the geometry of the coils and sensors. Ferromagnetic materials, in particular the $\upmu$-metal shield, distorted the field created by the coils and thereby affected the feedback matrix.
+The distinct feature of the PSI's SFC system was the use of a feedback matrix. Consider a single coil of any shape in air. For every point in space, and for every spatial component, the magnetic field is directly proportional to the current in the coil. The SFC system had six coils and measured the field in nine points, three spatial components in each---27 channels. In total there were $6 \times 27 = 162$ proportionality constants, which were gathered in the feedback matrix $M$. The matrix $M$ was a property of the active compensation system, more precisely of the geometry of the coils and sensors. It could be calculated analytically, if not for the $\upmu$-metal shield, as ferromagnetic materials distort the magnetic field around them.
+
 % Moreover, they make the system non-linear, which we are going to, for now, neglect.
 
 % \note{Maybe some nice formula here for the matrix elements?}
@@ -84,9 +87,10 @@ In other words, the matrix $M$ tells us what field, as measured by the sensors, 
 
 \section{The spectrum of the feedback matrix}
 \label{sec:nedm_sfc_matrix}
-The feedback matrix used during the data taking of the nEDM-at-PSI experiment (2014--17) was the one measured by Franke~\cite{Franke2013} (Fig.\,\ref{fig:nEDM_SFC_matrix}). This matrix not only needed to be inverted, but also additionally regularised. While it has been thoroughly discussed how to do the regularisation, the question of why was it needed at all was neither posed nor answered.
+The feedback matrix used during the data taking of the nEDM-at-PSI experiment (2014--17) was the one measured by Franke~\cite{Franke2013} (Fig.\,\ref{fig:nEDM_SFC_matrix}). This matrix not only needed to be inverted, but also additionally regularised.
+% While it has been thoroughly discussed how to do the regularisation, the question of why was it needed at all was neither posed nor answered.
 
-Let us elaborate on regularisation. The feedback matrix represents coefficients in a system of linear equations that need to be solved in order to make the optimal transition from the field to the current space. As the system of equations is over-determined, the best solution is found by the least-squares, which is equivalent to calculating the pseudoinverse matrix. A solution can be found reliably if the system is well-defined, i.e. the least-squares well is steep in every direction in the parameter space. If the well stretches, like a valley, in some directions, the solution is not globally well-defined, although it still may be defied up to a parameter (the one pointing in the direction of the valley). We then speak of an ill-defined set of equations, or an ill-defined matrix. Regularisation helps an ill-defined problem to become better defined, at the cost of the solution having larger sum of the residuals squared.
+Let us elaborate on regularisation. The feedback matrix represents coefficients in a system of linear equations that need to be solved in order to make the optimal transition from the field to the current space. As the system of equations is over-determined, the best solution is found by the least-squares, which is equivalent to calculating the pseudoinverse matrix. A solution can be found reliably if the system is well-defined, i.e. the least-squares well is steep in every direction in the parameter space. If the well stretches, like a valley, in some directions, the solution is not globally well-defined, although it still may be defined up to a parameter (the one pointing in the direction of the valley). We then speak of an ill-defined set of equations, or an ill-defined matrix. Regularisation helps an ill-defined problem to become better defined, at the cost of the solution having larger sum of the residuals squared.
 
 A real matrix $M$ may be decomposed into $M = U S V^T$, where $U$ and $V$ are unitary, and $S$ is diagonal (the \emph{Singular Value Decomposition} (SVD)~\cite{Golub1965}). The singular values lie on the diagonal of $S$, which is called the \emph{spectrum}. The spectrum of the feedback matrix is of uttermost importance. Pseudo-inverting a matrix with small singular values is an ill-posed problem. Similarily, as inverting small numbers.
 
@@ -107,7 +111,7 @@ The last column has also a clear interpretation: it corresponds to all pairs con
   \label{fig:nEDM_SFC_svd}
 \end{figure}
 
-An important observation is that the feedback matrix is defined solely by the configuration of the coils, sensors and ferromagnetic materials. It follows, that care has to be taken already at the design stage to create a system that will be well defined.
+An important observation is that the feedback matrix is defined solely by the configuration of the coils, sensors and ferromagnetic materials. It follows, that already at the design stage one can, and should, take care about the definiteness of the system.
 
 % \note{Propose here immediately a solution: orthogonal system for elements of expansion! Any combination of 1st order gradients is a 1st order gradient.}
 

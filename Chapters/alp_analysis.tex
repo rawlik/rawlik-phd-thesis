@@ -294,12 +294,22 @@ However, it is hard to imagine going beyond ten-second range. A real improvement
 
 
 \section{Resonant oscillating nEDM search}
-Many of the axion searches are resonant based.~\cite{PhysRevLett.104.041301,CASPEr2014} \note{some references}.
-The standard instrument to look for an axion-photon coupling, called a haloscope \note{verity}, consists of ultra-low-noise resonant cavity, where axions can produce photons, detected with an antenna \note{is it an antenna?}.
-At any given time the measurement is sensitive only to a narrow band of photon energies (or frequencies), the width given by the finesse \note{verity} of the cavity. To cover a wide range the tuning of the cavity is scanned. In this section an idea of a resonant oscillating nEDM search is pursued.
+Both searches that have been discussed, were what is called broad-band. The measurement are sensitive to a wide range of frequencies. In contrast to that, resonant searches, like ADMX~\cite{PhysRevLett.104.041301} or proposed CASPEr~\cite{CASPEr2014}, are sensitive at a any given time only to a relatively narrow band of frequencies. Covering a wide range requires scanning. In this section a resonant search of an oscillating nEDM is proposed.
+
+% Many of the axion searches are resonant based.~\cite{PhysRevLett.104.041301,CASPEr2014} \note{some references}.
+% The standard instrument to look for an axion-photon coupling, called a haloscope \note{verity}, consists of ultra-low-noise resonant cavity, where axions can produce photons, detected with an antenna \note{is it an antenna?}.
+% At any given time the measurement is sensitive only to a narrow band of photon energies (or frequencies), the width given by the finesse \note{verity} of the cavity. To cover a wide range the tuning of the cavity is scanned. In this section an idea of a resonant oscillating nEDM search is pursued.
 
 For polarised neutrons in a magnetic field, a transverse oscillating coupling induces a coherent Rabi oscillation between the spin-up and spin-down states.
-For example, a Ramsey cycle begins with a $\uppi$/2 flip, induced by an oscillating transverse magnetic field, its frequency tuned to the Larmor one and its length tuned such, that the Rabi oscillation stops when the polarisation is in the transverse plane. Should the nEDM oscillate, an oscillating transverse coupling can be achieved with a static magnetic field \emph{perpendicular} to the holding magnetic field. Then, if the frequency of the nEDM oscillation is tuned to the Larmor one, the neutrons would undergo a Rabi nutation, which could be detected.
+For example, a Ramsey cycle begins with a $\uppi/2$ flip induced by an oscillating transverse magnetic field, its frequency tuned to the Larmor one and its length tuned such, that the Rabi oscillation stops when the polarisation is in the transverse plane. Should the nEDM oscillate, an oscillating transverse coupling can be realised with a static magnetic field \emph{perpendicular} to the holding magnetic field $B_0$. Then, if the frequency of the nEDM oscillation is tuned to the Larmor one, the neutrons would undergo a Rabi nutation, which could be detected.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{gfx/axions/resonant_effect.png}
+  \caption{The behaviour of the spin population in a resonant oscillating EDM search. One starts with an ensemble polarised along the holding magnetic field $B_0$. The electric field is perpendicular. Then, the polarisation is flipped by $\pi$/2 and starts the Larmor precession. The combination of the electric field and an oscillating EDM would induce a Rabi nutation. The direction of the nutation is determined by the relative phase of the Larmor precession and the EDM oscillation.}\label{fig:axions_resonant_effect}
+\end{figure}
+
+In the proposed scheme, sketched in Fig.\,\ref{fig:axions_resonant_effect}, the neutrons start polarised along the holding field and are put into the Larmor precession with a $\uppi/2$ flip. The oscillating nEDM would then induce a Rabi nutation and a net polarisation along the $B_0$ direction would build up, which could be measured. The direction of the nutation depends on the phase difference between the Larmor precession (defined by the phase of the $\uppi/2 pulse$) and the oscillating nEDM\@.
 
 Sensitivity. \note{This I still need to calculate in detail.}
 \begin{equation}
@@ -325,6 +335,7 @@ The rotation for a small angle is:
 Additional factor $\sqrt{2}$ is lost due to the non-matching phases (on average). Two measurements done, with the Larmor precession (through the spin-flip pulses) shifted by \ang{90}, recover the full sensitivity.
 
 
+Systematic effects: quality of the pi/2 pulse (all correlated with the electric field).
 
 First---just scanning.
 
@@ -332,12 +343,9 @@ Broad band possibility? It is like an adiabatic spin-flip, but without the oscil
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{gfx/axions/resonant_effect.png}
-  \caption{The behaviour of the spin population in a resonant oscillating EDM search. One starts with an ensemble polarised along the holding magnetic field $B_0$. The electric field is perpendicular. Then, the polarisation is flipped by $\pi$/2 and starts the Larmor precession. The combination of the electric field and an oscillating EDM would induce a Rabi nutation. The direction of the nutation is determined by the relative phase of the Larmor precession and the EDM oscillation.}\label{fig:axions_resonant_effect}
-\end{figure}
-
-\begin{figure}
-  \centering
   \includegraphics[width=0.8\linewidth]{gfx/axions/resonant_sensitivity.png}
   \caption{Left: the sensitivity of the resonant search has the width equal to the inverse interaction time. Right: a broad-band sensitivity needs to be built up with multiple measurements.}\label{fig:axions_resonant_sensitivity}
 \end{figure}
+
+
+\note{Some kind of summary here?}
