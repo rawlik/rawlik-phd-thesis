@@ -12,17 +12,13 @@ In the laboratory at ETH Zürich an active magnetic field compensation system wa
 
 
 \section{The first iteration --- coil structure}
-When discussing the coil design method we have already indicated a possible way to realise it in practice---construct a grid out of cable channels. The system, pictured in Fig.\,\ref{fig:prototype_photo}, was built as $5 \times 9 \times 5$ grid of square tiles. Each tile had side length \SI{262}{\milli\meter}, the total size was $1310 \times 1310 \times \SI{2358}{\milli\meter}$. The vertical axis we refer to as $z$, the long horizontal one as $y$, and the remaining as $x$.
+In the discussion of the coil design method a possible way to realise it in practice was indicated---to construct a grid out of cable channels. The system, pictured in Fig.\,\ref{fig:prototype_photo}, was built as $5 \times 9 \times 5$ grid of square tiles. Each tile had side length \SI{262}{\milli\meter}, the total size was $1310 \times 1310 \times \SI{2358}{\milli\meter}$. The vertical axis we refer to as $z$, the long horizontal one as $y$, and the remaining as $x$. The support frame was made of aluminum construction profiles. To support the cable channels, on each side there was a large, one-piece aluminum sheet with square cut-outs leaving the material only directly below the cable channels. The plastic cable channels were glued onto the aluminum.
 
-\begin{figure}
+\begin{sidewaysfigure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/prototype/DSC03472.JPG}
+  \includegraphics[width=0.8\linewidth]{gfx/prototype/DSC03472.JPG}
   \caption{The active magnetic compensation system in the laboratory at ETH Zürich. It consists cable channels mounted on an aluminum support structure. In the channels copper wires making up the coils can be seen. On the left-hand side the control cabinet of the system is visible.}\label{fig:prototype_photo}
-\end{figure}
-
-The support frame was made of aluminum construction profiles. To support the cable channels, on each side there was a large, one-piece aluminum sheet with square cut-outs leaving the material only directly below the cable channels. The plastic cable channels were glued onto the aluminum.
-
-In its first version the system featured three coils for the homogeneous components of the magnetic field (the first three cartesian harmonics). The coils were designed following the method described in the previous chapter, but excluding the not ready at the time simplification algorithm. The simplification was carried out manually, instead.
+\end{sidewaysfigure}
 
 \begin{figure}
   \centering
@@ -30,25 +26,22 @@ In its first version the system featured three coils for the homogeneous compone
   \includegraphics[height=0.3\linewidth]{gfx/prototype/coil_design_y_100uT_1.pdf}
   \quad\quad
   \includegraphics[height=0.3\linewidth]{gfx/prototype/coil_design_y_100uT_2.pdf}
-  \caption{The optimal current net for the $y$-coil of the ETH active magnetic field compensation system. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted on the left-hand side. The rectangular faces are all identical, and are depicted on the right-hand side. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}
-  \label{fig:prototype_coil_y_currents}
+  \caption{The optimal current net for the $y$-coil of the ETH active magnetic field compensation system. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted on the left-hand side. The rectangular faces are all identical, and are depicted on the right-hand side. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_y_currents}
 \end{figure}
 
-The fiducial volume was chosen to be a cuboid centred in the system, with each of its face \SI{155}{\milli\meter} away from the surface of the coils. The optimal current net for the $y$-coil (producing a homogeneous field in the $y$ direction) is depicted in Fig.\,\ref{fig:prototype_coil_y_currents}. The design promised a 2\% homogeneity inside the fiducial volume. The manual decomposition into loops is shown in Fig.\,\ref{fig:prototype_coil_y_decomposition}. The other two coils, $x$ and $z$, are identical on the symmetry ground. The current net for those is depicted in Fig.\,\ref{fig:prototype_coil_x_z_currents}
+In its first version the system featured three coils for the homogeneous components of the magnetic field (the first three cartesian harmonics). The coils were designed following the method described in the previous chapter, but excluding the, not ready at the time, simplification algorithm. The simplification was carried out manually instead. The fiducial volume was chosen to be a cuboid centred in the system, with each of its face \SI{155}{\milli\meter} away from the surface of the coils. The optimal current net for the $y$-coil (producing a homogeneous field in the $y$ direction) is depicted in Fig.\,\ref{fig:prototype_coil_y_currents} and its manual decomposition into loops in Fig.\,\ref{fig:prototype_coil_y_decomposition}. The design promised a 2\% homogeneity inside the fiducial volume. The other two coils, $x$ and $z$, are identical on the symmetry ground. The current net for those is depicted in Fig.\,\ref{fig:prototype_coil_x_z_currents}
 % and the decomposition in Fig.\,\ref{fig:prototype_coil_x_z_decomposition}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_y_decomposition.pdf}
-  \caption{The decomposition of the current net of the $y$-coil (Fig.\,\ref{fig:prototype_coil_y_currents}) into current loops. For clarity only a sixteenth part of the system is depicted, all others being identical on the grounds of symmetry. Each loop is indicated with a different colour. The currents are given per \SI{50}{\micro\tesla} of generated field. SHOW WHICH PART IS DEPICTED ON A SMALL 3D DRAWING}
-  \label{fig:prototype_coil_y_decomposition}
+  \caption{The decomposition of the current net of the $y$-coil (Fig.\,\ref{fig:prototype_coil_y_currents}) into current loops. For clarity only a sixteenth part of the system is depicted, all others being identical on the grounds of symmetry. Each loop is indicated with a different colour. The currents are given per \SI{50}{\micro\tesla} of generated field. SHOW WHICH PART IS DEPICTED ON A SMALL 3D DRAWING}\label{fig:prototype_coil_y_decomposition}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_design_x_100uT.pdf}
-  \caption{The optimal current net for the $x$ and $z$-coils of the ETH active magnetic field compensation system. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted in the lower-left corner. The rectangular faces perpendicular to the field are depicted to the right, and the ones parallel to it on top. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}
-  \label{fig:prototype_coil_x_z_currents}
+  \caption{The optimal current net for the $x$ and $z$-coils of the ETH active magnetic field compensation system. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted in the lower-left corner. The rectangular faces perpendicular to the field are depicted to the right, and the ones parallel to it on top. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_x_z_currents}
 \end{figure}
 
 % up to the point of the simplification algorithm. Here, The decomposition into loops was done by exploiting symmetries of the system. It is suboptimal in the sense, that there are more windings than there could be.

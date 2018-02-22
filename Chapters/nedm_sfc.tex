@@ -60,12 +60,12 @@ The PSI's SFC system followed the established norm~\cite{Kelha1982,Brake1991,Spe
 \end{equation}
 
 % $\Delta I^n_j$ is the error value in the current space. It was obtained by using the error value in the field space (the difference of the measured and target fields) and transforming it into the current space with the pseudoinverse of the matrix~\cite{Franke2013}:
+\marginpar{The system, when started, was static. Then the currents could be changed manually to achieve a desired field (or chosen from a predefined set). Then the system was switched to the dynamic mode~\cite{Franke2013}.}
 $\Delta I^n_j$ is the error value. It was obtained from the deviation of the measured and target field by multiplying it the pseudoinverse of the matrix $M$, denoted $M^\dagger$~\cite{Franke2013}:
 \begin{equation}
   \Delta I^n_j = \sum_{k'} M^\dagger_{jk'} \, \Delta B^n_{k'} \ .
 \end{equation}
 
-\marginpar{The system, when started, was static. Then the currents could be changed manually to achieve a desired field (or chosen from a predefined set). Then the system was switched to the dynamic mode.~\cite{Franke2013}}
 Besides the proportional and integral terms, the feedback formula also included the $I^0_j$ term. It may seem puzzling to give such a big of a role to particular currents that had happened to be there at the zeroth iteration. It had to do with the property of the system, that the target field was always the one measured at the moment of switching the system from dynamic to static.
 At that moment the error value was zero, and so was the integral term, so, according to the Eq.\,\ref{eq:old_SFC_feedback}, the output currents would immediately have switched to zero. In result, the system would violently destabilise. The additional term $I^0_j$ prevented that from happening.
 
@@ -134,7 +134,7 @@ Assume, that all there is to compensate are homogeneous fields. That is the zero
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\linewidth]{gfx/nEDM_SFC/n2EDM_SFC_situation.png}
+  \includegraphics[width=\linewidth]{gfx/nEDM_SFC/n2EDM_SFC_situation.png}
   \caption{The original plan by Michael Meier highlighting the potential conflicts between coils of an n2EDM active magnetic field stabilisation system and other structures. First of all, the vicinity of the biological shielding (red) forced the coils to be designed relatively close to the magnetic shield (blue). Other bodies, like the support legs of the experiment, polarising magnet (orange) and an emergency exit from a nearby accelerator (red) gave additional constraints.}
   \label{fig:n2EDM_sfc_situational_plan}
 \end{figure}
