@@ -177,10 +177,10 @@ where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits
 \begin{figure}
   \centering
   \includegraphics[width=.9\linewidth]{gfx/prototype/SFC_matrix_green.pdf}
-  \caption{\ldots}\label{fig:prototype_feedback_matrix}
+  \caption{The measured feedback matrix of the active magnetic field compesnation system. The sensors were mounted $\approx\SI{20}{\centi\meter}$ away from the coil surface. \note{Maybe add the unit}.}\label{fig:prototype_feedback_matrix}
 \end{figure}
 
-The matrix measured with the sensors mounted $\approx\SI{20}{\centi\meter}$ presented in Fig.\,\ref{fig:prototype_feedback_matrix}. The differences between the non-zero elements of different fluxgates are under 1\%, as expected from the design and the field map (Fig.\,\ref{fig:prototype_plane_map}). The condition number of the matrix is \num{1.064}.
+The matrix measured with the sensors mounted $\approx\SI{20}{\centi\meter}$ away from the coil surface is presented in Fig.\,\ref{fig:prototype_feedback_matrix}. The differences between the non-zero elements of different fluxgates are under 1\%, as expected from the design and the field map (Fig.\,\ref{fig:prototype_plane_map}). The condition number of the matrix is \num{1.064}.
 % A typical measured matrix is\ldots Estimate the field inhomogeneity right away from it! Give two at two distances, maybe? The one I looked at has around 0.5\% std homogeneity at the sensors' positions.
 
 % Then continue to analyse the matrix. Discuss the SVD decomposition and its singular values. Or is it the right place to do it here?
@@ -210,7 +210,7 @@ A careful reader may be alarmed by the approximation $\mathbb{B}_0^{n+1} \approx
 \begin{figure}
   \centering
   \includegraphics[width=.9\linewidth]{gfx/prototype/SFC_step_response.pdf}
-  \caption{\ldots}\label{fig:prototype_step_response}
+  \caption{The reaction of the active magnetic field compensation to a step change in the magnetic field ($\approx \SI{30}{\micro\tesla}$ in \SI{5}{\milli\second}). The system was running at a rate of \SI{200}{\hertz}. Each dot marks one iteration.}\label{fig:prototype_step_response}
 \end{figure}
 
 In practice, the system had a delay of more than one iteration. Although the system was operated at \SI{200}{\hertz}, the quickest turnaround was three cycles. This was tested by applying a pulse on an DAC channel and observing the response on a directly connected ADC channel. Knowing that the magnetic field information is delayed, it was crucial to delay the current information, too, so that Eq.\,\ref{eq:current_update} became:
