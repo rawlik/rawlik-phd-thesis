@@ -151,13 +151,11 @@ Let us recall the discussion of the PSI system's matrix in Sec.\,\ref{fig:nEDM_S
 There is a fundamental difference between the matrix of the PSI's system and the one of the next generation's one. The PSI matrix was not known a priori. The system was constructed and the matrix was measured as the system's property.
 % This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable.
 Conversely, the new system takes the matrix into account already at the design phase. The coils are designed to produce magnetic field corresponding to the terms of the cartesian harmonic expansion of the field.
-This ensures that they are orthogonal to one another. We expect, by design, the matrix to have the condition number equal to \num{1}. It has been measured to be \num{1.06} with the three coils for the homogeneous components.
+This ensures that they are orthogonal to one another. We expect, by design, the matrix to have the condition number equal to \num{1}. It has been measured to be \num{1.064} with the three coils for the homogeneous components.
 
 % \note{Put a figure about the measurement of the matrix?}
 
-The active magnetic field compensation system constructed at ETH implemented a new way of measuring the matrix. The procedure changed currents in all the coils simultaneously, shortening the duration of the procedure, and could measure in close-to-zero field conditions.
-
-To measure the matrix, the space spanned by all the coils was considered. In this case it was three-dimensional: the current in the $x$-coil, in the $y$-coil and in the $z$ one. A point in this space corresponded to one configuration of the currents in the coils. A set of points on an n-sphere in this space was picked and all currents were changed simultaneously, making their way from one point to another. As the currents were changed, the measurements of the sensors were recorded. Then, for each readout channel, 24 in total, a linear model was fitted to estimate the proportionality constants between the readout and the currents in the coils:
+The active magnetic field compensation system constructed at ETH implemented a new way of measuring the matrix. The procedure changed currents in all the coils simultaneously, shortening the duration of the procedure, and could measure in close-to-zero field conditions. To measure the matrix, the space spanned by all the coils was considered. In this case it was three-dimensional: the current in the $x$-coil, in the $y$-coil and in the $z$ one. A point in this space corresponded to one configuration of the currents in the coils. A set of points on an n-sphere in this space was picked and all currents were changed simultaneously, making their way from one point to another. As the currents were changed, the measurements of the sensors were recorded. Then, for each readout channel, 24 in total, a linear model was fitted to estimate the proportionality constants between the readout and the currents in the coils:
 \begin{equation}
   \label{eq:SFC_matrix_linear_fits}
   B_i = B_i^0 + \sum_{j=x,y,z} M_{i,j} \, I_j \ ,
@@ -165,21 +163,27 @@ To measure the matrix, the space spanned by all the coils was considered. In thi
 where $B_i$ is the readout channel ($i$ going from 1 to 24), $I_j$ are the currents in the coils ($j$ going over $x$, $y$ and $z$) and $M_{i,j}$ is the matrix of proportionality constants---the feedback matrix. $B_i^0$ is the free offset vector---the background field.
 % \note{Sort out the indexes, which is which.}
 
-If the system is perfectly linear it does not matter where in the current-space the n-sphere is located, nor how large it is (though larger ones give more precise estimates per point). We expect, however, nonlinearities to appear in the presence of a mu-metal shield inside the system.
+If the system is perfectly linear it does not matter where in the current-space the n-sphere is located, nor how large it is (though larger ones give more precise estimates per point). We expect, however, non-linearities to appear in the presence of a mu-metal shield inside the system.
 \marginpar{It is possible to fit the linear model and estimate the uncertainty of the matrix elements \emph{while} measuring; the measurement can be stopped when the uncertainty drops below a threshold.}
-In that case it is preferable to measure the matrix in the vicinity of the point where the system is later operated. Following this motivation the following procedure of the matrix measurement was employed: First an n-sphere centred at n-zero and a radius of \SI{50}{\micro\tesla} was chosen. Then the system walked over ten random points on the sphere, taking two seconds to go from one to the next (\SI{20}{\second} in total).
+In that case it is preferable to measure the matrix in the vicinity of the point where the system is later operated. Motivated by this, the following procedure of the matrix measurement was employed: First an n-sphere centred at n-zero and a radius of \SI{50}{\micro\tesla} was chosen. Then the system walked over ten random points on the sphere, taking two seconds to go from one to the next (\SI{20}{\second} in total).
 This gave the first estimate of the matrix. The next sphere was chosen to be centred around the zero field. This is the optimal, in the least-squares sense, solution of Eq.\,\ref{eq:SFC_matrix_model} with $\mathbb{B} = 0$:
 \begin{equation}
   \label{eq:SFC_zero_field_requirement}
-  \mathbb{I}_\text{zero-field} = M^\dagger \, \mathbb{B}_0 \ ,
+  \mathbb{I}_\text{zero-field} = - M^\dagger \, \mathbb{B}_0 \ ,
 \end{equation}
-where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits} and $M^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $M$. This gave the second estimate of the matrix. Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{1}{\micro\tesla}. The procedure was developed for a system with mu-metal. In the case of an air system all consecutive estimates of the matrix were the same.
-\note{Hopefully I still do get to measure the matrix with the $\upmu$-metal cube inside. Then I will describe it here.}
+where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits} and $M^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $M$. This gave the second estimate of the matrix. Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{1}{\micro\tesla}. The procedure was developed for a system with mu-metal. In the case of a linear air system all consecutive estimates of the matrix were almost the same.
+% \note{Hopefully I still do get to measure the matrix with the $\upmu$-metal cube inside. Then I will describe it here.}
 
-A typical measured matrix is\ldots Estimate the field inhomogeneity right away from it! Give two at two distances, maybe? The one I looked at has around 0.5\% std homogeneity at the sensors' positions.
+\begin{figure}
+  \centering
+  \includegraphics[width=.9\linewidth]{gfx/prototype/SFC_matrix_green.pdf}
+  \caption{\ldots}\label{fig:prototype_feedback_matrix}
+\end{figure}
 
-Then continue to analyse the matrix. Discuss the SVD decomposition and its singular values. Or is it the right place to do it here?
+The matrix measured with the sensors mounted $\approx\SI{20}{\centi\meter}$ presented in Fig.\,\ref{fig:prototype_feedback_matrix}. The differences between the non-zero elements of different fluxgates are under 1\%, as expected from the design and the field map (Fig.\,\ref{fig:prototype_plane_map}). The condition number of the matrix is \num{1.064}.
+% A typical measured matrix is\ldots Estimate the field inhomogeneity right away from it! Give two at two distances, maybe? The one I looked at has around 0.5\% std homogeneity at the sensors' positions.
 
+% Then continue to analyse the matrix. Discuss the SVD decomposition and its singular values. Or is it the right place to do it here?
 
 
 
@@ -201,13 +205,19 @@ By defining $\Delta\mathbb{I}^n := \mathbb{I}^{n+1} - \mathbb{I}^{n}$ and $\Delt
 \begin{equation}
   \Delta\mathbb{I}^n = - M^\dagger \Delta\mathbb{B}^n \ .
 \end{equation}
-A careful reader may be alarmed by the approximation $\mathbb{B}_0^{n+1} \approx \mathbb{B}_0^{n}$. It is an unfortunate necessity, yor the calculation needed to be performed just before the iteration $n+1$, when $\mathbb{B}_0^{n+1}$ is not yet known. In other words, the correction was delayed by one iteration. This introduced a lag in the system and motivated high feedback frequencies.
+A careful reader may be alarmed by the approximation $\mathbb{B}_0^{n+1} \approx \mathbb{B}_0^{n}$. It is an unfortunate necessity, for the calculation needed to be performed just before the iteration $n+1$, when $\mathbb{B}_0^{n+1}$ is not yet known. In other words, the correction was delayed by one iteration. This introduced a lag in the system and motivated high feedback frequencies.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.9\linewidth]{gfx/prototype/SFC_step_response.pdf}
+  \caption{\ldots}\label{fig:prototype_step_response}
+\end{figure}
 
 In practice, the system had a delay of more than one iteration. Although the system was operated at \SI{200}{\hertz}, the quickest turnaround was three cycles. This was tested by applying a pulse on an DAC channel and observing the response on a directly connected ADC channel. Knowing that the magnetic field information is delayed, it was crucial to delay the current information, too, so that Eq.\,\ref{eq:current_update} became:
 \begin{equation}
   \mathbb{I}^{n+1} = M^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^{n-2} \right) + \mathbb{I}^{n-2} \ .
 \end{equation}
-Without accounting for the delay the system would spontaneously destabilise.
+Without accounting for the delay the system would spontaneously destabilise. In Fig\,\ref{fig:prototype_step_response} a response of the the system to a step-like change of the magnetic field is plotted. Note, how the system's reaction is delayed by three iterations.
 
 It is worth to compare the 
 \note{Put the step-response plot? Depending how crowded with plots it is later.}
