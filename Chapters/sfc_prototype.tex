@@ -312,47 +312,68 @@ Aside from the obvious---increasing the bit depth of the DACs---this limit can b
 
 
 \section{Open-design cage}
-The disadvantage of the first-iteration design, pictured in Fig.\,\ref{fig:prototype_photo_inside} was that the cage is fully closed, making putting anything inside, or taking outside, quite a challenge. In particular, one of the areas the active magnetic field compensation system prototype could be used to investigate is the effects of a $\upmu$-metal shield inserted into it.
+The disadvantage of the first-iteration design, pictured in Fig.\,\ref{fig:prototype_photo_inside}, was that the cage was fully closed, making putting anything inside, or taking outside, essentially impossible. In particular, one of the areas the active magnetic field compensation system prototype could be used to investigate is the effects of a $\upmu$-metal shield, which would need to be inserted into it.
 
-Three designs with the inside accessible were considered. In the first, connectors could be built in along edges of one of the faces (twenty, if the face is one of the small ones). To access the inside the connectors would have to be disconnected and then the face removed. The connectors would have to have as much as 30 pins, each connected to at least \SI{1}{\milli\meter} wire. 
-\marginpar{D-subminiature connectors with soldering contact were considered for this purpose. Two per edge.} The process of winding a coil would be much to much.
-Adding more coils would mean exchanging all connectors.
+% \note{Do I really find it necessary to describe the three possibilities that I considered?}
 
-The second design featured a removable face without the need for connectors. The wires laid on one face would be separate from those on the rest of the structure. This would inevitably lead to some effective current cancellation along the edges of the removable face. \note{Explain why}.
+% Three designs with the inside accessible were considered.
+% \marginpar{D-subminiature connectors with soldering contact were considered for this purpose. Two per edge.} The process of winding a coil would be much to much.
+% In the first, connectors could be built in along edges of one of the faces (twenty, if the face is one of the small ones). To access the inside the connectors would have to be disconnected and then the face removed. The connectors would have to have as much as 30 pins, each connected to at least \SI{1}{\milli\meter} thick wire. The main disadvantage of this solution would have been considerable effort in terms of soldering.
+% % Adding more coils would mean exchanging all connectors.
+% The second design would feature a removable face without the need for connectors. The wires laid on one face would be separate from those on the rest of the structure. Along the edge where the face would be separated two cable channels would run in parallel next to each other, one belonging to the removable face. This would inevitably lead to some effective current cancellation along the edges of the removable face. \note{Explain why}.
 
-The third way was to design a system with out wires on one face at all. This solution had the immediate advantage of demonstrating the power of the coil design method. The next iteration is designed with one face (rectangular one, $Y-$) left open. Designed fully following the algorithm.
+% The third way was to design a system with out wires on one face at all. This solution had the immediate advantage of demonstrating the power of the coil design method. The next iteration is designed with one face (rectangular one, $Y-$) left open. Designed fully following the algorithm.
 
-A next improvement are 1st gradient coils. Even in the laboratory homogeneity\ldots bla, bla\ldots
+The solution was to modify a system in way, that on one of the faces there would be no wires at all. As neither the coil design method (Ch.\,\ref{ch:coil_design}) nor its implementation are restricted to regular grids, it could be fully realised within the framework. In the scope of this work coils corresponding to Carthesian harmonic polynomials $n = 1 \ldots 8$ (Tab.\,\ref{tab:coils_carthesian_harmonics}) were designed and the $y$-coil ($n = 2$) was wound and mapped. The face that was left open is a square one, the one to the left in Fig.\,\ref{fig:prototype_photo}.
 
-The calculation with the fiducial volume of\ldots done for homogenous and 1st gradient coils. Fig.\,\ref{fig:prototype_open_design_simulation} presents the sections for\ldots Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} shows the first 22 (out of 64) current loops. \note{All with 1A wires? not much more} The numbers show the number of windings in the 5A, 1A and 0.1A scheme.
+% This solution had the immediate advantage of demonstrating the power of the coil design method. The next iteration is designed with one face (rectangular one, $Y-$) left open. Designed fully following the algorithm.
 
-Then, the Y-coil has been would and mapped. Looks alright!
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/prototype/open_design_Ycoil_field_XY_z0_0.png} \\
+  \includegraphics[width=0.45\linewidth,trim={5cm 0 0 0},clip]{gfx/prototype/open_planar_map_Y_Bx.pdf}\quad
+  \includegraphics[width=0.45\linewidth,trim={5cm 0 0 0},clip]{gfx/prototype/open_planar_map_Y_By.pdf}
+  \caption{Top: simulation. Bottom: measured map. Left: the $x$ component of the field. Right: the $y$ component, relative to the reference value of \SI{49.854}{\micro\tesla} as measured in the middle.
+  \note{Make the figures nicely match. It seems both are for 50uT. Maybe even make a direct comparison? Rather not, but at least make the same size and the scales match.}
+  }\label{fig:prototype_open_design_Ycoil_maps}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/prototype/open_planar_map_Y_By_section.pdf}
+  \caption{The field along the solid and dashed sines in Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}.}\label{fig:prototype_open_design_Ycoil_map_section}
+\end{figure}
+
+The simulation of the field produced by the optimal design of the $y$-coil is presented in the upper part of Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}. On the left-hand side the deviation of the $x$ component from zero is shown, on the right-hand side: one of the $y$ component from \SI{50}{\micro\tesla}. In the bottom of the figure a map of the two components is plotted. Additionally, two sections of the map, along the vertical lines depicted in orange, are presented in Fig.\,\ref{fig:prototype_open_design_Ycoil_map_section}. The dashed line is xxx away from the surface of the coils and corresponds to the edge of the fiducial volume. The design fully meets the specification of \SI{2}{\percent} homogeneity in the fiducial volume.
+
+% and the map of the $y$-coil are presented in Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}. In Fig.\,\ref{fig:prototype_open_design_Ycoil_map_section} the section along the $y$ direction is plotted.
+% Now some thoughts about it. We see, that it behaves exactly as expected. For now the colours are inverted.
+
+\note{It is now a bit weird, that I have a detailed wiring plan for the $x$-coil, but I write more about the $y$-coil (the one I have)}.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/open_design_Xcoil_field_XY_z0_33.png}
-  \includegraphics[width=\linewidth]{gfx/prototype/open_design_n8coil_field_XY_z0_33.png}
-  \caption{Simulation of the open-design cage. The colour represents the deviation from the target field, for the $x$, $y$ and $z$ components of the field. Section in the XY plane at height $z=\SI{33}{\centi\meter}$ is shown. The open face is on the bottom of the plots. Top: coil designed to produce a homogeneous field along $x$ (left-to-right on the plot). Bottom: $n=8$ gradient (see some table somewhere)\ldots}\label{fig:prototype_open_design_simulation}
+  \includegraphics[width=\linewidth]{gfx/prototype/open_design_n5coil_field_XY_z0_33.png}
+  \caption{Simulation of the open-design cage. The colour represents the deviation from the target field, for the $x$, $y$ and $z$ components of the field. Section in the XY plane at height $z=\SI{33}{\centi\meter}$ is shown. The open face is on the bottom of the plots. Top: coil designed to produce a homogeneous field along $x$ (left-to-right on the plot). Bottom: $n=5$ gradient (see some table somewhere)\ldots}\label{fig:prototype_open_design_simulation}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/open_design_Xcoil_coils.pdf}
-  \caption{X coils, first 22 coils, windings of 5A, 1A and 0.1A\ldots}\label{fig:prototype_open_design_Xcoil_coils}
+  \caption{The first 22 (out of 64) loops of the $x$-coil in the open-design cage. For each loop the the digits indicate the number of \SI{5}{\ampere}, \SI{1}{\ampere} and \SI{0.1}{\ampere} windings (per \SI{50}{\micro\tesla} field, leading zeros are omitted). A half of the cage is flattened out, the other being identical on symmetry grounds. The faces have been coloured to help in orientation.}\label{fig:prototype_open_design_Xcoil_coils}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.45\linewidth,trim={5cm 0 0 0},clip]{gfx/prototype/open_planar_map_Y_Bx.pdf}\quad
-  \includegraphics[width=0.45\linewidth,trim={5cm 0 0 0},clip]{gfx/prototype/open_planar_map_Y_By.pdf}
-  \caption{Left: the $x$ component of the field. Right: the $y$ component, relative to the reference value of \SI{49.854}{\micro\tesla} as measured in the middle.}\label{fig:prototype_open_design_Ycoil_maps}
-\end{figure}
+Winding further coils was not in the scope of this work. They were, however, designed. The simulated field produced by the optimal designs for the $x$-coil and $n = 5$ (Tab.\,\ref{tab:coils_carthesian_harmonics}) are presented in Fig.\,\ref{fig:prototype_open_design_simulation}. Except the part near the open face (at the bottom of the plots) the field in the volume is reproduced in the whole fiducial volume down to \SI{2}{\percent} (\SI{1}{\micro\tesla} on a \SI{50}{\micro\tesla} field), even for the gradient coil.
+Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} shows the first 22 (out of 64) current loops of the $x$ coil.
+%\note{All with 1A wires? not much more} The numbers show the number of windings in the 5A, 1A and 0.1A scheme.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\linewidth]{gfx/prototype/open_planar_map_Y_By_section.pdf}
-  \caption{The field along the solid and dashed sines in Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}.}\label{fig:prototype_open_design_Ycoil_map_section}
-\end{figure}
+\note{Here I could mention how inhomogeneous was the field in the lab. I.e.\ how much field was still left when running the homogeneous compensation. This would motivate the need for the linear gradient coils.}
+
+% The calculation with the fiducial volume of\ldots done for homogenous and 1st gradient coils. Fig.\,\ref{fig:prototype_open_design_simulation} presents the sections for\ldots Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} shows the first 22 (out of 64) current loops. \note{All with 1A wires? not much more} The numbers show the number of windings in the 5A, 1A and 0.1A scheme.
+
+
+
 
 \section{n2EDM design}
 
