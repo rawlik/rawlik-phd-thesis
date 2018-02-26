@@ -127,8 +127,7 @@ The DACs were 16-bit Beckhoff EL4134. The signals were then amplified with an ar
 \begin{SCfigure}
   \centering
   \includegraphics[width=0.5\linewidth]{gfx/prototype/DSC03477_cropped.jpeg}
-  \caption{The 19-inch cabinet hosting the electronics for the active magnetic field stabilisation system. From top: a \SI{24}{V} power supply for the Beckhoff EtherCAT clamps and in-house--built \SI{\pm 5}{\volt} power supply for the fluxgates; spare EtherCAT clamps and control system for the mapper; a large array of EtherCAT DACs and ADCs for the active stabilisation system; breakout panel for the fluxgate cables (RJ-45 plugs); subrack with \SI{\pm 0.4}{A} amplifiers; subrack with \SI{\pm 2}{A} amplifiers; two subracks with \SI{\pm 10}{A} amplifiers; a general-purpose Kepco \SI{\pm 20}{V} \SI{\pm 20}{A} four-quadrant amplifier; the PC.}
-  \label{fig:prototype_photo_daq}
+  \caption{The 19-inch cabinet hosting the electronics for the active magnetic field stabilisation system. From top: a \SI{24}{V} power supply for the Beckhoff EtherCAT clamps and in-house--built $\SI{\pm 5}{\volt}$ power supply for the fluxgates; spare EtherCAT clamps and control system for the mapper; a large array of EtherCAT DACs and ADCs for the active stabilisation system; breakout panel for the fluxgate cables (RJ-45 plugs); subrack with $\SI{\pm 0.4}{\ampere}$ amplifiers; subrack with $\SI{\pm 2}{\ampere}$ amplifiers; two subracks with $\SI{\pm 10}{\ampere}$ amplifiers; a general-purpose Kepco $\SI{\pm 20}{\volt}$ $\SI{\pm 20}{\ampere}$ four-quadrant amplifier; the PC.}\label{fig:prototype_photo_daq}
 \end{SCfigure}
 
 The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototype_photo_daq}. A detailed list of the components can be found in the Figure's caption. All these components, additionally to the coils themselves, were used to run the active magnetic field compensation.
@@ -176,7 +175,7 @@ where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits
 \begin{figure}
   \centering
   \includegraphics[width=.9\linewidth]{gfx/prototype/SFC_matrix_green.pdf}
-  \caption{The measured feedback matrix of the active magnetic field compesnation system. The sensors were mounted $\approx\SI{20}{\centi\meter}$ away from the coil surface. \note{Maybe add the unit}.}\label{fig:prototype_feedback_matrix}
+  \caption{The measured feedback matrix of the active magnetic field compesnation system. The sensors were mounted $\approx\SI{20}{\centi\meter}$ away from the coil surface. The values are microteslas of field per \SI{1}{\ampere} in the strongest coil (\SI{1}{\ampere} and \SI{0.1}{\ampere}) in the others.}\label{fig:prototype_feedback_matrix}
 \end{figure}
 
 The matrix measured with the sensors mounted $\approx\SI{20}{\centi\meter}$ away from the coil surface is presented in Fig.\,\ref{fig:prototype_feedback_matrix}. The differences between the non-zero elements of different fluxgates are under 1\%, as expected from the design and the field map (Fig.\,\ref{fig:prototype_plane_map}). The condition number of the matrix is \num{1.064}.
@@ -265,7 +264,7 @@ The last, red, curve depicts the variations seen in the average readout of the f
 
 \section{Long-term Stability}
 \marginpar{In the PSI environment periods of strong magnetic field changes, tens of microteslas over an hour when nearby magnets ramp, were interleaved with ones of high stability---\SI[detect-all = true]{10}{\nano\tesla} at \SI[detect-all = true]{10}{\second} at night (Fig.\,5.3 in Ref.\,\cite{Franke2013}).}
-We have just discussed how the active magnetic field compensation system can stabilise the field in the case of strong variations. However, the system's internal stability was inevitably finite. In conditions, where the environmental magnetic field is more stable than than, the system effectively destabilises the field. In this section we will discuss where the limit of the stability was.
+We have just discussed how the active magnetic field compensation system can stabilise the field in the case of strong variations. However, the system's internal stability was inevitably finite. In conditions, where the environmental magnetic field would be more stable than than, the system would effectively destabilise the field. In this section we will discuss where the limit of the stability was.
 
 As the measure of stability we use the \emph{Allan deviation}, a special case of the M-sample variance, defined originally by the Eq.\,11 in Ref.\,\cite{Allan1966}, with $N=2$ and $T = \tau$.
 It has a simple interpretation: for a given integration time $\tau$ it gives the RMS variation from one integrated sample to the next.
@@ -288,13 +287,13 @@ suggesting that the variations during the measurement were homogeneous.
 
 % Why was the improvement not better? In the plot there seems to be a fixed limit for the stability. Another set of curves, the dotted ones, provide a hint. They depict the stability of the field observed with an additional sensor mounted inside a two-layer $\upmu$-metal shield, which should provide a factor of a hundred in shielding (the second layer was a cylinder without end caps aligned with the $z$-axis of the sensor, hence the worse performance in this direction). Yet, the registered stability is no better than that of the active stabilisation system.
 
-Why was the improvement not better? The limit came most likely from the temperature drifts. According to the specification of the Stefan Mayer Instruments FLC3--70 sensor it drifts \SI{2}{\nano\tesla\per\kelvin}, so the observed stability corresponds to temperature stability as small as \SI{0.1}{\kelvin}. Even at night the temperature in a not temperature-stabilised laboratory cannot be expected to be more stable that that. This limit can be pushed a factor twenty lower with higher-quality (and higher-price) sensors. Commercially available Stefan Mayer Instruments FL1-100 and Bartington Mag-03 are specified to drift \SI{0.1}{\nano\tesla\per\kelvin} with a $\SI{\pm 100}{\micro\tesla}$ measuring range.
+Why was the improvement not better? The limit came most likely from the temperature drifts. According to the specification of the Stefan Mayer Instruments FLC3--70 sensor it drifts \SI{2}{\nano\tesla\per\kelvin}, so the observed stability corresponds to temperature stability as small as \SI{0.1}{\kelvin}. Even at night the temperature in a not temperature-stabilised laboratory cannot be expected to be more stable that that. This limit can be pushed a factor twenty lower with higher-quality (and more expensive) sensors. Commercially available Stefan Mayer Instruments FL1--100 and Bartington Mag-03 are specified to drift \SI{0.1}{\nano\tesla\per\kelvin} with a $\SI{\pm 100}{\micro\tesla}$ measuring range.
 
 However, below is another limitation. Figure\,\ref{fig:prototype_stability} features also a red line labeled ``\SI{50}{\ohm} ADC shortcut''. This is the stability of the readout of an ADC channel with the terminals connected with a \SI{50}{\ohm} resistor. Even if the magnetic field sensors would have output a perfectly stable voltage, the digitised information would be only this stable. A higher class digitisers could perform better.
 
 Interestingly, the stability was fully defined by the measurement chain: the sensors and the digitisers. Instabilities of the output chain, DACs and amplifiers, indistinguishable from changes in the magnetic field, were corrected by the system itself. One exception is the discrete nature of the currents that can be applied. The lowest curve on the plot is the limit on the stability due to the bit depth of the DACs. A quantisation resolution $\Delta$ corresponds, on average, to a white noise with RMS amplitude $\Delta / \sqrt{12}$ (derived for example in Sec.\,IV.A in~\cite{Gray1998}). This noise scales then down as $\tau^{-1/2}$ with the integration time. The system's 16-bit DACs had $2^{16}$ levels mapped onto a $\SI{\pm 100}{\micro\tesla}$ range. This defines the quantisation at the feedback time of inverse $\SI{200}{\hertz}$. In total the limit from the quantisation at the integration time $\tau$ is:
 \begin{equation}
-  \frac{ \SI{200}{\micro\tesla} }{ 2^{16} \ \sqrt{12} \ \sqrt{ \SI{200}{\hertz}\ \tau} }
+  \frac{ \SI{200}{\micro\tesla} }{ 2^{16} \ \sqrt{12} \ \sqrt{ \SI{200}{\hertz}\ \tau}, . }
 \end{equation}
 Aside from the obvious---increasing the bit depth of the DACs---this limit can be pushed further by increasing the feedback frequency or decreasing the range of the operation.
 
