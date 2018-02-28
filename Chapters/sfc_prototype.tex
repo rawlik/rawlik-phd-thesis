@@ -379,13 +379,12 @@ Note in particular the high density of the cables along the edges of the open fa
 
 % The calculation with the fiducial volume of\ldots done for homogenous and 1st gradient coils. Fig.\,\ref{fig:prototype_open_design_simulation} presents the sections for\ldots Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} shows the first 22 (out of 64) current loops. \note{All with 1A wires? not much more} The numbers show the number of windings in the 5A, 1A and 0.1A scheme.
 
-Here a summary paragraph. What to sum up? That it has been demonstrated that the coils design method works even with one face open, and the designs can be successfully realised in practice.
-
+The open-design $y$-coil was a significant step forward in comparison to the closed-cage design. It has been demonstrated, that the coil design framework is capable of handling irregular grids, and the designs can be successfully realised in practice. While the prototype at ETH could be further extended by winding the remaining seven coils, the positive results of the $y$-coil can already support the case for designing a system for the n2EDM experiment.
 
 
 
 \section{n2EDM design}
-Let us recall the discussion in Sec.\,\ref{sec:n2EDM_challenges} on the design challenges of an active magnetic field compensation system for the n2EDM experiment. The main point of concern were the spatial constraints. Firstly, there would not be much space available around the $\upmu$-metal shield, calling for a coil system with a large fiducial volume. Secondly, a cage that would avoid collisions with other components of the experiment and facilities in the hall the needed to be irregular.
+Let us recall the discussion in Sec.\,\ref{sec:n2EDM_challenges} on the design challenges of an active magnetic field compensation system for the n2EDM experiment. The main point of concern were the spatial constraints. Firstly, there would not be much space available around the $\upmu$-metal shield, calling for a coil system with a large fiducial volume. Secondly, a cage that would avoid collisions with other components of the experiment and facilities in the hall the would need to be irregular.
 
 \begin{figure}
   \centering
@@ -393,26 +392,8 @@ Let us recall the discussion in Sec.\,\ref{sec:n2EDM_challenges} on the design c
   \caption{Replace with a better figure showing the design\ldots The best show the front face, too.}\label{fig:n2EDM_design_top}
 \end{figure}
 
-In the CAD model of the n2EDM experiment a cage for the compensation coils has been included. It was composed out of rectangles maximally around \SI{1.5}{\metre} large. The cage, depicted in Fig.\,\ref{fig:n2EDM_design_top}, was then implemented in the coil-design framework.
-
-A set of coils has been designed for the (Tab.\,\ref{tab:coils_carthesian_harmonics})
-
-The fields stays within \SI{1}{\percent} of the target in the fiducial volume for the homogeneous coils.
-Around 80 loops for each of the homogeneous coils.
-
-Important question: how well is the field reproduced in the volume occupied by the shield?
-
-
-Repeat a bit what it was about.
-
-Maybe present some coils, too! Why not, but time-consuming.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/n2EDM_coils_field.pdf}
-  \caption{\ldots}\label{fig:n2EDM_design_deviation}
-\end{figure}
-
+A cage for the compensation coils was incorporated in an existing CAD model of the experiment. It was composed out of rectangles maximally around \SI{1.5}{\metre} large. Care has been taken to avoid conflicts with other parts of the apparatus.
+The cage, depicted in Fig.\,\ref{fig:n2EDM_design_top}, was then implemented in the coil-design framework.
 
 \begin{figure}
   \centering
@@ -421,23 +402,57 @@ Maybe present some coils, too! Why not, but time-consuming.
   \caption{Simulation of the n2EDM design. The colour represents the deviation from the target field, for the $x$, $y$ and $z$ components of the field. Section in the XY plane at height $z=\SI{6.4}{\meter}$ is shown. The open face is on the bottom of the plots. Top: coil designed to produce a homogeneous field along $x$ (left-to-right on the plot). Bottom: $n=6$ gradient (see some table somewhere)\ldots}\label{fig:n2EDM_design_fields}
 \end{figure}
 
-The volume is cubic.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/prototype/n2EDM_coils_field.pdf}
+  \caption{The quality of the field produced by the coils designed for the n2EDM experiment, quantified by the histogram of the deviation of the design's simulated field from the target one, as measured on the surface of the $\upmu$-metal shield. One entry is a difference in one spatial direction. The designs for the homogeneous coils, similar to one another, have been averaged. The ones for the linear gradients were as well.}\label{fig:n2EDM_design_deviation}
+\end{figure}
 
-The SFC system is going to be very large --- $\unit[6x6x6]{m^3}$. Elaborate designs, such as wires of variable length, or arbitrarily bended wires would be complicated to realise in such scale.
+A set of coils has been designed for the first eight Carthesian harmonics (Tab.\,\ref{tab:coils_carthesian_harmonics}). The field simulated for an $x$-coil and a $n = 6$ linear gradient are depicted in Fig.\,\ref{fig:n2EDM_design_fields}, with the contour of the $\upmu$-metal shield depicted in grey. \note{Still need to mark the shield contour there}. The quality of the field, as simulated on the surface of the $\upmu$-metal shield, is plotted in Fig.\,\ref{fig:n2EDM_design_deviation}. The deviation from the pure harmonics is shown for roughly the fields expected to be in the experimental site. \note{Need to refer to the mapping campaign here, blocked by Solange at the moment.} When compensating a perfectly homogeneous \SI{50}{\micro\tesla} field, the remnant is expected to be $< \SI{1}{\micro\tesla}$ (which corresponds to \SI{2}{\percent}). In the case of a \SI{20}{\micro\tesla\per\meter} linear gradient it would be $< \SI{6}{\micro\tesla}$ (\SI{6}{\percent} for the \SI{5}{\metre} large shield).
 
-Moreover, the system is going to enclose the whole apparatus.
-Super crucial --- many coils on the same surface 3 for the first order compensation, but then 9 for gradients. That is already 12 coils. If one only restrict oneself to a surface, it is guaranteed to end up with it densely covered with wires. In this approach the geometry is limited by design.
-
-Mention, that the \micro-metal presence does not disturb much, as it is already placed in a small field.
+\note{A paragraph linking all that to mapping---what kind of fields will we expect? Need to talk to Klaus to clarify, what I can put in my thesis and what should I leave for Solange.}
 
 
-Design goals / challenges:
-\begin{enumerate}
-  \item Better shielding factor. Attenuation by a factor of 50 in the whole volume of the shield. The design goal has been set to reach at most 2\% of the ambient magnetic field in the
-  whole volume of the experiment. In \SI{50}{\micro\tesla} this corresponds to a nice value of \SI{1}{\micro\tesla}.
-  \item Very large fiducial volume --- due to spatial constrains of the experimental site --- biological shielding. PUT IMAGE!!! Not only is the compensation expected to be better, but also provide a much larger volume. Next version of the experiment --- much larger.
-  \item As is nEDM --- many coil system. But orthogonal, or at least close to one. Three coils for compensating the three homogeneous components of the magnetic field. Then 9 for gradients. The strongest fields are low-order, and only these require strong compensation coils (thick wires, big and expensive power supplies). The higher-order coils may be constructed with thinner wires and cheaper power supplies.
-  Additionally, this makes the control of the system simpler.
-  This also states the problem better. One has to design and construct coils that create homogeneous field in the volume occupied by the shield. Maybe elaborate more on the field decomposition!
-  \item Coil tailored for the specific magnetic environment of the n2EDM site. Coils tailored for nearby magnets.
-\end{enumerate}
+
+\section{Conclusion}
+What is new about the next-generation active magnetic field compensation?
+
+What have I done, how successful was it?
+
+What is it good for and what is the outlook?
+
+
+
+% The fields stays within \SI{1}{\percent} of the target in the fiducial volume for the homogeneous coils.
+% Around 80 loops for each of the homogeneous coils.
+
+% Important question: how well is the field reproduced in the volume occupied by the shield?
+
+
+% Repeat a bit what it was about.
+
+% Maybe present some coils, too! Why not, but time-consuming.
+
+
+
+
+% The volume is cubic.
+
+% The SFC system is going to be very large --- $\unit[6x6x6]{m^3}$. Elaborate designs, such as wires of variable length, or arbitrarily bended wires would be complicated to realise in such scale.
+
+% Moreover, the system is going to enclose the whole apparatus.
+% Super crucial --- many coils on the same surface 3 for the first order compensation, but then 9 for gradients. That is already 12 coils. If one only restrict oneself to a surface, it is guaranteed to end up with it densely covered with wires. In this approach the geometry is limited by design.
+
+% Mention, that the \micro-metal presence does not disturb much, as it is already placed in a small field.
+
+
+% Design goals / challenges:
+% \begin{enumerate}
+%   \item Better shielding factor. Attenuation by a factor of 50 in the whole volume of the shield. The design goal has been set to reach at most 2\% of the ambient magnetic field in the
+%   whole volume of the experiment. In \SI{50}{\micro\tesla} this corresponds to a nice value of \SI{1}{\micro\tesla}.
+%   \item Very large fiducial volume --- due to spatial constrains of the experimental site --- biological shielding. PUT IMAGE!!! Not only is the compensation expected to be better, but also provide a much larger volume. Next version of the experiment --- much larger.
+%   \item As is nEDM --- many coil system. But orthogonal, or at least close to one. Three coils for compensating the three homogeneous components of the magnetic field. Then 9 for gradients. The strongest fields are low-order, and only these require strong compensation coils (thick wires, big and expensive power supplies). The higher-order coils may be constructed with thinner wires and cheaper power supplies.
+%   Additionally, this makes the control of the system simpler.
+%   This also states the problem better. One has to design and construct coils that create homogeneous field in the volume occupied by the shield. Maybe elaborate more on the field decomposition!
+%   \item Coil tailored for the specific magnetic environment of the n2EDM site. Coils tailored for nearby magnets.
+% \end{enumerate}
