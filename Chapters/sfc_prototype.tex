@@ -99,7 +99,7 @@ In the bottom part of Fig.\,\ref{fig:prototype_linear_map} additionally the maps
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/prototype/planar_map_Y_max_deviation.pdf}
+  \includegraphics[width=\linewidth]{gfx/prototype/planar_map_Y_max_deviation.pdf}
   \caption{A horizontal map of the $y$-coil, a cut along the middle $xy$-plane. The maximum deviation among all three components of the magnetic field is plotted, i.e.\ in the area enclosed by the \SI{1}{\micro\tesla}~isocountour all components of the field are within \SI{1}{\micro\tesla} from the nominal field (zero for $x$ and $z$, \SI{50}{\micro\tesla} for $y$). Only part of the coil was mapped. The border of the plot corresponds to planes where the wires of the coils are. The border of the fiducial volume is marked with grey lines.}\label{fig:prototype_plane_map}
 \end{figure}
 
@@ -127,7 +127,7 @@ The DACs were 16-bit Beckhoff EL4134. The signals were then amplified with an ar
 
 \begin{SCfigure}
   \centering
-  \includegraphics[width=0.5\linewidth]{gfx/prototype/DSC03477_cropped.jpeg}
+  \includegraphics[width=0.6\linewidth]{gfx/prototype/DSC03477_cropped.jpeg}
   \caption{The 19-inch cabinet hosting the electronics for the active magnetic field stabilisation system. From top: a \SI{24}{V} power supply for the Beckhoff EtherCAT clamps and in-house--built $\SI{\pm 5}{\volt}$ power supply for the fluxgates; spare EtherCAT clamps and control system for the mapper; a large array of EtherCAT DACs and ADCs for the active stabilisation system; breakout panel for the fluxgate cables (RJ-45 plugs); subrack with $\SI{\pm 0.4}{\ampere}$ amplifiers; subrack with $\SI{\pm 2}{\ampere}$ amplifiers; two subracks with $\SI{\pm 10}{\ampere}$ amplifiers; a general-purpose Kepco $\SI{\pm 20}{\volt}$ $\SI{\pm 20}{\ampere}$ four-quadrant amplifier; the PC.}\label{fig:prototype_photo_daq}
 \end{SCfigure}
 
@@ -416,9 +416,13 @@ A set of coils has been designed for the first eight Cartesian harmonics (Tab.\,
 
 \section{Conclusion}
 What is new about the next-generation active magnetic field compensation?
-Predefined grid, can deal with spatial constrained. Shared between different coils - can built many ones. In particular, it is possible to construct coils for the mutually orthogonal terms of the Cartesian 
+Predefined grid, can deal with spatial constrained. Shared between different coils - can built many ones. In particular, it is possible to construct coils for the mutually orthogonal terms of the Cartesian harmonic expansion of the field. This simplifies the control of the system, by making it well defined, there is no need for regularisation.
 
 What have I done, how successful was it?
+A laboratory-sized prototype has been constructed on a closed, regular grid. feasibility of building. The practical advantages of using cable channels as the support structure for the coils. Working stabilisation has been demonstrated for homogeneous fields.
+In the second iteration, one face of the grid was left open, making the coils designs significantly more complex. A coil for one homogeneous component has been wound and characterised.
+
+It can find specially when the volume is large and the spatial constraints are tight. Should I mention G-bar experiment, for example?
 
 What is it good for and what is the outlook?
 
