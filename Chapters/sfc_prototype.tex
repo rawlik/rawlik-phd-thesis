@@ -325,7 +325,7 @@ The disadvantage of the first-iteration design, pictured in Fig.\,\ref{fig:proto
 
 % The third way was to design a system with out wires on one face at all. This solution had the immediate advantage of demonstrating the power of the coil design method. The next iteration is designed with one face (rectangular one, $Y-$) left open. Designed fully following the algorithm.
 
-The solution was to modify a system in way, that on one of the faces there would be no wires at all. As neither the coil design method (Ch.\,\ref{ch:coil_design}) nor its implementation are restricted to regular grids, it could be fully realised within the framework. In the scope of this work coils corresponding to Carthesian harmonic polynomials $n = 1, \ldots, 8$ (Tab.\,\ref{tab:coils_carthesian_harmonics}) were designed and the $y$-coil ($n = 2$) was wound and mapped. The face that was left open is a square one, the one to the left in Fig.\,\ref{fig:prototype_photo}.
+The solution was to modify a system in way, that on one of the faces there would be no wires at all. As neither the coil design method (Ch.\,\ref{ch:coil_design}) nor its implementation are restricted to regular grids, it could be fully realised within the framework. In the scope of this work coils corresponding to Cartesian harmonic polynomials $n = 1, \ldots, 8$ (Tab.\,\ref{tab:coils_cartesian_harmonics}) were designed and the $y$-coil ($n = 2$) was wound and mapped. The face that was left open is a square one, the one to the left in Fig.\,\ref{fig:prototype_photo}.
 
 % This solution had the immediate advantage of demonstrating the power of the coil design method. The next iteration is designed with one face (rectangular one, $Y-$) left open. Designed fully following the algorithm.
 
@@ -368,7 +368,7 @@ In the simulations the homogeneity was predicted to be \SI{2}{\percent} (\SI{1}{
 \end{figure}
 
 The remaining seven coils of were designed. Winding them, however, was beyond the scope of this work.
-The simulated field produced by the optimal designs for the $x$-coil and $n = 5$ (Tab.\,\ref{tab:coils_carthesian_harmonics}) are presented in Fig.\,\ref{fig:prototype_open_design_simulation}.
+The simulated field produced by the optimal designs for the $x$-coil and $n = 5$ (Tab.\,\ref{tab:coils_cartesian_harmonics}) are presented in Fig.\,\ref{fig:prototype_open_design_simulation}.
 Despite lack of one face in the grid the field is reproduced in a volume large enough to fit the $\upmu$-metal cube, even in the case of the linear-gradient coil. In Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} the first 22 (out of 64) loops of the $x$-coil are depicted.
 Note in particular the high density of the cables along the edges of the open face.
 % Except the part near the open face (at the bottom of the plots) the field in the volume is reproduced in the whole fiducial volume down to \SI{2}{\percent} (\SI{1}{\micro\tesla} on a \SI{50}{\micro\tesla} field), even for the gradient coil.
@@ -408,7 +408,7 @@ The cage, depicted in Fig.\,\ref{fig:n2EDM_design_top}, was then implemented in 
   \caption{The quality of the field produced by the coils designed for the n2EDM experiment, quantified by the histogram of the deviation of the design's simulated field from the target one, as measured on the surface of the $\upmu$-metal shield. One entry is a difference in one spatial direction. The designs for the homogeneous coils, similar to one another, have been averaged. The ones for the linear gradients were as well.}\label{fig:n2EDM_design_deviation}
 \end{figure}
 
-A set of coils has been designed for the first eight Carthesian harmonics (Tab.\,\ref{tab:coils_carthesian_harmonics}). The field simulated for an $x$-coil and a $n = 6$ linear gradient are depicted in Fig.\,\ref{fig:n2EDM_design_fields}, with the contour of the $\upmu$-metal shield depicted in grey. \note{Still need to mark the shield contour there}. The quality of the field, as simulated on the surface of the $\upmu$-metal shield, is plotted in Fig.\,\ref{fig:n2EDM_design_deviation}. The deviation from the pure harmonics is shown for roughly the fields expected to be in the experimental site. \note{Need to refer to the mapping campaign here, blocked by Solange at the moment.} When compensating a perfectly homogeneous \SI{50}{\micro\tesla} field, the remnant is expected to be $< \SI{1}{\micro\tesla}$ (which corresponds to \SI{2}{\percent}). In the case of a \SI{20}{\micro\tesla\per\meter} linear gradient it would be $< \SI{6}{\micro\tesla}$ (\SI{6}{\percent} for the \SI{5}{\metre} large shield).
+A set of coils has been designed for the first eight Cartesian harmonics (Tab.\,\ref{tab:coils_cartesian_harmonics}). The field simulated for an $x$-coil and a $n = 6$ linear gradient are depicted in Fig.\,\ref{fig:n2EDM_design_fields}, with the contour of the $\upmu$-metal shield depicted in grey. \note{Still need to mark the shield contour there}. The quality of the field, as simulated on the surface of the $\upmu$-metal shield, is plotted in Fig.\,\ref{fig:n2EDM_design_deviation}. The deviation from the pure harmonics is shown for roughly the fields expected to be in the experimental site. \note{Need to refer to the mapping campaign here, blocked by Solange at the moment.} When compensating a perfectly homogeneous \SI{50}{\micro\tesla} field, the remnant is expected to be $< \SI{1}{\micro\tesla}$ (which corresponds to \SI{2}{\percent}). In the case of a \SI{20}{\micro\tesla\per\meter} linear gradient it would be $< \SI{6}{\micro\tesla}$ (\SI{6}{\percent} for the \SI{5}{\metre} large shield).
 
 \note{A paragraph linking all that to mapping---what kind of fields will we expect? Need to talk to Klaus to clarify, what I can put in my thesis and what should I leave for Solange.}
 
@@ -416,6 +416,7 @@ A set of coils has been designed for the first eight Carthesian harmonics (Tab.\
 
 \section{Conclusion}
 What is new about the next-generation active magnetic field compensation?
+Predefined grid, can deal with spatial constrained. Shared between different coils - can built many ones. In particular, it is possible to construct coils for the mutually orthogonal terms of the Cartesian 
 
 What have I done, how successful was it?
 
