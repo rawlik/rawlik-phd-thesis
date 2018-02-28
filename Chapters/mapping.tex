@@ -4,41 +4,40 @@ An active compensation system can only compensate those fields well, which its c
 
 A mapping campaign is planned in the experimental hall, where the n2EDM experiment is going to be located. There are numerous magnetic sources in the vicinity of the site, causing the magnetic environment to be unusually complex. Taking a number of magnetic field maps will provide knowledge necessary to make sure, that the n2EDM compensation system will be able to cope with the environment. A 2.5m high mobile tower with 10 3-axis magnetic field sensors has been constructed. The position and orientation of the tower is measured with cable extension transducers, which makes the mapping process as simple as sweeping an area with the tower. Reproducibility of the maps measured with the device was proven to be better than \SI{0.5}{\micro\tesla}.
 
-\note{maybe cite also: \cite{Bodmer2013}}
+\note{maybe cite also:~\cite{Bodmer2013}}
+
 
 
 \section{The idea}
-The precision is not crucial, but the time it takes to measure a map is. The shorter it takes to make a map, the less it is influenced by external conditions. It cannot always be mapped during ``quiet periods''. We want to have maps of magnetic fields that occur only during busy day-times. For example the crane, or SULTAN or other magnets.
+An essential input to designing the n2EDM active magnetic field compensation system was the scope of fields that it would need to compensate. There were numerous magnetic sources in the vicinity of the \note{mention the size of the hall} site, many of them dynamic, causing the magnetic environment to be unusually complex. Taking a number of maps of the magnetic field was planned to collect the information.
 
-For these reasons it has been decided, that the mapping would consist of a tower. The tower would be moved manually (don't use the future tense here), the position and orientation measured along the magnetic field. Then describe the setup here, briefely. The scalar information is enough to localise sources of magnetic field.
+In the task speed was valued more than precision. The shorter it would take to map the field in the whole area, the less it would be influenced by varying external conditions. Also, due to the multitude of the conditions that would need\ldots The implemented solution was a mobile tower equipped with magnetic field sensors at different heights, whose position and orientation could be measured while it was sweeping the area being mapped.
 
-Vector information is useful if the data are to be used for example to calculate dedicated compensation coils for some sources of disturbance.
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/setup.jpg}
+  \caption{The small-scale prototype of the magnetic field mapper. The mobile tower has ten fluxgate magnetometers attached to it. A bundle of readout cables is visible coming out of the tower. Behind, a rigid L-piece is visible with three string potentiometers mounted on it. A string is extended from each to the tower. \note{crop the picture still}}\label{fig:mapping_bastille_setup}
+\end{figure}
 
-The setup is shown\ldots The mapper was a tower this and that high, with ten fluxgate magnetometers mounted on it.
-The three analogue string potentiometers were mounted on a rigid L-piece. The base element is the string potentiometer. It consists of a wire wound on a spring-loaded spool, the spool attached to a potentiometer. For maximal linearity it is constructed in a way, that the string is wound one in layer only. The string string potentiometers give an analogue signal proportional to the extension of the wire. This information was used to determine the position and orientation of the tower.
+\marginpar{For maximal linearity string potentiometers are constructed in a way, that the wire is wound flat in one layer only.} The potentiometer gives an analogue signal proportional to the extension of the wire. The combined information from the three sensors was used to determine the position and orientation of the tower.
+A small-scale prototype setup is pictured in Fig.\,\ref{fig:mapping_bastille_setup}. The tower is \note{check the height} high and has ten fluxgate magnetometers mounted on it. Behind the tower a reference piece \note{establish a name}, a rigid L-piece, is visible. 
 \marginpar{Other names for a string potentiometers include: cable-extension transducer, draw-wire sensor and string pot.}
-\mnote{The terms like the tower need to be clear by here.}
-
-
-Let us start with a two-dimensional problem. Span two strings between a magnetic field sensor, each to a fixed position in the room. Based on trilateration. With two strings there are two solutions, but we are always able to detect the correct one.
-
-To get the vector information about the field, also the orientation of the sensors needs to be known. For that an arm can attached to the sensor and a third string spanned to the arm's end.
-
-Now is the time for the nice drawing of the geometry solution.
+It is carrying three black elements, string potentiometers, each with a wire coming out of it, the other end attached to the tower. A string potentiometer consists of a wire wound on a spring-loaded spool, the spool attached to a potentiometer.
 
 
 
 \section{Principle of a string-potentiometer--based mapper}
-For a given signal of a calibrated string potentiometer the points where the free end of the string can be make up a circle. The centre at the location of the body of the sensor, the radius equal to the extension of the wire. In the mapper setup there are two string potentiometers mounted on the fixed L-piece, both extended to a single point on the tower. This points lies on the intersection of the two circles. The problem of determining the location based on the measurement of the distances to a set of fixed points is called \emph{trilateration}.
-
+For a known extension of a wire the set of points where the other end can be is a circle. The position and orientation determination is, in fact, finding the intersections of those circles.
 \marginpar{Other position determination methods include triangulation (measurement of angles between lines connecting a set of fixed points) and multilateration (measurement of the differences of distances between a set of fixed points).}
+In general, the problem of determining the location based on the measurement of the distance to a set of fixed points is called \emph{trilateration}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/mapping/geometry.png}
-  \caption{\ldots}
-  \label{fig:mapping_geometry}
+  \caption{\ldots}\label{fig:mapping_geometry}
 \end{figure}
+
+The geometry set by the circles is illustrated in Fig.\,\ref{fig:mapping_geometry}. In the mapper setup two, out of three, strings extended to a single point on the tower, directly on the vertical beam holding the sensors. The intersection of the two circles determined by the measurement of the extensions of those two strings set two points where the centre of the tower could be. One could always be excluded, being somewhere where the tower could not physically go.
 
 The geometry is presented in Fig.\,\ref{fig:mapping_geometry}.The two string potentiometers used to determine the position are located is points $(x, y) = (0, y_0)$ and $(x_0, 0)$ (in the L-piece coordinate system, orange in the figure).
 The tower, here point-like, is at $(x,y)$.
