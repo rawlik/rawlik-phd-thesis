@@ -105,9 +105,11 @@ The small-scale prototype setup was used to perform a mapping of the magnetic fi
 \note{In that case the gradients should be below roughly \SI[per-mode=symbol]{10}{\nano\tesla\per\centi\metre}, but I don't know why. Ask someone?}
 % In particular, gradients above roughly \SI[per-mode=symbol]{10}{\nano\tesla\per\centi\metre} 
 
-$x_0 = 0$, $y_0 = \SI{1871}{\milli\metre}$, and the third potentiometer was in the point $(\SI{1756}{\milli\metre}, 0$. $a = \SI{623}{\milli\metre}$.
+\marginpar{The string potentiometers were equipped with custom made attachments that allowed the string to come at an angle out of the device. The point where the strings bent was taken to be the middle of the circle in the geometry solution.}
+A photograph of the mapping setup is shown in Fig.\,\ref{fig:mapping_bastille_setup}. The mobile \SI{2.5}{\metre} high tower was equipped with ten 3-axis fluxgate magnetic field sensors (Stefan-Mayer FLC3--70, the same as used in the active magnetic field stabilisation system).
+The stationary `L-piece' held three string potentiometers (Micro-Eplison WDS-15000-P115-SA-P with \SI{15}{\metre} extension range).
+The geometry parameters, as defined in Fig.\,\ref{fig:mapping_geometry}, were: $x_0 = 0$, $y_0 = \SI{1871}{\milli\metre}$, $a = \SI{623}{\milli\metre}$. The string-potentiometer for the orientation measurement was in the point $(\SI{1756}{\milli\metre}, 0)$.
 
-A photograph of the mapping setup is shown in Fig.\,\ref{fig:mapping_bastille_setup}. The mobile \SI{2.5}{\metre} high tower was equipped with ten 3-axis fluxgate magnetic field sensors. The model was Stefan-Mayer FLC3--70, the same as used in the active magnetic field stabilisation system. The stationary `L-piece' held three string potentiometers, Micro-Eplison WDS-15000-P115-SA-P with \SI{15}{\metre} extension range, spanned to the tower. The string potentiometers were equipped with custom made attachments that allowed the string to come at an angle out of the device. The point where the strings bent was taken to be the middle of the circle in the geometry solution.
 % Two of the strings were attached to a point where the vertical beam with the fluxgates is, the third (left on the picture) was attached to the black, short vertical profile on the tower.
 
 % \marginpar{Technical details of the setup: fluxgates: Stefan-Mayer FLC3--70, ADC: aoethu, string potentiometers: Micro-Eplison WDS-15000-P115-SA-P, readout frequency: xxx}
@@ -118,7 +120,7 @@ A photograph of the mapping setup is shown in Fig.\,\ref{fig:mapping_bastille_se
   \caption{The DAQ system used for the mapping campaign in LPSC\@: a power supply to put a constant voltage on the potentiometers (grey, lower corner); a custom-built crate for the fluxgates, which supplied them with power and conditioned the incoming signals (underneath the keyboard and the screen); a National Instruments PXI crate, which simultaneously digitised the analogue voltage signals from the fluxgates and the string-pots (not visible, behind the screen); a PC computer with peripherals.}\label{fig:mapping_bastille_daq}
 \end{figure}
 
-The data acquisition system, pictured in Fig.\,\ref{fig:mapping_bastille_daq}, consisted of: a power supply that put a constant voltage on the potentiometers; a custom-built crate for the fluxgates, which supplied them with power and conditioned the incoming signals; and a National Instruments PXI crate, which simultaneously digitised the analogue voltage signals from the fluxgates and the string-pots. The data were collected on a PC computer.
+The data acquisition system, pictured in Fig.\,\ref{fig:mapping_bastille_daq}, consisted of: a power supply that put a constant voltage (\SI{10}{\volt}) on the potentiometers; a custom-built crate for the fluxgates, which supplied them with power and conditioned the incoming signals; and a National Instruments PXI crate, which simultaneously digitised the analogue voltage signals from the fluxgates and the string-pots. The data were collected on a PC computer.
 
 \begin{figure}
   \centering
@@ -126,9 +128,9 @@ The data acquisition system, pictured in Fig.\,\ref{fig:mapping_bastille_daq}, c
   \caption{A panoramic view of the \emph{Bastille} room. To the left the `L-piece' and the mapping tower are visible. In the back there is the DAQ system and to the right a door with a long handle, which is also marked on the magnetic field maps.}\label{fig:mapping_bastille_panorama}
 \end{figure}
 
-A panoramic shot of the Bastille room is presented in Fig.\,\ref{fig:mapping_bastille_panorama}. The coordinate system is visible in the upper-left corner. To the right are the entrance door, in the middle a power outlet box is visible.
+A panoramic shot of the Bastille room is presented in Fig.\,\ref{fig:mapping_bastille_panorama}. The coordinate system is visible in the upper-left corner. To the right are the entrance door, in the middle, high on the wall, a power outlet box is visible.
 % Behind the wall with the power outlet box there is a pump, which has been at some point removed.
-The room is a wooden structure built in a hall made of steel beams and sheets. The room's wall with the power outlet is located close, less than 1 metre, to the steel wall of the hall. The hall features a gantry crane, several metres above the roof of the room. On the roof of the room there are air conditioning devices, standing about a metre above the roof on steel legs. The legs have rather large feet, possibly with a steel plate inside.
+The room was a wooden hut structure, built inside a hall made of steel beams and sheets. The room's wall with the power outlet on it was located close, less than 1 metre, to a steel wall of the hall. The hall was equipped a gantry crane, several metres above the roof of the hut. Directly on the roof there were air conditioning devices, standing about a metre above the roof on steel legs. The legs had rather large feet, possibly with a steel plate inside.
 
 \begin{figure}
   \centering
@@ -142,7 +144,11 @@ The room is a wooden structure built in a hall made of steel beams and sheets. T
   \caption{The map of the magnitude of the magnetic field. Each tile depicts a horizontal plane, the field measured by one magnetic sensor. On the ceiling there are small strong sources of the magnetic field and the colour scale is saturated.}\label{fig:mapping_bastille_magnitude}
 \end{figure}
 
-To collect a map, the tower was moved around the room by hand. Care is taken to scan the whole room and to maintain approximately the same orientation of the tower throughout the measurement. The track of one of the collected maps is depicted in Fig\,\ref{fig:mapping_bastille_track}, together with an overview of the room. \note{maybe mention, that the position was calculated on-line, too} Part of the data analysis is performed on-line. In particular the voltage readout of the string pots is translated into their lengths which are used to determine the position and orientation of the tower. This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned. The resulting map was a set of points, collected at \note{give the sampling frequency}, with the position of the tower and magnetic field readout for each fluxgates. Those data are directly plotted in Fig.\,\ref{fig:mapping_bastille_magnitude}. Horizontal slices (each a different sensor) of the magnitude of the magnetic field are shown, with the height of the slice above the floor indicated. It is clearly visible, that there are localised sources of magnetic disturbance above the roof, later attributed to elements of the air-conditioning system mounted on the roof of the hut.
+To collect a map, the tower was moved around the room by one person, while another took care so that the readout cables did not get in the way. Care was taken to scan the whole room and to maintain approximately the same orientation of the tower throughout the measurement.
+\marginpar{The position was determined on-line. A display showed where the tower already has been.}
+The track of one of the collected maps is depicted in Fig\,\ref{fig:mapping_bastille_track}\note{maybe mention, that the position was calculated on-line, too}
+% Part of the data analysis is performed on-line. In particular the voltage readout of the string pots is translated into their lengths which are used to determine the position and orientation of the tower. This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned. 
+The resulting map was a set of points, collected at \SI{50}{\hertz}\note{give the sampling frequency}, with the position of the tower and magnetic field readout for each fluxgates. Those data are directly plotted in Fig.\,\ref{fig:mapping_bastille_magnitude}. Horizontal slices (each a different sensor) of the magnitude of the magnetic field are shown, with the height of the slice above the floor indicated. It is clearly visible, that there are localised sources of magnetic disturbance above the roof, later attributed to elements of the air-conditioning system mounted on the roof of the hut.
 
 \begin{figure}
   \centering
