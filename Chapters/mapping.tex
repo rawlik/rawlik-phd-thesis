@@ -130,7 +130,8 @@ The data acquisition system, pictured in Fig.\,\ref{fig:mapping_bastille_daq}, c
 
 A panoramic shot of the Bastille room is presented in Fig.\,\ref{fig:mapping_bastille_panorama}. The coordinate system is visible in the upper-left corner. To the right are the entrance door, in the middle, high on the wall, a power outlet box is visible.
 % Behind the wall with the power outlet box there is a pump, which has been at some point removed.
-The room was a wooden hut structure, built inside a hall made of steel beams and sheets. The room's wall with the power outlet on it was located close, less than 1 metre, to a steel wall of the hall. The hall was equipped a gantry crane, several metres above the roof of the hut. Directly on the roof there were air conditioning devices, standing about a metre above the roof on steel legs. The legs had rather large feet, possibly with a steel plate inside.
+The room was a wooden hut structure, built inside a hall made of steel beams and sheets. The room's wall with the power outlet on it was located close, less than 1 metre, to a steel wall of the hall. The hall was equipped a gantry crane, several metres above the roof of the hut.
+% Directly on the roof there were air conditioning devices, standing about a metre above the roof on steel legs. The legs had rather large feet, possibly with a steel plate inside. 
 
 \begin{figure}
   \centering
@@ -138,37 +139,43 @@ The room was a wooden hut structure, built inside a hall made of steel beams and
   \caption{The trace of the tower's centre in one of the maps. The outline of the room is depicted, and the door are marked in the upper-right corner. The `L-piece' was in the lower-left corner.}\label{fig:mapping_bastille_track}
 \end{figure}
 
+To collect a map, the tower was moved around the room by one person, while another took care so that the readout cables did not get in the way.
+\marginpar{The position was determined on-line. A display showed where the tower already has been.}
+Care was taken to systematically scan the whole room and to maintain approximately the same orientation of the tower throughout the measurement. A track of one of the collected maps is depicted in Fig\,\ref{fig:mapping_bastille_track}. Note, that the centre of the tower could only go to a certain distance to the walls because of the the size of the tower's cart.
+%\note{maybe mention, that the position was calculated on-line, too}
+% Part of the data analysis is performed on-line. In particular the voltage readout of the string pots is translated into their lengths which are used to determine the position and orientation of the tower. This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned. 
+The data, the position and orientation of the tower, as well as the magnetic field measurements, were down-sampled and registered at \SI{50}{\hertz} rate.
+
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_magnitude_low_range_crop.pdf}
-  \caption{The map of the magnitude of the magnetic field. Each tile depicts a horizontal plane, the field measured by one magnetic sensor. On the ceiling there are small strong sources of the magnetic field and the colour scale is saturated.}\label{fig:mapping_bastille_magnitude}
+  \caption{The map of the magnitude of the magnetic field. Each tile depicts a horizontal plane, the field measured by one magnetic sensor. For each point, registered at \SI{50}{\hertz} rate, the magnitude is plotted; the colour in between the measurement points is linearly interpolated. On the ceiling there are small strong sources of the magnetic field and the colour scale is saturated.}\label{fig:mapping_bastille_magnitude}
 \end{figure}
 
-To collect a map, the tower was moved around the room by one person, while another took care so that the readout cables did not get in the way. Care was taken to scan the whole room and to maintain approximately the same orientation of the tower throughout the measurement.
-\marginpar{The position was determined on-line. A display showed where the tower already has been.}
-The track of one of the collected maps is depicted in Fig\,\ref{fig:mapping_bastille_track}\note{maybe mention, that the position was calculated on-line, too}
-% Part of the data analysis is performed on-line. In particular the voltage readout of the string pots is translated into their lengths which are used to determine the position and orientation of the tower. This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned. 
-The resulting map was a set of points, collected at \SI{50}{\hertz}\note{give the sampling frequency}, with the position of the tower and magnetic field readout for each fluxgates. Those data are directly plotted in Fig.\,\ref{fig:mapping_bastille_magnitude}. Horizontal slices (each a different sensor) of the magnitude of the magnetic field are shown, with the height of the slice above the floor indicated. It is clearly visible, that there are localised sources of magnetic disturbance above the roof, later attributed to elements of the air-conditioning system mounted on the roof of the hut.
+A map of the magnetic field is plotted in Fig.\,\ref{fig:mapping_bastille_magnitude}. Horizontal slices (each a different sensor) of the magnitude of the magnetic field are shown, with the height of the slice above the floor indicated. It is clearly visible, that there are localised sources of magnetic disturbance above the roof, later attributed to elements of an air-conditioning system mounted on the roof of the hut.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_gradient_205cm_crop.pdf}
-  \caption{\ldots}\label{fig:mapping_bastille_gradient}
+  \caption{A map of the gradients in the \emph{Bastille} room \SI{205}{\centi\metre} above the floor. Only the `horizontal' gradients (with respect to $x$ and $y$) have been estimated, as estimating the one with respect to $z$ would require comparing measurements between different sensors, whose intrinsic offset would dominate the result.}\label{fig:mapping_bastille_gradient}
 \end{figure}
 
-The mapper collects not only the magnitude of the field, but the full vector information. This can be used to produce maps of the gradient of the magnetic field. For this purpose the area is divided into pixels, and the average magnetic field is calculated in each.
-The the differences between the magnetic field components in the neighbouring pixels are taken, which, divided by the separation between the pixels, are the estimates of the gradient.
-For example, the dBx/dx gradient is estimated by the\ldots The map of the gradient \SI{128}{\centi\meter} above the floor is shown in Fig.\,\ref{fig:mapping_bastille_gradient}. Comment on the structures from the roof? On the left side, next to the power outlet box, large gradients above \SI[per-mode=symbol]{20}{\pico\tesla\per\centi\meter} are visible. Only ``horizontal'' gradients were estimated.
-To estimate the vertical ones would require to compare the readouts of different sensors. The sensors are specified to be only $\pm 1\% \pm \SI{0.5}{\micro\tesla}$ accurate, which in a \SI{50}{\micro\tesla} field adds up to \SI{1}{\micro\tesla}. With a \SI{22}{\centi\meter} separation between the sensors, the systematic effect on the gradient would be \SI[per-mode=symbol]{45}{\nano\tesla\per\centi\meter}.
+The measured information was also used to estimate the gradients of the magnetic field. To this purpose, the mapped area was divided into a $14 \times 14$ grid and the measurements were averaged in each bin.
+Then, the differences between the magnetic field components in the neighbouring pixels were taken, which, divided by the separation between the bins, were the estimates of the gradient.
+% For example, the $\partial B_x / \partial x$ gradient was estimated by the difference between 
+The map of the gradient \SI{205}{\centi\metre} above the floor is shown in Fig.\,\ref{fig:mapping_bastille_gradient}.
+% Comment on the structures from the roof? On the left side, next to the power outlet box, large gradients above \SI[per-mode=symbol]{20}{\pico\tesla\per\centi\meter} are visible.
+Only `horizontal' gradients were estimated, ones with respect to $x$ and $y$.
+To estimate the vertical ones, with respect to $z$, would require to compare the measurements of different sensors. The sensors were specified to be only $\pm 1\% \pm \SI{0.5}{\micro\tesla}$ accurate, which in a roughly \SI{50}{\micro\tesla} field adds up to a microtelsa. With a \SI{22}{\centi\meter} separation between the sensors, the systematic effect on the gradient would be \SI[per-mode=symbol]{45}{\nano\tesla\per\centi\meter}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.49\linewidth]{gfx/mapping/lpsc/reproducibility_field.pdf}
   \includegraphics[width=0.49\linewidth]{gfx/mapping/lpsc/reproducibility_gradient.pdf}
-  \caption{Left: Reproducibility of the field, std is \SI{138}{\nano\tesla}. Right: reproducibility of the gradient estimation, std is \SI{3.8}{\nano\tesla\per\centi\metre}}\label{fig:mapping_bastille_reproducibility}
+  \caption{Left: Reproducibility of the field, a histogram of the difference in the measured field. One entry is a difference along either $x$, $y$ or $z$. The width of the distribution is \SI{138}{\nano\tesla}. Right: reproducibility of the gradient estimation. One entry is a `horizontal' gradient estimate, with respect to $x$ or $y$. The width of the distribution is \SI[per-mode=symbol]{3.8}{\nano\tesla\per\centi\metre}.}\label{fig:mapping_bastille_reproducibility}
 \end{figure}
 
-Binned data allow also for direct comparison between maps. In order to estimate the reproducibility of the mapping process two maps were taken directly one after another. The maps were then, after binning, subtracted from one another. The histogram of the differences is shown in Fig.\,\ref{fig:mapping_bastille_reproducibility} (one entry is one difference in one of the components). The standard deviation of the distribution, a measure of the reproducibility, is \SI{0.14}{\micro\tesla}. The reproducibility of the gradient was estimated in the same way, yielding the standard deviation of \SI[per-mode=symbol]{3.8}{\nano\tesla\per\centi\meter}. This is better than a na\"{\i}ve estimate, which assumes that the value of the component of the field measured in one bin has a \SI{0.14}{\micro\tesla} uncorrelated error bar associated with it:
+Binned data allowed also for direct comparison between maps. In order to estimate the reproducibility of the mapping process two maps were taken directly one after another. The maps were then, after binning, subtracted. The histogram of the differences is shown in Fig.\,\ref{fig:mapping_bastille_reproducibility} (one entry is one difference in one of the components). The standard deviation of the distribution, a measure of the reproducibility, is \SI{0.14}{\micro\tesla}. The reproducibility of the gradient was estimated in the same way, yielding the standard deviation of \SI[per-mode=symbol]{3.8}{\nano\tesla\per\centi\meter}. This is better than a na\"{\i}ve estimate, which assumes that the value of the component of the field measured in one bin has a \SI{0.14}{\micro\tesla} uncorrelated error bar associated with it:
 \begin{equation}
   \frac{\SI{140}{\nano\tesla} \, \sqrt{2}}{\SI{25}{\centi\meter}} = \SI[per-mode=symbol]{8}{\nano\tesla\per\centi\meter} \ .
 \end{equation}
