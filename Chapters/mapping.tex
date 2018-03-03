@@ -175,20 +175,21 @@ To estimate the vertical ones, with respect to $z$, would require to compare the
   \caption{Left: Reproducibility of the field, a histogram of the difference in the measured field. One entry is a difference along either $x$, $y$ or $z$. The width of the distribution is \SI{138}{\nano\tesla}. Right: reproducibility of the gradient estimation. One entry is a `horizontal' gradient estimate, with respect to $x$ or $y$. The width of the distribution is \SI[per-mode=symbol]{3.8}{\nano\tesla\per\centi\metre}.}\label{fig:mapping_bastille_reproducibility}
 \end{figure}
 
-Binned data allowed also for direct comparison between maps. In order to estimate the reproducibility of the mapping process two maps were taken directly one after another. The maps were then, after binning, subtracted. The histogram of the differences is shown in Fig.\,\ref{fig:mapping_bastille_reproducibility} (one entry is one difference in one of the components). The standard deviation of the distribution, a measure of the reproducibility, is \SI{0.14}{\micro\tesla}. The reproducibility of the gradient was estimated in the same way, yielding the standard deviation of \SI[per-mode=symbol]{3.8}{\nano\tesla\per\centi\meter}. This is better than a na\"{\i}ve estimate, which assumes that the value of the component of the field measured in one bin has a \SI{0.14}{\micro\tesla} uncorrelated error bar associated with it:
+Binned data allowed also for direct comparison between maps. In order to estimate the reproducibility of the mapping process two maps were taken directly one after another. The maps were then, after binning, subtracted. The histogram of the differences is shown in Fig.\,\ref{fig:mapping_bastille_reproducibility}. The standard deviation of the distribution, a measure of the reproducibility, is \SI{138}{\nano\tesla}. The reproducibility of the gradient was estimated in the same way, yielding the standard deviation of \SI[per-mode=symbol]{3.8}{\nano\tesla\per\centi\metre}. This is better than a na\"{\i}ve estimate, which assumes that the value of the component of the field measured in one, $\approx \SI{25}{\centi\metre}$ large bin has a \SI{140}{\micro\tesla} uncorrelated error bar associated with it:
 \begin{equation}
   \frac{\SI{140}{\nano\tesla} \, \sqrt{2}}{\SI{25}{\centi\meter}} = \SI[per-mode=symbol]{8}{\nano\tesla\per\centi\meter} \ .
 \end{equation}
-The reason is, that the for the absolute field estimate to be reproducible the system needs to be stable on a large scale -- from one map to another. For the gradient of the field to be reproducible, the system needs to be stable only from one bin to the next.
+The reason is, that the for the absolute field estimate to be reproducible the system needs to be stable on a large time-scale, from one map to another. For the gradient of the field to be reproducible, the system needs to be stable only from one bin to the next.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_change_magnitude_crop.pdf}
-  \caption{\ldots}\label{fig:mapping_bastille_crane_change}
+  \caption{A map of the magnetic field of a gantry crane in the hall where the Bastille room is located. The magnitude of the field difference between two maps is plotted: one with the crane directly above the hut, and one with it moved far away}\label{fig:mapping_bastille_crane_change}
 \end{figure}
 
-Also two maps taken in different conditions can be compared. Near the roof of the hall there was a large gantry crane. In order to map the change of the field it inflicts two maps were taken: one with the crane in the far end of the hall and another with the crane directly above the hut. The maps were binned and their difference, plotted in Fig.\,\ref{fig:mapping_bastille_crane_change}, is an estimate of the field of the crane. The magnetic field produced by the crane in the hut is about \SI{1}{\micro\tesla} strong half a metre above the floor, furthest from the crane, and rises to \SI{3}{\micro\tesla} at the hut's roof. Horizontally the change is homogeneous on a \ldots level.
-\mnote{A more detailed analysis of this map, maybe? But not really necessary.}
+Also two maps taken in different conditions can be compared. Near the roof of the hall where the \emph{Bastille} hut was located there was a large gantry crane. In order to estimate the change in the magnetic field it inflicted when moving, two maps were taken: one with the crane in the far end of the hall and another with the crane directly above the hut. The maps were binned; their difference is plotted in Fig.\,\ref{fig:mapping_bastille_crane_change}. The magnetic field produced by the crane in the hut is about \SI{1}{\micro\tesla} strong half a metre above the floor, furthest from the crane, and rises to \SI{3}{\micro\tesla} at the hut's roof.
+% Horizontally the change is homogeneous on a \ldots level.
+% \mnote{A more detailed analysis of this map, maybe? But not really necessary.}
 
 
 % \begin{figure}
@@ -198,20 +199,60 @@ Also two maps taken in different conditions can be compared. Near the roof of th
 %   \label{fig:mapping_bastille_magnitude}
 % \end{figure}
 
+The campaign at LPSC first of all resulted in a detailed magnetic characterisation of the Bastille and Chalet rooms, considered to be magnetometry laboratories. (The maps of the Chalet rooms can be found in App.\,\ref{ch:chalet_appendix}.) Second of all, it demonstrated the capabilities of the magnetic field mapping with a mobile tower, whose position and orientation is determined with string potentiometers. The prototype was later enlarged in preparation for mapping of a much larger volume, one where the n2EDM experiment was to be built.
 
 
 
 \section{PSI Area South campaign}
-\marginpar{The mapping took place in the days 18--22.12.2017 and 2--12.01.2017.}
-
-Acknowledge that it is a joint work with Solange Emmenegger.
-
-Describe the changes to the setup: now the geometry is like this and this. Need probably a detailed picture of the geometry of the setup and the mapper.
-
-About the method to fit the calibration parameters to the fixed points.
+The mapping of the Area South in the UCN hall at PSI, the location of the nEDM and n2EDM experiments, took place in the days 18--22.12.2017 and 2--12.01.2017. In that time the nEDM apparatus has already been disassembled and a reinforced concrete foundation for the n2EDM experiment has been laid. After the n2EDM apparatus is set up it will occupy the area and no magnetic mapping will be possible. The goal of the mapping campaign was to characterise the magnetic field environment. Of particular interest were the nearby strong magnets. It was mainly done for the active magnetic field compensation system, as necessary input for coil design.
+The mapping campaign was a joint venture with Solange Emmenegger and Jochen Krempel.
+% \marginpar{The mapping took place in the days 18--22.12.2017 and 2--12.01.2017.}
+% Acknowledge that it is a joint work with Solange Emmenegger and Jochen Krempel.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/mapping/PSI_mapping_photos/image_nedm-constructioncam2_2018-01-12_13-04-00.jpg}
   \caption{\ldots}\label{fig:mapping_photo}
 \end{figure}
+
+% First say about the area - how large, refer to a picture.
+The volume to map was much larger then in LPSC and the device needed to be enlarged. The `L-piece' was enlarged to \ldots. The tower was \SI{8}{\metre} high. An additional sensor was added directly above the floor. The other elements, string potentiometers, magnetic field sensors and DAQ, remained the same. \note{get the geometry}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/mapping/nSnCobCom.png}
+  \caption{A map of the magnetic field in one plane, height around \note{HEIGHT} above the floor. \note{Get a plot from Solange with the outline of the hall marked, or make one myself.}}\label{fig:mapping_photo}
+\end{figure}
+
+% Then say what kind of mapper was necessary to map that. Most of the hardware kept, just made larger.
+The Area South is pictured in Fig.\,\ref{fig:mapping_photo}. It is roughly \note{GET THE SIZE} in size. The n2EDM magnetically shielded room, $5 \times 5 \times \SI{5}{\metre}$ large itself, ends \note{the height}.
+\marginpar{The total weight of the n2EDM shield is 47 tons.}
+
+% Now about the magnets - COMET, SULTAN and COBRA. SULTAN daily ramps, COBRA and COMET just one ramp. Many maps and then combination thereof.
+There were three strong magnets close to the area: COMET, SULTAN and COBRA\@. COMET is a medical cyclotron located several meters into the concrete biological shielding on the far-side wall in Fig.\,\ref{fig:mapping_photo}. Its field, very inhomogeneous due to the vicinity of the source, was around \SIrange[range-phrase=--,range-units=single]{10}{80}{\micro\tesla} strong. COMET was very rarely turned off. Fortunately, during the mapping campaign there was scheduled power-cut for which COMET was turned off. It made it possible to measure its field, too. SULTAN is a superconducting magnet for material research located around \SI{15}{\metre} \note{verify} away from the site. It ramps daily, creating a roughly \SI{50}{\micro\tesla} field in the area. COBRA is a magnet located in a neighbouring experimental hall. The strength of its field is around \SI{5}{\micro\tesla}.
+
+In total \note{list of maps} maps were taken with various combinations of the magnets. They are summarised in Tab.\,\ref{tab:psi_mapping_maps}. As of April 2018 the analysis of this maps in ongoing.~\cite{EmmeneggerThesis}. They will provide an input to decide which coils of the cartesian harmonics are going to be built, or even dedicated ones, and what remnant field may be expected.
+
+\begin{table}
+  \centering
+  \begin{tabular}{ccccc}
+    date & time & COMET & SULTAN & COBRA \\ \midrule
+    xxx & xxx & 1 & 1 & 0 \\
+    xxx & xxx & 1 & 1 & 0 \\
+    xxx & xxx & 1 & 1 & 0 \\
+    % 1 & 1 & 0 & 0 \\
+    % 2 & 0 & 1 & 0 \\
+    % 3 & 0 & 0 & 1 \\
+    % \midrule
+    % 4 & $x$ &  0  & $-z$ \\
+    % 5 & $y$ & $x$ &   0  \\
+    % 6 &  0  & $y$ & $-z$ \\
+    % 7 & $z$ &  0  & $ x$ \\
+    % 8 &  0  & $z$ & $-y$ \\
+  \end{tabular}
+  \caption{List of the maps taken. The status of the magnets is given for each.}\label{tab:psi_mapping_maps}
+\end{table}
+
+
+
+
