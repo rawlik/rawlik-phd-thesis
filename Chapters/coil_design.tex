@@ -114,17 +114,16 @@ Depending on the properties of $M$ the optimum may be multidimensional. In parti
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\linewidth]{gfx/coils/homogeneous_tiles_norm_1000.pdf}
+  \includegraphics[width=0.7\linewidth]{gfx/coils/homogeneous_tiles_norm_1000.pdf}
   \caption{A solution of a tile system with $N = 6 \times (3 \times 3)$ tiles on a unit cube for a homogeneous field. The volume of interest is a cube with side length 0.75, centered inside the unit cube. Numbers indicate currents in the tile coils in arbitrary units. The currents are normalized so that the highest is 1000. For clarity, the coils are depicted slightly smaller; in the model their edges overlap. The currents on the three invisible faces are by symmetry analogous to the visible ones.}\label{fig:homogeneous_tiles}
 \end{figure}
 
 \begin{figure*}
   \centering
   \subfloat{\label{fig:homogeneous_performance_a}
-    \includegraphics[width=.45\linewidth]{gfx/coils/homogeneous_performance.pdf}}
-  \quad
+    \includegraphics[width=.49\linewidth]{gfx/coils/homogeneous_performance.pdf}}
   \subfloat{\label{fig:homogeneous_performance_b}
-    \includegraphics[width=.45\linewidth]{gfx/coils/homogeneous_performance_smaller_volume.pdf}}
+    \includegraphics[width=.49\linewidth]{gfx/coils/homogeneous_performance_smaller_volume.pdf}}
   \caption{Magnetic field produced by a coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles on a unit cube. The field lines are depicted in grey. Contours show boundaries of 0.5, 1 and 10\% magnitude deviation from an ideal homogeneous field. Horizontal cross sections in the middle-height plane are shown. Two designs are presented. Left-hand side: the volume of interest is a cube with side length 0.75 (the individual tile coil currents are depicted in Fig.\,\ref{fig:homogeneous_tiles}), right-hand side: the size of volume of interest is reduced to 0.5.}\label{fig:homogeneous_performance}
 \end{figure*}
 
@@ -147,22 +146,19 @@ The tile system may find an interesting practical application. Once independentl
   %   \includegraphics[width=.45\linewidth]{coil_homogeneous_section}}
   % \\
   \subfloat{\label{fig:coils_dipole_3d_1}
-    \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_net_1.pdf}}
-  \quad
+    \includegraphics[width=.49\linewidth]{gfx/coils/algorithm_net_1.pdf}}
   \subfloat{\label{fig:coils_dipole_section_0}
-    \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_simplified_0.pdf}}
+    \includegraphics[width=.49\linewidth]{gfx/coils/algorithm_simplified_0.pdf}}
   \\
   \subfloat{\label{fig:coils_dipole_3d_3}
-    \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_net_3.pdf}}
-  \quad
+    \includegraphics[width=.49\linewidth]{gfx/coils/algorithm_net_3.pdf}}
   \subfloat{\label{fig:coils_dipole_section_2}
-    \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_simplified_2.pdf}}
+    \includegraphics[width=.49\linewidth]{gfx/coils/algorithm_simplified_2.pdf}}
   \\
   \subfloat{\label{fig:coils_dipole_3d_5}
-    \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_net_5.pdf}}
-  \quad
+    \includegraphics[width=.49\linewidth]{gfx/coils/algorithm_net_5.pdf}}
   \subfloat{\label{fig:coils_dipole_section_4}
-    \includegraphics[width=.4\linewidth]{gfx/coils/algorithm_simplified_4.pdf}}
+    \includegraphics[width=.49\linewidth]{gfx/coils/algorithm_simplified_4.pdf}}
   \caption{Following the algorithm to simplify a coil. The left column shows the net of a current with the total current along edges of tiles. In each iteration the loop with the highest current is found and transferred onto the simplified solution, shown in the right column. We show iterations, from top: zeroth, fourth and eighth.}\label{fig:simplification_algorithm}
 \end{figure*}
 
@@ -242,10 +238,9 @@ where $H_n$ are the expansion coefficients, and $\mathbf{P}_n(\mathbf{r})$ are t
 \begin{figure*}
   \centering
   \subfloat{\label{fig:coils_dipole_3d}
-    \includegraphics[width=.35\linewidth]{gfx/coils/coil_dipole.pdf}}
-  \quad
+    \includegraphics[width=.39\linewidth]{gfx/coils/coil_dipole.pdf}}
   \subfloat{\label{fig:coils_dipole_section}
-    \includegraphics[width=.55\linewidth]{gfx/coils/coil_dipole_section_with_dipole.pdf}}
+    \includegraphics[width=.59\linewidth]{gfx/coils/coil_dipole_section_with_dipole.pdf}}
   \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of 0.75. On the left-hand side the total current along each edge of the dipole compensation coil is depicted. On the right-hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at \num{0.1} and \SI{100}{\micro\tesla}). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}\label{fig:showcase}
 \end{figure*}
 
