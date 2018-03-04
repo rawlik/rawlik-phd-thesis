@@ -1,4 +1,5 @@
 \chapter{Mapping}
+\label{ch:mapping}
 An active compensation system can only compensate those fields well, which its coil system can create. The question is
 
 
@@ -101,6 +102,7 @@ In the prototype $x_0 = 0$. This had the consequence, that the precision of dete
 
 
 \section{LPSC campaign}
+\label{sec:lpsc_campaign}
 The small-scale prototype setup was used to perform a mapping of the magnetic field of two rooms in Laboratoire de Physique Subatomique \& Cosmologie (LPSC) in Grenoble, France. The campaign took place in the days 6.-10.03.2017, with the much appreciated help of Rémi Faure, Guillaume Pignol and Dominique Rebreyend. The rooms, referred to as \emph{Bastille} and \emph{Chalet}, were considered to host a magnetic-field sensitive setup for ${}^{199}$Hg magnetometry. Of particular interest were the gradients, which cause an increase in the depolarisation rate of the mercury atoms~\cite{FertlThesis}.
 \note{In that case the gradients should be below roughly \SI[per-mode=symbol]{10}{\nano\tesla\per\centi\metre}, but I don't know why. Ask someone?}
 % In particular, gradients above roughly \SI[per-mode=symbol]{10}{\nano\tesla\per\centi\metre} 
@@ -152,6 +154,10 @@ The data, the position and orientation of the tower, as well as the magnetic fie
   \caption{The map of the magnitude of the magnetic field. Each tile depicts a horizontal plane, the field measured by one magnetic sensor. For each point, registered at \SI{50}{\hertz} rate, the magnitude is plotted; the colour in between the measurement points is linearly interpolated. On the ceiling there are small strong sources of the magnetic field and the colour scale is saturated.}\label{fig:mapping_bastille_magnitude}
 \end{figure}
 
+
+
+\section{Data treatment}
+\label{sec:mapping_lpsc_data_treatment}
 A map of the magnetic field is plotted in Fig.\,\ref{fig:mapping_bastille_magnitude}. Horizontal slices (each a different sensor) of the magnitude of the magnetic field are shown, with the height of the slice above the floor indicated. It is clearly visible, that there are localised sources of magnetic disturbance above the roof, later attributed to elements of an air-conditioning system mounted on the roof of the hut.
 
 \begin{figure}
@@ -204,7 +210,10 @@ The campaign at LPSC first of all resulted in a detailed magnetic characterisati
 
 
 \section{PSI Area South campaign}
-The mapping of the Area South in the UCN hall at PSI, the location of the nEDM and n2EDM experiments, took place in the days 18--22.12.2017 and 2--12.01.2017. In that time the nEDM apparatus has already been disassembled and a reinforced concrete foundation for the n2EDM experiment has been laid. After the n2EDM apparatus is set up it will occupy the area and no magnetic mapping will be possible. The goal of the mapping campaign was to characterise the magnetic field environment. Of particular interest were the nearby strong magnets. It was mainly done for the active magnetic field compensation system, as necessary input for coil design.
+The mapping of the Area South in the UCN hall in PSI, the location of the nEDM and n2EDM experiments, took place in the days 19.12.2017--12.01.2018. In that time the area was empty---the nEDM apparatus had already been disassembled and a reinforced concrete foundation for the n2EDM experiment had been laid.
+% After the n2EDM apparatus would be set up it would occupy the area and no magnetic mapping will be possible.
+The goal of the mapping campaign was to characterise the magnetic field environment, in particular the different fields created by nearby magnets.
+The information would provide the information necessary to design an active system, that would efficiently compensated for those fields.
 The mapping campaign was a joint venture with Solange Emmenegger and Jochen Krempel.
 % \marginpar{The mapping took place in the days 18--22.12.2017 and 2--12.01.2017.}
 % Acknowledge that it is a joint work with Solange Emmenegger and Jochen Krempel.
@@ -212,11 +221,20 @@ The mapping campaign was a joint venture with Solange Emmenegger and Jochen Krem
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/mapping/PSI_mapping_photos/image_nedm-constructioncam2_2018-01-12_13-04-00.jpg}
-  \caption{\ldots}\label{fig:mapping_photo}
+  \caption{The Area South in the UCN hall in PSI\@. The brown square is the foundation for the n2EDM apparatus, covered with carton. }\label{fig:mapping_photo}
 \end{figure}
 
 % First say about the area - how large, refer to a picture.
-The volume to map was much larger then in LPSC and the device needed to be enlarged. The `L-piece' was enlarged to \ldots. The tower was \SI{8}{\metre} high. An additional sensor was added directly above the floor. The other elements, string potentiometers, magnetic field sensors and DAQ, remained the same. \note{get the geometry}
+\marginpar{The total weight of the n2EDM shield is 47 tons.}
+The prototype mapper used in the LPSC campaign was extended to its full-scale. The Area South, pictured in Fig.\,\ref{fig:mapping_photo}, is about \note{get the info} large.
+The $5 \times 5 \times \SI{5}{\metre}$ magnetic shield of n2EDM would reach up to \note{info}. In the full-scale setup the arms of the `L-piece' were \note{info} long and the tower was \SI{8}{\metre} high.
+\marginpar{The tower was built out of aluminum trusses, typically used for stages.}
+An additional magnetic field sensor directly above the floor was added. Other than that, no changes from the prototype were made. The string potentiometers, the magnetic field sensors and the data acquisition system remained the same.
+
+% The mapper used in the LPSC campaign needed to be enlarged, so that it could map the whole volume in the Area South.
+% The volume to map was much larger then it was the case in the LPSC campaign. and the device needed to be enlarged. The `L-piece' was enlarged to \ldots. The tower was \SI{8}{\metre} high. An additional sensor was added directly above the floor. The other elements, string potentiometers, magnetic field sensors and DAQ, remained the same. \note{get the geometry}
+% Then say what kind of mapper was necessary to map that. Most of the hardware kept, just made larger.
+% The Area South is pictured in Fig.\,\ref{fig:mapping_photo}. It is roughly \note{GET THE SIZE} in size. The n2EDM magnetically shielded room, $5 \times 5 \times \SI{5}{\metre}$ large itself, ends \note{the height}.
 
 \begin{figure}
   \centering
@@ -224,14 +242,12 @@ The volume to map was much larger then in LPSC and the device needed to be enlar
   \caption{A map of the magnetic field in one plane, height around \note{HEIGHT} above the floor. \note{Get a plot from Solange with the outline of the hall marked, or make one myself.}}\label{fig:mapping_photo}
 \end{figure}
 
-% Then say what kind of mapper was necessary to map that. Most of the hardware kept, just made larger.
-The Area South is pictured in Fig.\,\ref{fig:mapping_photo}. It is roughly \note{GET THE SIZE} in size. The n2EDM magnetically shielded room, $5 \times 5 \times \SI{5}{\metre}$ large itself, ends \note{the height}.
-\marginpar{The total weight of the n2EDM shield is 47 tons.}
-
 % Now about the magnets - COMET, SULTAN and COBRA. SULTAN daily ramps, COBRA and COMET just one ramp. Many maps and then combination thereof.
-There were three strong magnets close to the area: COMET, SULTAN and COBRA\@. COMET is a medical cyclotron located several meters into the concrete biological shielding on the far-side wall in Fig.\,\ref{fig:mapping_photo}. Its field, very inhomogeneous due to the vicinity of the source, was around \SIrange[range-phrase=--,range-units=single]{10}{80}{\micro\tesla} strong. COMET was very rarely turned off. Fortunately, during the mapping campaign there was scheduled power-cut for which COMET was turned off. It made it possible to measure its field, too. SULTAN is a superconducting magnet for material research located around \SI{15}{\metre} \note{verify} away from the site. It ramps daily, creating a roughly \SI{50}{\micro\tesla} field in the area. COBRA is a magnet located in a neighbouring experimental hall. The strength of its field is around \SI{5}{\micro\tesla}.
+There were three strong magnets close to the area: COMET, SULTAN and COBRA\@. COMET is a medical cyclotron located several meters into the concrete biological shielding on the far-side wall in Fig.\,\ref{fig:mapping_photo}. Its field, very inhomogeneous due to the vicinity of the source, was around \SIrange[range-phrase=--,range-units=single]{10}{50}{\micro\tesla} strong. COMET is very rarely turned off. Fortunately, during the mapping campaign there was scheduled power-cut, for which the cyclotron was ramped down. SULTAN is a superconducting magnet for material research, located around \SI{15}{\metre} away from the site. It ramps daily, creating a roughly \SI{50}{\micro\tesla} field in the area. COBRA is a magnet located in a neighbouring experimental hall. The strength of its field is around \SI{5}{\micro\tesla}.
 
-In total \note{list of maps} maps were taken with various combinations of the magnets. They are summarised in Tab.\,\ref{tab:psi_mapping_maps}. As of April 2018 the analysis of this maps in ongoing.~\cite{EmmeneggerThesis}. They will provide an input to decide which coils of the cartesian harmonics are going to be built, or even dedicated ones, and what remnant field may be expected.
+In total 25 maps were taken with various combinations of the states of the magnets. The maps are summarised in Tab.\,\ref{tab:psi_mapping_maps}.
+As of April 2018 the analysis of this maps in ongoing~\cite{EmmeneggerThesis}.
+The procedure of binning and subtracting the maps (Sec.\,\ref{sec:mapping_lpsc_data_treatment}) will allow the field of each of the three magnets to be estimated. The measurements will be an important input to the design of the n2EDM active magnetic field compensation system. They will help to decide coils corresponding to which of the cartesian harmonics should be built. Maybe coils dedicated for a particular high-order disturbance, like COMET, will be designed based on the maps. 
 
 \begin{table}
   \centering
@@ -269,3 +285,9 @@ In total \note{list of maps} maps were taken with various combinations of the ma
 
 
 
+\section{Conclusion}
+The prototype at ETH, described in Ch.\,\ref{ch:sfc-prototype}, has demonstrated an active magnetic field compensation system with an unprecedentedly large fiducial volume. Thereby it constructively shows, that an active magnetic field compensation system for the n2EDM experiment can be built.
+
+The maps of the magnetic field at the site of n2EDM provide a crucial input to the design of the coils of the active compensation system. The design can be done fully within the framework of the new coil design method, the topic of Ch.\,\ref{ch:coil_design}.
+
+The developments of this work lay the foundation for an active magnetic field compensation system for the n2EDM experiment, which would reduce the tens-of-microteslas variations down to just a few.
