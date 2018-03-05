@@ -2,23 +2,23 @@
 \chapter{Coil design} % Chapter title
 \label{ch:coil_design}
 
-In this chapter we present a method to design a coil producing an arbitrarily shaped magnetic field by restricting the path of the coil's wires to a regular grid. The solution is then found by a simple least squares minimum. We discuss practical applications, in particular in an active magnetic shielding.
+In this chapter we present a new method to design a coil producing an arbitrarily shaped magnetic field. We achieve that by restricting the path of the coil's wires to a regular grid. The solution is then found by a simple least squares minimum. We discuss practical applications, in particular in an active magnetic shielding.
 % Also, the software implementation of the method is published.
 
 \section{Introduction}
 \marginpar{This chapter is largely adapted from the author's publication CITE WHEN AVAILABLE}
 % \note{Correct the langague and style to be consistent with the rest of the work. In particular, don't use so much \emph{we}.}
-How to design a coil, or more generally, an arrangement of coils, producing a desired magnetic field? In its simplest form this is a textbook problem (e.g.\ ex. 6.55 and 6.62 in~\cite{Purcell}). Yet, in a general setting it is surprisingly hard and the solutions, how the wires making up the coils should be laid, complicated. The most widespread application of high-performance coils is Magnetic Resonance Imaging (MRI), where gradient coils give the possibility to produce spatial images. Already in the 1980's elaborate methods of MRI coil design have been developed. They range from optimizing positions of discrete windings, where the use is made of symmetries specific to MRI, to analytical methods yielding surface current density, which is then discretised. A general overview can be found in~\cite{Turner1993}. Another field known for complex, precise coils is plasma confinement, in particular stellarators~\cite{Beidler1990}. There analytical solutions for the surface current density find their use, too.
+How to design a coil, or more generally, an arrangement of coils, producing a desired magnetic field? In its simplest form this is a textbook problem (e.g.\ ex. 6.55 and 6.62 in Ref.\,\cite{Purcell}). Yet, in a general setting it is surprisingly hard and the solutions, how the wires making up the coils should be laid, complicated. The most widespread application of high-performance coils is Magnetic Resonance Imaging (MRI), where gradient coils give the possibility to produce spatial images. Already in the 1980's elaborate methods of MRI coil design have been developed. They range from optimizing positions of discrete windings, where the use is made of symmetries specific to MRI, to analytical methods yielding surface current density, which is then discretised. A general overview can be found in Ref.\,\cite{Turner1993}. Another field known for complex, precise coils is plasma confinement, in particular stellarators~\cite{Beidler1990}. There analytical solutions for the surface current density find their use, too.
 
 % \note{Cite also this: \cite{Del-Pino-Lopez2015}, they use a genetic algorithm to optimize the coils.}
 
-Here, a new method is presented, that may not be competitive in terms of precision, but is distinct in its simplicity, also when it comes to construction of its designs. It relies on an algebraic representation of the problem, where coil design is simplified to a simple linear least squares problem. In the method the coils are restricted to a user-defined mesh, making it easy to deal with spatial constraints.
+Here, a new method is presented, that may not be competitive in terms of precision, but is distinct in its simplicity. Also when it comes to construction of its designs. It relies on an algebraic representation of the problem, where coil design is simplified to a simple linear least squares problem. In the method the coils are restricted to a user-defined mesh, making it easy to deal with spatial constraints.
 
-The discussion is based on textbook linear algebra techniques, notably solving an over-determined system of linear equations, thoroughly discussed e.g.\ in~\cite{Anton}. The main physics problem, calculating the magnetic field of coils composed of straight wire segments, is briefly discussed here. More in-depth discussions can be found, for example, in~\cite{Griffith}. Furthermore, the implementation of the discussed problems, including examples, has been published and open-sourced~\cite{Coilsjlcode}.
+The discussion is based on textbook linear algebra techniques, notably solving an over-determined system of linear equations, thoroughly discussed e.g.\ in Ref.\,\cite{Anton}. The main physics problem, calculating the magnetic field of coils composed of straight wire segments, is briefly discussed here. More in-depth discussions can be found, for example, in Ref.\,\cite{Griffith}. Furthermore, the implementation of the discussed problems, including examples, has been published and open-sourced~\cite{Coilsjlcode}.
 
 % The method has originally been developed to design coils of the active magnetic field stabilization system of the neutron electric dipole moment (nEDM) experiment at the Paul Scherrer Institute in Villigen, Switzerland. This application, described in detail in~\cite{Afach2014}, which we discuss later in the paper, requires large (6--8 meters side length) coils. In the presented method the coil system is designed on a predefined grid. This makes the construction of complicated coils feasible, despite the size.
 
-We begin with a description of our model for a restricted 2-dimensional case and generalize it to three dimensions. We then present how the model is used to design a coil, based on an example. Further we discuss possibilities of simplifying the solution. Another section is devoted to practical considerations, significant for the eventual construction. Finally, the application to active magnetic field shielding is considered.
+We begin with a description of our model for a restricted two-dimensional case and generalize it to three dimensions. We then present how the model is used to design a coil, based on an example. Further we discuss possibilities of simplifying the solution. Another section is devoted to practical considerations, significant for the eventual construction. Finally, the application to active magnetic field shielding is considered.
 
 
 
@@ -34,7 +34,7 @@ where $\bm{n}$ is a unit vector in the direction $\bm{x}_2 -\bm{x}_1$. The magni
   \label{eq:biot_savart}
   B = \frac{\mu_0 I}{4 \pi \rho} \, \left| \sin \alpha_2 + s\, \sin \alpha_1 \right| \ ,
 \end{equation}
-where the angles $\alpha_i$ are not directed:
+where the angles $\alpha_i$ are not directed
 \begin{equation}
   \alpha_i = \frac{ \left\lVert \left( \bm{x}_i - \bm{p} \right) \times \bm{\rho} \right\rVert }{ (x_i  - p) \rho } \ ,
 \end{equation}
@@ -43,12 +43,12 @@ and $s$ is $+1$ if $\bm{\rho}$ points onto the wire segment (between points $\bm
   s = \mathrm{sgn}\left( \tfrac{1}{2} \left\lVert \bm{x}_2 - \bm{x}_1 \right\rVert -
   \left\lVert \bm{p} + \bm{\rho} - \tfrac{1}{2} \left( \bm{x}_1 + \bm{x}_2 \right) \right\rVert \right)
 \end{equation}
-\marginpar{Another formulation, with better numerical properties close to the axis of the wire, can be found in~\cite{Hanson2002}.}
+\marginpar{Another formulation, with better numerical properties close to the axis of the wire, can be found in Ref.\,\cite{Hanson2002}.}
 The direction of the field is given by the right-hand principle:
 \begin{equation}
   \mathbf{B} = \frac{B}{\rho} \bm{\rho} \times \bm{n}
 \end{equation}
-This formulation is independent of the coordinate system (coordinate-system dependent solutions can be found e.g.\ in~\cite{Grivich2000}).
+This formulation is independent of the coordinate system (coordinate-system dependent solutions can be found e.g.\ in Ref.\,\cite{Grivich2000}).
 
 % (x1 .- p) .- ((x1 .- p) ⋅ n) * n
 
@@ -59,7 +59,7 @@ This formulation is independent of the coordinate system (coordinate-system depe
 \end{figure}
 
 Imagine four wire segments making up a square loop---a coil. It produces a certain magnetic field in the entire space $\mathbf{B}(\mathbf{x})$, given, following the superposition principle, by a sum of the fields produced by each segment of the coil.
-By changing the current in the coil we alter only one parameter of the magnetic field---the magnitude, but not its shape. It can, therefore, be said that one coil spans a one-dimensional space of magnetic fields it can produce. Adding a second, different coil creates a system spanning a two-dimensional space of fields, as the magnetic field is additive. Going a step further, four square coils tiled to form a larger square form a four-dimensional space, as shown in Fig.\,\ref{fig:coils_tile_basis}. Any coil restricted to the $2 \times 2$ grid can be represented in the base of the four tile-coils.
+With changing the current in the coil only one parameter of the magnetic field is altered---the magnitude, but not its shape. It can, therefore, be said that one coil spans a one-dimensional space of magnetic fields it can produce. Adding a second, different coil creates a system spanning a two-dimensional space of fields, as the magnetic field is additive. Going a step further, four square coils tiled to form a larger square form a four-dimensional space, as shown in Fig.\,\ref{fig:coils_tile_basis}. Any coil restricted to the $2 \times 2$ grid can be represented in the base of the four tile-coils.
 
 The range of magnetic field reachable by coils restricted to a grid is a subset of all possible fields that can be created with coils constructed on the square's surface. The size of the subset is controlled by $N$, the number of tile-coils forming the grid.
 % It is worthwhile to note that, in fact, a coil is equivalent to the field it produces . By constructing the grid we have thus restricted ourselves to a subset of \emph{coils} that are possible to construct on the square.
@@ -73,7 +73,7 @@ In this system a coil is fully described by a vector of $N$ currents, one in eac
   \caption{a) A basis of four tile coils on a flat square. Any coil which has its wires restricted to lie on the $2 \times 2$ grid can be represented as a linear combination of the four base tile coils. b, c, d) Three coils are presented together with their explicit coordinates in the basis.}\label{fig:coils_tile_basis}
 \end{figure}
 
-Generalisation onto a cube is simple, a cube being made up of six square faces. Interestingly, for the assembly in the three-dimensional space one degree of freedom is lost.  Figure~\ref{fig:coils_tile_kernel} illustrates, in the simplest case $N = 6$, a configuration in which finite currents in all six coils cancel and no magnetic field is produced. Such a combination of currents can be added to any solution with no effect on the produced field. Effectively, the space of the fields they can produce has dimension five (i.e.\ $N-1$). In other words, the mapping of $\mathbb{I}$ onto fields $\mathbf{B}(\mathbf{x})$ has in this case a one-dimensional kernel. This fact is of importance when it comes to numerically solving the system.
+Generalisation onto a cube is simple. A cube is made up of six square faces. Interestingly, for the assembly in the three-dimensional space one degree of freedom is lost.  Figure~\ref{fig:coils_tile_kernel} illustrates, in the simplest case $N = 6$, a configuration in which finite currents in all six coils cancel and no magnetic field is produced. Such a combination of currents can be added to any solution with no effect on the produced field. Effectively, the space of the fields they can produce has dimension five (i.e.\ $N-1$). In other words, the mapping of $\mathbb{I}$ onto fields $\mathbf{B}(\mathbf{x})$ has in this case a one-dimensional kernel. This fact is of importance when it comes to numerically solving the system.
 
 \begin{figure}
   \centering
@@ -86,7 +86,7 @@ This is the foundation of the method. The restriction to a grid on a cuboid enab
 
 
 \section{Coil design}
-In the problem of coil design one wants to create a coil, or an arrangement of coils, which best approximates a given field in a certain volume, which we will call \emph{the volume of interest}. Rather than considering the whole volume, an ensemble of $m$ points of interest on its surface is picked (the surface is sufficient because $\nabla \cdot \mathbf{B} = 0$). Hence, the magnetic field $\mathbf{B}(\mathbf{x})$ only at these points is considered and the values $\mathbf{B}(\mathbf{x}_i)$ for $i = 1 .. m$ are gathered into a vector of dimension $3m$ ($B_x$, $B_y$ and $B_z$ in each point), which we shall denote $\mathbb{B}$.
+In the problem of coil design a coil is sought, or an arrangement of coils, which best approximates a given field in a certain volume. The volume we shall call \emph{the volume of interest}. Rather than considering the whole volume, an ensemble of $m$ points of interest on its surface is picked (the surface is sufficient because $\nabla \cdot \mathbf{B} = 0$). Henceforth, the magnetic field $\mathbf{B}(\mathbf{x})$ only at these points is considered. The values $\mathbf{B}(\mathbf{x}_i)$ for $i = 1 .. m$ are gathered into a vector of dimension $3m$ ($B_x$, $B_y$ and $B_z$ in each point), which we shall denote $\mathbb{B}$.
 
 % Note, that magnetic field produced by a coil at a given point in space is proportional to the current in this coil. For a fixed direction in a fixed point in space it is a linear combination of currents of all coils in the system. Now, if we consider a vector of 3 spatial directions in $M$ points \ie, dimension $3M$. It can be obtained from an arbitrary coil $C$ by multiplying it by a $NNN \times 3M$ matrix $\mathbb{M}$. This matrix encodes the geometry of the system and may be pre-calculated.
 
@@ -97,7 +97,7 @@ As mentioned before, the magnetic field produced by a coil at any given point in
 \end{equation}
 where $M \in \mathbb{R}^{3 m} \times \mathbb{R}^{N}$ is a matrix of proportionality constants. For example, the element $M_{(5, 2)}$ is the proportionality constant between the current in the second of $N$ coils and the magnetic field in the $y$ direction in the second of $m$ points of interest, $B_y(\mathbf{x}_2)$. The matrix $M$ can be calculated analytically using the Biot-Savart law.
 
-Equation~\ref{eq:matrix}, for $3m > N - 1$, is an over-determined system of linear equations, $\mathbb{I}$ being the vector of unknowns. The optimal least-squares solution $\mathbb{I}_0$ to produce a $\mathbf{B}_0(\mathbf{x})$ in the volume of interest is:
+Equation~\ref{eq:matrix}, for $3m > N - 1$, is an over-determined system of linear equations, $\mathbb{I}$ being the vector of unknowns. The optimal least-squares solution $\mathbb{I}_0$ to produce a $\mathbf{B}_0(\mathbf{x})$ in the volume of interest is
 \begin{equation}
   \label{eq:requirement}
   % M \, \mathbb{I} \stackrel{!}{=} \mathbb{B}_0
@@ -116,7 +116,7 @@ Depending on the properties of $M$ the optimum may be multidimensional. In parti
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/coils/homogeneous_tiles_norm_1000.pdf}
-  \caption{A solution of a tile system with $N = 6 \times (3 \times 3)$ tiles on a unit cube for a homogeneous field. The volume of interest is a cube with side length 0.75, centered inside the unit cube. Numbers indicate currents in the tile coils in arbitrary units. The currents are normalized so that the highest is 1000. For clarity, the coils are depicted slightly smaller; in the model their edges overlap. The currents on the three invisible faces are by symmetry analogous to the visible ones.}\label{fig:homogeneous_tiles}
+  \caption{A solution of a tile system with $N = 6 \times (3 \times 3)$ tiles on a unit cube for a homogeneous field. The volume of interest is a cube with side length \num{0.75}, centered inside the unit cube. Numbers indicate currents in the tile coils in arbitrary units. The currents are normalized so that the highest is \num{1000}. For clarity, the coils are depicted slightly smaller; in the model their edges overlap. The currents on the three invisible faces are by symmetry analogous to the visible ones.}\label{fig:homogeneous_tiles}
 \end{figure}
 
 \begin{figure*}
@@ -125,16 +125,16 @@ Depending on the properties of $M$ the optimum may be multidimensional. In parti
     \includegraphics[width=.49\linewidth]{gfx/coils/homogeneous_performance.pdf}}
   \subfloat{\label{fig:homogeneous_performance_b}
     \includegraphics[width=.49\linewidth]{gfx/coils/homogeneous_performance_smaller_volume.pdf}}
-  \caption{Magnetic field produced by a coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles on a unit cube. The field lines are depicted in grey. Contours show boundaries of 0.5, 1 and 10\% magnitude deviation from an ideal homogeneous field. Horizontal cross sections in the middle-height plane are shown. Two designs are presented. Left-hand side: the volume of interest is a cube with side length 0.75 (the individual tile coil currents are depicted in Fig.\,\ref{fig:homogeneous_tiles}), right-hand side: the size of volume of interest is reduced to 0.5.}\label{fig:homogeneous_performance}
+  \caption{Magnetic field produced by a coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles on a unit cube. The field lines are depicted in grey. Contours show boundaries of \num{0.5}, \num{1} and \SI{10}{\percent} magnitude deviation from an ideal homogeneous field. Horizontal cross sections in the middle-height plane are shown. Two designs are presented. Left-hand side: the volume of interest is a cube with side length \num{0.75} (the individual tile coil currents are depicted in Fig.\,\ref{fig:homogeneous_tiles}), right-hand side: the size of volume of interest is reduced to \num{0.5}.}\label{fig:homogeneous_performance}
 \end{figure*}
 
-Let us consider an example of a coil design on a unit cube with the number of tiles $N = 6 \times (3 \times 3)$ (see Fig.\,\ref{fig:homogeneous_tiles}). As the volume of interest we pick a cube, centered with the unit one, with side length 0.75 (with a regular mesh of $10 \times 10$ points on each face, a total of $m = 488$ points of interest). For the sake of simplicity we design a coil for a homogeneous field along an axis of the cube. The solution of Eq.\,\ref{eq:requirement}, $\mathbb{I}_0$, directly gives the currents in each tile, which are graphically depicted in Fig.\,\ref{fig:homogeneous_tiles}. Note, that many currents almost cancel each other, in particular those along horizontal edges. The magnetic field produced by the solution is shown in Fig.\,\ref{fig:homogeneous_performance_a}, as a horizontal cut along the central plane. Contours show the relative deviation from the homogeneous field. Inside the volume of interest, depicted with a dashed line, the design goal of a homogeneous field, is reproduced with few per cent accuracy. The solution, and thus the contours too, depend on the choice of the volume of interest. In general, the further away the volume of interest is from the coils, the better the accuracy. If the side length of the volume of interest is decreased to 0.5, the accuracy improves to 1\%, as shown in Fig.\,\ref{fig:homogeneous_performance_b}. The optimal solution, and thereby the shape of the precision contours, change. Naturally, the accuracy of the field reproduction can also be improved by increasing the number of tiles.
+Let us consider an example of a coil design on a unit cube with the number of tiles $N = 6 \times (3 \times 3)$ (see Fig.\,\ref{fig:homogeneous_tiles}). As the volume of interest we pick a cube, centered with the unit one, with side length \num{0.75} (with a regular mesh of $10 \times 10$ points on each face, a total of $m = 488$ points of interest). For the sake of simplicity we design a coil for a homogeneous field along an axis of the cube. The solution of Eq.\,\ref{eq:requirement}, $\mathbb{I}_0$, directly gives the currents in each tile. They are graphically depicted in Fig.\,\ref{fig:homogeneous_tiles}. Note, that many currents almost cancel each other, in particular those along horizontal edges. The magnetic field produced by the solution is shown on the left-hand side in Fig.\,\ref{fig:homogeneous_performance}, as a horizontal cut along the central plane. Contours show the relative deviation from the homogeneous field. Inside the volume of interest (dashed line), the design goal of a homogeneous field is reproduced with few per cent accuracy. The solution, and thus the contours too, depend on the choice of the volume of interest. In general, the further away the volume of interest is from the coils, the better the accuracy. If the side length of the volume of interest is decreased to \num{0.5}, the accuracy improves to \SI{1}{\percent}, as shown on the right-hand side in Fig.\,\ref{fig:homogeneous_performance}. The optimal solution, and thereby the shape of the precision contours, change. Naturally, the accuracy of the field reproduction can also be improved by increasing the number of tiles.
 
 % The tile system may find an interesting practical application. Once independently controllable tiles have been build, it can be used to produce an arbitrary field. The precision is only limited by the number of tiles.
 
 
 \section{Simplification of the tile system}
-The tile system may find an interesting practical application. Once independently controllable tiles have been built, it can be used to produce an arbitrary field. However, building many independently driven coils is a high price to pay for producing only one, simple field. Additionally, each edge is shared between two tiles, and the effective current is the sum of two. They may add either constructively or destructively. If the given solution is dominated by subtraction of large currents, a lot of power is unnecessarily dissipated in the system. It turns out, that both problems can be solved by simplifying the tile solution.
+The tile system may find an interesting practical application. Once independently controllable tiles have been built, it can be used to produce an arbitrary field. However, building many independently driven coils is a high price to pay for producing only one field. Additionally, each edge is shared between two tiles, and the effective current is the sum of two. They may add either constructively or destructively. If the given solution is dominated by subtraction of large currents, a lot of power is unnecessarily dissipated in the system. It turns out, that both problems can be solved by simplifying the tile solution.
 
 \begin{figure*}
   \centering
@@ -169,7 +169,7 @@ The tile system may find an interesting practical application. Once independentl
   \caption{The coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles (Fig.\,\ref{fig:homogeneous_tiles}), simplified by adding the currents along each edge and decomposing into current loops.}\label{fig:homogeneous_coils}
 \end{figure}
 
-One starts by adding the currents of the adjacent tiles and assigning the sum to each common edge. The result is a complicated net of currents (upper left corner of Fig.\,\ref{fig:simplification_algorithm}). Still, each node fulfills Kirchhoff's laws. The net can then be decomposed into simple current loops by following the algorithm: First find in the net the loop with the highest current. In the example it is either of the ``597" loops on the front and back faces. This loop will make the first one in the simplified solution (it can be seen in the middle of the right column in Fig.\,\ref{fig:simplification_algorithm}, together with the next three loops). Then subtract from the net the current of the first loop along its edges (the net that remains after subtracting the first four loops is depicted in the middle of the left column in Fig.\,\ref{fig:simplification_algorithm}). Finally, continue to find the loop with the highest current in the modified net, which will give the next loop and repeat until the current net is empty. The net remaining after eight loops are found is depicted in the bottom row of Fig.\,\ref{fig:simplification_algorithm}, next to the first eight loops. The final simplified solution is shown in Fig.\,\ref{fig:homogeneous_coils}. The currents in the simplified coil system are much smaller, the highest being 597 instead of 1000 and they always add constructively. Also, the number of separate loops is decreased from 42 to 10. Still, the total current along each edge of a tile is exactly the same as in the tile configuration.
+One starts by adding the currents of the adjacent tiles and assigning the sum to each common edge. The result is a complicated net of currents (upper left corner of Fig.\,\ref{fig:simplification_algorithm}). Still, each node fulfills Kirchhoff's laws. The net can then be decomposed into simple current loops by following the algorithm: First find in the net the loop with the highest current. In the example it is either of the ``\num{597}'' loops on the front and back faces. This loop will make the first one in the simplified solution (it can be seen in the middle of the right column in Fig.\,\ref{fig:simplification_algorithm}, together with the next three loops). Then subtract from the net the current of the first loop along its edges (the net that remains after subtracting the first four loops is depicted in the middle of the left column in Fig.\,\ref{fig:simplification_algorithm}). Finally, continue to find the loop with the highest current in the modified net, which will give the next loop and repeat until the current net is empty. The net remaining after eight loops are found is depicted in the bottom row of Fig.\,\ref{fig:simplification_algorithm}, next to the first eight loops. The final simplified solution is shown in Fig.\,\ref{fig:homogeneous_coils}. The currents in the simplified coil system are much smaller, the highest being \num{597} instead of \num{1000} and they always add constructively. Also, the number of separate loops is decreased from \num{42} to \num{10}. Still, the total current along each edge of a tile is exactly the same as in the tile configuration.
 
 We conclude here our method of coil design. The simplified arrangement of coils is the optimal one, given the grid restriction, for approximating the magnetic field in the volume of interest. We continue to consider practical aspects, relevant for constructing the designs of the new method.
 
@@ -186,15 +186,15 @@ A limitation associated with the finite size of the channels is the strength of 
 
 % Using cable channels certainly would make it easy to build coil systems as large as many meters. When small systems are constructed, the effects associated with the finite size of the channels would become visible at some point. Another limitation associated with the finite size of the channels is the strength of the magnetic field that can be created, which, for given available power, is limited by the thickness of the wire. Using enameled wire, rather than standard, PVC-insulated cable, can reduce the thickness.
 
-In the proposed solution, in order to produce the desired field one still needs a system of several coils, even in the simplified solution. The more complicated the goal field, and the more tiles, the more different currents are needed across the individual loops, which quickly becomes impractical. There are several ways to tackle the problem.
+In the proposed solution in order to produce the desired field one still needs a system of several coils, even in the simplified solution. The more complicated the goal field, and the more tiles, the more different currents are needed across the individual loops, which quickly becomes impractical. There are several ways to tackle the problem.
 
-The first way is to use only one current and adjust by varying the number of windings. In the example, when one decides for 60 windings as the maximum, then the nominal current that would flow through the wire is $\mathrm{round}(597 / 60) = 10$. The 597, 360, 25, 13 and 5 would be created with 60, 36, 3, 1 and 1 windings, respectively. A discretisation error of $10 / 597 = 1.7\%$ is of the same order as the accuracy of the solution in representing the field (see Fig.\,\ref{fig:homogeneous_performance}). For more precise designs, the numbers of windings get larger, which is troublesome to construct and causes the coils to have larger inductances.
+The first way is to use only one current and adjust by varying the number of windings. In the example, when one decides for \num{60} windings as the maximum, then the nominal current that would flow through the wire is $\mathrm{round}(597 / 60) = 10$. The \num{597}, \num{360}, \num{25}, \num{13} and \num{5} would be created with \num{60}, \num{36}, \num{3}, \num{1} and \num{1} windings, respectively. A discretisation error of $10 / 597 = \SI{1.7}{\percent}$ is of the same order as the accuracy of the solution in representing the field (see Fig.\,\ref{fig:homogeneous_performance}). For more precise designs the numbers of windings get larger, which is troublesome to construct and causes the coils to have larger inductances.
 
-A second way is to use a current divider. Connect the different loops in parallel, each with an appropriately chosen resistance in series. This way the ratios between the currents in each loop can be tuned precisely. However, a practical realization will most likely involve routing all loops out of the system where the current divider is installed. For more complicated coil systems with tens of different currents this may be impractical.
+A second way is to use a current divider. That is to connect the different loops in parallel, each with an appropriately chosen resistance in series. This way the ratios between the currents in each loop can be tuned precisely. However, a practical realization will most likely involve routing all loops out of the system where the current divider is installed. For more complicated coil systems with tens of different currents this may be impractical.
 
 Yet another way is to split the loops into decades of currents.
+In the coil we use as an example, the currents \num{597}, \num{360}, \num{13}, \num{7}, \num{5} (in arbitrary units) may be constructed from a set of wires with three relative currents of \num{100}, \num{10} and \num{1}:
 \marginpar{A base different than 10 can be used, too.}
-In the coil we use as an example, the currents 597, 360, 13, 7, 5 (in arbitrary units) may be constructed from a set of wires with three relative currents of 100, 10 and 1:
 \begin{align*}
   597 & = 5 \times 100 + 9 \times 10 + 7 \times 1 \\
   360 & = 3 \times 100 + 6 \times 10 + 0 \times 1 \\
@@ -202,14 +202,14 @@ In the coil we use as an example, the currents 597, 360, 13, 7, 5 (in arbitrary 
   7 & = 0 \times 100 + 0 \times 10 + 7 \times 1 \\
   5 & = 0 \times 100 + 0 \times 10 + 5 \times 1 \ .
 \end{align*}
-In this way accuracy better than \SI{1}{\percent} in reproducing the solution can be reached with only 3 different currents to control, even for complicated designs. Those can be either separately controlled or split with a current divider.
+In this way accuracy better than \SI{1}{\percent} in reproducing the solution can be reached with only three different currents to control, even for complicated designs. Those can be either separately controlled or split with a current divider.
 
 No claim is made as to superiority of one of the three above solutions over the other two. It is up to the particular application which is the best suited one.
 
 
 
 \section{Application to active magnetic field shielding}
-Using the method presented here to design coils of an active compensation system offers improvements in two areas. Firstly, the size of the coils could be decreased, or the size of the experimental set-up increased, without loss of performance. Better homogeneity in a given volume can always be achieved by choosing a denser gird. Given the tight spatial constraints this was a crucial development for the design of the n2EDM's active compensation system.
+Using the method presented here to design coils of an active magnetic shield  offers improvements in two areas. Firstly, the size of the coils could be decreased, or the size of the experimental set-up increased, without loss of performance. Better homogeneity in a given volume can always be achieved by choosing a denser gird. Given the tight spatial constraints this was a crucial development for the design of the n2EDM's active shield.
 
 \begin{table}
   \centering
@@ -230,11 +230,11 @@ Using the method presented here to design coils of an active compensation system
 
 Secondly, the method allows to construct a coil for any field. In particular, one may choose to construct coils that produce fields orthogonal to one another. 
 % (as $\mathbb{R}^3 \rightarrow \mathbb{R}^3$ functions).
-This makes a compensation system significantly easier to control~\cite{MRM:MRM1910010107} and avoids a potential problem of the high condition number due to very-high-order fields produced by pathological combinations of coils. One of the possible orthogonal decompositions of the field is the one into \emph{cartesian harmonic polynomials}~\cite{Franke2013}:
+This makes an active shielding system significantly easier to control~\cite{MRM:MRM1910010107} and avoids a potential problem of the high condition number due to very-high-order fields produced by pathological combinations of coils (recall the discussion in Sec.\,\ref{sec:nedm_sfc_matrix}). One of the possible orthogonal decompositions of the field is the one into \emph{cartesian harmonic polynomials}~\cite{Franke2013}:
 \begin{equation}
   \mathbf{B}(\mathbf{r}) = \sum_{n}\,H_n \mathbf{P}_n(\mathbf{r}) \ ,
 \end{equation}
-where $H_n$ are the expansion coefficients, and $\mathbf{P}_n(\mathbf{r})$ are the cartesian harmonic polynomials, the first eight of which are listed in Table~\ref{tab:coils_cartesian_harmonics}. Each term satisfies by itself the Maxwell's equations, so it is possible to construct a coil for each. The first three terms are homogeneous fields, the next five are the five independent linear gradients. Further ones correspond to higher-order gradients.
+where $H_n$ are the expansion coefficients, and $\mathbf{P}_n(\mathbf{r})$ are the cartesian harmonic polynomials, the first eight of which are listed in Table~\ref{tab:coils_cartesian_harmonics}. Each term satisfies by itself the Maxwell's equations. The first three terms are homogeneous fields, the next five are the five independent linear gradients. Further ones correspond to higher-order gradients.
 
 \begin{figure*}
   \centering
@@ -242,7 +242,7 @@ where $H_n$ are the expansion coefficients, and $\mathbf{P}_n(\mathbf{r})$ are t
     \includegraphics[width=.39\linewidth]{gfx/coils/coil_dipole.pdf}}
   \subfloat{\label{fig:coils_dipole_section}
     \includegraphics[width=.59\linewidth]{gfx/coils/coil_dipole_section_with_dipole.pdf}}
-  \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of 0.75. On the left-hand side the total current along each edge of the dipole compensation coil is depicted. On the right-hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at \num{0.1} and \SI{100}{\micro\tesla}). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}\label{fig:showcase}
+  \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of \num{0.75}. On the left-hand side the total current along each edge of the dipole compensation coil is depicted. On the right-hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at \num{0.1} and \SI{100}{\micro\tesla}). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}\label{fig:showcase}
 \end{figure*}
 
 Additionally, one can consider constructing dedicated coils to counteract a particular known disturbance. In Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source is presented.
@@ -252,9 +252,7 @@ Last, but not least, the method's unique property of designing on a predefined g
 
 
 \section{Conclusion}
-Coil design is a complicated and very technical problem, especially when high accuracy is required. This work presents a method that is simple in terms of both underlying math and computational effort. The design method could find its niche in practical applications, where spatial constraints play a significant role and a percent level in accuracy of the produced field is acceptable.
-
-The method has particular advantages when used to design coils of an active magnetic field compensation system. In the next chapter, its application to construction of a compensation system at the ETH Zürich is described.
+Coil design is a complicated and very technical problem, especially when high accuracy is required. This work presents a method that is simple in terms of both underlying math and computational effort. The design method could find its niche in practical applications, where spatial constraints play a significant role and a percent level in accuracy of the produced field is acceptable. The method has particular advantages when used to design coils of an active magnetic field compensation system. In the next chapter, its application to construction of a compensation system at the ETH Zürich is described.
 
 % For the sake of clarity we explained the method on a simple example. We designed a coil for a homogeneous field with only few tiles. However, the method is much more powerful. We conclude by presenting, in Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source.
 
