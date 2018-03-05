@@ -115,7 +115,7 @@ Depending on the properties of $M$ the optimum may be multidimensional. In parti
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\linewidth]{gfx/coils/homogeneous_tiles_norm_1000.pdf}
+  \includegraphics[width=\linewidth]{gfx/coils/homogeneous_tiles_norm_1000.pdf}
   \caption{A solution of a tile system with $N = 6 \times (3 \times 3)$ tiles on a unit cube for a homogeneous field. The volume of interest is a cube with side length 0.75, centered inside the unit cube. Numbers indicate currents in the tile coils in arbitrary units. The currents are normalized so that the highest is 1000. For clarity, the coils are depicted slightly smaller; in the model their edges overlap. The currents on the three invisible faces are by symmetry analogous to the visible ones.}\label{fig:homogeneous_tiles}
 \end{figure}
 
@@ -165,7 +165,7 @@ The tile system may find an interesting practical application. Once independentl
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\linewidth]{gfx/coils/algorithm_simplified_5.pdf}
+  \includegraphics[width=\linewidth]{gfx/coils/algorithm_simplified_5.pdf}
   \caption{The coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles (Fig.\,\ref{fig:homogeneous_tiles}), simplified by adding the currents along each edge and decomposing into current loops.}\label{fig:homogeneous_coils}
 \end{figure}
 
@@ -194,15 +194,15 @@ A second way is to use a current divider. Connect the different loops in paralle
 
 Yet another way is to split the loops into decades of currents.
 \marginpar{A base different than 10 can be used, too.}
-In the coil we use as an example, the currents 597, 360, 13, 7, 5 (in arbitrary units) may be constructed from a set of wires with three relative currents of 100, 10 and 1, in the following way:
+In the coil we use as an example, the currents 597, 360, 13, 7, 5 (in arbitrary units) may be constructed from a set of wires with three relative currents of 100, 10 and 1:
 \begin{align*}
   597 & = 5 \times 100 + 9 \times 10 + 7 \times 1 \\
   360 & = 3 \times 100 + 6 \times 10 + 0 \times 1 \\
   13 & = 0 \times 100 + 1 \times 10 + 3 \times 1 \\
   7 & = 0 \times 100 + 0 \times 10 + 7 \times 1 \\
-  5 & = 0 \times 100 + 0 \times 10 + 5 \times 1 \\
+  5 & = 0 \times 100 + 0 \times 10 + 5 \times 1 \ .
 \end{align*}
-In this way one can reach better than 1\% accuracy in reproducing the solution with only 3 different currents to control, even for complicated designs. Those can be either separately controlled or split with a current divider.
+In this way accuracy better than \SI{1}{\percent} in reproducing the solution can be reached with only 3 different currents to control, even for complicated designs. Those can be either separately controlled or split with a current divider.
 
 No claim is made as to superiority of one of the three above solutions over the other two. It is up to the particular application which is the best suited one.
 
