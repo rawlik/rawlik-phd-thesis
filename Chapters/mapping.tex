@@ -1,18 +1,18 @@
 \chapter{Mapping}
 \label{ch:mapping}
-An active compensation system can only compensate those fields well, which its coil system can create. The question is
+An active magnetic shield relies on its coils to counteract field variations. A disturbance can only be compensated so well, as it can be approximated with the shield's coils. Therefore, an active shield will perform better if adapted to the magnetic environment, especially if the disturbances are high-order.
 
+As part of the design process for an active shield for the n2EDM experiment a characterisation of the magnetic fields on its site was performed. To that purpose a magnetic field mapper was build---a tower equipped with magnetic field sensors.
 
-A mapping campaign is planned in the experimental hall, where the n2EDM experiment is going to be located. There are numerous magnetic sources in the vicinity of the site, causing the magnetic environment to be unusually complex. Taking a number of magnetic field maps will provide knowledge necessary to make sure, that the n2EDM compensation system will be able to cope with the environment. A 2.5m high mobile tower with 10 3-axis magnetic field sensors has been constructed. The position and orientation of the tower is measured with cable extension transducers, which makes the mapping process as simple as sweeping an area with the tower. Reproducibility of the maps measured with the device was proven to be better than \SI{0.5}{\micro\tesla}.
+First, a small-scale prototype of the mapper was tested during a mapping campaign in LPSC, Grenoble, France. It was then extended to full-scale and used for measurements on the site of the n2EDM experiment.
 
-\note{maybe cite also:~\cite{Bodmer2013}}
 
 
 
 \section{The idea}
 An essential input to the design of the n2EDM active magnetic shield was the scope of fields that would need to be compensated. There were a few strong magnetic sources in the vicinity of the site, some of them ramping on a daily basis. Taking a number of maps of the magnetic field was planned to characterise the magnetic environment.
 
-Speed was valued more than precision. The shorter it would take to map the field in the whole area, around $10 \times \SI{12}{\metre}$, the less it would be influenced by the varying external conditions. Also, the variety of the magnetic environment favoured taking multiple maps under different conditions, rather than few precise ones.
+Speed was valued more than precision. The shorter it would take to map the field in the whole area, the less it would be influenced by the varying external conditions. Also, the variety of the magnetic environment favoured taking multiple maps under different conditions, rather than few precise ones.
 The implemented solution was a mobile tower equipped with magnetic field sensors at different heights. The position and orientation of the tower could be measured while it was moved around.
 
 \begin{figure}
@@ -110,7 +110,7 @@ The small-scale prototype setup was used to perform a mapping of the magnetic fi
 \marginpar{The string potentiometers were equipped with custom made attachments, that allowed the string to come at an angle out of the device. The point where the strings bent was taken to be the middle of the circle in the geometry solution.}
 A photograph of the mapping setup is shown in Fig.\,\ref{fig:mapping_bastille_setup}. The \SI{2.5}{\metre} high mobile tower was equipped with ten three-axis fluxgate magnetic field sensors (Stefan-Mayer FLC3--70, the same as used in the active magnetic field stabilisation system).
 The stationary ``L-piece'' held three string potentiometers (Micro-Eplison WDS-15000-P115-SA-P with a \SI{15}{\metre} extension range).
-The geometry parameters, as defined in Fig.\,\ref{fig:mapping_geometry}, were: $x_0 = 0$, $y_0 = \SI{1871}{\milli\metre}$, $a = \SI{623}{\milli\metre}$. The string-potentiometer for the orientation measurement was in the point $(\SI{1756}{\milli\metre}, 0)$.
+The geometry parameters, as defined in Fig.\,\ref{fig:mapping_geometry}, were: $x_0 = 0$, $y_0 = \SI{1871}{\milli\metre}$, $x_1 = \SI{1756}{\milli\metre}$, $a = \SI{623}{\milli\metre}$. The string-potentiometer for the orientation measurement was in the point $(\SI{1756}{\milli\metre}, 0)$.
 
 % Two of the strings were attached to a point where the vertical beam with the fluxgates is, the third (left on the picture) was attached to the black, short vertical profile on the tower.
 
@@ -215,10 +215,10 @@ The campaign at LPSC first of all resulted in a detailed magnetic characterisati
 
 
 \section{PSI Area South campaign}
-The mapping of the Area South in the UCN hall at PSI, the location of the nEDM and n2EDM experiments, took place in the days 19.12.2017--12.01.2018. In that time the area was empty---the nEDM apparatus had already been disassembled and a reinforced concrete foundation for the n2EDM experiment had been laid.
+The mapping of the Area South in the UCN hall at PSI, the location of the nEDM and n2EDM experiments, took place in the days 19.12.2017--12.01.2018. In that time the area was empty; the nEDM apparatus had already been disassembled and a reinforced concrete foundation for the n2EDM experiment had been laid.
 % After the n2EDM apparatus would be set up it would occupy the area and no magnetic mapping will be possible.
 The goal of the mapping campaign was to characterise the magnetic field environment, in particular the different fields created by nearby magnets.
-The information would provide the information necessary to design an active system, that would efficiently compensated for those fields.
+The information would provide the information necessary to design an active system, that would efficiently compensate for those fields.
 The mapping campaign was a joint venture with Solange Emmenegger and Jochen Krempel.
 % \marginpar{The mapping took place in the days 18--22.12.2017 and 2--12.01.2017.}
 % Acknowledge that it is a joint work with Solange Emmenegger and Jochen Krempel.
@@ -231,8 +231,9 @@ The mapping campaign was a joint venture with Solange Emmenegger and Jochen Krem
 
 % First say about the area - how large, refer to a picture.
 \marginpar{The total weight of the n2EDM shield is 47 tons.}
-The prototype mapper used in the LPSC campaign was extended to its full-scale. The Area South, pictured in Fig.\,\ref{fig:mapping_photo}, is about \note{get the info} large.
-The $5 \times 5 \times \SI{5}{\metre}$ magnetic shield of n2EDM would reach up to \note{info}. In the full-scale setup the arms of the ``L-piece'' were \note{info} long and the tower was \SI{8}{\metre} high.
+The prototype mapper used in the LPSC campaign was extended to its full-scale. The Area South, pictured in Fig.\,\ref{fig:mapping_photo}, is about $10 \times \SI{12}{\metre}$ large.
+The $5.2 \times 5.2 \times \SI{4.8}{\metre}$ magnetic shield of n2EDM would reach up to almost \SI{7}{\metre}. In the full-scale setup the parameters, defined as in Fig.\,\ref{fig:mapping_geometry}, were:
+$x_0 = 0$, $y_0 = \SI{3814}{\milli\metre}$, $x_1 = \SI{3673}{\milli\metre}$, $a = \SI{965}{\milli\metre}$. The tower was \SI{8}{\metre} high.
 \marginpar{The tower was built out of aluminum trusses, typically used for stages.}
 An additional magnetic field sensor directly above the floor was added. Other than that, no changes from the prototype were made. The string potentiometers, the magnetic field sensors and the data acquisition system remained the same.
 
@@ -252,7 +253,7 @@ There were three strong magnets close to the area: COMET, SULTAN and COBRA\@. CO
 
 In total 25 maps were taken with various combinations of the states of the magnets. The maps are summarised in Tab.\,\ref{tab:psi_mapping_maps}.
 As of April 2018 the analysis of this maps in ongoing~\cite{EmmeneggerThesis}.
-The procedure of binning and subtracting the maps (Sec.\,\ref{sec:mapping_lpsc_data_treatment}) will allow the field of each of the three magnets to be estimated. The measurements will be an important input to the design of the n2EDM active magnetic field compensation system. They will help to decide coils corresponding to which of the cartesian harmonics should be built. Maybe coils dedicated for a particular high-order disturbance, like COMET, will be designed based on the maps. 
+The procedure of binning and subtracting the maps (Sec.\,\ref{sec:mapping_lpsc_data_treatment}) will allow the field of each of the three magnets to be estimated. The measurements will be an important input to the design of the n2EDM active magnetic shield. They will help to decide what coils should be built. It could even be possible to design coils dedicated for a particular high-order disturbance, like COMET\@.
 
 \begin{table}
   \centering
@@ -291,8 +292,12 @@ The procedure of binning and subtracting the maps (Sec.\,\ref{sec:mapping_lpsc_d
 
 
 \section{Conclusion}
-The prototype at ETH, described in Ch.\,\ref{ch:sfc-prototype}, has demonstrated an active magnetic field compensation system with an unprecedentedly large fiducial volume. Thereby it constructively shows, that an active magnetic field compensation system for the n2EDM experiment can be built.
+Active shielding greatly improved magnetic field stability at the nEDM experiment at PSI\@. The design of a a shield for its successor, n2EDM, proved to be challenging due to tight spatial constraints.
 
-The maps of the magnetic field at the site of n2EDM provide a crucial input to the design of the coils of the active compensation system. The design can be done fully within the framework of the new coil design method, the topic of Ch.\,\ref{ch:coil_design}.
+A new method of magnetic field coil design targeted exactly the problem of spatial constraints. In the design process the coils are constrained to a predefined grid, which can be defined to fulfil the constraints. The coils also have a very large fiducial volume, which meant they could be fitted tightly around the apparatus.
 
-The developments of this work lay the foundation for an active magnetic field compensation system for the n2EDM experiment, which would reduce the tens-of-microteslas variations down to just a few.
+A prototype of a grid-based active shield demonstrated the unprecedentedly large fiducial volume. Thereby it constructively showed, that an active magnetic shield for the n2EDM experiment can be built.
+
+The maps of the magnetic field at the site of n2EDM would provide a crucial input to the design of the coils of the active shield. The design could be done fully within the framework of the new coil design method.
+
+The developments of this work laid the foundation for an active magnetic shield for the n2EDM experiment, which would reduce the tens-of-microteslas variations down to just a few.
