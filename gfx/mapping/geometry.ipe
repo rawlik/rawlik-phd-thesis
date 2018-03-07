@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180301104809" modified="D:20180301115137"/>
+<info created="D:20180301104809" modified="D:20180307150356"/>
 <preamble>\usepackage{palatino}
 \usepackage[osf,sc]{mathpazo}
 \usepackage{amsmath}
@@ -333,5 +333,10 @@ h
 <use name="mark/disk(sx)" pos="256 608" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="304 608" size="normal" stroke="black"/>
 <text matrix="1 0 0 1 106.881 -31.7903" transformations="translations" pos="118.752 727.194" stroke="black" type="label" width="5.786" height="5.784" depth="0.11" valign="baseline" size="large" style="math">a</text>
+<path stroke="black">
+277.645 729.254 m
+86.2506 0 0 -86.2506 191.899 719.942 216.443 637.258 a
+</path>
+<text matrix="1 0 0 1 174.642 -132.473" transformations="translations" pos="118.752 727.194" stroke="darkblue" type="label" width="32.677" height="9.349" depth="3.12" valign="baseline" size="large" style="math">(x_1,0)</text>
 </page>
 </ipe>
