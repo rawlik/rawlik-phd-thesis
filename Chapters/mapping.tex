@@ -10,15 +10,15 @@ A mapping campaign is planned in the experimental hall, where the n2EDM experime
 
 
 \section{The idea}
-An essential input to the design of the n2EDM active magnetic shield was the scope of fields that would need to be compensated. There were a few strong magnetic sources in the vicinity of the site, some ramping daily. Taking a number of maps of the magnetic field was planned to characterise the magnetic environment.
+An essential input to the design of the n2EDM active magnetic shield was the scope of fields that would need to be compensated. There were a few strong magnetic sources in the vicinity of the site, some of them ramping on a daily basis. Taking a number of maps of the magnetic field was planned to characterise the magnetic environment.
 
-Speed was valued more than precision. The shorter it would take to map the field in the whole area, around $10 \times \SI{12}{\metre}$, the less it would be influenced by varying external conditions. Also, the dynamics of the magnetic environment favoured taking multiple maps under different conditions, rather than few precise ones.
-The implemented solution was a mobile tower equipped with magnetic field sensors at different heights, whose position and orientation could be measured while the area was swept with it.
+Speed was valued more than precision. The shorter it would take to map the field in the whole area, around $10 \times \SI{12}{\metre}$, the less it would be influenced by the varying external conditions. Also, the variety of the magnetic environment favoured taking multiple maps under different conditions, rather than few precise ones.
+The implemented solution was a mobile tower equipped with magnetic field sensors at different heights. The position and orientation of the tower could be measured while it was moved around.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/setup.jpg}
-  \caption{The small-scale prototype of the magnetic field mapper. The mobile tower has ten fluxgate magnetometers attached to it. A bundle of readout cables is visible coming out of the tower. Behind, a rigid L-piece is visible with three string potentiometers mounted on it. A string is extended from each to the tower. \note{crop the picture still}}\label{fig:mapping_bastille_setup}
+  \includegraphics[width=\linewidth]{gfx/mapping/lpsc/setup_crop.jpg}
+  \caption{The small-scale prototype of the magnetic field mapper. The mobile tower has ten fluxgate magnetometers attached to it. A bundle of readout cables is visible coming out of the tower. Behind it a rigid L-piece is visible, which has three string potentiometers mounted on it. A string is extended from each to the tower.}\label{fig:mapping_bastille_setup}
 \end{figure}
 
 % present tense - describing a picture
@@ -32,19 +32,19 @@ The potentiometer gives an analogue signal proportional to the extension of the 
 
 
 
-\section{Principle of a string-potentiometer--based mapper}
-For a known extension of a wire the set of points where the other end can be is a circle. The position and orientation determination is, in fact, finding the intersections of those circles.
+\section{The principle of a string-potentiometer--based mapper}
+For a known extension of a wire the set of points where the other end can be is a circle. The measurement of the position and orientation of the tower is, in fact, finding the intersections of those circles.
 \marginpar{Other position determination methods include triangulation (measurement of angles between lines connecting a set of fixed points) and multilateration (measurement of the differences of distances between a set of fixed points).}
 In general, the problem of determining the location based on the measurement of the distance to a set of fixed points is called \emph{trilateration}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{gfx/mapping/geometry.pdf}
-  \caption{The geometry of the mapper's position and orientation determination. In the orange coordinate system, the one of the `L-piece', the position of the centre of the tower, depicted as a thick black line, is $(x,y)$. The positions of the string-potentiometers used to determine the tower's position are $(0, y_0)$ and $(x_0, 0)$ and the extensions of their wires: $r$ and $\rho$. Another, green, coordinate system is depicted, in which the position of one of the string-potentiometers is $(0,0)$ and the other $(d, 0)$. The position of the tower in this coordinate system is $(\xi, \nu)$. There is also a third string-potentiometer, its string, length $\delta$, attached to the tower on an arm of a length $a$.}\label{fig:mapping_geometry}
+  \caption{The geometry of the mapper's position and orientation determination. The tower is depicted as a thick black line. In the orange coordinate system, the one of the ``L-piece'', the position of the centre of the tower is $(x,y)$. The positions of the string-potentiometers used to determine the tower's position are $(0, y_0)$ and $(x_0, 0)$ and the extensions of their wires: $r$ and $\rho$. Another, green, coordinate system is depicted, in which the position of one of the string-potentiometers is $(0,0)$ and the other $(d, 0)$. The position of the tower in this coordinate system is $(\xi, \nu)$. There is also a third string-potentiometer, its string, length $\delta$, attached to the tower on an arm of a length $a$.}\label{fig:mapping_geometry}
 \end{figure}
 
-The geometry set by the circles is illustrated in Fig.\,\ref{fig:mapping_geometry}. The two string potentiometers used to determine the position are located is points $(x, y) = (0, y_0)$ and $(x_0, 0)$ (in the L-piece coordinate system, orange in the figure).
-The wires of those two, their lengths $r$ and $\rho$, are connected to a single point $(x,y)$, lying directly on the vertical beam holding the sensors. We will refer to the point as the centre, even though it is not necessarily the geometric centre of the tower. The centre lies on the intersection of the corresponding circles.
+The geometry is illustrated in Fig.\,\ref{fig:mapping_geometry}. The two string potentiometers used to determine the position are located is points $(x, y) = (0, y_0)$ and $(x_0, 0)$ (in the L-piece coordinate system, orange in the figure).
+The wires of those two, their lengths $r$ and $\rho$, are connected to a single point $(x,y)$, which lied directly on the vertical beam holding the sensors. We will refer to the point as the centre, even though it is not necessarily the geometric centre of the tower. The centre lies on the intersection of the corresponding circles.
 For the sake of simplicity, we first give the solution for the centre's position in the coordinate system depicted in green,
 % \note{maybe use the A B and C names here already}
 where the first string potentiometer is in $(0,0)$, the second in $(d, 0)$, with
@@ -56,8 +56,8 @@ and the tower's centre is in $(\xi, \nu)$. Then:
   \xi & = \frac{1}{2d} \left( d^2 - \rho^2 + r^2 \right) \\
   \nu & = \pm\ \frac{1}{2d} \sqrt{ (-d + \rho - r) (-d - \rho + r) (-d + \rho + r) (d + \rho + r) } \ .
 \end{align}
-There are two solutions, symmetric around the line connecting the centres of the circles. Typically, though, it can be assumed that the tower never crosses the line.
-The transformation of the solution to the `L-piece', orange, coordinate system is rotation by the angle 
+There are two solutions, symmetric around the line connecting the centres of the circles. It was assumed that the tower never crossed that line.
+The transformation of the solution to the ``L-piece'', orange, coordinate system is rotation by the angle 
 \begin{equation}
   \alpha = \mathrm{ctan}\, \frac{y_0}{x_0} \ ,
 \end{equation}
@@ -82,9 +82,9 @@ followed by a translation:
     y_0
   \end{pmatrix} \ .
 \end{equation}
-The orientation is determined with a used of the third potentiometer, its string attached to the tower at a distance $a$ from its centre. Then, the position of the attachment point lies on the intersection of the circle centred at $(x,y)$, radius $a$, and one centred at the potentiometer, radius equal to the measured extension of the wire $\delta$. In this case there are also two solutions, but ambiguity could be avoided by keeping the orientation of the tower approximately constant.
+The orientation is determined with a use of the third potentiometer, its string attached to the tower at a distance $a$ from its centre. Then the position of the attachment point lies on the intersection of the circle centred at $(x,y)$ with radius $a$, and one centred at the potentiometer, radius equal to the measured extension of the wire $\delta$. In this case there are also two solutions, but ambiguity could be avoided by keeping the orientation of the tower approximately parallel to the $x$-axis.
 
-In the prototype $x_0 = 0$. This had the consequence, that the precision of determining $x$ was poor, when simultaneously $y$ was large and $x$ small, as the circles intersected at a very small angle. Due to measurement noise and uncertainty in calibration (the relationship between the analogue signal and the extension of the wires) sometimes the circles did not intersect at all. In those cases, the middle point of the shortest line connecting the circles was taken as the solution.
+In the prototype $x_0 = 0$. This had the consequence, that the precision of determining $x$ was poor when simultaneously $y$ was large and $x$ small. Then the two circles intersected at a very small angle. Due to measurement noise and uncertainty in calibration (the relationship between the analogue signal and the extension of the wires) sometimes the circles did not intersect at all. In those cases, the middle point of the shortest line connecting the circles was taken as the solution.
 
 % in the same way, but with one circle centred in $(x,y)$, and the other at the 
 
@@ -103,13 +103,13 @@ In the prototype $x_0 = 0$. This had the consequence, that the precision of dete
 
 \section{LPSC campaign}
 \label{sec:lpsc_campaign}
-The small-scale prototype setup was used to perform a mapping of the magnetic field of two rooms in Laboratoire de Physique Subatomique \& Cosmologie (LPSC) in Grenoble, France. The campaign took place in the days 6.-10.03.2017, with the much appreciated help of Rémi Faure, Guillaume Pignol and Dominique Rebreyend. The rooms, referred to as \emph{Bastille} and \emph{Chalet}, were considered to host a magnetic-field sensitive setup for ${}^{199}$Hg magnetometry. Of particular interest were the gradients, which cause an increase in the depolarisation rate of the mercury atoms~\cite{FertlThesis}.
+The small-scale prototype setup was used to perform a mapping of the magnetic field of two rooms in Laboratoire de Physique Subatomique \& Cosmologie (LPSC) in Grenoble, France. The campaign took place in the days 6.-10.03.2017, with the much appreciated help of Rémi Faure, Guillaume Pignol and Dominique Rebreyend. The rooms, referred to as \emph{Bastille} and \emph{Chalet}, were considered to host a magnetic-field-sensitive setup for ${}^{199}$Hg magnetometry. Of particular interest were the gradients, which cause an increase in the depolarisation rate of the mercury atoms~\cite{FertlThesis}.
 \note{In that case the gradients should be below roughly \SI[per-mode=symbol]{10}{\nano\tesla\per\centi\metre}, but I don't know why. Ask someone?}
 % In particular, gradients above roughly \SI[per-mode=symbol]{10}{\nano\tesla\per\centi\metre} 
 
-\marginpar{The string potentiometers were equipped with custom made attachments that allowed the string to come at an angle out of the device. The point where the strings bent was taken to be the middle of the circle in the geometry solution.}
-A photograph of the mapping setup is shown in Fig.\,\ref{fig:mapping_bastille_setup}. The mobile \SI{2.5}{\metre} high tower was equipped with ten 3-axis fluxgate magnetic field sensors (Stefan-Mayer FLC3--70, the same as used in the active magnetic field stabilisation system).
-The stationary `L-piece' held three string potentiometers (Micro-Eplison WDS-15000-P115-SA-P with \SI{15}{\metre} extension range).
+\marginpar{The string potentiometers were equipped with custom made attachments, that allowed the string to come at an angle out of the device. The point where the strings bent was taken to be the middle of the circle in the geometry solution.}
+A photograph of the mapping setup is shown in Fig.\,\ref{fig:mapping_bastille_setup}. The \SI{2.5}{\metre} high mobile tower was equipped with ten three-axis fluxgate magnetic field sensors (Stefan-Mayer FLC3--70, the same as used in the active magnetic field stabilisation system).
+The stationary ``L-piece'' held three string potentiometers (Micro-Eplison WDS-15000-P115-SA-P with a \SI{15}{\metre} extension range).
 The geometry parameters, as defined in Fig.\,\ref{fig:mapping_geometry}, were: $x_0 = 0$, $y_0 = \SI{1871}{\milli\metre}$, $a = \SI{623}{\milli\metre}$. The string-potentiometer for the orientation measurement was in the point $(\SI{1756}{\milli\metre}, 0)$.
 
 % Two of the strings were attached to a point where the vertical beam with the fluxgates is, the third (left on the picture) was attached to the black, short vertical profile on the tower.
@@ -119,7 +119,7 @@ The geometry parameters, as defined in Fig.\,\ref{fig:mapping_geometry}, were: $
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/mapping/lpsc/daq.jpeg}
-  \caption{The DAQ system used for the mapping campaign in LPSC\@: a power supply to put a constant voltage on the potentiometers (grey, lower corner); a custom-built crate for the fluxgates, which supplied them with power and conditioned the incoming signals (underneath the keyboard and the screen); a National Instruments PXI crate, which simultaneously digitised the analogue voltage signals from the fluxgates and the string-pots (not visible, behind the screen); a PC computer with peripherals.}\label{fig:mapping_bastille_daq}
+  \caption{The DAQ system used for the mapping campaign in LPSC\@: a power supply to put a constant voltage on the potentiometers (grey, lower corner); a custom-built crate for the fluxgates, which supplied them with power and conditioned the incoming signals (underneath the keyboard and the screen); a National Instruments PXI crate, which simultaneously digitised the analogue voltage signals from the fluxgates and the string-pots (not visible, behind the screen); and a PC computer with peripherals.}\label{fig:mapping_bastille_daq}
 \end{figure}
 
 The data acquisition system, pictured in Fig.\,\ref{fig:mapping_bastille_daq}, consisted of: a power supply that put a constant voltage (\SI{10}{\volt}) on the potentiometers; a custom-built crate for the fluxgates, which supplied them with power and conditioned the incoming signals; and a National Instruments PXI crate, which simultaneously digitised the analogue voltage signals from the fluxgates and the string-pots. The data were collected on a PC computer.
@@ -127,38 +127,42 @@ The data acquisition system, pictured in Fig.\,\ref{fig:mapping_bastille_daq}, c
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_panorama.jpeg}
-  \caption{A panoramic view of the \emph{Bastille} room. To the left the `L-piece' and the mapping tower are visible. In the back there is the DAQ system and to the right a door with a long handle, which is also marked on the magnetic field maps.}\label{fig:mapping_bastille_panorama}
+  \caption{A panoramic view of the \emph{Bastille} room. To the left the ``L-piece'' and the mapping tower are visible. In the back there is the DAQ system and to the right a door with a long handle, which is also marked on the magnetic field maps.}\label{fig:mapping_bastille_panorama}
 \end{figure}
 
-A panoramic shot of the Bastille room is presented in Fig.\,\ref{fig:mapping_bastille_panorama}. The coordinate system is visible in the upper-left corner. To the right are the entrance door, in the middle, high on the wall, a power outlet box is visible.
+A panoramic shot of the Bastille room is presented in Fig.\,\ref{fig:mapping_bastille_panorama}. The coordinate system is visible in the upper-left corner. To the right are the entrance door.
+% In the middle, high on the wall, a power outlet box is visible.
 % Behind the wall with the power outlet box there is a pump, which has been at some point removed.
-The room was a wooden hut structure, built inside a hall made of steel beams and sheets. The room's wall with the power outlet on it was located close, less than 1 metre, to a steel wall of the hall. The hall was equipped a gantry crane, several metres above the roof of the hut.
+The room was made out of wood. It stood inside a hall made of steel beams and sheets. 
+% The room's wall with the power outlet on it was located close, less than 1 metre, to a steel wall of the hall.
+The hall was equipped a gantry crane, several metres above the roof of the room.
 % Directly on the roof there were air conditioning devices, standing about a metre above the roof on steel legs. The legs had rather large feet, possibly with a steel plate inside. 
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_track_crop.pdf}
-  \caption{The trace of the tower's centre in one of the maps. The outline of the room is depicted, and the door are marked in the upper-right corner. The `L-piece' was in the lower-left corner.}\label{fig:mapping_bastille_track}
+  \caption{The trace of the tower's centre in one of the maps. The outline of the room is marked. In the upper-right corner the location of the entrance door is marked. The ``L-piece'' was in the lower-left corner.}\label{fig:mapping_bastille_track}
 \end{figure}
 
-To collect a map, the tower was moved around the room by one person, while another took care so that the readout cables did not get in the way.
-\marginpar{The position was determined on-line. A display showed where the tower already has been.}
-Care was taken to systematically scan the whole room and to maintain approximately the same orientation of the tower throughout the measurement. A track of one of the collected maps is depicted in Fig\,\ref{fig:mapping_bastille_track}. Note, that the centre of the tower could only go to a certain distance to the walls because of the the size of the tower's cart.
+To collect a ma, the tower was moved around the room by one person, while another took care so that the readout cables did not get in the way.
+\marginpar{The position was determined on-line. A display showed where the tower has already been.}
+Care was taken to systematically scan the whole room and to maintain approximately the same orientation of the tower throughout the measurement. A track of one of the collected maps is depicted in Fig.\,\ref{fig:mapping_bastille_track}. Note, that the centre of the tower could only go to a certain distance to the walls, because of the the size of the tower's cart.
 %\note{maybe mention, that the position was calculated on-line, too}
 % Part of the data analysis is performed on-line. In particular the voltage readout of the string pots is translated into their lengths which are used to determine the position and orientation of the tower. This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned. 
-The data, the position and orientation of the tower, as well as the magnetic field measurements, were down-sampled and registered at \SI{50}{\hertz} rate.
+The data, the position and orientation of the tower, as well as the magnetic field measurements, were down-sampled and registered at a \SI{50}{\hertz} rate.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_magnitude_low_range_crop.pdf}
-  \caption{The map of the magnitude of the magnetic field. Each tile depicts a horizontal plane, the field measured by one magnetic sensor. For each point, registered at \SI{50}{\hertz} rate, the magnitude is plotted; the colour in between the measurement points is linearly interpolated. On the ceiling there are small strong sources of the magnetic field and the colour scale is saturated.}\label{fig:mapping_bastille_magnitude}
+  \caption{The map of the magnitude of the magnetic field. Each tile depicts a horizontal plane, the field measured by one magnetic sensor. For each point, registered at \SI{50}{\hertz} rate, the magnitude is plotted; the colour in between the measurement points is linearly interpolated. On the ceiling there are small, strong sources of the magnetic field and the colour scale is saturated.}\label{fig:mapping_bastille_magnitude}
 \end{figure}
+
 
 
 
 \section{Data treatment}
 \label{sec:mapping_lpsc_data_treatment}
-A map of the magnetic field is plotted in Fig.\,\ref{fig:mapping_bastille_magnitude}. Horizontal slices (each a different sensor) of the magnitude of the magnetic field are shown, with the height of the slice above the floor indicated. It is clearly visible, that there are localised sources of magnetic disturbance above the roof, later attributed to elements of an air-conditioning system mounted on the roof of the hut.
+A map of the magnetic field is plotted in Fig.\,\ref{fig:mapping_bastille_magnitude}. Horizontal slices (each a different sensor) of the magnitude of the magnetic field are shown, with the height of the slice above the floor indicated. Near the roof a number of localised sources is visible. It could be attributed to elements of an air-conditioning system mounted on the roof of the hut.
 
 \begin{figure}
   \centering
@@ -166,8 +170,8 @@ A map of the magnetic field is plotted in Fig.\,\ref{fig:mapping_bastille_magnit
   \caption{A map of the gradients in the \emph{Bastille} room \SI{205}{\centi\metre} above the floor. Only the `horizontal' gradients (with respect to $x$ and $y$) have been estimated, as estimating the one with respect to $z$ would require comparing measurements between different sensors, whose intrinsic offset would dominate the result.}\label{fig:mapping_bastille_gradient}
 \end{figure}
 
-The measured information was also used to estimate the gradients of the magnetic field. To this purpose, the mapped area was divided into a $14 \times 14$ grid and the measurements were averaged in each bin.
-Then, the differences between the magnetic field components in the neighbouring pixels were taken, which, divided by the separation between the bins, were the estimates of the gradient.
+The measured information was also used to estimate the gradients of the magnetic field. To this purpose the mapped area was divided into a $14 \times 14$ grid. In each bin the measurements were averaged.
+Then the differences between the magnetic field components in the neighbouring pixels were taken, which, divided by the separation between the bins, were the estimates of the gradient.
 % For example, the $\partial B_x / \partial x$ gradient was estimated by the difference between 
 The map of the gradient \SI{205}{\centi\metre} above the floor is shown in Fig.\,\ref{fig:mapping_bastille_gradient}.
 % Comment on the structures from the roof? On the left side, next to the power outlet box, large gradients above \SI[per-mode=symbol]{20}{\pico\tesla\per\centi\meter} are visible.
@@ -227,7 +231,7 @@ The mapping campaign was a joint venture with Solange Emmenegger and Jochen Krem
 % First say about the area - how large, refer to a picture.
 \marginpar{The total weight of the n2EDM shield is 47 tons.}
 The prototype mapper used in the LPSC campaign was extended to its full-scale. The Area South, pictured in Fig.\,\ref{fig:mapping_photo}, is about \note{get the info} large.
-The $5 \times 5 \times \SI{5}{\metre}$ magnetic shield of n2EDM would reach up to \note{info}. In the full-scale setup the arms of the `L-piece' were \note{info} long and the tower was \SI{8}{\metre} high.
+The $5 \times 5 \times \SI{5}{\metre}$ magnetic shield of n2EDM would reach up to \note{info}. In the full-scale setup the arms of the ``L-piece'' were \note{info} long and the tower was \SI{8}{\metre} high.
 \marginpar{The tower was built out of aluminum trusses, typically used for stages.}
 An additional magnetic field sensor directly above the floor was added. Other than that, no changes from the prototype were made. The string potentiometers, the magnetic field sensors and the data acquisition system remained the same.
 
