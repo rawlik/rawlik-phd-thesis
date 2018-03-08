@@ -2,14 +2,14 @@
 \label{ch:axions-periodograms}
 The space of possible axion-induced signals is spanned by their amplitude (the strength of the coupling) and their frequency (the axion mass). The problem is, therefore, naturally set in the frequency domain. The analysis was performed in two steps. First, the measurements were transformed from the time domain into the frequency one by evaluating the periodogram of the time series. In the second step the periodogram was checked for statistically significant signals.
 
-In this chapter we introduce the statistical methods used in the analysis. We start by defining the periodogram, which serves as a transition from time to the frequency space, natural for looking for oscillations. Next, we proceed to discuss the statistical properties of the periodogram.
+In this chapter the statistical methods used in the analysis are introduced. The periodogram is defined, as tool to make a transition from time to the frequency space, natural for looking for oscillations. The statistical properties of the periodogram are discussed.
 
 % For the sake of pedagogy we will discuss the methodology on a simple example.
 
 
 
 \section{Definition of the periodogram}
-A \emph{periodogram} is an estimator of the power spectrum. It has been proposed as the preferred way to treat periodic signals as early as 1898~\cite{Schuster1898}. In its simplest form it is the squared magnitude of the discrete Fourier transform, which, however, is only possible for evenly sampled series. Lomb and Scargle have independently described a method to construct a statistically well-behaving periodogram for non-uniformly sampled data with unequal error-bars: the Least Squares Spectral Analysis (LSSA)~\cite{Scargle1982}. It is also known as the Lomb-Scargle periodogram.
+A \emph{periodogram} is an estimator of the power spectrum. It has been proposed as the preferred way to treat periodic signals as early as 1898~\cite{Schuster1898}. In its simplest form it is the squared magnitude of the discrete Fourier transform, which, however, is only possible for evenly sampled series. Lomb and Scargle have independently described a method to construct a statistically well-behaving periodogram for non-uniformly sampled data with unequal error-bars: the Least Squares Spectral Analysis (LSSA)~\cite{Scargle1982} (also known as the Lomb-Scargle periodogram).
 
 % Many packages readily offer procedures to evaluate Lomb--Scargle periodograms~\cite{scipy,astropy}. They could not, however, be used directly as the analysis deviated in details from the standard procedure. We had to take a low--level approach, instead.
 
@@ -18,7 +18,7 @@ A \emph{periodogram} is an estimator of the power spectrum. It has been proposed
   \caption{The construction of an LSSA periodogram. The estimate of the LSSA power at the frequency $f$ is the amplitude of the least-squares fit of a harmonic oscillation of that frequency to the time-series (with a normalisation factor). The LSSA periodogram, an estimate of the power spectrum, is the LSSA power evaluated for a number of frequencies.}\label{fig:LSSA_overview}
 \end{figure}
 
-In order to evaluate the LSSA periodogram at a circular frequency $\omega$, one performs a linear least-squares fit (hence the name) to the data with a function
+In order to evaluate the LSSA periodogram at a circular frequency $\omega$, a linear least-squares fit (hence the name) is performed to the data with a function
 \marginpar{LSSA, in contrast to the fast Fourier transform (FFT), does not require windowing, because it is explicitly phase-aware.}
 \begin{equation}
   A\,\cos(\omega t) + B\,\sin(\omega t) + C \ ,
@@ -29,32 +29,34 @@ where $A$, $B$ and $C$ are free parameters. The estimator of power $P(\omega)$ i
 \end{equation}
 where $N$ is the number of data points. Different normalisations may be used.
 \marginpar{The noise bed is flat part of periodogram due to random noise. If there is a signal, it is said to ``rise out of the noise bed''.}
-We use the one of~\cite{Scargle1982}, where the height of $\sqrt{P(\omega)}$ at the noise bed corresponds numerically to the size of the error-bars squared, if they are all equal. A graphical overview of the method is shown in Fig.\,\ref{fig:LSSA_overview}. Throughout the analysis the figure of merit is either the power $P(\omega)$ or, interchangeably, its square root---amplitude. The latter has conveniently the same unit as the time series.
+Here the one of~\cite{Scargle1982} is used, where the height of $\sqrt{P(\omega)}$ at the noise bed corresponds numerically to the size of the error-bars squared, if they are all equal. A graphical overview of the method is shown in Fig.\,\ref{fig:LSSA_overview}. Throughout the analysis the figure of merit is either the power $P(\omega)$ or, interchangeably, its square root---amplitude. The latter has conveniently the same unit as the time series.
 
 \begin{figure}
   \centering \includegraphics[width=0.8\linewidth]{gfx/axions/basic_signal.pdf}
   \caption{A simple signal generated just for the purpose for explaining the general scheme of periodogram analysis. A harmonic signal (blue) was used to generate unevenly spaced data points (black) with unequal error bars. Each point was drawn from a normal distribution centred at the blue curve and width corresponding to its error bar.}\label{fig:basic_signal}
 \end{figure}
 
-We will now follow an analysis of a toy time series, shown in Fig.\,\ref{fig:basic_signal}. The time series are simulated measurements of an oscillating signal of the frequency \SI{0.17}{\hertz}. The series has already some properties of the actual dataset. The measurements are not equally spaced. They are randomly grouped in 10--second long bunches, around 20 seconds apart. Inside a bunch a ``measurement'' is taken every 2~seconds with a \SI{0.3}{\second} jitter. The length of each measurement is 1~second with a \SI{0.1}{\second} jitter. The error-bars are all size one in the arbitrary unit. An oscillating signal with an amplitude 0.7 and frequency \SI{0.17}{\hertz}. Each measurement averages the signal over its duration.
+We will now follow an analysis of a toy time series, shown in Fig.\,\ref{fig:basic_signal}. The time series had been fabricated as simulated measurements of an oscillating signal of the frequency \SI{0.17}{\hertz} and amplitude \num{0.7} in an arbitrary unit. The series has already some properties of the actual dataset. The measurements are not equally spaced. They are randomly grouped in \SI{10}{\second} long bunches, around \SI{20}{\second} apart. Inside a bunch a ``measurement'' is taken every \SI{2}{\second} with a \SI{0.3}{\second} jitter. The length of each measurement is 1~second with a \SI{0.1}{\second} jitter. The error-bars are all size one in the arbitrary unit. Each ``measurement'' averaged the signal over its duration.
 
-The immediate question arising when evaluating the LSSA periodogram is: for which frequencies to evaluate the power? In case of evenly-spaced series the upper limit is the Nyquist frequency, equal to the half of the sampling rate~\cite{Shannon1949}. It is not the case when the sampling is not uniform. In practice, we can expect little sensitivity to oscillations faster than the period over which each signal is averaged, \SI{1}{\second} in the example. On the low side the limit is zero, which corresponds to the constant offset (a least-squares fit of a horizontal line, which is equivalent to calculating the average of the points). The value of the periodogram at zero is often not plotted.
+The immediate question arising when evaluating the LSSA periodogram is: for which frequencies to evaluate the power? In a case of evenly-spaced series the upper limit is the Nyquist frequency, equal to the half of the sampling rate~\cite{Shannon1949}. It is not the case when the sampling is not uniform. In practice, we can expect little sensitivity to oscillations faster than the period over which each signal is averaged, \SI{1}{\second} in the example. On the low side the limit is zero, which corresponds to the constant offset (a least-squares fit of a horizontal line, which is equivalent to calculating the average of the points). The value of the periodogram at zero is usually not plotted.
 
 \begin{figure}
   \centering \includegraphics[width=0.8\linewidth]{gfx/axions/basic_periodogram.pdf}
   \caption{Two periodograms of the time series in Fig.\,\ref{fig:basic_signal}. One evaluated at frequencies a spectral resolution apart (black dots), and one evaluated a thousand times more densely (the orange line). As no structure on a scale finer the spectral resolution can be accessed, the orange line simply ``connects'' the black dots.}\label{fig:basic_periodogram}
 \end{figure}
 
-When choosing the spacing between the frequencies, the \emph{spectral resolution} is considered, defined as the inverse span of the dataset. It roughly defines the minimal frequency difference between two signals that is distinguishable. In Fig.\,\ref{fig:basic_periodogram} there are two periodograms: evaluated at frequencies a spectral resolution apart (black dots), and one evaluated a thousand times more densely (the orange line). As no structure on a scale finer the spectral resolution can be accessed, the orange line simply ``connects'' the black dots smoothly.
+When choosing the spacing between the frequencies, the \emph{spectral resolution} is considered, defined as the inverse span of the dataset. It roughly defines the minimal frequency difference between two signals that is distinguishable. A perfectly coherent oscillation produces a $\mathrm{sinc}$ peak of a width equal to the spectral resolution. \note{citation needed}
+In Fig.\,\ref{fig:basic_periodogram} there are two periodograms: evaluated at frequencies a spectral resolution apart (black dots), and one evaluated a thousand times more densely (the orange line).
+% As no structure on a scale finer the spectral resolution can be accessed, the orange line simply ``connects'' the black dots smoothly.
 
 \begin{figure}
   \centering \includegraphics[width=0.8\linewidth]{gfx/axions/basic_periodogram_loglog.pdf}
   \caption{The two periodograms as in Fig.\,\ref{fig:basic_periodogram} plotted on a log-log scale. The range of frequencies where the periodogram is evaluated is extended. The amplitude of the noise appears to be increasing with frequency, but it is not true. Only the density of the evaluated points increases, making the extreme deviations more pronounce.}\label{fig:basic_periodogram_loglog}
 \end{figure}
 
-Figure~\ref{fig:basic_periodogram_loglog} shows the same two periodograms in a log-log scale. Additionally, the range of frequencies where the periodogram is evaluated has been extended to show its behaviour in the extremes. The logarithmic scale, albeit useful when the potential signals span orders of magnitude in both frequency and amplitude, can lead to misunderstandings. Specifically, the noise appears to increase in amplitude with frequency, but the effect is purely cognitive. The spacing of the points is linear, so on a logarithmic scale the density of points increases for high amplitudes, making the extreme deviations more likely to appear in the same plot area, despite the noise amplitude being the same.
+Figure~\ref{fig:basic_periodogram_loglog} shows the same two periodograms in a log-log scale. Additionally, the range of frequencies where the periodogram is evaluated has been extended to show its behaviour in the extremes. The logarithmic scale, albeit useful when the potential signals span orders of magnitude in both frequency and amplitude, can lead to misunderstandings. Specifically, the noise appears to increase in amplitude with frequency, but the effect is purely cognitive. The spacing of the points is linear, so on a logarithmic scale the density of points increases for high amplitude. This makes more of extreme deviations likely to appear per unit area of the plot.%, despite the noise amplitude being the same.
 
-An oscillation in the time series produces a peak in the periodogram. The position of the peak is the frequency of the oscillation, the width corresponds to the coherence of the signal. However, there are the periodogram many peaks besides the one corresponding to the oscillation used when generating the data. Some are even bigger and there are many smaller ones. In the next section we will consider what, besides an oscillating signal, may give rise to a peak. Most importantly a way of determining whether a peak is caused by an oscillation is presented.
+An oscillation in the time series produces a peak in the periodogram. The position of the peak is the frequency of the oscillation, the width corresponds to the coherence of the signal. However, there are the periodogram many peaks besides the one corresponding to the oscillation used when generating the data. Some are even bigger and there are many smaller ones. In the next section we will consider what, besides an oscillating signal, may give rise to a peak. Most importantly, a way of determining whether a peak is caused by an oscillation is presented.
 
 
 
