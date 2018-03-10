@@ -19,11 +19,11 @@ Finally, a dedicated method for search for an oscillating nEDM is proposed, whic
 
 
 \section{The PSI 2015--16 data set}
-Let us shortly recapitulate the principle of the measurement, which is discussed in detail in Ch.\,\ref{ch:nedm-at-psi-apparatus}. The main purpose of the experiment was to measure the static neutron electric dipole moment. To that purpose $R = \nu_\text{n} / \nu_\text{Hg}$, the ratio of precession frequencies of neutrons and ${}^{199}$Hg atoms, was measured in a combination of a magnetic and an electric field. A non-zero static nEDM would induce an electric-field-dependent shift in the precession frequency of neutrons, and thereby in $R$, too. In a zero electric field there would be no shift, while the parallel and anti-parallel configurations of the magnetic and electric fields would shift $R$ in opposite directions.
+Let us shortly recapitulate the principle of the measurement (discussed in detail in Ch.\,\ref{ch:nedm-at-psi-apparatus}). The main purpose of the experiment was to measure the static neutron electric dipole moment. To that purpose $R = \nu_\text{n} / \nu_\text{Hg}$, the ratio of precession frequencies of neutrons and ${}^{199}$Hg atoms, was measured in a combination of a magnetic and an electric field. A non-zero static nEDM would induce an electric-field-dependent shift in the precession frequency of neutrons, and thereby in $R$, too. In a zero electric field there would be no shift, while the parallel and anti-parallel configurations of the magnetic and electric fields would shift $R$ in opposite directions.
 \marginpar{In the PSI experiment the electric field was automatically changed according to a looped pattern: 48 cycles in one polarity, 8 cycles without the field, 48 cycles in the other, 8 without the field.}
 The nEDM was estimated based on those shifts. Due to the data blinding
 % \footnote{In order to reduce bias the data were modified upon being taken in a way, that a secret nEDM was injected into them. This additional offset is only revealed as the very last step, once the measurement and analysis have been completed. The data were still blinded at the time of writing.}
-a pronounce shift corresponding to an nEDM of \SI{e-25}{\elementarycharge\centi\meter} was expected. Using $R$, normalising the precession frequency of neutrons to the one of ${}^{199}$Hg atoms, suppressed the effect of homogeneous variations in the magnetic field. Even though the neutrons and ${}^{199}$Hg atoms were stored together, the neutrons sagged due to their extremely low speed. Because of that vertical gradients in the magnetic field caused a shift in $R$. In order to correct for that the vertical gradient was modulated on a sequence basis (several hundred cycles).
+a pronounce shift corresponding to an nEDM of \SI{e-25}{\elementarycharge\centi\meter} was expected. Using $R$, that is normalising the precession frequency of neutrons to the one of ${}^{199}$Hg atoms, suppressed the effect of homogeneous variations in the magnetic field. Even though the neutrons and ${}^{199}$Hg atoms were stored together, the neutrons sagged due to their extremely low speed. The sag caused vertical gradients in the magnetic field caused a shift in $R$. In order to correct for that the vertical gradient was modulated on a sequence basis (several hundred cycles).
 
 The data used in the analysis were collected at PSI between 2015--07--03, 14:21:30 and 2016--12--18, 19:51:23. The experiment was optimised for the static nEDM measurement; no measurement dedicated for an oscillating nEDM search was performed. The time series of $R$, the ratio of the precession frequencies of the neutrons and ${}^{199}$Hg atoms is presented in Fig.\,\ref{fig:PSI_dataset_time_domain}.
 \marginpar{A technical term for uninterupted operation was a run. Sometimes a run was stopped due to technical reasons a new started afterwards. A sequence combines those consecutive runs, that could be one run if not for the interruption.}
@@ -34,7 +34,7 @@ The electric field was automatically changed between three states: pointing upwa
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/deltah4mm_time_domain_inset_no_yerr.pdf}
-  \caption{The complete $R$ time series used in the analysis, measured at PSI between July 2015 and December 2016. Two sequences are enlarged. Due to the high density of the measurements individual points cannot be resolved. The colours depict the relative orientation of the magnetic and electric fields: $E \uparrow \uparrow B$ (orange), $E \uparrow \downarrow B$ (blue) and $E=0$ (black). The $R$ time series has been corrected for gradient drifts. In the insets the points are drawn with their corresponding error bars.}\label{fig:PSI_dataset_time_domain}
+  \caption{The complete $R$ time series used in the analysis, measured at PSI between July 2015 and December 2016. Two sequences are enlarged (one 69 hours long, the other 34). Due to the high density of the measurements individual points cannot be resolved. The colours depict the relative orientation of the magnetic and electric fields: $E \uparrow \uparrow B$ (orange), $E \uparrow \downarrow B$ (blue) and $E=0$ (black). The $R$ time series has been corrected for gradient drifts. In the insets the points are drawn with their corresponding error bars.}\label{fig:PSI_dataset_time_domain}
 \end{figure}
 
 % Here what it is and what's done Sometimes the automatic process was interrupted, but the sequence still continued, as seen in the other inset.
@@ -46,7 +46,7 @@ The electric field was automatically changed between three states: pointing upwa
 
 A sequence was taken always in one magnetic field configuration.
 % The in-sequence variations of the vertical gradient of the magnetic field $\partial_z B_z$ were corrected for using the field model fits to the readings of the Caesium magnetometers.
-In between the sequences the vertical gradient was changed in \SI{10}{\pico\tesla} steps, up to \SI{60}{\pico\tesla}, so that those systematic effects, which scale linearly with the gradient, could be extrapolated to zero (see Sec.\,\ref{sec:measurement_procedure}). These large changes in the vertical gradient caused the large shifts in $R$ from one sequence another sequence.
+In between the sequences the vertical gradient was changed in \SI{10}{\pico\tesla} steps, up to $\pm \SI{60}{\pico\tesla}$, so that those systematic effects, which scale linearly with the gradient could be extrapolated to zero (see Sec.\,\ref{sec:measurement_procedure}). These large changes in the vertical gradient caused the large shifts in $R$ from one sequence another sequence.
 
 % The $R$ time series was sliced into three separate based on the relative direction of the magnetic and electric fields: $E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$. In each a search for a harmonic oscillation was performed.
 
@@ -80,12 +80,12 @@ Because of the non-zero static nEDM and the phase shift the least-squares spectr
   \caption{The data taking scheme in the nEDM experiment at PSI. \note{Make a new figure, still hand-drawn, but nicer. Check the colouring scheme for the field polarity. Don't do subfigures---put everything one one with an inset.}}\label{fig:oscillating_nEDM_in_R}
 \end{figure}
 
-A part of the measurement procedure was to deliberately work in a substantial vertical magnetic field gradient. The gradient changed substantially between sequences, causing large shifts in $R$, as illustrated in Fig.\,\ref{fig:oscillating_nEDM_in_R}. The problem of inter-sequence jumps was solved by allowing the DC offset in the LSSA fit to be different in each sequence:
+A part of the measurement procedure was to deliberately work in a substantial vertical magnetic field gradient. The gradient changed between sequences, causing large shifts in $R$, as illustrated in Fig.\,\ref{fig:oscillating_nEDM_in_R}. The problem of inter-sequence jumps was solved by allowing the DC offset in the LSSA fit to be different in each sequence:
 \begin{equation}
   \label{eq:axions_LSSA}
   A\sin(2 \pi f t) + B\cos(2 \pi f t) + \sum_i C_i\,\Pi_i(t) \ ,
 \end{equation}
-where $C_i$ is the free offset in the $i$th sequence and $\Pi_i(t)$ is a gate function equal to one in the $i$th sequence and zero elsewhere. In this way the model could leverage the coherence of the oscillation across sequences, despite the unknown offsets. The downside was a reduced sensitivity to oscillations slower than a sequence (2--3 days). These slow oscillations were largely absorbed into the different free offsets. With this modification the LSSA could be applied to the three data sets in a way described in the previous chapter.
+where $C_i$ is the free offset in the $i$th sequence and $\Pi_i(t)$ is a gate function equal to one in the $i$th sequence and zero elsewhere. In this way the model could leverage the coherence of the oscillation across sequences despite the unknown offsets. The downside was a reduced sensitivity to oscillations slower than a sequence (2--3 days). These slow oscillations were largely absorbed into the different free offsets. With this modification the LSSA could be applied to the three data sets in a way as it is described in the previous chapter.
 
 % It may be tempting to think about demodulating the $R$ time-series into what would be expected to be an oscillation. This would require subtracting the DC offset for each electric field configuration, in each run separately, then flipping the signal around the DC level for one configuration. \mnote{The offsets are measured with Cs, mention that.} The disadvantage is that uncertainty in such a demodulation would become a systematic effect and would need to be tightly controlled.
 
@@ -143,23 +143,22 @@ This made the systematic study dependent of the fact of having found a signal, o
   There are two regions where a rise in the amplitude is expected, namely around \SI{28}{\micro\hertz} (inverse of 10 hours) and \SI{3.3}{\milli\hertz} (inverse of 300 seconds), due to the time structure of the data taking (see the main text for more details). The periodogram of non-gradient-drift-corrected data is shown in pink.}\label{fig:axions_PSI_detection}
 \end{figure}
 
-The periodogram of the subset of data with the electric and magnetic field parallel $E \uparrow \uparrow B$ is presented in Fig.\,\ref{fig:axions_PSI_detection} in black. The average null-hypothesis periodogram is depicted in green and the false-alarm thresholds in orange. An inset details the region around inverse \SI{300}{\second}, the cycle frequency.
-
+The LSSA periodogram of the $E \uparrow \uparrow B$ subset is presented in Fig.\,\ref{fig:axions_PSI_detection} in black. The average null-hypothesis periodogram is depicted in green and the false-alarm thresholds in orange. An inset details the region around inverse \SI{300}{\second}, the cycle frequency.
 There are two regions of expected rise in the oscillation amplitude due to the time structure of the data collection.
 \marginpar{Recall the discussion in Sec.\,\ref{sec:a_null_hypothesis_test} about the peaks in the periodogram solely due to the time structure of the series.}
-The one around \SI{28}{\micro\hertz} (the inverse of 10 hours) corresponds to the period of the reversal of the electric field.
+The one around \SI{28}{\micro\hertz} (the inverse of 10 hours) corresponds to the period of the reversal of the electric field. Each ramp caused a small break in the data taking (one cycle was missed).
 The other, around \SI{3.3}{\milli\hertz}, the inverse of \SI{300}{\second}, corresponds to the cycle repetition rate.
 
-The periodogram of the $R$ time array without the gradient-drift correction is shown in pink in Fig.\,\ref{fig:axions_PSI_detection}. The correction had an effect only for frequencies slower than the period of the reversal of the electric field (the region around inverse \SI{300}{\second}, the cycle frequency, is also sensitive to slow oscillations). The period of the electric field change had been deliberately chosen such, that was possibly infrequent (it took \note{how much} to ramp), but still occurring when the magnetic field had not drifted significantly away.
+The periodogram of the $R$ time array without the gradient-drift correction is shown in pink in Fig.\,\ref{fig:axions_PSI_detection}. The correction had an effect only for frequencies slower than the period of the reversal of the electric field and around the narrow window around inverse \SI{300}{\second}. It should be pointed out, that \SI{300}{\second} is the approximate sampling period and as such it is likely to have some of the high power observed in low frequencies folded onto it (see the reasoning in Ref.\,\cite{Shannon1949}). The period of the electric field change had been deliberately chosen such, that was possibly infrequent, but still occurring when the magnetic field had not drifted significantly away.
 
-In the periodogram of the gradient-corrected time series here are five
+In the periodogram of the gradient-corrected time series there are five
 %\note{NA does anybody know what style guide says about when numbers should be written in words i.e. seven vs 7? I personally think small numbers without units should be words but this comes down to preference} ***I THINK LESS THAN TEN IT IS IN WORDS - MALCOLM ***
 trial frequencies for which the $3\upsigma$ false-alarm threshold is exceeded,
 %\note{PMM: use words like 'surpassed', or 'exceeded' instead of penetrated}
 two of which, including the largest excess with a $6\upsigma$ significance, occur in a \SI{100}{\micro\hertz} region around the inverse of \SI{300}{\second}, while the other three are in the low-frequency region, longer than an inverse length of a sequence.
 % \note{FP: Can you maybe also explicitly state the positions of these three lines in Hz or inverse time?}
  The periodograms for the other two datasets, very similar to this one, can be found in App.\,\ref{ch:alp_appendix}.
-In the other sensitive set, there are three excesses of the $3\upsigma$ threshold (the highest is $5\upsigma$), all constrained to the same two regions. In the control dataset, only the $1\upsigma$ threshold is exceeded. Among those, none fulfill the detection criteria, in particular the requirement to be present in both $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ periodograms, with opposite phases.
+In the other sensitive set, there are three excesses of the $3\upsigma$ threshold (the highest is $5\upsigma$), all constrained to the same two regions. In the control dataset, only the $1\upsigma$ threshold is exceeded. Among those, none fulfill the detection criteria, in particular the requirement to be present in both $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ periodograms with opposite phases.
 %\note{MR: We may consider not discussing the false--alarm threshold penetrations, and just state in the next paragraph that we do not find a signal which meets our criteria.}
 
 % \mnote{Here a brief discussion about the Cs-gradient-drift correction.}
@@ -176,7 +175,7 @@ As no significant signals have been observed, limits could be placed to exclude 
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{gfx/axions/psi_ill_axion_limits_v7.pdf}
+  \includegraphics[width=\linewidth]{gfx/axions/psi_ill_axion_limits_v7.pdf}
   \caption{Limits on the interaction of an axion with the gluons (95\% C.L.). Tha parameter space is spanned by the axion's mass (horizontal) and the strength of the coupling (vertical). It has been assumed, that axions saturate the local cold dark matter density. Other depicted constraints are: Big Bang nucleosynthesis (red, 95\% C.L.)~\cite{Blum2014,StadnikThesis,Stadnik2015D}, supernova energy-loss bounds (green, order of magnitude)~\cite{Graham2013,Raffelt1990Review,Raffelt2008LNP}, consistency with observations of galaxies (orange)~\cite{Marsh2015Review,Marsh2015B,Schive2015,Marsh2017}. The projected reach of the proposed CASPEr experiment is depicted with a dotted black line~\cite{CASPEr2014}, and the parameter space for the canonical QCD axion with a purple band.}
 \label{fig:axions_limits_coupling}
 \end{figure}
