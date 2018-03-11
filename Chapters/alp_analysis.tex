@@ -23,9 +23,11 @@ Let us shortly recapitulate the principle of the measurement (discussed in detai
 \marginpar{In the PSI experiment the electric field was automatically changed according to a looped pattern: 48 cycles in one polarity, 8 cycles without the field, 48 cycles in the other, 8 without the field.}
 The nEDM was estimated based on those shifts. Due to the data blinding
 % \footnote{In order to reduce bias the data were modified upon being taken in a way, that a secret nEDM was injected into them. This additional offset is only revealed as the very last step, once the measurement and analysis have been completed. The data were still blinded at the time of writing.}
-a pronounce shift corresponding to an nEDM of \SI{e-25}{\elementarycharge\centi\meter} was expected. Using $R$, that is normalising the precession frequency of neutrons to the one of ${}^{199}$Hg atoms, suppressed the effect of homogeneous variations in the magnetic field. Even though the neutrons and ${}^{199}$Hg atoms were stored together, the neutrons sagged due to their extremely low speed. The sag caused vertical gradients in the magnetic field caused a shift in $R$. In order to correct for that the vertical gradient was modulated on a sequence basis (several hundred cycles).
+a pronounce shift corresponding to an nEDM of \SI{e-25}{\elementarycharge\centi\meter} was expected. Using $R$, that is normalising the precession frequency of neutrons to the one of ${}^{199}$Hg atoms, suppressed the effect of homogeneous variations in the magnetic field. Even though the neutrons and ${}^{199}$Hg atoms were stored together, the neutrons sagged due to their extremely low speed. The sag caused vertical gradients in the magnetic field caused a shift in $R$. In order to correct for that effect the vertical gradient was modulated on a sequence basis (several hundred cycles).
 
-The data used in the analysis were collected at PSI between 2015--07--03, 14:21:30 and 2016--12--18, 19:51:23. The experiment was optimised for the static nEDM measurement; no measurement dedicated for an oscillating nEDM search was performed. The time series of $R$, the ratio of the precession frequencies of the neutrons and ${}^{199}$Hg atoms is presented in Fig.\,\ref{fig:PSI_dataset_time_domain}.
+% The data used in the analysis were collected at PSI between 2015--07--03, 14:21:30 and 2016--12--18, 19:51:23.
+The data used in the analysis were collected at PSI between 2015--07--03 and 2016--12--18.
+The experiment was optimised for the static nEDM measurement; no measurement dedicated for an oscillating nEDM search was performed. The time series of $R$, the ratio of the precession frequencies of the neutrons and ${}^{199}$Hg atoms is presented in Fig.\,\ref{fig:PSI_dataset_time_domain}.
 \marginpar{A technical term for uninterupted operation was a run. Sometimes a run was stopped due to technical reasons a new started afterwards. A sequence combines those consecutive runs, that could be one run if not for the interruption.}
 Take a look first at the inset in the lower-right corner. It zooms into data collected within one \emph{sequence}, typically 1--3 days long.
 During a sequence the apparatus completed one cycle after another, one every \SI{300}{\second}, each yielding an estimate of $R$.
@@ -46,7 +48,7 @@ The electric field was automatically changed between three states: pointing upwa
 
 A sequence was taken always in one magnetic field configuration.
 % The in-sequence variations of the vertical gradient of the magnetic field $\partial_z B_z$ were corrected for using the field model fits to the readings of the Caesium magnetometers.
-In between the sequences the vertical gradient was changed in \SI{10}{\pico\tesla} steps, up to $\pm \SI{60}{\pico\tesla}$, so that those systematic effects, which scale linearly with the gradient could be extrapolated to zero (see Sec.\,\ref{sec:measurement_procedure}). These large changes in the vertical gradient caused the large shifts in $R$ from one sequence another sequence.
+In between the sequences the vertical gradient was changed in \SI{10}{\pico\tesla} steps up to $\pm \SI{60}{\pico\tesla}$, so that those systematic effects which scale linearly with the gradient could be extrapolated to zero (see Sec.\,\ref{sec:measurement_procedure}). These large changes in the vertical gradient caused the large shifts in $R$ from one sequence to another.
 
 % The $R$ time series was sliced into three separate based on the relative direction of the magnetic and electric fields: $E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$. In each a search for a harmonic oscillation was performed.
 
@@ -65,7 +67,7 @@ In between the sequences the vertical gradient was changed in \SI{10}{\pico\tesl
 
 \section{How a signal would look}
 Now we consider how an oscillating electric dipole moment would have come up in the $R$ time series, as measured by the PSI experiment.
-Should the neutron electric dipole moment oscillate, $R$ would have oscillated as well, even when the electric field was constant. A reversal of the electric field polarity would have reversed the phase of the oscillations. At zero electric field no oscillations would be visible. In the inset in Fig.\,\ref{fig:oscillating_nEDM_in_R} an $R$ time series is depicted, with the combined effect of a large nEDM oscillation and the blinding offset.
+Should the neutron electric dipole moment oscillate, $R$ would have oscillated as well, even when the electric field was constant. A reversal of the electric field polarity would have reversed the phase of the oscillations. With a zero electric field no oscillations would be visible. In the inset in Fig.\,\ref{fig:oscillating_nEDM_in_R} an $R$ time series is depicted, with the combined effect of a large nEDM oscillation and the blinding offset.
 Because of the non-zero static nEDM and the phase shift the least-squares spectral analysis could not be applied directly to the $R$ time series. However, the time series is still a part of a simple harmonic oscillation when only one field configuration is considered. (We neglect for the moment the inter-sequence shifts.) In the analysis the $R$ time series was split according to this condition into three: one without the electric field (not sensitive to an oscillation of the nEDM), one with the electric and magnetic fields parallel and one with anti-parallel. The last two would have the hypothetical oscillation in opposite phases. We will refer to the three data sets as $E=0$, $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$, respectively. Each of those was treated separately.
 
 \begin{figure}
@@ -105,13 +107,11 @@ In the analysis the compatibility of the periodogram of the $R$ time series with
 
 Most prominently, $R$ followed the changes in the vertical gradient of the magnetic field. The gradient changed not only between the sequences, which was accounted for by modifying the LSSA fit, but also drifted within each sequence.
 % Because of the centre of height difference between the neutron and mercury atom ensembles they saw, on average, a different field in a presence of the vertical gradient.
-The in-sequence drifts were corrected for with the use of the cesium magnetometers. On a cycle basis, a second-order parametrisation of the field was fitted to their readouts, giving an estimate of the gradient~\cite{Afach2014magmoment,WurstenThesis}. Due to unknown random offsets in the magnetometers' readings the correction was only relative---correcting for the variations of the gradient. In between sequences the caesium magnetometers were calibrated, which altered the offsets. For this reason the correction could not extend across a sequence boundary.
+The in-sequence drifts were corrected for with the use of the cesium magnetometers. On a cycle basis, a second-order parametrisation of the field was fitted to their readouts, giving an estimate of the gradient~\cite{Afach2014magmoment,WurstenThesis}. Due to unknown random offsets in the magnetometers' readings the correction was only relative, that is correcting only for the variations of the gradient. In between sequences the caesium magnetometers were calibrated, which altered the offsets. For this reason the correction could not extend across a sequence boundary.
 % , which changed in between runs which changing after this correction could only be relative in a run.
 % \marginpar{STILL CHANGE RUN TO SEQUENCE!!!}
 
-There could have been, potentially, other effects causing the time series of $R$ not to be fully random. An important decision had to be taken on how to treat those. Two possibilities were considered.
-
-A detail study of time-dependent systematic effect could be performed.
+There could have been, potentially, other effects causing the time series of $R$ not to be fully random. An important decision had to be taken on how to treat those. Two possibilities were considered. The first would be a detail study of time-dependent systematic effects.
 Here any excess in power, in any dataset ($E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$) would be treated as a signature of some kind of a signal. All effects that could potentially result in that would have to be identified before the analysis was performed and corrected for. This would have required a long and careful systematic study. Moreover, the full-fledged systematic studies for the constant nEDM analysis of the PSI data were still ongoing at the time. This approach was considered to be, albeit careful, not necessary for this analysis.
 
 % \paragraph{Determine delicate frequencies and cut them out.}
@@ -133,7 +133,7 @@ This made the systematic study dependent of the fact of having found a signal, o
 
 
 
-\section{The analysis itself}
+\section{Oscillating nEDM analysis}
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/detection_psi_inset_gc.pdf}
@@ -167,11 +167,11 @@ In the other sensitive set, there are three excesses of the $3\upsigma$ threshol
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/psi_ill_1e-26ecm.pdf}
-  \caption{Limits on the amplitude of oscillation in the quantity $d_\text{n} - \frac{\mu_\text{n}}{\mu_\text{Hg}} \, d_\text{Hg}$, as a function of frequency thereof. The are above the curves is excluded on the 95\% C.L. The limit of this analysis (of the PSI data) are depicted in blue; the red curve depicts the limits of the complimentary analysis of the ILL-based experiment's data~\cite{AyresThesis,PhysRevX.7.041034}. The numerically obtained limits are depicted with faint lines; the bold lines are smoothed.}
+  \caption{Limits on the amplitude of oscillation in the quantity $d_\text{n} - \frac{\mu_\text{n}}{\mu_\text{Hg}} \, d_\text{Hg}$, as a function of frequency thereof. The are above the curves is excluded on the \SI{95}{\percent}~C.L. The limit of this analysis (of the PSI data) are depicted in blue; the red curve depicts the limits of the complimentary analysis of the ILL-based experiment's data~\cite{AyresThesis,PhysRevX.7.041034}. The numerically obtained limits are depicted with faint lines; the bold lines are smoothed.}
 \label{fig:axions_limits_nEDM}
 \end{figure}
 
-As no significant signals have been observed, limits could be placed to exclude the observations that would have been detected. The limits, obtained numerically in a way discussed in Sec.\,\ref{sec:signal_hypotheses_tests}, are depicted in Fig.\,\ref{fig:axions_limits_nEDM} in blue (labelled ``short time-base''). This analysis was most sensitive for periods between the duration of a sequence, around two days, and cycle repetition, \SI{300}{\second}. In that region amplitudes down to \SI{5e-26}{\elementarycharge\centi\meter} could be excluded on the 95\%~C.L. The limits of the long time-base analysis, the one of the ILL-based experiment's data~\cite{AyresThesis,PhysRevX.7.041034}, are depicted in red. Complimentarily, they are sensitive to periods just below the duration of a sequence and go down to about a decade.
+As no significant signals have been observed, limits could be placed to exclude the observations that would have been detected. The limits, obtained numerically in a way discussed in Sec.\,\ref{sec:signal_hypotheses_tests}, are depicted in Fig.\,\ref{fig:axions_limits_nEDM} in blue (labelled ``short time-base''). This analysis was most sensitive for periods between the duration of a sequence, around two days, and cycle repetition, \SI{300}{\second}. Amplitudes down to \SI{5e-26}{\elementarycharge\centi\meter} could be excluded on the \SI{95}{\percent}~C.L. The limits of the long time-base analysis, the one of the ILL-based experiment's data~\cite{AyresThesis,PhysRevX.7.041034}, are depicted in red. Complimentarily, they are sensitive to periods just below the duration of a sequence and go down to about a decade.
 
 \begin{figure}
   \centering
@@ -180,19 +180,7 @@ As no significant signals have been observed, limits could be placed to exclude 
 \label{fig:axions_limits_coupling}
 \end{figure}
 
-Following the Eq.\,(\ref{eq:nEDM_axion}), the oscillating-nEDM limits were interpreted as ones on the axion-gluon coupling. The results are presented in the axion space, spanned by their mass and the strength of the coupling, in Fig.\,\ref{fig:axions_limits_coupling}. These first laboratory constraints are presented in the landscape of already existing cosmological limits: axions with a mass below \SI{1e-22}{\electronvolt} have their Compton wavelength larger than the size of the smallest dwarf galaxies and, therefore, could not be the sole constituent of dark matter~\cite{Marsh2015Review}; the influence of axions in the red-shaded area on the Big Bang nucleosynthesis would result in an underproduction of ${}^4$He~\cite{Blum2014}; the green area was excluded based on the observations of the supernova SN1987A, where excess cooling by axion emission would have been observed~\cite{Graham2013}.
-
-
-% The Fig.\,\ref{fig:axions_limits_coupling} features the \emph{short time-base} limits, the ones described in this work, as well as \emph{long time-base} ones.
-% This work was performed with close collaboration with Nicholas Ayres of the University of Sussex. The Sussex group was part of the collaboration running the predecessor of the nEDM experiment at PSI --- the measurement performed in the Institute Laue-Langevin in Grenoble, France, in the years 1998--2002~\cite{Pendlebury2015}.
-% An analysis analogous to this work was performed on those data, with an important difference, which made it sensitive to lower frequencies (or lighter axions)~\cite{AyresThesis}.
-% Namely, the time series consisted of one point per run, in contrast to one per cycle in the short time-base analysis.
-% On one hand it limits the sensitivity to oscillation periods corresponding to one run (1--2 days).
-% On the other, the sensitivity to low frequencies is not deteriorated, as there is no need to use multiple free offsets in the LSSA fit (Eq.\,(\ref{eq:axions_LSSA})). In fact the free offset is assumed to be zero on the ground that the experiment delivered a zero-compatible result.
-% % in the process of calculating the per-run nEDM estimate the gradient fluctuations are averaged out, so there is 
-% \mnote{What about the gradient-related systematics (nEDM vs R' curve)? Was it corrected for? Wrote an email to Nick.}
-
-% Despite close collaboration the two analyses shared no common code. As a mean of cross-check, the two codes were compared on artificial datasets, more on that in the appendix.
+Following the Eq.\,\ref{eq:nEDM_axion}, the oscillating-nEDM limits were interpreted as ones on the axion-gluon coupling. The results are presented in the axion space, spanned by their mass and the strength of the coupling, in Fig.\,\ref{fig:axions_limits_coupling}. The limits are presented in the landscape of already existing cosmological limits: axions with a mass below \SI{e-22}{\electronvolt} have their Compton wavelength larger than the size of the smallest dwarf galaxies and, therefore, could not be the sole constituent of dark matter~\cite{Marsh2015Review}; the influence of axions in the red-shaded area on the Big Bang nucleosynthesis would result in an underproduction of ${}^4$He~\cite{Blum2014}; the green area was excluded based on the observations of the supernova SN1987A, where excess cooling by axion emission would have been observed~\cite{Graham2013}. The limits are not only the first laboratory constraints on the axion-gluon coupling, but also improve on the existing cosmological exclusions.
 
 
 
@@ -237,27 +225,6 @@ The lack of statistically significant signal compatible with the axion model all
   \caption{Excluded regions of the space of the coupling of axions to nucleons (Eq.\,\ref{potential_axion-wind}). The green region is excluded from observations of the SN1987A supernova~\cite{PhysRevX.7.041034}, and the yellow one from K--${}^3$He magnetometry~\cite{Romalis2009_NF}. The blue region, is the exclusion arising from this analysis.}\label{fig:axions_wind_limits}
 \end{figure}
 
-
-
-
-\section{Sidereal frequency}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{gfx/axions/winddeltah4mm_sidereal.pdf}
-  \caption{\cite{Romalis2009_NF}}\label{fig:axions_sidereal_detection}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{gfx/axions/winddeltah4mm_sidereal_detection.pdf}
-  \caption{\cite{Romalis2009_NF}}\label{fig:axions_sidereal_cdf}
-\end{figure}
-
-A note about the signals seen at this particular frequency. Refer to the Lorentz-invariance paper, improve the limit directly?~\cite{ALTAREV20112365}
-
-Another magnetic-field-like effect\ldots
-
-At the moment (21 Feb 2018) it seems, that there is a signal exactly at the sidereal frequency. The periodograms are in Fig.\,\ref{fig:axions_sidereal_detection}. It is around 4$\upsigma$ in both datasets, the CDF of the B up dataset is in Fig.\,\ref{fig:axions_sidereal_cdf}. The phase relation is correct (around \ang{160}, but I don't know the uncertainty on that number). In the B up dataset it sticks prominently out exactly there. In the B down dataset it is a bit problematic, as this happens to be right at the edge of some wider excess in power, so this peak is surrounded by a couple more, some even more significant. I could cut the data to get this peak out. 
 
 
 
