@@ -231,7 +231,7 @@ However, it is hard to imagine going beyond ten-second range. A real improvement
 
 
 \section{Resonant oscillating nEDM search}
-Both searches that have been discussed, were what is called broad-band. The measurement are sensitive to a wide range of frequencies. In contrast to that, resonant searches, like ADMX~\cite{PhysRevLett.104.041301} or proposed CASPEr~\cite{CASPEr2014}, are sensitive at a any given time only to a relatively narrow band of frequencies. Covering a wide range requires scanning. In this section a resonant search of an oscillating nEDM is proposed.
+The periodogram-based searches for Dark Matter were sensitive to a wide range of frequencies. In contrast to that, resonant searches (for example ADMX~\cite{PhysRevLett.104.041301} or proposed CASPEr~\cite{CASPEr2014}) are sensitive at a any given time only to a relatively narrow band of frequencies. Covering a wide range requires scanning. In this section a resonant search of an oscillating nEDM is proposed, which would give access to faster oscillations than the periodogram-based method.
 
 % Many of the axion searches are resonant based.~\cite{PhysRevLett.104.041301,CASPEr2014} \note{some references}.
 % The standard instrument to look for an axion-photon coupling, called a haloscope \note{verity}, consists of ultra-low-noise resonant cavity, where axions can produce photons, detected with an antenna \note{is it an antenna?}.
@@ -248,52 +248,53 @@ For example, a Ramsey cycle begins with a $\uppi/2$ flip induced by an oscillati
 
 In the proposed scheme, sketched in Fig.\,\ref{fig:axions_resonant_effect}, the neutrons start polarised along the holding field and are put into the Larmor precession with a $\uppi/2$ flip. The oscillating nEDM would then induce a Rabi nutation and a net polarisation along the $B_0$ direction would build up, which could be measured. The direction of the nutation depends on the phase difference between the Larmor precession (defined by the phase of the $\uppi/2$ pulse) and the oscillating nEDM\@.
 
-The Hamiltonian for a neutron in a magnetic filed is
+In order to estimate the sensitivity of such a search consider the Hamiltonian for a neutron in a magnetic filed
 \begin{equation}
   H = - \boldsymbol{\upmu}_\text{n} \cdot \mathbf{B} = - \gamma_\text{n} \mathbf{S} \cdot \mathbf{B}
 \end{equation}
-and the Larmor frequency is
+for which the Larmor frequency is
 \begin{equation}
-  \omega_0 = \frac{\mu_\text{n} B}{S} = \frac{2 \mu_\text{n} B}{\hbar} = \gamma_\text{n} B \ .
+  \omega_0 = \frac{\mu_\text{n} B}{S} = \f rac{2 \mu_\text{n} B}{\hbar} = \gamma_\text{n} B \ .
 \end{equation}
-In a presence of an electric field perpendicular to $\bm{B}$ and a harmonically oscillating nEDM
+A presence of an electric field perpendicular to $\mathbf{B}$ and a harmonically oscillating nEDM adds an additional term to the Hamiltonian
 \begin{equation}
-  H = - \gamma_\text{n} \mathbf{B} \cdot \mathbf{S} - \mathbf{d}_\text{n}^0 \sin (\omega_0 t) \cdot \mathbf{E}
+  H = - \gamma_\text{n} \mathbf{B} \cdot \mathbf{S} - \mathbf{d}_\text{n}^0 \sin (\omega_0 t) \cdot \mathbf{E} \ ,
 \end{equation}
-where we assume to be on the resonance with the oscillation.
-In a rotating frame spinning around $\mathbf{B}$ with the frequency $\omega_0$ the field $\mathbf{B}$ vanishes~\cite{RamseyBook} and the Hamiltonian is
+where we assume the Larmor frequency to be resonant with the oscillating nEDM, and a phase difference of \ang{90} between the spin's precession and the nEDM oscillation. In a rotating frame spinning around $\mathbf{B}$ with the frequency $\omega_0$ the field $\mathbf{B}$ vanishes~\cite{RamseyBook}:
 \begin{equation}
-  H_\text{rot} = d_\text{n}^0 \mathbf{E} \cdot \mathbf{S}
+  H_\text{rot} = d_\text{n}^{\,0} \, \mathbf{E} \cdot \mathbf{S} \ .
 \end{equation}
-Following the analogy on a rotating transverse field we find the nutation frequency
+Following the analogy to a rotating transverse field we find the precession frequency in the rotating frame, a nutation in the stationary one, to be:
 \begin{equation}
-  \omega_\text{nutation} = \frac{d_\text{n}^0}{\hbar}
+  \omega_\text{nut.} = \frac{d_\text{n}^{\,0}}{\hbar}
 \end{equation}
-The angle for an interaction time $T$ is
+After time $T$ the accumulated angle is
 \begin{equation}
-  \theta = \omega_\text{nutation} T = \frac{d_\text{n}^0 E }{\hbar} \, T
+  \theta = \omega_\text{nut.} T = \frac{d_\text{n}^0 E }{\hbar} \, T \ .
+  \label{eq:resonant_the_angle}
 \end{equation}
-The neutron counts are proportional to the projection on the vertical axis
+In the end of the measurement the neutrons pass a spin analyser, which projects their polarisation on the axis of $\mathbf{B}$. For $N_0$ neutrons the resonance curve
 \begin{equation}
-  N(\theta) = N_0 \alpha \sin \theta
+  N_{\uparrow \downarrow}(\theta) = \frac{N_0}{2} \left( 1 \pm \alpha \sin \theta  \right)  \ ,
 \end{equation}
-where $\alpha$ is the visibility parameter. For small angles we have
+where $\alpha$ is the visibility parameter and the sign depends on which spin state is counted. A change in the neutron counts for a small angle $\delta \theta$ is:
 \begin{equation}
-  N(d_n^0)  \approx \frac{N_0 \alpha T E}{\hbar} \, d_\text{n}^0
+  \delta N = \frac{N_0}{2} \alpha \, \delta \theta \ .
+  \label{eq:resonant_deltaN}
 \end{equation}
-The sensitivity is then, assuming it is dominated by the counting statistics $\sqrt{N}$ is
+Finally, the sensitivity is obtained from Eqs.\,\ref{eq:resonant_the_angle} and~\ref{eq:resonant_deltaN}, assuming it is dominated by the counting statistics $\sqrt{N_0/2}$
 \begin{equation}
-  \sigma_{d_n^0} = \frac{\hbar}{\sqrt{N} \alpha T E}
+  \sigma_{d_n^{\,0}} = \frac{\hbar}{\sqrt{N_0/2} \alpha T E} \ .
+\end{equation}
+When both spin states are counted, as it was the case in the nEDM experiment at PSI the sensitivity increases by a factor $\sqrt{2}$:
+\begin{equation}
+  \sigma_{d_n^{\,0}} = \frac{\hbar}{\sqrt{N_0} \alpha T E} \ .
 \end{equation}
 
-Additional factor $\sqrt{2}$ is lost due to the non-matching phases (on average). Two measurements done, with the Larmor precession (through the spin-flip pulses) shifted by \ang{90}, recover the full sensitivity.
+We assumed a \ang{90} phase difference between the spin's precession, defined by the phase of the $\uppi/2$ pulse, and the nEDM oscillation. On average an additional factor of $\sqrt{2}$ is lost due to the non-matching phases.
+Doing two measurement with the phases of the $\pi/2$ pulses shifted by \ang{90}, one having a sine-like sensitivity other a cosine-like, gives a flat sensitivity for all phases of the nEDM oscillation.
 
-
-Systematic effects: quality of the pi/2 pulse (all correlated with the electric field).
-
-First---just scanning.
-
-Broad band possibility? It is like an adiabatic spin-flip, but without the oscillating field. The fact that the spin flip occurs, would indicate a presence of the field.
+The search is resonant---at any given time the full sensitivity is achieved only for the nEDM oscillation frequency equal to the Larmor one. To cover a wide spectrum the strength of the magnetic field $\mathbf{B}$ would need to be scanned.
 
 \begin{figure}
   \centering
@@ -301,5 +302,4 @@ Broad band possibility? It is like an adiabatic spin-flip, but without the oscil
   \caption{Left: the sensitivity of the resonant search has the width equal to the inverse interaction time. Right: a broad-band sensitivity needs to be built up with multiple measurements.}\label{fig:axions_resonant_sensitivity}
 \end{figure}
 
-
-\note{Some kind of summary here?}
+An important systematic effect would be the quality of the $\uppi/2$ pulse. Polarisation remaining after it could be misinterpreted as a signal. The effect scales linearly with the electric field $E$ and the interaction time $T$. Both could be varied, in particular the electric field reversed, in a series of coherent measurements. They would need to be performed at each frequency. The length of the series is limited by the coherence of the expected signal, \num{e6} in the case of an axion-induced nEDM oscillation.
