@@ -79,7 +79,7 @@ Because of the non-zero static nEDM and the phase shift the least-squares spectr
   \subfloat[An oscillating neutron electric dipole moment signal in the nEDM @ PSI apparatus across many runs. The colours indicate different electric field states: parallel to the magnetic field, antiparallel to it and zero. Different runs have different magnetic field gradients, which causes each run to have a different shift in $R = f_n / f_{Hg}$.]
   {\label{fig:axions_data_taking_runs}
   \includegraphics[width=.56\linewidth]{gfx/axions/cycle-level_gradient_jump.png}}
-  \caption{The data taking scheme in the nEDM experiment at PSI. \note{Make a new figure, still hand-drawn, but nicer. Check the colouring scheme for the field polarity. Don't do subfigures---put everything one one with an inset.}}\label{fig:oscillating_nEDM_in_R}
+  \caption{The data taking scheme in the nEDM experiment at PSI\@. \note{Make a new figure, still hand-drawn, but nicer. Check the colouring scheme for the field polarity. Don't do subfigures---put everything one one with an inset.}}\label{fig:oscillating_nEDM_in_R}
 \end{figure}
 
 A part of the measurement procedure was to deliberately work in a substantial vertical magnetic field gradient. The gradient changed between sequences, causing large shifts in $R$, as illustrated in Fig.\,\ref{fig:oscillating_nEDM_in_R}. The problem of inter-sequence jumps was solved by allowing the DC offset in the LSSA fit to be different in each sequence:
@@ -238,7 +238,7 @@ The periodogram-based searches for Dark Matter were sensitive to a wide range of
 % At any given time the measurement is sensitive only to a narrow band of photon energies (or frequencies), the width given by the finesse \note{verity} of the cavity. To cover a wide range the tuning of the cavity is scanned. In this section an idea of a resonant oscillating nEDM search is pursued.
 
 For polarised neutrons in a magnetic field, a transverse oscillating coupling induces a coherent Rabi oscillation between the spin-up and spin-down states.
-For example, a Ramsey cycle begins with a $\uppi/2$ flip induced by an oscillating transverse magnetic field, its frequency tuned to the Larmor one and its length tuned such, that the Rabi oscillation stops when the polarisation is in the transverse plane. Should the nEDM oscillate, an oscillating transverse coupling can be realised with a static magnetic field \emph{perpendicular} to the holding magnetic field $B_0$. Then, if the frequency of the nEDM oscillation is tuned to the Larmor one, the neutrons would undergo a Rabi nutation, which could be detected.
+For example, a Ramsey cycle begins with a $\uppi/2$ flip induced by an oscillating transverse magnetic field, its frequency tuned to the Larmor one and its length tuned such, that the Rabi oscillation stops when the polarisation is in the transverse plane. Should the nEDM oscillate, an oscillating transverse coupling can be realised with a static magnetic field \emph{perpendicular} to the holding magnetic field $\mathbf{B}$. Then, if the frequency of the nEDM oscillation is tuned to the Larmor one, the neutrons would undergo a Rabi nutation, which could be detected. Scanning the magnetic field in the range \SIrange[range-phrase=--]{0.1}{10}{\micro\tesla} would cover frequencies \SIrange[range-phrase=--]{3}{300}{\hertz}.
 
 \begin{figure}
   \centering
@@ -291,15 +291,31 @@ When both spin states are counted, as it was the case in the nEDM experiment at 
   \sigma_{d_n^{\,0}} = \frac{\hbar}{\sqrt{N_0} \alpha T E} \ .
 \end{equation}
 
-We assumed a \ang{90} phase difference between the spin's precession, defined by the phase of the $\uppi/2$ pulse, and the nEDM oscillation. On average an additional factor of $\sqrt{2}$ is lost due to the non-matching phases.
+A \ang{90} phase difference between the spin's precession, defined by the phase of the $\uppi/2$ pulse, and the nEDM oscillation is assumed. On average an additional factor of $\sqrt{2}$ is lost due to the non-matching phases.
 Doing two measurement with the phases of the $\pi/2$ pulses shifted by \ang{90}, one having a sine-like sensitivity other a cosine-like, gives a flat sensitivity for all phases of the nEDM oscillation.
-
-The search is resonant---at any given time the full sensitivity is achieved only for the nEDM oscillation frequency equal to the Larmor one. To cover a wide spectrum the strength of the magnetic field $\mathbf{B}$ would need to be scanned.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/resonant_sensitivity.png}
   \caption{Left: the sensitivity of the resonant search has the width equal to the inverse interaction time. Right: a broad-band sensitivity needs to be built up with multiple measurements.}\label{fig:axions_resonant_sensitivity}
+\end{figure}
+
+The search is resonant---at any given time the full sensitivity is achieved only for the nEDM oscillation frequency equal to the Larmor one. To cover a wide spectrum the strength of the magnetic field $\mathbf{B}$ would need to be scanned. The width of the sensitivity peak is $1/T$; the broad-band search would need to be built up from many of those, as depicted in Fig.\,\ref{fig:axions_resonant_sensitivity}. 
+
+In order to perform a \SIrange[range-phrase=--]{3}{300}{\hertz} scan in a 1000 cycles (3 days of operation for the nEDM at PSI experiment) the width of the resonance would need to be
+\begin{equation}
+  T = {\left( \frac{1}{1000} \left( \SI{300}{\hertz} - \SI{3}{\hertz} \right)  \right)}^{-1} \approx \SI{3}{\second} \ .
+\end{equation}
+With the baseline parameters of the n2EDM experiment at PSI sensitivity $\alpha = 0.8$, $E = \SI{15}{\kilo\volt\per\centi\metre}$, $N_0 = \num{121000}$ a per-cycle sensitivity would be 
+\begin{equation}
+  \sigma_{d_n} = \SI{5e-23}{\elementarycharge\centi\metre} \ .
+\end{equation}
+The region of an axion coupling to gluons that could be excluded is depicted in Fig.\,\ref{fig:axions_prediction}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/axions/resonant_search_exclusion_1000cycles_n2EDM.pdf}
+  \caption{\ldots}\label{fig:axions_prediction}
 \end{figure}
 
 An important systematic effect would be the quality of the $\uppi/2$ pulse. Polarisation remaining after it could be misinterpreted as a signal. The effect scales linearly with the electric field $E$ and the interaction time $T$. Both could be varied, in particular the electric field reversed, in a series of coherent measurements. They would need to be performed at each frequency. The length of the series is limited by the coherence of the expected signal, \num{e6} in the case of an axion-induced nEDM oscillation.
