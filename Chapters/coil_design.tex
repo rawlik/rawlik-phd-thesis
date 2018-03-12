@@ -23,35 +23,35 @@ We begin with a description of our model for a restricted two-dimensional case a
 \section{Coils as a linear space}
 Consider all possible coils that can be constructed by laying a wire on a surface of a square. The possibilities are endless. Speaking more precisely, as the wires may be shifted by arbitrarily small distances, as they overlap and cross, the problem has inherently an infinite number of degrees of freedom. Here, an algebraic representation that reduces the number of degrees of freedom to just a few is proposed.
 
-Start with a straight, finite wire segment spanned between points $\bm{x}_1$ and $\bm{x}_2$ (represented by vectors in an arbitrary coordinate system) and carrying current $I$, as depicted in Fig.\,\ref{fig:biot-savart}. The magnetic field it produces in the point $\bm{p}$ can be calculated with the use of the Biot-Savart law. Consider the vector normal to the wire through the point $\bm{p}$:
+Start with a straight, finite wire segment spanned between points $\mathbf{x}_1$ and $\mathbf{x}_2$ (represented by vectors in an arbitrary coordinate system) and carrying current $I$, as depicted in Fig.\,\ref{fig:biot-savart}. The magnetic field it produces in the point $\mathbf{p}$ can be calculated with the use of the Biot-Savart law. Consider the vector normal to the wire through the point $\mathbf{p}$:
 \begin{equation}
-  \bm{\rho} = (\bm{x}_1 - \bm{p}) - \left( \left( \bm{x}_1 - \bm{p} \right) \cdot \bm{n} \right)\bm{n} \ ,
+  \boldsymbol{\uprho} = (\mathbf{x}_1 - \mathbf{p}) - \left( \left( \mathbf{x}_1 - \mathbf{p} \right) \cdot \mathbf{n} \right)\mathbf{n} \ ,
 \end{equation}
-where $\bm{n}$ is a unit vector in the direction $\bm{x}_2 -\bm{x}_1$. The magnitude of the magnetic field in point $\bm{p}$ is then~\cite{Griffith}:
+where $\mathbf{n}$ is a unit vector in the direction $\mathbf{x}_2 -\mathbf{x}_1$. The magnitude of the magnetic field in point $\mathbf{p}$ is then~\cite{Griffith}:
 \begin{equation}
   \label{eq:biot_savart}
   B = \frac{\mu_0 I}{4 \pi \rho} \, \left| \sin \alpha_2 + s\, \sin \alpha_1 \right| \ ,
 \end{equation}
 where the angles $\alpha_i$ are not directed
 \begin{equation}
-  \alpha_i = \frac{ \left\lVert \left( \bm{x}_i - \bm{p} \right) \times \bm{\rho} \right\rVert }{ (x_i  - p) \rho } \ ,
+  \alpha_i = \frac{ \left\lVert \left( \mathbf{x}_i - \mathbf{p} \right) \times \boldsymbol{\uprho} \right\rVert }{ (x_i  - p) \rho } \ ,
 \end{equation}
-and $s$ is $+1$ if $\bm{\rho}$ points onto the wire segment (between points $\bm{x}_1$ and $\bm{x}_2$) and $-1$ otherwise:
+and $s$ is $+1$ if $\boldsymbol{\uprho}$ points onto the wire segment (between points $\mathbf{x}_1$ and $\mathbf{x}_2$) and $-1$ otherwise:
 \begin{equation}
-  s = \mathrm{sgn}\left( \tfrac{1}{2} \left\lVert \bm{x}_2 - \bm{x}_1 \right\rVert -
-  \left\lVert \bm{p} + \bm{\rho} - \tfrac{1}{2} \left( \bm{x}_1 + \bm{x}_2 \right) \right\rVert \right)
+  s = \mathrm{sgn}\left( \tfrac{1}{2} \left\lVert \mathbf{x}_2 - \mathbf{x}_1 \right\rVert -
+  \left\lVert \mathbf{p} + \boldsymbol{\uprho} - \tfrac{1}{2} \left( \mathbf{x}_1 + \mathbf{x}_2 \right) \right\rVert \right)
 \end{equation}
 \marginpar{Another formulation, with better numerical properties close to the axis of the wire, can be found in Ref.\,\cite{Hanson2002}.}
 The direction of the field is given by the right-hand principle:
 \begin{equation}
-  \mathbf{B} = \frac{B}{\rho} \bm{\rho} \times \bm{n}
+  \mathbf{B} = \frac{B}{\rho} \boldsymbol{\rho} \times \mathbf{n}
 \end{equation}
 This formulation is independent of the coordinate system (coordinate-system dependent solutions can be found e.g.\ in Ref.\,\cite{Grivich2000}).
 
 \begin{figure}
   \centering
   \includegraphics[width=0.6\linewidth]{gfx/coils/biot_savart.pdf}
-  \caption{The setting for calculating the magnetic field produced in point $\bm{p}$ by a straight wire segment from $\bm{x}_1$ to $\bm{x}_2$.}\label{fig:biot-savart}
+  \caption{The setting for calculating the magnetic field produced in point $\mathbf{p}$ by a straight wire segment from $\mathbf{x}_1$ to $\mathbf{x}_2$.}\label{fig:biot-savart}
 \end{figure}
 
 Imagine four wire segments making up a square loop---a coil. It produces a certain magnetic field in the entire space $\mathbf{B}(\mathbf{x})$, given, following the superposition principle, by a sum of the fields produced by each segment of the coil.
