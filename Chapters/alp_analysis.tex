@@ -246,27 +246,44 @@ For example, a Ramsey cycle begins with a $\uppi/2$ flip induced by an oscillati
   \caption{The behaviour of the spin population in a resonant oscillating EDM search. One starts with an ensemble polarised along the holding magnetic field $B_0$. The electric field is perpendicular. Then, the polarisation is flipped by $\pi$/2 and starts the Larmor precession. The combination of the electric field and an oscillating EDM would induce a Rabi nutation. The direction of the nutation is determined by the relative phase of the Larmor precession and the EDM oscillation.}\label{fig:axions_resonant_effect}
 \end{figure}
 
-In the proposed scheme, sketched in Fig.\,\ref{fig:axions_resonant_effect}, the neutrons start polarised along the holding field and are put into the Larmor precession with a $\uppi/2$ flip. The oscillating nEDM would then induce a Rabi nutation and a net polarisation along the $B_0$ direction would build up, which could be measured. The direction of the nutation depends on the phase difference between the Larmor precession (defined by the phase of the $\uppi/2 pulse$) and the oscillating nEDM\@.
+In the proposed scheme, sketched in Fig.\,\ref{fig:axions_resonant_effect}, the neutrons start polarised along the holding field and are put into the Larmor precession with a $\uppi/2$ flip. The oscillating nEDM would then induce a Rabi nutation and a net polarisation along the $B_0$ direction would build up, which could be measured. The direction of the nutation depends on the phase difference between the Larmor precession (defined by the phase of the $\uppi/2$ pulse) and the oscillating nEDM\@.
 
-Sensitivity. \note{This I still need to calculate in detail.}
+The Hamiltonian for a neutron in a magnetic filed is
 \begin{equation}
-  H(t) = \bm{\mu} \cdot \bm - \bm{d}_\text{n}(t) \cdot \bm{E}
+  H = - \boldsymbol{\upmu}_\text{n} \cdot \mathbf{B} = - \gamma_\text{n} \mathbf{S} \cdot \mathbf{B}
 \end{equation}
-In the Rabi precession we have an effective precession:
+and the Larmor frequency is
 \begin{equation}
-  H = - \bm{d}_\text{n}(t) \cdot \bm{E}
+  \omega_0 = \frac{\mu_\text{n} B}{S} = \frac{2 \mu_\text{n} B}{\hbar} = \gamma_\text{n} B \ .
 \end{equation}
-field. The Rabi frequency is then:
+In a presence of an electric field perpendicular to $\bm{B}$ and a harmonically oscillating nEDM
 \begin{equation}
-  \chi = \frac{ \bm{d}_\text{n}(t) \cdot \bm{E} }{ \hbar }
+  H = - \gamma_\text{n} \mathbf{B} \cdot \mathbf{S} - \mathbf{d}_\text{n}^0 \sin (\omega_0 t) \cdot \mathbf{E}
 \end{equation}
-The rotation for a small angle is:
+where we assume to be on the resonance with the oscillation.
+In a rotating frame spinning around $\mathbf{B}$ with the frequency $\omega_0$ the field $\mathbf{B}$ vanishes~\cite{RamseyBook} and the Hamiltonian is
 \begin{equation}
-  \theta = \frac{ \bm{d}_\text{n}(t) \cdot \bm{E} }{ \hbar } \cdot T
+  H_\text{rot} = d_\text{n}^0 \mathbf{E} \cdot \mathbf{S}
 \end{equation}
-\note{Now somehow relate it to the nEDM sensitivity. What is the nEDM sensitivity to detect a polarisation in the UCN\@? Where do I get the additional factor of 2 from?}
+Following the analogy on a rotating transverse field we find the nutation frequency
 \begin{equation}
-  \sigma(d_\text{n}) = \frac{ \hbar }{ 2 \alpha E T \sqrt{N} }
+  \omega_\text{nutation} = \frac{d_\text{n}^0}{\hbar}
+\end{equation}
+The angle for an interaction time $T$ is
+\begin{equation}
+  \theta = \omega_\text{nutation} T = \frac{d_\text{n}^0 E }{\hbar} \, T
+\end{equation}
+The neutron counts are proportional to the projection on the vertical axis
+\begin{equation}
+  N(\theta) = N_0 \alpha \sin \theta
+\end{equation}
+where $\alpha$ is the visibility parameter. For small angles we have
+\begin{equation}
+  N(d_n^0)  \approx \frac{N_0 \alpha T E}{\hbar} \, d_\text{n}^0
+\end{equation}
+The sensitivity is then, assuming it is dominated by the counting statistics $\sqrt{N}$ is
+\begin{equation}
+  \sigma_{d_n^0} = \frac{\hbar}{\sqrt{N} \alpha T E}
 \end{equation}
 
 Additional factor $\sqrt{2}$ is lost due to the non-matching phases (on average). Two measurements done, with the Larmor precession (through the spin-flip pulses) shifted by \ang{90}, recover the full sensitivity.
