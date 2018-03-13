@@ -2,14 +2,13 @@
 \label{ch:axions-periodograms}
 The space of possible axion-induced signals is spanned by their amplitude (the strength of the coupling) and their frequency (the axion mass). The problem is, therefore, naturally set in the frequency domain. The analysis was performed in two steps. First, the measurements were transformed from the time domain into the frequency one by evaluating the periodogram of the time series. In the second step the periodogram was checked for statistically significant signals.
 
-In this chapter the statistical methods used in the analysis are introduced. The periodogram is defined, as tool to make a transition from time to the frequency space, natural for looking for oscillations. The statistical properties of the periodogram are discussed, in particular the means of quantifying the significance of detected signals and a way too set exclusions.
+In this chapter the statistical methods used in the analysis are introduced. The statistical properties of the periodogram are discussed, in particular the means of quantifying the significance of detected signals. Then, a Monte-Carlo-based way too set exclusions is presented. The methodology is demonstrated on a toy signal, generated specially for the purpose of a clear illustration of the subject.
 
-% For the sake of pedagogy we will discuss the methodology on a simple example.
 
 
 
 \section{Definition of the periodogram}
-A \emph{periodogram} is an estimator of the power spectrum. It has been proposed as the preferred way to treat periodic signals as early as 1898~\cite{Schuster1898}. In its simplest form it is the squared magnitude of the discrete Fourier transform, which, however, is only possible for evenly sampled series. Lomb and Scargle have independently described a method to construct a statistically well-behaving periodogram for non-uniformly sampled data with unequal error-bars: the Least Squares Spectral Analysis (LSSA)~\cite{Scargle1982} (also known as the Lomb-Scargle periodogram).
+A \emph{periodogram} is an estimator of the power spectrum. It has been proposed as the preferred way to treat periodic signals as early as 1898~\cite{Schuster1898}. In its simplest form it is the squared magnitude of the discrete Fourier transform, which, however, is only possible to evaluate for evenly sampled series. Lomb and Scargle have independently described a method to construct a statistically well-behaving periodogram for non-uniformly sampled data with unequal error-bars: the Least Squares Spectral Analysis (LSSA) (also known as the Lomb-Scargle periodogram)~\cite{Scargle1982}.
 
 % Many packages readily offer procedures to evaluate Lomb--Scargle periodograms~\cite{scipy,astropy}. They could not, however, be used directly as the analysis deviated in details from the standard procedure. We had to take a low--level approach, instead.
 
@@ -29,25 +28,27 @@ where $A$, $B$ and $C$ are free parameters. The estimator of power $P(\omega)$ i
 \end{equation}
 where $N$ is the number of data points. Different normalisations may be used.
 \marginpar{The noise bed is flat part of periodogram due to random noise. If there is a signal, it is said to ``rise out of the noise bed''.}
-Here the one of~\cite{Scargle1982} is used, where the height of $\sqrt{P(\omega)}$ at the noise bed corresponds numerically to the size of the error-bars squared, if they are all equal. A graphical overview of the method is shown in Fig.\,\ref{fig:LSSA_overview}. Throughout the analysis the figure of merit is either the power $P(\omega)$ or, interchangeably, its square root---amplitude. The latter has conveniently the same unit as the time series.
+Here the one of~\cite{Scargle1982} is used, where the height of $\sqrt{P(\omega)}$ at the noise bed corresponds to the size of the error-bars squared, if they are all equal. A graphical overview of the method is shown in Fig.\,\ref{fig:LSSA_overview}. Throughout the analysis the figure of merit is either the power $P(\omega)$ or, interchangeably, its square root---amplitude. The latter has conveniently the same unit as the time series.
 
 \begin{figure}
   \centering \includegraphics[width=0.8\linewidth]{gfx/axions/basic_signal.pdf}
-  \caption{A simple signal generated just for the purpose for explaining the general scheme of periodogram analysis. A harmonic signal (blue) was used to generate unevenly spaced data points (black). Each point was drawn from a normal distribution centred at the blue curve and a unit width.}\label{fig:basic_signal}
+  \caption{A toy signal generated just for the purpose for explaining the general scheme of the periodogram analysis. A harmonic signal (blue) was used to generate unevenly spaced data points (black). Each point was drawn from a normal distribution centred at the blue curve and a unit width. \note{Remove the legend.}}\label{fig:basic_signal}
 \end{figure}
 
-We will now follow an analysis of a toy time series, shown in Fig.\,\ref{fig:basic_signal}. The time series had been fabricated as simulated measurements of an oscillating signal of a frequency \SI{0.17}{\hertz} and an amplitude \num{0.7} in an arbitrary unit. The series has already some properties of the actual dataset. The measurements are not equally spaced; they are randomly grouped in \SI{10}{\second} long bunches, around \SI{20}{\second} apart. Inside a bunch a ``measurement'' is taken every \SI{2}{\second} with a \SI{0.3}{\second} jitter. The length of each measurement is \SI{1}{\second} with a \SI{0.1}{\second} jitter. The error-bars are all size one in the arbitrary unit. Each ``measurement'' averaged the signal over its duration.
+We will now follow an analysis of a toy time series, shown in Fig.\,\ref{fig:basic_signal}. The time series had been fabricated as simulated measurements of an oscillating signal of a frequency \SI{0.17}{\hertz} and an amplitude equal to \num{0.7} in an arbitrary unit.
+The series has already some properties of the actual dataset. The measurements are not equally spaced; they are randomly grouped in \SI{10}{\second} long bunches, around \SI{20}{\second} apart. Inside a bunch a ``measurement'' is taken every \SI{2}{\second} with a \SI{0.3}{\second} jitter. The length of each measurement is \SI{1}{\second} with a \SI{0.1}{\second} jitter. The error-bars are all size one in the arbitrary unit. Each ``measurement'' averaged the signal over its duration.
 
-The immediate question arising when evaluating the LSSA periodogram is: for which frequencies to evaluate the power? In a case of evenly-spaced series the upper limit is the Nyquist frequency, equal to the half of the sampling rate~\cite{Shannon1949}. It is not the case when the sampling is not uniform. In practice, we can expect little sensitivity to oscillations faster than the period over which each signal is averaged, \SI{1}{\second} in the example. On the low side the limit is zero, which corresponds to the constant offset (a least-squares fit of a horizontal line, which is equivalent to calculating the average of the points). The value of the periodogram at zero is usually not plotted.
+The immediate question arising when evaluating the LSSA periodogram is: for which frequencies to evaluate the power? In a case of evenly-spaced series the upper limit is the Nyquist frequency, equal to the half of the sampling rate~\cite{Shannon1949}.
+It is not the case when the sampling is not uniform. In practice, we can expect little sensitivity to oscillations faster than the period over which each signal is averaged, \SI{1}{\second} in the example. On the low side the limit is zero, which corresponds to the constant offset (a least-squares fit of a horizontal line, which is equivalent to calculating the average of the points). The value of the periodogram at zero is usually not plotted.
 
 \begin{figure}
   \centering \includegraphics[width=\linewidth]{gfx/axions/basic_periodogram.pdf}
-  \caption{Two periodograms of the time series in Fig.\,\ref{fig:basic_signal}. One evaluated at frequencies a spectral resolution apart (black dots), and one evaluated a thousand times more densely (the orange line). As no structure on a scale finer the spectral resolution can be accessed, the orange line simply ``connects'' the black dots.}\label{fig:basic_periodogram}
+  \caption{Two periodograms of the time series in Fig.\,\ref{fig:basic_signal}. One evaluated at frequencies with a spacing equal to the spectral resolution (black dots), and one evaluated a thousand times more densely (the orange line).}\label{fig:basic_periodogram}
 \end{figure}
 
 When choosing the spacing between the frequencies, the \emph{spectral resolution} is considered, defined as the inverse span of the dataset.
 \marginpar{A Fourier transform of a rectangular function is a sinc function. Any signal measured for a finite time in the frequency space is necessarily convoluted with the sinc function.}
-It roughly defines the minimal frequency difference between two signals that is distinguishable. A perfectly coherent oscillation produces a $\mathrm{sinc}$ peak of a width equal to the spectral resolution. \note{citation needed}
+It roughly defines the minimal frequency difference between two signals that is distinguishable. A perfectly coherent oscillation produces a cardinal-sine-shaped peak of a width equal to the spectral resolution. \note{citation needed}
 In Fig.\,\ref{fig:basic_periodogram} there are two periodograms: a ``sparse'' one evaluated at frequencies spaced a full spectral resolution apart (black dots), and one a thousand times more dense (the orange line).
 Each peak visible in the dense line is met with at least one sparse evaluation. However, not for each the point is at the peak's full height, which decreases the sensitivity of the method. As a compromise the frequency spacing is sometimes chosen to be a fraction of the spectral resolution, e.g.\ a tenth~\cite{Debosscher2007}. In this work the spacing of a full spectral resolution was used.
 
@@ -58,20 +59,22 @@ Each peak visible in the dense line is met with at least one sparse evaluation. 
 
 Figure~\ref{fig:basic_periodogram_loglog} shows the same two periodograms in a log-log scale. Additionally, the range of frequencies where the periodogram is evaluated has been extended to show its behaviour in the extremes. The logarithmic scale, albeit useful when the potential signals span orders of magnitude in both frequency and amplitude, can lead to misunderstandings. Specifically, the noise appears to increase in amplitude with frequency, but the effect is purely cognitive. The spacing of the points is linear, so on a logarithmic scale the density of points increases for high amplitude. This makes more of extreme deviations likely to appear per unit area of the plot.%, despite the noise amplitude being the same.
 
-An oscillation in the time series produces a peak in the periodogram. The position of the peak is the frequency of the oscillation, the width corresponds to the coherence of the signal. However, there are the periodogram many peaks besides the one corresponding to the oscillation used when generating the data. Some are even bigger and there are many smaller ones. In the next section we will consider what, besides an oscillating signal, may give rise to a peak. Most importantly, a way of determining whether a peak is caused by an oscillation is presented.
+An oscillation in the time series produces a peak in the periodogram. The position of the peak is the frequency of the oscillation, the width corresponds to the coherence of the signal. However, in the periodogram there many peaks besides the one corresponding to the oscillation used when generating the data. Some are even bigger and there are many smaller ones. In the next section we will consider what, besides an oscillating signal, may give rise to a peak. Most importantly, a way of determining whether a peak is caused by an oscillation is presented.
 
 
 
 
 \section{A null hypothesis test}
 \label{sec:a_null_hypothesis_test}
-Once the periodogram of a time series is calculated, one would like to know whether it contains a signal signature. For a periodic signal this would be a peak. In our case, the really interesting statement is the answer to the question:
+Once the periodogram of a time series is calculated, one would like to know whether it contains a statistically significant signature of a signal. For a periodic signal this would be a peak. In our case the really interesting statement is the answer to the question:
 \begin{center}
   \emph{How likely is it that the highest peak in the periodogram is not only a random fluctuation?}
 \end{center}
 This question has already been stated by Scargle~\cite{Scargle1982}. In this section we will be largely following the reasoning he presented, with few important differences.
 
-To describe the question mathematically, let us denote the time series under consideration by $D$. The periodogram is then a set of $P^D(\omega_i)$, depicted with a black line in Fig.\,\ref{fig:basic_detection}. In a uniformly sampled case with equal error bars $P^D(\omega_i)$ is equally exponentially distributed, for those frequencies where no signal is present~\cite{Scargle1982}. In our, more complicated, case the distribution can be generated by a Monte Carlo (MC) simulation in the following way: a new signal is generated, keeping the time, position and the size of the error bars, but with no underlying signal present (the null hypothesis $H_0$). The value for each simulated measurement is simply drawn from a gaussian distribution with the width corresponding to the size of the error bar. Then, the periodogram of the generated time series is calculated. This is repeated, yielding a set of periodograms, which are used to estimate the probability density function (PDF) of $P(\omega_i)$ for each $i$. The PDF for $\omega = \SI{0.17}{\hertz}$ (the frequency of the signal implanted in the time series) is depicted is the right-hand side of~Fig.\,\ref{fig:basic_detection}.
+In order to describe the question mathematically, let us denote the time series under consideration (Fig.\,\ref{fig:basic_signal}) by $D$. The periodogram is then a set of $P^D(\omega_i)$, depicted with a black line in Fig.\,\ref{fig:basic_detection}.
+In a uniformly sampled case with equal error bars $P^D(\omega_i)$ is exponentially distributed, for those frequencies where no signal is present~\cite{Scargle1982}. In our, more complicated, case the distribution can be generated by a Monte Carlo (MC) simulation in the following way: a new signal is generated, keeping the time, position and the size of the error bars, but with no underlying signal present---the null hypothesis $H_0$.
+The value for each simulated measurement is drawn from a gaussian distribution with the width equal to the size of the error bar. Then the periodogram of the generated time series is calculated. This is repeated a number of times, yielding a set of periodograms, which are used to estimate the probability density function (PDF) of $P(\omega_i)$ for each $i$. The PDF for $\omega = \SI{0.17}{\hertz}$ (the frequency of the signal implanted in the time series) is depicted in the right-hand side of~Fig.\,\ref{fig:basic_detection}.
 % In the left-hand side of this figure the 1-, 2- and 3$\upsigma$ bands of the $P(\omega_i)$ PDFs are depicted in shades of green.
 In the left-hand side of the figure bands representing the shape of the PDFs for different frequencies (sigma bands, about be explained) are depicted is shades of green.
 % the 1-, 2- and 3$\upsigma$ bands of the $P(\omega_i)$ PDFs are depicted in shades of green.
@@ -82,16 +85,16 @@ For uniformly sampled data with equal error bars all PDFs would be the same and 
   \caption{Left-hand side: Juxtaposition of the periodogram of the toy time series (black) and the periodogram PDF under the null hypothesis. For the latter the average and 1-, 2- and 3$\upsigma$ bands are depicted in shades of green. The 2$\upsigma$ global false-alarm threshold is marked in orange. Right-hand side: Aligned with the plot to the left, two PDFs are depicted: the one of the power at \SI{0.17}{\hertz} (the frequency of the signal put into the toy time-series) and the one of the globally least-probable power (across all frequencies).}\label{fig:basic_detection}
 \end{figure}
 
-The structures in the $P(\omega_i)$ PDFs are caused solely by the non-uniformity in sampling and in the sizes of the error bars. In particular, we can identify a very large expected rise in power at \SI{0.05}{\hertz}, corresponding exactly to the inverse spacing between the bunches $1 / \SI{20}{\hertz}$ introduced in the toy measurement. A peak is expected in the periodogram to appear at this point, even when there is no significant oscillation of this frequency. This is the reason why the most significant peak should be sought, rather than simply the highest. This conclusion makes the presented reasoning different from the one of Scargle~\cite{Scargle1982}.
+The structures in the $P(\omega_i)$ PDFs are caused solely by the non-uniformity in sampling and in the sizes of the error bars. In particular, we can identify a very large expected rise in power at \SI{0.05}{\hertz}, corresponding exactly to the inverse spacing between the bunches $1 / \SI{20}{\hertz}$, a feature of the toy measurement. A peak is expected in the periodogram to appear at this point, even when there is no significant oscillation of this frequency. This is the reason why the most significant peak should be sought, rather than simply the highest. This conclusion makes the presented reasoning different from the one of Scargle~\cite{Scargle1982}.
 
 %We will be using the Cumulative Density Function (CDF) formalism.
-In the formal treatment, we denote the cumulative density function (CDF) of the power estimator at the $i$th frequency as $F_i(z)$ ($z$ would be the power estimated at frequency $\omega_i$). In an evenly sampled, signal-free case it has a functional form
+In the formal treatment we denote the cumulative density function (CDF) of the power estimator at the $i$th frequency as $F_i(z)$ ($z$ would be the power estimated at frequency $\omega_i$). In an evenly sampled, signal-free case it has a functional form
 \begin{equation}
   \label{eq:local_functional_form}
   F_i(z) = 1 - e^{-z} \ .
 \end{equation}
-In our case it can be estimated from the MC simulations. Then the $i$th p-value is directly
 \marginpar{P-value is the probability that at least this much power would arise only as a result of a random fluctuation.}
+In our case it can be estimated from the MC simulations. Then the $i$th p-value is directly
 \begin{equation} \label{eq:local_p_value}
   p_i = 1 - F_i\left( P^D(\omega_i) \right) \ .
 \end{equation}
@@ -103,9 +106,9 @@ The most significant peak is the one with the lowest p-value.
   \caption{The estimate of the CDF of the power at \SI{0.17}{\hertz}. One-minus-CDF is plotted, so that the use of logarithmic scale details the high-power tail. The discrete estimate from MC samples is depicted with green dots. It is extrapolated with a fit, depicted by the straight blue line. The black cross marks the power in the toy time series at this frequency ($x$ coordinate) and the corresponding local p-value ($y$ coordinate). The local sigma levels are depicted in shades of green and the global ones in orange.}\label{fig:P_best_signal_candidate}
 \end{figure}
 
-To construct the discrete CDF estimate all the MC-generated power estimates were sorted into an array. The point of the CDF were obtained by putting the power on the $x$-axis and the place in the sorted array, normalised to one, on the $y$-axis.
+To construct the discrete CDF estimate all the MC-generated power estimates were sorted into an array. The point of the CDF were obtained by putting the power on the $x$-axis and the place in the sorted array, normalised to one, on the $y$-axis \note{cite}.
 \marginpar{The CDF has this advantage over the PDF, that it does not require binning to be estimated.}
-The discrete CDF estimate, or actually one-minus-CDF, so that the logarithmic $y$-scale can be leveraged to resolve the high-power tail, for the signal frequency \SI{0.17}{\hertz} is depicted in Fig.\,\ref{fig:P_best_signal_candidate} (green dots).
+The discrete CDF estimate of power, or actually one-minus-CDF, so that the logarithmic $y$-scale can be leveraged to resolve the high-power tail, for the frequency \SI{0.17}{\hertz} is depicted in Fig.\,\ref{fig:P_best_signal_candidate} with the green dots.
 
 When the power in the time series is very high, as it is the case for \SI{0.17}{\hertz} in the example, obtaining the discrete CDF estimate would require many, in some cases unrealistically many, Monte Carlo samples. Generic solutions of this problem are known (see for example section 39.3.2.2 in Ref.\,\cite{PDG2016}). Here, a more specific approach is taken. Motivated by Eq.\,\ref{eq:local_functional_form}, the discrete CDF was extrapolated with a linear fit of the form
 \begin{equation}
@@ -123,7 +126,7 @@ P-values are often expressed in terms of $n\upsigma$, relating them to the ones 
 \end{equation}
 where $\mathrm{erfc}$ is the complementary error function (intuitively understood as ``one minus the integral of the gaussian distribution''). The 1, 2 and 3$\upsigma$ levels of the power distribution are marked in shades of green in Figs.\,\ref{fig:basic_detection} and~\ref{fig:P_best_signal_candidate}.
 
-In the example signal there are 15 peaks with p-values on a 2$\upsigma$ level. Na\"\i vely, this is very unlikely---a 2$\upsigma$ event is a five-in-a-hundred one. This is the so-called \emph{look-elsewhere effect}~\cite{PDG2016}, best explained as follows: a one-in-a-thousand event in a system is not a surprise, if it occurs in one of a thousand different systems. By looking at the Fig.\,\ref{fig:basic_detection} and comparing the periodogram of the signal with the sigma bands, one essentially performs many, as many as the number of frequencies, largely independent statistical tests, cherry-picking among them the most significant peaks. The p-values $p_i$ are called \emph{local}, because they only measure the local significance at $\omega_i$.
+In the example signal there are 15 peaks with p-values on a 2$\upsigma$ level. Na\"\i vely, this may seem to be very improbable---a 2$\upsigma$ event is a five-in-a-hundred one. This is the so-called \emph{look-elsewhere effect}~\cite{PDG2016}, best explained as follows: a one-in-a-thousand event in a system is not a surprise, if it occurs in one of a thousand different systems. By looking at the Fig.\,\ref{fig:basic_detection} and comparing the periodogram of the signal with the sigma bands one essentially performs many, as many as the number of frequencies, largely independent statistical tests, cherry-picking among them the most significant peaks. The p-values $p_i$ are called \emph{local}, because they only measure the local significance at $\omega_i$.
 
 There is an another intuitive way of understanding this phenomenon. The height of the most significant peak is a statistic itself. Its distribution can also be estimated from the MC-generated null hypothesis signals. The distribution is depicted on the right-hand size in Fig.\,\ref{fig:basic_detection}. Even when no signal is present, the most significant peak will most of the times have a height placing it between 2- and 3$\upsigma$ local significance bands.
 
