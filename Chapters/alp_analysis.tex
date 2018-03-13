@@ -231,14 +231,14 @@ However, it is hard to imagine going beyond ten-second range. A real improvement
 
 
 \section{Resonant oscillating nEDM search}
-The periodogram-based searches for Dark Matter were sensitive to a wide range of frequencies. In contrast to that, resonant searches (for example ADMX~\cite{PhysRevLett.104.041301} or proposed CASPEr~\cite{CASPEr2014}) are sensitive at a any given time only to a relatively narrow band of frequencies. Covering a wide range requires scanning. In this section a resonant search of an oscillating nEDM is proposed, which would give access to faster oscillations than the periodogram-based method.
+The periodogram-based searches for Dark Matter were sensitive to a wide range of frequencies. In contrast to that resonant searches (for example ADMX~\cite{PhysRevLett.104.041301} or proposed CASPEr~\cite{CASPEr2014}) are sensitive at a any given time only to a relatively narrow band of frequencies. Covering a wide range requires scanning. In this section a resonant search of an oscillating nEDM is proposed, which would give access to faster oscillations than the periodogram-based method.
 
 % Many of the axion searches are resonant based.~\cite{PhysRevLett.104.041301,CASPEr2014} \note{some references}.
 % The standard instrument to look for an axion-photon coupling, called a haloscope \note{verity}, consists of ultra-low-noise resonant cavity, where axions can produce photons, detected with an antenna \note{is it an antenna?}.
 % At any given time the measurement is sensitive only to a narrow band of photon energies (or frequencies), the width given by the finesse \note{verity} of the cavity. To cover a wide range the tuning of the cavity is scanned. In this section an idea of a resonant oscillating nEDM search is pursued.
 
-For polarised neutrons in a magnetic field, a transverse oscillating coupling induces a coherent Rabi oscillation between the spin-up and spin-down states.
-For example, a Ramsey cycle begins with a $\uppi/2$ flip induced by an oscillating transverse magnetic field, its frequency tuned to the Larmor one and its length tuned such, that the Rabi oscillation stops when the polarisation is in the transverse plane. Should the nEDM oscillate, an oscillating transverse coupling can be realised with a static magnetic field \emph{perpendicular} to the holding magnetic field $\mathbf{B}$. Then, if the frequency of the nEDM oscillation is tuned to the Larmor one, the neutrons would undergo a Rabi nutation, which could be detected. Scanning the magnetic field in the range \SIrange[range-phrase=--]{0.1}{10}{\micro\tesla} would cover frequencies \SIrange[range-phrase=--]{3}{300}{\hertz}.
+For polarised neutrons in a magnetic field a transverse oscillating coupling induces a coherent Rabi oscillation between the spin-up and spin-down states.
+For example, a Ramsey cycle begins with a $\uppi/2$ flip induced by an oscillating transverse magnetic field, its frequency tuned to the Larmor one and its length tuned such, that the Rabi oscillation stops when the polarisation is in the transverse plane. Should the nEDM oscillate, an oscillating transverse coupling could be realised with a static magnetic field \emph{perpendicular} to the holding magnetic field $\mathbf{B}$. Then, when the frequency of the nEDM oscillation is tuned to the Larmor one, the neutrons would undergo a Rabi nutation, which could be detected. Scanning the magnetic field in the range \SIrange[range-phrase=--]{0.1}{10}{\micro\tesla} would cover frequencies \SIrange[range-phrase=--]{3}{300}{\hertz}.
 
 \begin{figure}
   \centering
@@ -246,7 +246,7 @@ For example, a Ramsey cycle begins with a $\uppi/2$ flip induced by an oscillati
   \caption{The behaviour of the spin population in a resonant oscillating EDM search. One starts with an ensemble polarised along the holding magnetic field $B_0$. The electric field is perpendicular. Then, the polarisation is flipped by $\pi$/2 and starts the Larmor precession. The combination of the electric field and an oscillating EDM would induce a Rabi nutation. The direction of the nutation is determined by the relative phase of the Larmor precession and the EDM oscillation.}\label{fig:axions_resonant_effect}
 \end{figure}
 
-In the proposed scheme, sketched in Fig.\,\ref{fig:axions_resonant_effect}, the neutrons start polarised along the holding field and are put into the Larmor precession with a $\uppi/2$ flip. The oscillating nEDM would then induce a Rabi nutation and a net polarisation along the $B_0$ direction would build up, which could be measured. The direction of the nutation depends on the phase difference between the Larmor precession (defined by the phase of the $\uppi/2$ pulse) and the oscillating nEDM\@.
+In the proposed scheme, sketched in Fig.\,\ref{fig:axions_resonant_effect}, the neutrons start polarised along the holding field and are put into the Larmor precession with a $\uppi/2$ flip. The oscillating nEDM would then induce a Rabi nutation and a net polarisation along the $\mathbf{B}$ direction would build up. This net polarisation could be measured. The direction of the nutation depends on the phase difference between the Larmor precession (defined by the phase of the $\uppi/2$ pulse) and the oscillating nEDM\@.
 
 In order to estimate the sensitivity of such a search consider the Hamiltonian for a neutron in a magnetic filed
 \begin{equation}
@@ -256,24 +256,25 @@ for which the Larmor frequency is
 \begin{equation}
   \omega_0 = \frac{\mu_\text{n} B}{S} = \frac{2 \mu_\text{n} B}{\hbar} = \gamma_\text{n} B \ .
 \end{equation}
-A presence of an electric field perpendicular to $\mathbf{B}$ and a harmonically oscillating nEDM adds an additional term to the Hamiltonian
+In a presence of an electric field perpendicular to $\mathbf{B}$ a harmonically oscillating nEDM adds an additional term to the Hamiltonian
 \begin{equation}
   H = - \gamma_\text{n} \mathbf{B} \cdot \mathbf{S} - \mathbf{d}_\text{n}^0 \sin (\omega_0 t) \cdot \mathbf{E} \ ,
 \end{equation}
-where we assume the Larmor frequency to be resonant with the oscillating nEDM, and a phase difference of \ang{90} between the spin's precession and the nEDM oscillation. In a rotating frame spinning around $\mathbf{B}$ with the frequency $\omega_0$ the field $\mathbf{B}$ vanishes~\cite{RamseyBook}:
+where we assume the Larmor frequency to be resonant with the oscillating nEDM, and a phase difference of \ang{90} between the spin's precession and the nEDM oscillation. In a rotating frame spinning around $\mathbf{B}$ with the frequency $\omega_0$ the field $\mathbf{B}$ vanishes and the oscillating nEDM coupling can be treated as constant~\cite{RamseyBook}:
+\marginpar{The oscillating would become stricly constant only, if it would rotate. But a rotation is a sum of two linear oscillations.}
 \begin{equation}
   H_\text{rot} = d_\text{n}^{\,0} \, \mathbf{E} \cdot \mathbf{S} \ .
 \end{equation}
-Following the analogy to a rotating transverse field we find the precession frequency in the rotating frame, a nutation in the stationary one, to be:
+Following an analogy to a rotating transverse field we find the precession frequency in the rotating frame, a nutation in the stationary one, to be
 \begin{equation}
-  \omega_\text{nut.} = \frac{d_\text{n}^{\,0}}{\hbar}
+  \omega_\text{nut.} = \frac{d_\text{n}^{\,0}}{\hbar} \ .
 \end{equation}
 After time $T$ the accumulated angle is
 \begin{equation}
   \theta = \omega_\text{nut.} T = \frac{d_\text{n}^0 E }{\hbar} \, T \ .
   \label{eq:resonant_the_angle}
 \end{equation}
-In the end of the measurement the neutrons pass a spin analyser, which projects their polarisation on the axis of $\mathbf{B}$. For $N_0$ neutrons the resonance curve
+In the end of the measurement the neutrons pass a spin analyser, which projects their polarisation on the axis of $\mathbf{B}$. For $N_0$ neutrons the resonance curve has a shape
 \begin{equation}
   N_{\uparrow \downarrow}(\theta) = \frac{N_0}{2} \left( 1 \pm \alpha \sin \theta  \right)  \ ,
 \end{equation}
@@ -286,12 +287,12 @@ Finally, the sensitivity is obtained from Eqs.\,\ref{eq:resonant_the_angle} and~
 \begin{equation}
   \sigma_{d_n^{\,0}} = \frac{\hbar}{\sqrt{N_0/2} \alpha T E} \ .
 \end{equation}
-When both spin states are counted, as it was the case in the nEDM experiment at PSI the sensitivity increases by a factor $\sqrt{2}$:
+When both spin states are counted the sensitivity increases by a factor $\sqrt{2}$:
 \begin{equation}
   \sigma_{d_n^{\,0}} = \frac{\hbar}{\sqrt{N_0} \alpha T E} \ .
 \end{equation}
 
-A \ang{90} phase difference between the spin's precession, defined by the phase of the $\uppi/2$ pulse, and the nEDM oscillation is assumed. On average an additional factor of $\sqrt{2}$ is lost due to the non-matching phases.
+A \ang{90} phase difference between the nEDM oscillation is assumed and spin's precession (defined by the phase of the $\uppi/2$ pulse). On average an additional factor of $\sqrt{2}$ is lost due to the non-matching phases.
 Doing two measurement with the phases of the $\pi/2$ pulses shifted by \ang{90}, one having a sine-like sensitivity other a cosine-like, gives a flat sensitivity for all phases of the nEDM oscillation.
 
 \begin{figure}
@@ -306,7 +307,7 @@ In order to perform a \SIrange[range-phrase=--]{3}{300}{\hertz} scan in a 1000 c
 \begin{equation}
   T = {\left( \frac{1}{1000} \left( \SI{300}{\hertz} - \SI{3}{\hertz} \right)  \right)}^{-1} \approx \SI{3}{\second} \ .
 \end{equation}
-With the baseline parameters of the n2EDM experiment at PSI sensitivity $\alpha = 0.8$, $E = \SI{15}{\kilo\volt\per\centi\metre}$, $N_0 = \num{121000}$ a per-cycle sensitivity would be 
+With the baseline parameters of the n2EDM experiment at PSI, $\alpha = 0.8$, $E = \SI{15}{\kilo\volt\per\centi\metre}$, $N_0 = \num{121000}$, the per-cycle sensitivity would be 
 \begin{equation}
   \sigma_{d_n} = \SI{5e-23}{\elementarycharge\centi\metre} \ .
 \end{equation}
@@ -318,10 +319,10 @@ The region of an axion coupling to gluons that could be excluded is depicted in 
   \caption{Sensitivity prediction for a 1000 cycles long resonant oscillating nEDM search. A scan of the magnetic field in the range \SIrange[range-phrase=--]{0.1}{10}{\micro\tesla} gives the interaction time $T = \SI{3}{\second}$. The parameters of the baseline n2EDM design were used: $\alpha = 0.8$, $E = \SI{15}{\kilo\volt\per\centi\metre}$, $N_0 = \num{121000}$. See Fig.\,\ref{fig:axions_limits_coupling} for a detailed of the other limits.}\label{fig:axions_prediction}
 \end{figure}
 
-An important systematic effect would be the quality of the $\uppi/2$ pulse. Polarisation remaining after it could be misinterpreted as a signal. The effect scales linearly with the electric field $E$ and the interaction time $T$. Both could be varied, in particular the electric field reversed, in a series of coherent measurements, which would need to be performed at each frequency. The length of a series is limited by the coherence of the expected signal, \num{e6} in the case of an axion-induced nEDM oscillation.
+An important systematic effect would be the quality of the $\uppi/2$ pulse. Polarisation remaining after it could be misinterpreted as a signal. However, the effect scales linearly with the electric field $E$ and the interaction time $T$. Both could be varied, in particular the electric field reversed, in a series of coherent measurements, which would need to be performed at each frequency. The length of a series is limited by the coherence of the expected signal, \num{e6} in the case of an axion-induced nEDM oscillation.
 
 
 
 
 \section*{Axion Analysis -- Conclusion}
-\ldots
+Ultralight axion-like particles are a compelling proposal the constituent of the dark matter. Besides interacting gravitationally they could couple to gluons and nucleons. These coupling could be detected by the nEDM measurement at PSI\@. Axions could induce harmonic oscillations in the time series of the ratio of the precession frequencies of stored neutrons and ${}^{199}$Hg atoms. The least squares spectral analysis was used to produce periodograms of the data measured at PSI\@. The statistical treatment of the periodograms, largely based on Monte Carlo simulations, resulted in no significant signal. The analysis of the electric-field correlated data gave the first laboratory constraints on the scalar coupling of axions to gluons and improved an astrophysical limits by up to three orders of magnitude. The null result of the search in the magnetic-field correlated data improved the existing laboratory constraints by up to a factor of 40.
