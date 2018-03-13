@@ -1,15 +1,13 @@
 % !TEX root = ../rawlik-phd-thesis.tex
 \chapter{Axion analysis}
 \label{ch:axion-analysis}
-In the previous chapter the methodology of searching for oscillations was introduced. Here it is described how it was applied to look for oscillations in the neutron EDM data taken at PSI in the years 2015--17.
+In the previous chapter the methodology of searching for oscillations in an unevenly sampled time series was introduced. Here it is described how it was applied to look for oscillations in the neutron EDM data taken at PSI in the years 2015--17.
 
-First the scalar coupling of axions to gluons was considered, acting like an oscillating nEDM signal. The time series of $R$ was analysed, the ratio of the precession frequency of stored neutrons and ${}^{199}$Hg atoms. No significant signal was found, which allowed the first laboratory limits on the axion coupling to gluons to be put.
+First the scalar coupling of axions to gluons was considered, acting like an oscillating nEDM signal. The time series of $R$ was analysed, the ratio of the precession frequency of stored neutrons and ${}^{199}$Hg atoms. No significant signal was found, which allowed the first laboratory limits on the axion coupling to gluons to be put. This analysis was a joint effort with Nicholas Ayres, who analysed the data of the Grenoble-based nEDM measurement in search for the scalar coupling~\cite{AyresThesis}. Rather than the raw $R$ time series, he considered the one of the nEDM estimates as obtained on a run basis. The two analyses were complimentary, each covering a different range of oscillation frequencies.
 
-The work described in this chapter was a joint effort with Nicholas Ayres, who analysed the data of the Grenoble-based nEDM measurement in search for the scalar coupling~\cite{AyresThesis}. Rather than the raw $R$ time series, he considered the one of the nEDM estimates as obtained on a run basis. The two analyses were complimentary, each covering a different range of oscillation frequencies.
+An analysis of the vector coupling of axions to nucleons, acting like on oscillating magnetic field, was also performed. No significant discovery could be claimed, which led to an improvement of laboratory limits.
 
-An analysis of a vector coupling of axions to nucleons, acting like on oscillating magnetic field, was also performed. No significant discovery could be claimed, which led to an improvement of laboratory limits.
-
-Finally, a dedicated method for search for an oscillating nEDM is proposed, which could extend the sensitivity to frequencies up to several hertz.
+Finally, a dedicated method for search for an oscillating nEDM is proposed, which could extend the sensitivity to frequencies up to hundreds of hertz.
 
 % Finally, a particular frequency of \num{23.934}~hours, the sidereal frequency, was considered.
 % \marginpar{The sidereal frequency is the one of the Earth spinning in the celestial coordinates.}
@@ -19,7 +17,7 @@ Finally, a dedicated method for search for an oscillating nEDM is proposed, whic
 
 
 \section{The PSI 2015--16 data set}
-Let us shortly recapitulate the principle of the measurement (discussed in detail in Ch.\,\ref{ch:nedm-at-psi-apparatus}). The main purpose of the experiment was to measure the static neutron electric dipole moment. To that purpose $R = \nu_\text{n} / \nu_\text{Hg}$, the ratio of precession frequencies of neutrons and ${}^{199}$Hg atoms, was measured in a combination of a magnetic and an electric field. A non-zero static nEDM would induce an electric-field-dependent shift in the precession frequency of neutrons, and thereby in $R$, too. In a zero electric field there would be no shift, while the parallel and anti-parallel configurations of the magnetic and electric fields would shift $R$ in opposite directions.
+Let us shortly recapitulate the principle of the measurement (discussed in detail in Ch.\,\ref{ch:nedm-at-psi-apparatus}). The main purpose of the nEDM experiment at PSI was to measure the static neutron electric dipole moment. To that purpose $R = \nu_\text{n} / \nu_\text{Hg}$, the ratio of precession frequencies of neutrons and ${}^{199}$Hg atoms, was measured in a combination of a magnetic and an electric field. A non-zero static nEDM would induce an electric-field-dependent shift in the precession frequency of neutrons, and thereby in $R$, too. In a zero electric field there would be no shift, while the parallel and anti-parallel configurations of the magnetic and electric fields would shift $R$ in opposite directions.
 \marginpar{In the PSI experiment the electric field was automatically changed according to a looped pattern: 48 cycles in one polarity, 8 cycles without the field, 48 cycles in the other, 8 without the field.}
 The nEDM was estimated based on those shifts. Due to the data blinding
 % \footnote{In order to reduce bias the data were modified upon being taken in a way, that a secret nEDM was injected into them. This additional offset is only revealed as the very last step, once the measurement and analysis have been completed. The data were still blinded at the time of writing.}
@@ -27,7 +25,7 @@ a pronounce shift corresponding to an nEDM of \SI{e-25}{\elementarycharge\centi\
 
 % The data used in the analysis were collected at PSI between 2015--07--03, 14:21:30 and 2016--12--18, 19:51:23.
 The data used in the analysis were collected at PSI between 2015--07--03 and 2016--12--18.
-The experiment was optimised for the static nEDM measurement; no measurement dedicated for an oscillating nEDM search was performed. The time series of $R$, the ratio of the precession frequencies of the neutrons and ${}^{199}$Hg atoms is presented in Fig.\,\ref{fig:PSI_dataset_time_domain}.
+No measurement dedicated for an oscillating nEDM search was performed. The time series of $R$, the ratio of the precession frequencies of the neutrons and ${}^{199}$Hg atoms is presented in Fig.\,\ref{fig:PSI_dataset_time_domain}.
 \marginpar{A technical term for uninterupted operation was a run. Sometimes a run was stopped due to technical reasons a new started afterwards. A sequence combines those consecutive runs, that could be one run if not for the interruption.}
 Take a look first at the inset in the lower-right corner. It zooms into data collected within one \emph{sequence}, typically 1--3 days long.
 During a sequence the apparatus completed one cycle after another, one every \SI{300}{\second}, each yielding an estimate of $R$.
@@ -36,7 +34,7 @@ The electric field was automatically changed between three states: pointing upwa
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/deltah4mm_time_domain_inset_no_yerr.pdf}
-  \caption{The complete $R$ time series used in the analysis, measured at PSI between July 2015 and December 2016. Two sequences are enlarged (one 69 hours long, the other 34). Due to the high density of the measurements individual points cannot be resolved. The colours depict the relative orientation of the magnetic and electric fields: $E \uparrow \uparrow B$ (orange), $E \uparrow \downarrow B$ (blue) and $E=0$ (black). The $R$ time series has been corrected for gradient drifts. In the insets the points are drawn with their corresponding error bars.}\label{fig:PSI_dataset_time_domain}
+  \caption{The complete $R$ time series used in the analysis, measured at PSI between July 2015 and December 2016. Two sequences are enlarged (one 69 hours long, the other 34). Due to the high density of the measurements individual points cannot be resolved. The colours depict the relative orientation of the magnetic and electric fields: $E \uparrow \uparrow B$ (orange), $E \uparrow \downarrow B$ (blue) and $E=0$ (black). The $R$ time series has been corrected for gradient drifts. In the insets the points are drawn with their corresponding error bars. \note{Too many points, make the figure somehow smaller.}}\label{fig:PSI_dataset_time_domain}
 \end{figure}
 
 % Here what it is and what's done Sometimes the automatic process was interrupted, but the sequence still continued, as seen in the other inset.
@@ -48,7 +46,7 @@ The electric field was automatically changed between three states: pointing upwa
 
 A sequence was taken always in one magnetic field configuration.
 % The in-sequence variations of the vertical gradient of the magnetic field $\partial_z B_z$ were corrected for using the field model fits to the readings of the Caesium magnetometers.
-In between the sequences the vertical gradient was changed in \SI{10}{\pico\tesla} steps up to $\pm \SI{60}{\pico\tesla}$, so that those systematic effects which scale linearly with the gradient could be extrapolated to zero (see Sec.\,\ref{sec:measurement_procedure}). These large changes in the vertical gradient caused the large shifts in $R$ from one sequence to another.
+In between the sequences the vertical gradient was changed in \SI{10}{\pico\tesla} steps up to $\pm \SI{60}{\pico\tesla}$. In the static nEDM analysis it allowed for those systematic effects which scale linearly with the gradient to be extrapolated to zero (see Sec.\,\ref{sec:measurement_procedure}). These large changes in the vertical gradient caused the large shifts in $R$ from one sequence to another.
 
 % The $R$ time series was sliced into three separate based on the relative direction of the magnetic and electric fields: $E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$. In each a search for a harmonic oscillation was performed.
 
@@ -68,7 +66,7 @@ In between the sequences the vertical gradient was changed in \SI{10}{\pico\tesl
 \section{How a signal would look}
 Now we consider how an oscillating electric dipole moment would have come up in the $R$ time series, as measured by the PSI experiment.
 Should the neutron electric dipole moment oscillate, $R$ would have oscillated as well, even when the electric field was constant. A reversal of the electric field polarity would have reversed the phase of the oscillations. With a zero electric field no oscillations would be visible. In the inset in Fig.\,\ref{fig:oscillating_nEDM_in_R} an $R$ time series is depicted, with the combined effect of a large nEDM oscillation and the blinding offset.
-Because of the non-zero static nEDM and the phase shift the least-squares spectral analysis could not be applied directly to the $R$ time series. However, the time series is still a part of a simple harmonic oscillation when only one field configuration is considered. (We neglect for the moment the inter-sequence shifts.) In the analysis the $R$ time series was split according to this condition into three: one without the electric field (not sensitive to an oscillation of the nEDM), one with the electric and magnetic fields parallel and one with anti-parallel. The last two would have the hypothetical oscillation in opposite phases. We will refer to the three data sets as $E=0$, $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$, respectively. Each of those was treated separately.
+Because of the non-zero static nEDM and the phase shift the least-squares spectral analysis could not be applied directly to the $R$ time series. However, the time series is still a part of a simple harmonic oscillation when only one field configuration is considered. (We neglect for the moment the inter-sequence shifts.) In the analysis the $R$ time series was split thus into three: a series of points measured without the electric field (not sensitive to an oscillation of the nEDM), one with the electric and magnetic fields parallel and one with anti-parallel. The last two would have the hypothetical oscillation in opposite phases. We will refer to the three data sets as $E=0$, $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$, respectively. Each of those was treated separately.
 
 \begin{figure}
   \centering
@@ -112,7 +110,7 @@ The in-sequence drifts were corrected for with the use of the cesium magnetomete
 % \marginpar{STILL CHANGE RUN TO SEQUENCE!!!}
 
 There could have been, potentially, other effects causing the time series of $R$ not to be fully random. An important decision had to be taken on how to treat those. Two possibilities were considered. The first would be a detail study of time-dependent systematic effects.
-Here any excess in power, in any dataset ($E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$) would be treated as a signature of some kind of a signal. All effects that could potentially result in that would have to be identified before the analysis was performed and corrected for. This would have required a long and careful systematic study. Moreover, the full-fledged systematic studies for the constant nEDM analysis of the PSI data were still ongoing at the time. This approach was considered to be, albeit careful, not necessary for this analysis.
+Here any excess in power, in any dataset ($E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$) would be treated as a signature of some kind of a signal. All effects that could potentially result in that would have to be identified before the analysis was performed and corrected for. This would have required a long and careful systematic study. Moreover, the full-fledged systematic studies for the static nEDM analysis of the PSI data were still ongoing at the time. This approach was considered to be, albeit careful, not necessary for this analysis.
 
 % \paragraph{Determine delicate frequencies and cut them out.}
 % The experiment run 
@@ -124,11 +122,11 @@ Instead, an easier approach was taken. An axion would produce a very specific si
   \item There would be no signal in the $E=0$ dataset.
   \item The signal would appear in both $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ datasets, with equal amplitude.
   \item The signals in $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ data sets would be shifted in phase by \ang{180}.
-  \item The signals would have to have a high coherence of $\delta f / f = 10^{-6}$.
+  \item The signals would have to have a high coherence of $\delta f / f = \num{e-6}$.
 \end{enumerate}
-In a case when an excess in the power would be observed, it would only be called a candidate for an axion signal, if the three above conditions would have been met. Otherwise, it would be attributed to a, potentially unknown, systematic effect.
+In a case when an excess in the power would be observed it would only be called a candidate for an axion signal, if the three above conditions would have been met. Otherwise, it would be attributed to a, potentially unknown, systematic effect.
 
-This made the systematic study dependent of the fact of having found a signal, opening a line of attack on the analysis. The analysis might be claimed not to have the right to exclude signals, because there might have been a systematic effect that cancelled a real signal out, but was never found nor even looked for. Nevertheless, such an event was highly improbable due to the high coherence of the axion field. In order to cancel the axion signal, a systematic effect would have not only needed to be as coherent as the axion field, but additionally fine-tuned over at least 5 orders of magnitude of tested frequencies. With the coherence of $\delta f / f = \num{e-6}$ this is a tuning of \num{e-30}. It would also have needed to be fine-tuned in amplitude over $\sim 20$ orders of magnitude, which gives a rough estimate of the cancellation probability of \num{e-50}. As the exclusions are anyway probabilistic in nature, in this case a 95\% C.L. threshold is claimed, this approach was considered as justified.
+This made the systematic study dependent of the fact of having found a signal, opening a line of attack on the analysis. The analysis might be claimed not to have the right to exclude signals, because there might have been a systematic effect that cancelled a real signal out, but was never found nor even looked for. Nevertheless, such an event was highly improbable due to the high coherence of the axion field. In order to cancel the axion signal, a systematic effect would have not only needed to be as coherent as the axion field, but additionally fine-tuned over at least 5 orders of magnitude of tested frequencies. With the coherence of $\delta f / f = \num{e-6}$ this is a tuning of \num{e-30}. It would also have needed to be fine-tuned in amplitude over $\sim 20$ orders of magnitude, which gives a rough estimate of the cancellation probability of \num{e-50}. As the exclusions are anyway probabilistic in nature, in this case a \SI{95}{\percent} C.L. threshold is claimed, this approach was considered as justified.
 
 
 
@@ -158,7 +156,7 @@ trial frequencies for which the $3\upsigma$ false-alarm threshold is exceeded,
 two of which, including the largest excess with a $6\upsigma$ significance, occur in a \SI{100}{\micro\hertz} region around the inverse of \SI{300}{\second}, while the other three are in the low-frequency region, longer than an inverse length of a sequence.
 % \note{FP: Can you maybe also explicitly state the positions of these three lines in Hz or inverse time?}
  The periodograms for the other two datasets, very similar to this one, can be found in App.\,\ref{ch:alp_appendix}.
-In the other sensitive set, there are three excesses of the $3\upsigma$ threshold (the highest is $5\upsigma$), all constrained to the same two regions. In the control dataset, only the $1\upsigma$ threshold is exceeded. Among those, none fulfill the detection criteria, in particular the requirement to be present in both $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ periodograms with opposite phases.
+In the other sensitive set there are three excesses above the $3\upsigma$ threshold (the highest is $5\upsigma$), all constrained to the same two regions. In the control dataset, only the $1\upsigma$ threshold is exceeded. None of the excesses fulfill the detection criteria, in particular the requirement to be present in both $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ periodograms with opposite phases.
 %\note{MR: We may consider not discussing the false--alarm threshold penetrations, and just state in the next paragraph that we do not find a signal which meets our criteria.}
 
 % \mnote{Here a brief discussion about the Cs-gradient-drift correction.}
@@ -180,7 +178,7 @@ As no significant signals have been observed, limits could be placed to exclude 
 \label{fig:axions_limits_coupling}
 \end{figure}
 
-Following the Eq.\,\ref{eq:nEDM_axion}, the oscillating-nEDM limits were interpreted as ones on the axion-gluon coupling. The results are presented in the axion space, spanned by their mass and the strength of the coupling, in Fig.\,\ref{fig:axions_limits_coupling}. The limits are presented in the landscape of already existing cosmological limits: axions with a mass below \SI{e-22}{\electronvolt} have their Compton wavelength larger than the size of the smallest dwarf galaxies and, therefore, could not be the sole constituent of dark matter~\cite{Marsh2015Review}; the influence of axions in the red-shaded area on the Big Bang nucleosynthesis would result in an underproduction of ${}^4$He~\cite{Blum2014}; the green area was excluded based on the observations of the supernova SN1987A, where excess cooling by axion emission would have been observed~\cite{Graham2013}. The limits are not only the first laboratory constraints on the axion-gluon coupling, but also improve on the existing cosmological exclusions.
+The oscillating-nEDM limits were interpreted as ones on the axion-gluon coupling (following the Eq.\,\ref{eq:nEDM_axion}). The results are presented in the axion space, spanned by their mass and the strength of the coupling, in Fig.\,\ref{fig:axions_limits_coupling}. The limits are presented in the landscape of already existing cosmological limits: axions with a mass below \SI{e-22}{\electronvolt} have their Compton wavelength larger than the size of the smallest dwarf galaxies and, therefore, could not be the sole constituent of dark matter~\cite{Marsh2015Review}; the influence of axions in the red-shaded area on the Big Bang nucleosynthesis would result in an underproduction of ${}^4$He~\cite{Blum2014}; the green area was excluded based on the observations of the supernova SN1987A, where excess cooling by axion emission would have been observed~\cite{Graham2013}. The limits are not only the first laboratory constraints on the axion-gluon coupling, but also improve on the existing cosmological exclusions.
 
 
 
@@ -216,7 +214,7 @@ The lack of statistically significant signal compatible with the axion model all
 
 \section{Outlook}
 There are three directions in which the nEDM-based axion dark matter search could continue.
-In order to improve sensitivity vertically, to be sensitive to more weekly coupled or less abundant axions, the overall sensitivity of the nEDM measurement would need to be improved. Following Eq\,\ref{eq:nEDM_sensitivity} it would require more neutrons, a higher electric field or a longer precession time.
+In order to improve sensitivity vertically, to be sensitive to more weekly coupled or less abundant axions, the overall sensitivity of the nEDM measurement would need to be improved. Following Eq.\,\ref{eq:nEDM_sensitivity} it would require more neutrons, a higher electric field or a longer precession time.
 % \marginpar{In Eq\,\ref{eq:nEDM_sensitivity} $\alpha$ is already \ldots, precession time $T$ can only be improved so long---it is fundamentally limited by the neutron life-time (give the number.)}
 The global community already spares no effort in this respect.
 
