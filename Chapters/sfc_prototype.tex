@@ -8,7 +8,7 @@ In a laboratory at ETH Zürich an active shield was constructed. In its first ve
 
 A next iteration of the active shield was constructed on a grid with one face opened. This not only eased the access to the inside, but also demonstrated coils of a more complicated design.
 
-Finally, a design of the coils for an active magnetic shield for the n2EDM experiment is proposed. Despite tight spatial constraints, it achieves a very good homogeneity of \SIrange[range-phrase=--,range-units=single]{1}{2}{\percent} around the $\upmu$-metal shield.
+Finally, a design of the coils for an active magnetic shield for the n2EDM experiment is proposed. Despite tight spatial constraints, it achieves a very good homogeneity of \SIrange[range-phrase=--,range-units=single]{1}{2}{\percent} around the mu-metal shield.
 
 
 
@@ -135,7 +135,7 @@ Let us recall the discussion of the PSI system's matrix in Sec.\,\ref{fig:nEDM_S
 The PSI's SFC matrix was not known a priori. The system was constructed and the matrix was measured as the system's property.
 % This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable.
 Conversely, the new system takes the matrix into account already at the design phase. The coils were designed to produce magnetic field corresponding to the terms of the cartesian harmonic expansion of the field.
-This ensures that they are orthogonal to one another. We expect, by design, the matrix to have the condition number equal to \num{1}. It has been measured to be \num{1.064} with the three coils for the homogeneous components and without a $\upmu$-metal shield inside.
+This ensures that they are orthogonal to one another. We expect, by design, the matrix to have the condition number equal to \num{1}. It has been measured to be \num{1.064} with the three coils for the homogeneous components and without a mu-metal shield inside.
 
 % \note{Put a figure about the measurement of the matrix?}
 
@@ -156,8 +156,8 @@ This gave the first estimate of the matrix. The next sphere was chosen to be cen
 \end{equation}
 where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits} and $M^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $M$. This gave the second estimate of the matrix. Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{1}{\micro\tesla}.
 % The procedure was developed for a system with mu-metal.
-In the case of an air system, without a $\upmu$-metal shield inside, all consecutive estimates of the matrix were almost the same.
-% \note{Hopefully I still do get to measure the matrix with the $\upmu$-metal cube inside. Then I will describe it here.}
+In the case of an air system, without a mu-metal shield inside, all consecutive estimates of the matrix were almost the same.
+% \note{Hopefully I still do get to measure the matrix with the mu-metal cube inside. Then I will describe it here.}
 
 \begin{figure}
   \centering
@@ -265,7 +265,7 @@ It has a simple interpretation: for a given integration time $\tau$ it gives the
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/run8_field_stability.pdf}
   \caption{The stability of the active magnetic field compensation. The Allan deviation is plotted as the function of integration time. The three colours depict the three spatial directions. The uppermost three groups of thin, solid lines depict the uncompensated field $\mathbb{B}_0$ measured by the feedback sensors. In the dense group of lines below, around \SI{0.3}{\nano\tesla} (corresponding to a temperature stability of \SI{0.1}{\kelvin}, as specified for the fluxgates), are: the compensated field measured by the feedback sensors $\mathbb{B}$ (solid) and the compensated field measured by a non-feedback fluxgate in the centre of the system (dashed).
-  % field measured inside a two layer $\upmu$-metal shield (dotted).
+  % field measured inside a two layer mu-metal shield (dotted).
   Below that depicted are: the stability of the readout of a short-cut ADC channel (red) and the limit set by the quantisation noise of the 16-bit DACs (grey).}\label{fig:prototype_stability}
 \end{figure}
 
@@ -277,7 +277,7 @@ In the previous section it was indicated, that in a case of high-order variation
 % although rather on its lower side,
 suggesting that the variations during the measurement were homogeneous.
 
-% Why was the improvement not better? In the plot there seems to be a fixed limit for the stability. Another set of curves, the dotted ones, provide a hint. They depict the stability of the field observed with an additional sensor mounted inside a two-layer $\upmu$-metal shield, which should provide a factor of a hundred in shielding (the second layer was a cylinder without end caps aligned with the $z$-axis of the sensor, hence the worse performance in this direction). Yet, the registered stability is no better than that of the active stabilisation system.
+% Why was the improvement not better? In the plot there seems to be a fixed limit for the stability. Another set of curves, the dotted ones, provide a hint. They depict the stability of the field observed with an additional sensor mounted inside a two-layer mu-metal shield, which should provide a factor of a hundred in shielding (the second layer was a cylinder without end caps aligned with the $z$-axis of the sensor, hence the worse performance in this direction). Yet, the registered stability is no better than that of the active stabilisation system.
 
 Why was the improvement not better? The limit came most likely from the temperature drifts. According to the specification of the Stefan Mayer Instruments FLC3--70 sensor it drifts \SI{2}{\nano\tesla\per\kelvin}, so the observed stability corresponds to temperature stability as small as \SI{0.1}{\kelvin}. Even at night the temperature in a not temperature-stabilised laboratory cannot be expected to be more stable than that. This limit can be pushed a factor twenty lower with higher-quality (and more expensive) sensors. Commercially available Stefan Mayer Instruments FL1--100 and Bartington Mag-03 are specified to drift \SI{0.1}{\nano\tesla\per\kelvin} with a $\SI{\pm 100}{\micro\tesla}$ measuring range.
 
@@ -304,7 +304,7 @@ Aside from the obvious---increasing the bit depth of the DACs---this limit can b
 
 
 \section{Open-design cage}
-The disadvantage of the first-iteration design, pictured in Fig.\,\ref{fig:prototype_photo_inside}, was that the cage was fully closed, making putting anything inside, or taking outside, essentially impossible. In particular, the active magnetic shield at ETH could be used in combination with a $\upmu$-metal shield inside it.
+The disadvantage of the first-iteration design, pictured in Fig.\,\ref{fig:prototype_photo_inside}, was that the cage was fully closed, making putting anything inside, or taking outside, essentially impossible. In particular, the active magnetic shield at ETH could be used in combination with a mu-metal shield inside it.
 
 % \note{Do I really find it necessary to describe the three possibilities that I considered?}
 
@@ -325,7 +325,7 @@ The solution was to modify a system in way, that on one of the faces there would
   \includegraphics[width=\linewidth]{gfx/prototype/open_planar_map_comparison.pdf}
   % \includegraphics[width=0.45\linewidth,trim={5cm 0 0 0},clip]{gfx/prototype/open_planar_map_Y_Bx.pdf}\quad
   % \includegraphics[width=0.45\linewidth,trim={5cm 0 0 0},clip]{gfx/prototype/open_planar_map_Y_By.pdf}
-  \caption{The simulations (left column) and maps (right column) of the field of the $y$-coil. In the bottom row the $x$ component of the field is shown, in the top one: the $y$ component, the latter relative to the goal value of \SI{50}{\micro\tesla}. The contour of a $\upmu$-metal shield intended to be put in the system is depicted. To account for misalignments of the sensor the map has been normalised to the average field measured in the middle region of highest homogeneity. The mapped field along the vertical orange lines is plotted in Fig.\,\ref{fig:prototype_open_design_Ycoil_map_section}.}\label{fig:prototype_open_design_Ycoil_maps}
+  \caption{The simulations (left column) and maps (right column) of the field of the $y$-coil. In the bottom row the $x$ component of the field is shown, in the top one: the $y$ component, the latter relative to the goal value of \SI{50}{\micro\tesla}. The contour of a mu-metal shield intended to be put in the system is depicted. To account for misalignments of the sensor the map has been normalised to the average field measured in the middle region of highest homogeneity. The mapped field along the vertical orange lines is plotted in Fig.\,\ref{fig:prototype_open_design_Ycoil_map_section}.}\label{fig:prototype_open_design_Ycoil_maps}
 \end{figure}
 
 \begin{figure}
@@ -336,7 +336,7 @@ The solution was to modify a system in way, that on one of the faces there would
 
 In Fig.\,\ref{fig:prototype_open_design_Ycoil_maps} both simulations and maps of the field of the $y$ coil are shown.
 \marginpar{In the whole fiducial volume the homogeneity was predicted to be stricly better than~\SI[detect-all=true]{4}{\percent}.}
-In the simulations the homogeneity was predicted to be \SI{2}{\percent} (\SI{1}{\micro\tesla} in the \SI{50}{\micro\tesla} field in the figure) in the $97.5 \times 97.5 \times \SI{97.5}{\centi\metre}$ volume (depicted in grey the figure). This volume would be occupied by a cubic $\upmu$-metal shield intended to be put in the system. The measured field, mapped as described in Sec.\,\ref{sec:prototype_mapping}, confirms that the homogeneity could be achieved in practice. Figure~\ref{fig:prototype_open_design_Ycoil_map_section} details the measured field along the orange lines marked in Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}.
+In the simulations the homogeneity was predicted to be \SI{2}{\percent} (\SI{1}{\micro\tesla} in the \SI{50}{\micro\tesla} field in the figure) in the $97.5 \times 97.5 \times \SI{97.5}{\centi\metre}$ volume (depicted in grey the figure). This volume would be occupied by a cubic mu-metal shield intended to be put in the system. The measured field, mapped as described in Sec.\,\ref{sec:prototype_mapping}, confirms that the homogeneity could be achieved in practice. Figure~\ref{fig:prototype_open_design_Ycoil_map_section} details the measured field along the orange lines marked in Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}.
 
 % The simulation of the field produced by the optimal design of the $y$-coil is presented in the upper part of Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}. On the left-hand side the deviation of the $x$ component from zero is shown, on the right-hand side: one of the $y$ component from \SI{50}{\micro\tesla}. In the bottom of the figure a map of the two components is plotted. Additionally, two sections of the map, along the vertical lines depicted in orange, are presented in Fig.\,\ref{fig:prototype_open_design_Ycoil_map_section}. The dashed line is xxx away from the surface of the coils and corresponds to the edge of the fiducial volume. The design fully meets the specification of \SI{2}{\percent} homogeneity in the fiducial volume.
 
@@ -360,7 +360,7 @@ In the simulations the homogeneity was predicted to be \SI{2}{\percent} (\SI{1}{
 
 The remaining seven coils of were designed. Winding them, however, was beyond the scope of this work.
 The simulated field produced by the optimal designs for the $n = 1$ coil ($x$-coil) and the $n = 5$ one (Tab.\,\ref{tab:coils_cartesian_harmonics}) are presented in Fig.\,\ref{fig:prototype_open_design_simulation}.
-Despite lack of one face in the grid, the field is reproduced in a volume large enough to fit the $\upmu$-metal cube. Even in the case of the linear-gradient coil. In Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} the first 22 (out of 64) loops of the $x$-coil are depicted.
+Despite lack of one face in the grid, the field is reproduced in a volume large enough to fit the mu-metal cube. Even in the case of the linear-gradient coil. In Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} the first 22 (out of 64) loops of the $x$-coil are depicted.
 Note in particular the high density of the cables along the edges of the open face.
 % Except the part near the open face (at the bottom of the plots) the field in the volume is reproduced in the whole fiducial volume down to \SI{2}{\percent} (\SI{1}{\micro\tesla} on a \SI{50}{\micro\tesla} field), even for the gradient coil.
 % Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} shows the first 22 (out of 64) current loops of the $x$ coil.
@@ -376,7 +376,7 @@ The open-design $y$-coil was a significant step forward from the closed-cage des
 
 
 \section{n2EDM design}
-Let us recall the discussion in Sec.\,\ref{sec:n2EDM_challenges} on the design challenges of an active magnetic field compensation system for the n2EDM experiment. The main point of concern were the spatial constraints. Firstly, there would not be much space available around the $\upmu$-metal shield, calling for a coil system with a large fiducial volume. Secondly, only an irregular cage would avoid collisions with other components of the experiment and facilities in the hall.
+Let us recall the discussion in Sec.\,\ref{sec:n2EDM_challenges} on the design challenges of an active magnetic field compensation system for the n2EDM experiment. The main point of concern were the spatial constraints. Firstly, there would not be much space available around the mu-metal shield, calling for a coil system with a large fiducial volume. Secondly, only an irregular cage would avoid collisions with other components of the experiment and facilities in the hall.
 
 \begin{figure}
   \centering
@@ -397,10 +397,10 @@ The cage, depicted in Fig.\,\ref{fig:n2EDM_design_top}, was then implemented in 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_coils_field.pdf}
-  \caption{The quality of the field produced by the coils designed for the n2EDM experiment, quantified by the histogram of the deviation of the design's simulated field from the target one, as measured on the surface of the $\upmu$-metal shield. One entry is a difference in one spatial direction. The designs for the homogeneous coils, similar to one another, have been averaged. The ones for the linear gradients were as well. \note{Check once again the height of the MSR above the floor.}}\label{fig:n2EDM_design_deviation}
+  \caption{The quality of the field produced by the coils designed for the n2EDM experiment, quantified by the histogram of the deviation of the design's simulated field from the target one, as measured on the surface of the mu-metal shield. One entry is a difference in one spatial direction. The designs for the homogeneous coils, similar to one another, have been averaged. The ones for the linear gradients were as well. \note{Check once again the height of the MSR above the floor.}}\label{fig:n2EDM_design_deviation}
 \end{figure}
 
-A set of coils has been designed for the first eight cartesian harmonics (Tab.\,\ref{tab:coils_cartesian_harmonics}). The field simulated for a $n = 1$ homogeneous field coil and a $n = 6$ linear gradient are depicted in Fig.\,\ref{fig:n2EDM_design_fields}. The contour of the n2EDM's $\upmu$-metal shield is depicted in grey. The quality of the field, as simulated on the surface of the $\upmu$-metal shield, is plotted in Fig.\,\ref{fig:n2EDM_design_deviation}. The deviation from the pure harmonics is shown. The magnitude of the fields was chosen to be what is roughly expected to be compensated for.
+A set of coils has been designed for the first eight cartesian harmonics (Tab.\,\ref{tab:coils_cartesian_harmonics}). The field simulated for a $n = 1$ homogeneous field coil and a $n = 6$ linear gradient are depicted in Fig.\,\ref{fig:n2EDM_design_fields}. The contour of the n2EDM's mu-metal shield is depicted in grey. The quality of the field, as simulated on the surface of the mu-metal shield, is plotted in Fig.\,\ref{fig:n2EDM_design_deviation}. The deviation from the pure harmonics is shown. The magnitude of the fields was chosen to be what is roughly expected to be compensated for.
 % : \SI{50}{\micro\tesla} field for the homogeneous components and \SI{20}{\micro\tesla\per\metre} for the linear gradients.
 \marginpar{The magnitudes of homogeneous fields and gradients have different units. They can only be compared given a characteristic length. In this case the size of the active shield.}
 When cancelling a perfectly homogeneous \SI{50}{\micro\tesla} field, the remnant is expected to be $< \SI{1}{\micro\tesla}$ (which corresponds to \SI{2}{\percent}). In the case of a \SI{20}{\micro\tesla\per\meter} linear gradient it would be $< \SI{6}{\micro\tesla}$ (\SI{6}{\percent} for the \SI{5}{\metre} large shield).
