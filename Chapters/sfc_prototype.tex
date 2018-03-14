@@ -285,7 +285,7 @@ However, below is an another limitation. Figure\,\ref{fig:prototype_stability} f
 
 Interestingly, the stability was fully defined by the measurement chain: the sensors and the digitisers. Instabilities of the output chain, DACs and amplifiers, indistinguishable from changes in the magnetic field, were corrected by the system itself. One exception is the discrete nature of the currents that can be applied. The lowest curve on the plot is the limit on the stability due to the bit depth of the DACs. A quantisation resolution $\Delta$ corresponds, on average, to a white noise with an RMS amplitude $\Delta / \sqrt{12}$ (derived for example in Sec.\,IV.A in Ref.\,~\cite{Gray1998}). This noise scales then down as $\tau^{-1/2}$ with the integration time. The system's 16-bit DACs had $2^{16}$ levels mapped onto a $\SI{\pm 100}{\micro\tesla}$ range. This defines the quantisation at the feedback time of inverse $\SI{200}{\hertz}$. In total the limit from the quantisation at the integration time $\tau$ is:
 \begin{equation}
-  \frac{ \SI{200}{\micro\tesla} }{ 2^{16} \ \sqrt{12} \ \sqrt{ \SI{200}{\hertz}\ \tau}, . }
+  \frac{ \SI{200}{\micro\tesla} }{ 2^{16} \ \sqrt{12} \ \sqrt{ \SI{200}{\hertz}\ \tau} } \ .
 \end{equation}
 Aside from the obvious---increasing the bit depth of the DACs---this limit can be pushed further by increasing the feedback frequency or decreasing the range of the operation.
 
