@@ -140,6 +140,10 @@ The first section in this part introduces the subject of axion-like dark matter.
 
 \part{Appendix} % New part of the thesis for the appendix
 
+% Let the appendices start on the left page, too.
+\begingroup
+\let\cleardoublepage\clearpage
+
 % \include{Chapters/Chapter0A} % Appendix A
 \include{Chapters/R_derivation_appendix}
 \include{Chapters/sfc_appendix}
@@ -149,6 +153,8 @@ The first section in this part introduces the subject of axion-like dark matter.
 \include{Chapters/caching_scheme_appendix}
 % \include{Chapters/tools}
 %\include{Chapters/Chapter0B} % Appendix B - empty template
+
+\endgroup
 
 %----------------------------------------------------------------------------------------
 %	POST-CONTENT THESIS PAGES
