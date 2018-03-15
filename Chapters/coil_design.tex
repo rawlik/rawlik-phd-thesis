@@ -272,7 +272,10 @@ The best solution is up to the particular application for which it is required.
 
 
 \section{Application to active magnetic field shielding}
-Using the method presented here to design coils of an active magnetic shield  offers improvements in two areas. Firstly, the size of the coils could be decreased, or the size of the experimental set-up increased, without loss of performance. Better homogeneity in a given volume can always be achieved by choosing a denser gird. Given the tight spatial constraints this was a crucial development for the design of the n2EDM active shield.
+Using the method presented here to design coils of an active magnetic shield  offers improvements in two areas.
+Firstly, the size of the coils could be decreased, or the size of the experimental set-up increased, without loss of performance.
+Better homogeneity in a given volume can always be achieved by choosing a denser gird.
+Given the tight spatial constraints this was a crucial development for the design of the n2EDM active shield.
 
 \begin{table}
   \centering
@@ -291,13 +294,18 @@ Using the method presented here to design coils of an active magnetic shield  of
   \caption{Cartesian harmonic polynomials. Further terms can be found for example in Ref.\,\cite{Franke2013}.}\label{tab:coils_cartesian_harmonics}
 \end{table}
 
-Secondly, the method allows to construct a coil for any field. In particular, one may choose to construct coils that produce fields orthogonal to one another. 
+Secondly, the method allows to construct a coil for any field.
+In particular, one may choose to construct coils that produce fields orthogonal to one another. 
 % (as $\mathbb{R}^3 \rightarrow \mathbb{R}^3$ functions).
-This makes an active shielding system significantly easier to control~\cite{MRM:MRM1910010107} and avoids a potential problem of the high condition number due to very-high-order fields produced by pathological combinations of coils (recall the discussion in Sec.\,\ref{sec:nedm_sfc_matrix}). One of the possible orthogonal decompositions of the field is the one into \emph{cartesian harmonic polynomials}~\cite{Franke2013}:
+This makes an active shielding system significantly easier to control~\cite{MRM:MRM1910010107} and avoids potential problems in the high condition number due to very-high-order fields produced by pathological combinations of coils (recall the discussion in Sec.\,\ref{sec:nedm_sfc_matrix}).
+One of the possible orthogonal decompositions of the field is into \emph{cartesian harmonic polynomials}~\cite{Franke2013}:
 \begin{equation}
   \mathbf{B}(\mathbf{r}) = \sum_{n}\,H_n \mathbf{P}_n(\mathbf{r}) \ ,
 \end{equation}
-where $H_n$ are the expansion coefficients, and $\mathbf{P}_n(\mathbf{r})$ are the cartesian harmonic polynomials, the first eight of which are listed in Table~\ref{tab:coils_cartesian_harmonics}. Each term satisfies by itself the Maxwell's equations. The first three terms are homogeneous fields, the next five are the five independent linear gradients. Further ones correspond to higher-order gradients.
+where $H_n$ are the expansion coefficients and $\mathbf{P}_n(\mathbf{r})$ are the cartesian harmonic polynomials, the first eight of which are listed in Table~\ref{tab:coils_cartesian_harmonics}.
+Each term satisfies Maxwell's equations by itself.
+The first three terms are homogeneous fields, the next five are the five independent linear gradients.
+Further terms correspond to higher-order gradients.
 
 \begin{figure*}
   \centering
@@ -308,14 +316,19 @@ where $H_n$ are the expansion coefficients, and $\mathbf{P}_n(\mathbf{r})$ are t
   \caption{A coil designed on a unit cube with $5 \times 5$ tiles per face to shield against a dipole disturbance. The dipole is located, relative to the center of the unit cube, two units to the right and one unit to the front. It is located in the middle height of the cube. The volume of interest has a side length of \num{0.75}. On the left-hand side the total current along each edge of the dipole compensation coil is depicted. On the right-hand side the magnetic field is shown. The magnetic field lines are shown in grey, the volume of interest and the coil surface with dashed lines. The colors depict the magnitude of the magnetic field (capped at \num{0.1} and \SI{100}{\micro\tesla}). A horizontal cross section in the middle height is shown. The dipole source is located in the lower right corner of the plot and points parallel to the plane of the plot. The magnitude of the field in the volume of interest is reduced from tens of microteslas down to below one.}\label{fig:showcase}
 \end{figure*}
 
-Additionally, one can consider constructing dedicated coils to counteract a particular known disturbance. In Fig.\,\ref{fig:showcase}, a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source is presented.
+Additionally, one can consider constructing dedicated coils to counteract a particular known disturbance.
+In Fig.\,\ref{fig:showcase} a showcase design with $N = 6 \times (5 \times 5) = 150$ tiles for compensating a nearby dipole source is presented.
 
-Last, but not least, the method's unique property of designing on a predefined grid makes a large-scale construction particularly feasible. It makes it easy to be incorporated into the existing structures, by defining the grid in a conflict-free way.
+Lastly, the method's unique property of designing coils on a predefined grid makes a large-scale construction particularly simple.
+It makes the coil array easily incorporated into existing structures by defining the grid in a conflict-free way.
 
 
 
 
 \section*{Coil design -- conclusion}
-Coil design is a complicated and very technical problem, especially when high accuracy is required. This work presents a method that is simple in terms of both underlying math and computational effort. The design method could find its niche in practical applications, where spatial constraints play a significant role and a percent level in accuracy of the produced field is acceptable. The method has particular advantages when used to design coils of an active magnetic field compensation system. In the next chapter, its application to construction of a compensation system at the ETH Zürich is described.
+Coil design is a complicated and very technical problem, especially when high accuracy is required. This work presents a method that is simple in terms of both underlying maths and computational effort.
+The design method could find its niche in practical applications, where spatial constraints play a significant role and a percent level in accuracy of the produced field is acceptable.
+The method has particular advantages when used to design coils of an active magnetic field compensation system.
+In the next chapter, its application to construction of a compensation system at ETH Zürich is described.
 
-The software implementation of the coil design, including examples, has been published as open-source~\cite{Coilsjlcode}.
+The software implementation of the coil design, including examples, has been published as an open-source and can be accessed in Ref.\,~\cite{Coilsjlcode}.
