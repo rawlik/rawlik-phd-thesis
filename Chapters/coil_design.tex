@@ -171,7 +171,13 @@ The accuracy of the field reproduction can also be improved by increasing the nu
 
 
 \section{Simplification of the tile system}
-The tile system may find an interesting practical application. Once independently controllable tiles have been built, it can be used to produce an arbitrary field. However, building many independently driven coils is a high price to pay for producing only one field. Additionally, each edge is shared between two tiles, and the effective current is the sum of two. They may add either constructively or destructively. If the given solution is dominated by subtraction of large currents, a lot of power is unnecessarily dissipated in the system. It turns out, that both problems can be solved by simplifying the tile solution.
+The tile system may find an interesting practical application.
+Once independently controllable tiles have been built, it can be used to produce any arbitrary field.
+However, building many independently driven coils is a high price to pay for producing only one field.
+Additionally, each edge is shared between two tiles, and the effective current is the sum of these.
+The currents add either constructively or destructively.
+If the given solution is dominated by subtraction of large currents, a lot of power is unnecessarily dissipated in the system.
+We find that both problems can be solved by simplifying the tile solution.
 
 \begin{figure*}
   \centering
@@ -198,19 +204,41 @@ The tile system may find an interesting practical application. Once independentl
   \caption{The coil designed for a homogeneous field, with $N = 6 \times (3 \times 3)$ tiles (Fig.\,\ref{fig:homogeneous_tiles}), simplified by adding the currents along each edge and decomposing into current loops.}\label{fig:homogeneous_coils}
 \end{figure}
 
-One starts by adding the currents of the adjacent tiles and assigning the sum to each common edge. The result is a complicated net of currents (upper left corner of Fig.\,\ref{fig:simplification_algorithm}). Still, each node fulfills Kirchhoff's laws. The net can then be decomposed into simple current loops by following the algorithm: First find in the net the loop with the highest current. In the example it is either of the ``\num{597}'' loops on the front and back faces. This loop will make the first one in the simplified solution (it can be seen in the middle of the right column in Fig.\,\ref{fig:simplification_algorithm}, together with the next three loops). Then subtract from the net the current of the first loop along its edges (the net that remains after subtracting the first four loops is depicted in the middle of the left column in Fig.\,\ref{fig:simplification_algorithm}). Finally, continue to find the loop with the highest current in the modified net, which will give the next loop and repeat until the current net is empty. The net remaining after eight loops are found is depicted in the bottom row of Fig.\,\ref{fig:simplification_algorithm}, next to the first eight loops. The final simplified solution is shown in Fig.\,\ref{fig:homogeneous_coils}. The currents in the simplified coil system are much smaller, the highest being \num{597} instead of \num{1000} and they always add constructively. Also, the number of separate loops is decreased from \num{42} to \num{10}. Still, the total current along each edge of a tile is exactly the same as in the tile configuration.
+One starts by adding the currents of adjacent tiles and assigning the sum to each common edge.
+The result is a complicated net of currents (upper left corner of Fig.\,\ref{fig:simplification_algorithm}), with each node fulfilling Kirchhoff's laws. The net can then be decomposed into simple current loops by the following algorithm: First find in the net the loop with the highest current.
+In the example it is either of the ``\num{597}'' loops on the front and back faces.
+This will be the primary loop in the simplified solution (it can be seen in the middle of the right column in Fig.\,\ref{fig:simplification_algorithm}, together with the next three loops).
+Then subtract from the net the current of the primary loop along its edges (the net that remains after subtracting the first four loops is depicted in the middle of the left column in Fig.\,\ref{fig:simplification_algorithm}).
+Finally, continue to find the loop with the highest current in the modified net, which will give the next loop and repeat until the current net is empty.
+The net remaining after eight loops are found is depicted in the bottom row of Fig.\,\ref{fig:simplification_algorithm}, next to the first eight loops.
+The final simplified solution is shown in Fig.\,\ref{fig:homogeneous_coils}.
+The currents in the simplified coil system are much smaller, the highest being \num{597} instead of \num{1000} and they always add constructively.
+Also, the number of separate loops is decreased from \num{42} to \num{10}.
+Still, the total current along each edge of a tile is exactly the same as in the tile configuration.
 
-We conclude here our method of coil design. The simplified arrangement of coils is the optimal one, given the grid restriction, for approximating the magnetic field in the volume of interest. We continue to consider practical aspects, relevant for constructing the designs of the new method.
+We conclude here our method of coil design.
+The simplified arrangement of coils is optimal, given the grid restriction, for approximating the magnetic field in the volume of interest.
+We continue to consider practical aspects, relevant for constructing the designs of the new method.
 
 
 
 
 \section{Practical considerations}
-The primary practical advantage of the new design method is that the coils are constrained to a predefined grid. This is contrary to other methods of coil design, where the position of the wires is the output of the procedure~\cite{Turner1993, Beidler1990}. This may prove useful in applications with spatial constraints. Typically, coils need to be incorporated into a setup in which other components penetrate the surface on which the wires are laid. In the new method it is possible to simply define the grid so that no collisions occur. Although the simple examples presented before used regular grids, we have not used symmetries to solve the problem. When many coils are designed and built, for instance to produce homogeneous magnetic fields in each of the three dimensions, they can all share the same grid. The grid can, for example, be constructed out of cable channels into which the wires are laid.
+The foremost practical advantage of the new design method is that the coils are constrained to a predefined grid.
+This is contrary to other methods of coil design, where the position of the wires is the output of the procedure~\cite{Turner1993, Beidler1990}. This may prove useful in applications with spatial constraints.
+Typically, coils need to be incorporated into a setup in which other components penetrate the surface on which the wires are laid.
+With the new method it is possible to simply define the grid so that no collisions occur.
+Although the simple examples presented before used regular grids, we have not used symmetries to solve the problem.
+When many coils are designed and built, for instance to produce homogeneous magnetic fields in each of the three dimensions, they can all share the same grid.
+The grid can, for example, be constructed out of cable channels into which the wires are laid.
 
-A limitation associated with the finite size of the channels is the strength of the magnetic field that can be created, which, for given available power, is limited by the thickness of the wire. At the same time, the finite size of the cable channels can be neglected in the calculations only as long as it is small compared to the distance between the coils and the volume of interest. Using an enameled wire, rather than a standard, PVC-insulated cable, can reduce the overall thickness.
+A limitation associated with the finite size of the channels is the strength of the magnetic field that can be created, which for a given available power is limited by the thickness of the wire.
+At the same time, the finite size of the cable channels can be neglected in the calculations, only as long as it is small compared to the distance between the coils and the volume of interest.
+Using an enameled wire, rather than the standard, PVC-insulated cable, we can reduce the overall thickness.
 
-In the proposed solution in order to produce the desired field one still needs a system of several coils, even in the simplified solution. The more complicated the goal field, and the more tiles, the more different currents are needed across the individual loops, which quickly becomes impractical. There are several ways to tackle the problem.
+In order to produce the desired field, one still needs a system of several coils, even in the simplified solution.
+The more complicated the goal field, and the more tiles, the greater the number of currents across the individual loops is required, which quickly becomes impractical.
+There are several ways to tackle the problem.
 
 The first way is to use only one current and adjust by varying the number of windings. In the example, when one decides for \num{60} windings as the maximum, then the nominal current that would flow through the wire is $\mathrm{round}(597 / 60) = 10$. The \num{597}, \num{360}, \num{25}, \num{13} and \num{5} would be created with \num{60}, \num{36}, \num{3}, \num{1} and \num{1} windings, respectively. A discretisation error of $10 / 597 = \SI{1.7}{\percent}$ is of the same order as the accuracy of the solution in representing the field (see Fig.\,\ref{fig:homogeneous_performance}). For more precise designs the numbers of windings get larger, which is troublesome to construct and causes the coils to have larger inductances.
 
