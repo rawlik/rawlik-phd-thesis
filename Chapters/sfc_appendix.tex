@@ -2,46 +2,48 @@
 % \label{ch:sfc_appendix}
 
 \chapter{Visualisation of the PSI SFC data}
-A typical question for the SFC data: I see the field changing. How does the field that induced this change look like?
-
-Why difficult? First, the fluxgates only measured the field already compensated---the sum of the external field and the one created by SFC's coils. Three dimensional field in a three dimensional space. The field is deformed by the mu-metal shield. And the interesting field is often relative (magnet ramped, its field is the difference between after and before the ramp).
-
-The solution was to create an interactive tool to visualise and explore the SFC data.
+Sensors of an active shield collect information about the magnetic field conditions. These data are difficult to visualise, as it is a 3D field. At the same time the information how does the field look like, or how it changes, may be very useful during the operation of the shield. Simply plotting the lines did not provide too much insight. Already with nine sensors there are 27 readout channels, which can be grouped either by direction (x, y or z) or position of the sensor. In order to lower the access threshold to this information an interactive visualisation tool was developed.
 
 \begin{figure}
   \centering
-  \subfloat[Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.]{
-    \label{fig:nEDM_SFC_visualisation1}
-    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/visualisation/visualisation1}}
-  \quad
-  \subfloat[Displaying fields at two different times simultaneously, yellow and blue.]{
-    \label{fig:nEDM_SFC_visualisation2}
-    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/visualisation/visualisation2}}
-  \\
-  \subfloat[Displaying a range of data, marked with the yellow cursor, relative to the point marked with the blue cursor. The calculated back external magnetic field is displayed.]{
-    \label{fig:nEDM_SFC_visualisation3}
-    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/visualisation/visualisation3}}
-  \quad
-  \subfloat[Displaying the difference between the external field in two points in geometrical form.]{
-    \label{fig:nEDM_SFC_visualisation4}
-    \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/visualisation/visualisation4}}
-  \caption{Different functionalities of the nEDM SFC data visualisation tool.}
+  \includegraphics[width=0.8\linewidth]{gfx/nEDM_SFC/visualisation/visualisation1.png}
+  \caption{Displaying the calculated back external field, the movable yellow cursor chooses the data to be displayed in the 3D view.}\label{fig:nEDM_SFC_visualisation1}
 \end{figure}
 
-The overview can be seen in Fig.\,\ref{fig:nEDM_SFC_visualisation1}. There are two plot areas, upper in the time domain, lower can be switched between a 3D geometrical representation and a second time-domain plot. The loaded set of data, spanning 18-20 Nov 2015, shows a ramp of the SULTAN magnet. The ``field to display'' setting is set to ``calculated external field'', given by:
-\begin{equation}
-  \mathbb{B} - M \mathbb{I}
-\end{equation}
-Another option is displaying the measured field $\mathbb{B}$.
-In the first part the field points in the $x$ direction (North) and 45 degrees downwards (Villigen is 47 degrees in latitude). As expected for the Earth's magnetic field. On the upper plot there is a vertical yellow line, a movable cursor, that chooses which point in time is depicted in the 3D visualisation. There it visualises what is more-or-less the Earth's magnetic field at the experiment's position.
+Figure~\ref{fig:nEDM_SFC_visualisation1} shows the main window of the application. In the upper part the time series of the field is plotted, showing in the middle a sequence of ramps of the SULTAN magnet. The curves are grouped in colour by direction (x, y and z). In the figure the uncompensated field is plotted (Eq.\,\ref{eq:uncompensated_field}). One may also choose to plot the compensated, measured field. The plot features a vertical yellow cursor. It chooses the time for which a 3D visualisation of the field is displayed in the bottom area. Each sensor is depicted as a green sphere, from which an arrow points in the direction of the measured field, its length proportional to the field's magnitude. The view can be rotated.
 
-In Fig.\,\ref{fig:nEDM_SFC_visualisation2} two cursors, blue and yellow, are used simultaneously to juxtapose the ``calculated external field'' before and after the ramp. In Fig.\,\ref{fig:nEDM_SFC_visualisation3} the ``difference mode B-A'' has been turned on. In the bottom plot we observe the SULTAN ramp relative to the field before the ramp. This is the field of the magnet as seen in the experiment site. In Fig.\,\ref{fig:nEDM_SFC_visualisation4} this field is visualised graphically, pointing South-East.
+% The overview can be seen in Fig.\,\ref{fig:nEDM_SFC_visualisation1}. There are two plot areas, upper in the time domain, lower can be switched between a 3D geometrical representation and a second time-domain plot. The loaded set of data, spanning 18-20 Nov 2015, shows a ramp of the SULTAN magnet. The ``field to display'' setting is set to ``calculated external field'', given by:
+% \begin{equation}
+%   \mathbb{B} - M \mathbb{I}
+% \end{equation}
+% Another option is displaying the measured field $\mathbb{B}$.
+% In the first part the field points in the $x$ direction (North) and 45 degrees downwards (Villigen is 47 degrees in latitude). As expected for the Earth's magnetic field. On the upper plot there is a vertical yellow line, a movable cursor, that chooses which point in time is depicted in the 3D visualisation. There it visualises what is more-or-less the Earth's magnetic field at the experiment's position.
 
-\note{Maybe show the field of COBRA, too!}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.8\linewidth]{gfx/nEDM_SFC/visualisation/visualisation2.png}
+%   \caption{Displaying fields at two different times simultaneously, yellow and blue.}\label{fig:nEDM_SFC_visualisation2}
+% \end{figure}
 
-The program is cross--platform (Windows, OSX, Linux), fully based on open--source softwore. It is written in python and uses the following libraries: Qt4 (cross-platform GUI), pyqtgraph (fast interactive plotting), VTK (3D graphics) and SciPy (data handling). It is a joint work with Nils Ebeling, for whom it was a summer project.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{gfx/nEDM_SFC/visualisation/visualisation4.png}
+  \caption{Displaying the difference between the external field in two points in geometrical form.}\label{fig:nEDM_SFC_visualisation4}
+\end{figure}
 
-Although it is very technical, it is very easy to underestimate the role of having data exploration tools at hand while the experiment is running.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{gfx/nEDM_SFC/visualisation/visualisation3.png}
+  \caption{Displaying a range of data, marked with the yellow cursor, relative to the point marked with the blue cursor. The calculated back external magnetic field is displayed.}\label{fig:nEDM_SFC_visualisation3}
+\end{figure}
+
+When two cursors are chosen, blue and yellow, the 3D view can also show the difference of the two. In Fig.\,\ref{fig:nEDM_SFC_visualisation4} the cursors are positioned before and after the ramp of the magnet, so that the difference corresponds to the field of the magnet only. In the 3D visualisation the direction in which the field points can be clearly seen.
+
+Cursors can also mark a range of the data, the yellow one does in Fig.\,\ref{fig:nEDM_SFC_visualisation3}. The enlarged part is displayed relative to the field at the time chosen by the blue cursor in the upper area, in this case the field before the SULTAN ramp. So the bottom plot approximates the field of the SULTAN magnet, assuming there were no other changes of the field in that time. 
+
+The application is cross-platform (Windows, OSX, Linux). It was written in python and uses the following libraries: Qt4 (cross-platform GUI), pyqtgraph (fast interactive plotting), VTK (3D graphics) and SciPy (data handling). It is a joint work with Nils Ebeling, for whom it was a summer project.
+
+
 
 
 
@@ -77,7 +79,7 @@ The value of this projection for two weeks in May 2016 is depicted in Fig.\,\ref
   \subfloat[Displaying fields at two different times simultaneously, yellow and blue.]{
     \label{fig:SULTAN_ramp_Cs_performance}
     \includegraphics[width=.45\linewidth]{gfx/nEDM_SFC/gradient_seen_by_Cs_2015-2016}}
-  \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs...}
+  \caption{Magnetic field of the SC magnet seen by the SFC. Taken as difference of runs... \note{make the plots nicer, no vertical scale, no grid, filled histograms.}}
 \end{figure}
 
 With the exact times of the SULTAN ramps available, the Hg comagnetometer and Cs magnetometer data in a 2h window around each of the ramps were taken. From the Cs data the gradient was estimated as the difference between the averages of the top and bottom sensors, divided by the separation of \SI{25.1}{\centi\meter}. The change was defined as 0.9 and 0.1 quantile difference. The histogram for all the field changes, as measured by the Hg, during SULTAN ramps is shown in Fig.\,\ref{fig:SULTAN_ramp_Hg_performance}. It is visible that while in 2015 the changes are consistently around \SI{34}{\pico\tesla}, in 2016 the changes are centred around \SI{55}{\pico\tesla}.
