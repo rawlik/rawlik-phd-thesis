@@ -6,24 +6,23 @@ The coil design method described in the previous chapter opened the door to a ne
 
 In a laboratory at ETH Zürich an active shield was constructed.
 In its first version it featured three coils for the homogeneous components of the magnetic field. The coils were wound on a regular grid.
-Mapping of the magnetic field created by the coils confirmed, that they produce a field of the specified homogeneity in a large volume.
-The active shield was tested with strong, inhomogeneous disturbances, as well as for its long-term stability.
+Mapping of the magnetic field created by the coils confirmed that they produce a field at the specified homogeneity in a large volume.
+The active shield was tested with strong, inhomogeneous disturbances, as well as its long-term stability.
 
-A next iteration of the active shield was constructed on a grid with one face opened.
-This not only eased the access to the inside, but also demonstrated coils of a more complicated design.
+A next iteration of the active shield was constructed on a grid with one open face.
+This not only eased access to the inside, but also demonstrated coils of a more complicated design.
 
-Finally, a design of the coils for an active magnetic shield for the n2EDM experiment is proposed.
-Despite tight spatial constraints, it achieves a very good homogeneity of \SIrange[range-phrase=--,range-units=single]{1}{2}{\percent} around the mu-metal shield.
+Finally, coil design for an active magnetic shield for the n2EDM experiment is proposed.
+Despite tight spatial constraints, it achieves homogeneity of \SIrange[range-phrase=--,range-units=single]{1}{2}{\percent} around the mu-metal shield.
 
 
 
 
 \section{The first iteration --- coil structure}
-In the discussion of the coil design method a possible way to realise it in practice was indicated---to construct a grid out of cable channels.
-At ETH Zürich a system pictured in Fig.\,\ref{fig:prototype_photo} was built.
-It consists of a $5 \times 9 \times 5$ grid of square tiles. Each tile had side length \SI{262}{\milli\meter}, the total size was $1310 \times 1310 \times \SI{2358}{\milli\meter}$.
-The vertical axis we refer to as $z$, the long horizontal one as $y$, and the remaining as $x$. The support frame was made of aluminum construction profiles.
-To support the cable channels, on each side there was a large, one-piece aluminum sheet with square cut-outs leaving the material only directly below the cable channels.
+In the discussion of the coil design method a practical way to realise it was indicated---to construct a grid out of cable channels.
+At ETH Zürich a system pictured in Fig.\,\ref{fig:prototype_photo} was built consisting of a $5 \times 9 \times 5$ grid of square tiles. Each tile had side length \SI{262}{\milli\meter}, the total size was $1310 \times 1310 \times \SI{2358}{\milli\meter}$.
+The vertical axis we refer to as $z$, the long horizontal one as $y$, and the remaining axis $x$. The support frame was made of aluminum construction profiles.
+To support the cable channels, on each side there was a large one-piece aluminum sheet, with square cut-outs leaving material only directly below the cable channels.
 The plastic cable channels were glued onto the aluminum.
 
 \begin{sidewaysfigure}
@@ -40,16 +39,16 @@ The plastic cable channels were glued onto the aluminum.
   \caption{The optimal current net for the $y$-coil of ETH active magnetic shield. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted on the left-hand side. The rectangular faces are all identical, and are depicted on the right-hand side. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_y_currents}
 \end{figure}
 
-In its first version the system featured three coils for the homogeneous components of the magnetic field (the first three cartesian harmonics, Tab.\,\ref{tab:coils_cartesian_harmonics}).
-The coils were designed mostly following the method described in Ch.\,\ref{ch:coil_design}.
-The exception is the, not ready at the time, simplification algorithm.
-The simplification was carried out manually instead.
-The fiducial volume was chosen to be a cuboid centred in the system, with each of its face \SI{155}{\milli\meter} away from the surface of the coils.
+For the first version the system featured three coils for the homogeneous components of the magnetic field (the first three cartesian harmonics, Tab.\,\ref{tab:coils_cartesian_harmonics}).
+The coils were mostly designed following the method described in Ch.\,\ref{ch:coil_design},
+with the exception of the simplification algorithm, which was not ready at the time.
+Instead, the simplification was carried out manually.
+The fiducial volume was chosen to be a cuboid centred in the system, with each of its faces \SI{155}{\milli\meter} away from the surface of the coils.
 The optimal current net for the $y$-coil (producing a homogeneous field in the $y$ direction) is depicted in Fig.\,\ref{fig:prototype_coil_y_currents} and its manual decomposition into loops in Fig.\,\ref{fig:prototype_coil_y_decomposition}.
 The design promised a \SI{2}{\percent} homogeneity inside the fiducial volume.
 The current net for $x$- and $z$-coils, identical to each other on symmetry grounds, is depicted in Fig.\,\ref{fig:prototype_coil_x_z_currents}.
-Finally, the individual loops were discretised into \SI{10}{\ampere}, \SI{2}{\ampere} and \SI{0.2}{\ampere}, per nominal \SI{100}{\micro\tesla}.
-For example, the \SI{38.96}{\ampere} current, indicated in black in Fig.\,\ref{fig:prototype_coil_y_decomposition}, was realised as three windings of the \SI{10}{\ampere} wire, four of the \SI{2}{\ampere} one and five of the \SI{0.2}{\ampere} one.
+Finally, the individual loops were discretised into \SI{10}{\ampere}, \SI{2}{\ampere} and \SI{0.2}{\ampere} per nominal \SI{100}{\micro\tesla}.
+For example, the \SI{38.96}{\ampere} current, indicated in black in Fig.\,\ref{fig:prototype_coil_y_decomposition}, was realised as three windings of the \SI{10}{\ampere} wire, four of the \SI{2}{\ampere} wire and five of the \SI{0.2}{\ampere} wire.
 
 \begin{figure}
   \centering
@@ -60,7 +59,7 @@ For example, the \SI{38.96}{\ampere} current, indicated in black in Fig.\,\ref{f
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_design_x_100uT.pdf}
-  \caption{The optimal current net for the $x$ and $z$-coils of ETH active magnetic shield. Both $5 \times 5$ faces ($y = \mathrm{const.}$ planes) are identical and are depicted in the lower-left corner. The rectangular faces perpendicular to the field are depicted to the right, and the ones parallel to it on top. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_x_z_currents}
+  \caption{The optimal current net for the $x$ and $z$-coils of ETH active magnetic shield. Both $5 \times 5$ faces ($y = \mathrm{const.}$ planes) are identical, and are depicted in the lower-left corner. The rectangular faces perpendicular to the field are depicted to the right, and the ones parallel to it on top. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_x_z_currents}
 \end{figure}
 
 \begin{figure}
@@ -69,9 +68,10 @@ For example, the \SI{38.96}{\ampere} current, indicated in black in Fig.\,\ref{f
   \caption{A close-up of the wires in the cable channels. Here all three coils for generating the homogeneous fields ($x$, $y$ and $z$) were laid.}\label{fig:prototype_coil_wire_close-up}
 \end{figure}
 
-\marginpar{The wire diameter was \SI[detect-all = true]{1}{\milli\meter} for the \num[detect-all = true]{10} and \SI[detect-all = true]{2}{\ampere} wires, and \SI[detect-all = true]{0.8}{\milli\meter} for the \SI[detect-all = true]{0.2}{\ampere} one. The wires were prolonged, when needed.}
-Enameled wire was then laid in the cable channels according to the discretised design. For one current component of a coil, e.g.\ \SI[detect-all = true]{10}{\ampere} in the $x$-coil, a single, long piece of wire was laid, making up all the windings of all loops.
-For the three coils, each with three components, nine longs wires were laid, in total.
+\marginpar{The wire diameter was \SI[detect-all = true]{1}{\milli\meter} for the \num[detect-all = true]{10} and \SI[detect-all = true]{2}{\ampere} wires, and \SI[detect-all = true]{0.8}{\milli\meter} for the \SI[detect-all = true]{0.2}{\ampere} one. The wires were prolonged when needed.}
+Enameled wire was laid in the cable channels according to the discretised design.
+For one current component of a coil, e.g.\ \SI[detect-all = true]{10}{\ampere} in the $x$-coil, a single long piece of wire was laid, making up all the windings of all loops.
+For the three coils, each with three components, nine long wires were laid in total.
 A close-up of the wires in the cable channels, for all three coils, is shown in Fig.\,\ref{fig:prototype_coil_wire_close-up}.
 
 
@@ -79,8 +79,8 @@ A close-up of the wires in the cable channels, for all three coils, is shown in 
 
 \section{Mapping}
 \label{sec:prototype_mapping}
-The coils were mapped in order to verify that they really produce a field of the required homogeneity.
-For that purpose a robot has been built: a fluxgate on an xyz-table, controlled with stepper motors.
+The coils were mapped in order to verify that they produced a field of the required homogeneity.
+To that purpose a robot was built: a fluxgate on an xyz-table, controlled with stepper motors.
 The robot, called a \emph{mapper}, is pictured in Fig.\,\ref{fig:prototype_photo_inside}.
 
 \begin{sidewaysfigure}
@@ -91,38 +91,41 @@ The robot, called a \emph{mapper}, is pictured in Fig.\,\ref{fig:prototype_photo
 
 A beam seen in the middle-bottom of Fig.\,\ref{fig:prototype_photo_inside} could move along the $y$ direction (left-right in the figure), pulled by two timing belts.
 The belts were wound around pulleys attached to stepper motors, visible to the left.
-Along the beam, the $x$ direction, a cart was moved in the same way: a timing belt and a stepper motor.
-On the cart three vertical rods were attached, with a plastic (POM) platform tightly threaded on them.
-On the platform there was a fluxgate magnetic field sensor.
-\marginpar{In a fluxgate a ferromagnetic core is periodically driven into saturation. When it is not saturated, it is highly permeable and sucks the external magnetic flux in. When saturated, it does not occur. A pickup coil detects the changes in the external flux as it is alternately sucked in and out of the core.}
-Through the centre of the platform went an aluminum threaded rod, passing through a mating threaded hole.
+Along the beam ($x$ direction) a cart was moved using the same method.
+On the cart three vertical rods were attached with a plastic (POM) platform tightly threaded on them.
+On the platform was a fluxgate magnetic field sensor.
+\marginpar{In a fluxgate a ferromagnetic core is periodically driven into saturation. When it is not saturated, it is highly permeable and sucks the external magnetic flux in. When saturated, this does not occur. A pickup coil detects the changes in the external flux as it is alternately sucked in and out of the core.}
+Through the centre of the platform was an aluminum threaded rod, passing through a mating threaded hole.
 The rod was mounted to a stepper motor on the cart.
 As the motor spun the threaded rod the platform moved vertically along the $z$ direction.
 
-A simple kind of a map was a linear one, whereby the fluxgate was moved along one direction only.
-A map of the $y$-coil along the $y$ direction, in the middle of $x$ and $z$, is shown in the top part of Fig.\,\ref{fig:prototype_linear_map}.
+A simple map consists of moving the fluxgate along one linear direction only.
+A map of the $y$-coil along the $y$ direction, in the middle of $x$ and $z$, is shown at the top of Fig.\,\ref{fig:prototype_linear_map}.
 Only the $y$-component of the magnetic field is plotted. The coil was set to produce \SI{50}{\micro\tesla}.
-The background field was also mapped and it has been already subtracted in the map. The field stayed in a $\SI{\pm 0.2}{\micro\tesla}$ range around the average value.
-In the bottom part of Fig.\,\ref{fig:prototype_linear_map} additionally the maps with only the \SI{10}{\ampere} component coil, and with \SI{10}{\ampere} and \SI{2}{\ampere} components coil are shown (for \SI{50}{\micro\tesla} the currents were \SI{5}{\ampere}, \SI{1}{\ampere} and \SI{0.1}{\ampere}).
+The background field was also mapped and it has been subtracted in the map. The field remained in a $\SI{\pm 0.2}{\micro\tesla}$ range around the average value.
+In the lower plot of Fig.\,\ref{fig:prototype_linear_map} the maps using just the \SI{10}{\ampere} component coil,
+and \SI{10}{\ampere} and \SI{2}{\ampere} coils are shown (for \SI{50}{\micro\tesla} the currents were \SI{5}{\ampere}, \SI{1}{\ampere} and \SI{0.1}{\ampere}).
 It is interesting to note how much of the field is produced by each of the components.
 In the middle region the \SI{5}{\ampere}, \SI{1}{\ampere} and \SI{0.1}{\ampere} components produced \SI{86}{\percent}, \SI{11}{\percent} and \SI{3}{\percent} of the \SI{50}{\micro\tesla} field, respectively. At the edge the shares change to \SI{70}{\percent}, \SI{16}{\percent} and \SI{14}{\percent}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/y_scan_all_double.pdf}
-  \caption{Linear map of the homogeneous field $y$-coil. The map is along the $y$-direction, in the middle of $x$ and $z$. The $y$-component of the magnetic field is plotted. The green curve depicts the field with only the \SI{5}{\ampere}/\SI{50}{\micro\tesla} wire, the blue with additionally the \SI{1}{\ampere}/\SI{50}{\micro\tesla} one, and the orange, also zoomed in at the very top, all three wires together.}\label{fig:prototype_linear_map}
+  \caption{Linear map of the homogeneous field $y$-coil. The map is along the $y$-direction, in the middle of $x$ and $z$. The $y$-component of the magnetic field is plotted. The green curve depicts the field with only the \SI{5}{\ampere}/\SI{50}{\micro\tesla} wire, the blue with the additional \SI{1}{\ampere}/\SI{50}{\micro\tesla} wire, and the orange, also zoomed in at the very top, all three wires together.}\label{fig:prototype_linear_map}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/planar_map_Y_max_deviation.pdf}
-  \caption{A horizontal map of the $y$-coil, a cut along the middle $xy$-plane. The maximum deviation among all three components of the magnetic field is plotted, i.e.\ in the area enclosed by the \SI{1}{\micro\tesla}~isocountour all components of the field are within \SI{1}{\micro\tesla} from the nominal field (zero for $x$ and $z$, \SI{50}{\micro\tesla} for $y$). Only part of the coil was mapped. The border of the plot corresponds to planes where the wires of the coils are. The border of the fiducial volume is marked with grey lines.}\label{fig:prototype_plane_map}
+  \caption{A horizontal map of the $y$-coil cut along the middle $xy$-plane. The maximum deviation among all three components of the magnetic field is plotted, i.e.\ in the area enclosed by the \SI{1}{\micro\tesla}~isocountour all components of the field are within \SI{1}{\micro\tesla} from the nominal field (zero for $x$ and $z$, \SI{50}{\micro\tesla} for $y$). Only part of the coil was mapped. The border of the plot corresponds to planes where the coil wires are located. The border of the fiducial volume is marked with grey lines.}\label{fig:prototype_plane_map}
 \end{figure}
 
-Another type of a map was a planar one.
-A horizontal map, in the middle $xy$-plane, of the $y$-coil is presented in Fig.\,\ref{fig:prototype_plane_map}.
-The plot shows the maximum deviation among all three components of the magnetic field, i.e.\ in the area enclosed by the \SI{1}{\micro\tesla}~isocountour all components of the field are within \SI{1}{\micro\tesla} from the reference field.
-The reference field would ideally be zero for $x$ and $z$, and \SI{50}{\micro\tesla} for $y$. In reality the sensor's axis were not perfectly aligned with the ones of the system, causing the $x$ and $z$ components to be non-zero and the $y$ one to be smaller.
+Another type of field map was a planar one.
+A horizontal map in the middle $xy$-plane, of the $y$-coil is presented in Fig.\,\ref{fig:prototype_plane_map}.
+The plot shows the maximum deviation among all three components of the magnetic field, i.e.\ in the area enclosed by the \SI{1}{\micro\tesla}~isocountour, all components of the field are within \SI{1}{\micro\tesla} from the reference field.
+The reference field would ideally be zero for $x$ and $z$, and \SI{50}{\micro\tesla} for $y$.
+In reality the sensor's axis were not perfectly aligned with those of the system,
+causing the $x$ and $z$ components to be non-zero and the $y$ one to be smaller.
 The reference field was set as the average field in the area of the highest homogeneity in the middle of the map.
 Within the fiducial volume the field deviated by no more than \SI{2}{\percent} or \SI{1}{\micro\tesla} for a \SI{50}{\micro\tesla} field, as expected.
 Maps of the other coils gave similar results.
@@ -134,25 +137,28 @@ Maps of the other coils gave similar results.
 \section{Control System}
 In this section the hardware stack used to measure and control the magnetic fields is described.
 % Before proceeding to discuss the active stabilisation system, we devote a section to the hardware. These are technical details, but for the more tech-savvy of the readers having the hardware setting given first may ease following the discussion.
-In an active magnetic shield a change in the magnetic field is detected with an array of sensors and an appropriate response is calculated.
-It is then applied by driving a change in currents flowing in the coils.
-The feedback loop is closed through the air when the sensors detect the change in the field caused by the coils.
+In an active magnetic shield a change in the magnetic field is detected with an array of sensors, and an appropriate response is calculated.
+The response is then applied by changing the currents in the coils.
+The feedback loop is closed when the sensors detect the change in the field caused by the coils.
 
-In the system at ETH the field was measured with eight fluxgates, visible in Fig.\,\ref{fig:prototype_photo_inside}.
-They were mounted in a way that they made up corners of a cube of approximately \SI{90}{\centi\meter} side length.
-The sensors were Stefan Mayer Instruments FLC3--70 three-axis fluxgates, $\SI{\pm 200}{\micro\tesla}$ range, \SI{1}{\kilo\hertz} bandwidth, $\pm \SI{1}{\percent} \pm \SI{0.5}{\micro\tesla}$ accurate.
-They were powered with an in-house--built $\SI{\pm 5}{\volt}$ power supply.
+In the system at ETH the field was measured with eight fluxgates (visible in Fig.\,\ref{fig:prototype_photo_inside}).
+They were mounted in a way to make up corners of a cube of approximately \SI{90}{\centi\meter} side length.
+The sensors were Stefan Mayer Instruments FLC3--70 three-axis fluxgates, $\SI{\pm 200}{\micro\tesla}$ range, \SI{1}{\kilo\hertz} bandwidth, $\pm \SI{1}{\percent} \pm \SI{0.5}{\micro\tesla}$ accuracy.
+They were powered with an in-house built $\SI{\pm 5}{\volt}$ power supply.
 The outputs of the fluxgates were $\SI{\pm 5}{\volt}$ signals proportional to the magnetic field.
 The analogue signals were directly digitised with Beckhoff EL3602 24-bit differential analogue-to-digital converters (ADCs).
-The digital information was collected in software running on a PC computer.
+The digital information was collected in software running on a PC.
 
 \marginpar{The main julia program published the data on a \texttt{ZMQ} \texttt{PUB} socket. The data were stored with a separate \texttt{julia} program, collecting the data on a \texttt{ZMQ} \texttt{SUB} socket. Similarly, the plotting program was separate, written in \texttt{Python}.}
-The software stack, running under OpenSUSE Linux, consisted of a low-level Ethercat driver~\cite{etherlabcode} on top of which a custom program, written in \texttt{julia}~\cite{julia}, was running.
-This setup was optimised for high flexibility and close-to-zero turnaround time in development. In particular, it was possible to develop the software interactively \emph{while} the system was running. The main task of the program was to keep evaluating the optimal response for the measured magnetic field changes. The response, the new currents to be applied to the coils, was sent to the digital-to-analogue converters (DACs). Besides, the data were recorded and plotted on-line.
+The software stack running under OpenSUSE Linux consisted of a low-level Ethercat driver~\cite{etherlabcode}, on top of which a custom program written in \texttt{julia}~\cite{julia} was running.
+This setup was optimised for high flexibility and close-to-zero turnaround time during the development.
+In particular, it was possible to develop the software interactively \emph{while} the system was running.
+The main task of the program was to continuously evaluate the optimal response for the measured magnetic field changes.
+The response, being the new currents to be applied to the coils, was sent to the digital-to-analogue converters (DACs). The data were recorded and plotted on-line.
 
 The DACs were 16-bit Beckhoff EL4134.
 The signals were fed to an array of four-quadrant SERVOWATT amplifiers, configured to regulate the output current with a $\SI{\pm 10}{\volt}$ input.
-For each coil there were three stages: DCP260/30A configured with a $\SI{\pm 10}{\ampere}$ output, DCE50/30A with $\SI{\pm 2}{\ampere}$ one and DCE10/30A with $\SI{\pm 0.4}{\ampere}$.
+For each coil there were three stages: DCP260/30A configured with a $\SI{\pm 10}{\ampere}$ output, DCE50/30A with $\SI{\pm 2}{\ampere}$ and DCE10/30A with $\SI{\pm 0.4}{\ampere}$.
 The currents were then directly fed into the coils.
 
 \begin{SCfigure}
@@ -163,13 +169,13 @@ The currents were then directly fed into the coils.
 
 The hardware was hosted in a 19-inch cabinet, pictured in Fig.\,\ref{fig:prototype_photo_daq}.
 A detailed list of the components can be found in the figure's caption.
-All these components, additionally to the coils themselves, were used to run the active magnetic field compensation.
+All these components were used for the active magnetic field shielding.
 
 
 
 
 \section{The feedback matrix}
-The system was based a feedback matrix (Ch.\,\ref{ch:nedm_sfc}).
+The system was based on a feedback matrix (Ch.\,\ref{ch:nedm_sfc}).
 The magnetic field measured by each of the 24 sensors is linear with the currents in the three coils.
 All readouts, gathered in a vector $\mathbb{B}$ (dimension~24) can be written as a linear combination of the currents in the coils $\mathbb{I}$ (dimension~3):
 \marginpar{We use the symbol $\mathbb{B}$ for the values measured by the sensors to distinguish it from $\mathbf{B}$, which is used to denote the magnetic field in the whole space.}
@@ -185,24 +191,26 @@ There it was pointed out that its high condition number, and the need for regula
 In particular, some linear combinations of the coils created high-order fields which, despite high currents, had little influence on the sensors' readout.
 % The matrix of the PSI system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}.
 % There is a fundamental difference between the matrix of the PSI's system and the one of the next generation's one.
-The PSI's SFC matrix was not known a priori.
-The system was constructed and the matrix was measured as the system's property.
+PSI SFC matrix was not known a priori.
+The system was constructed and the matrix was measured as the system's property. \note{Previous unclear, reformulate}
 % This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable.
-Conversely, the new system takes the matrix into account already at the design phase.
-The coils were designed to produce magnetic field corresponding to the terms of the cartesian harmonic expansion of the field.
-This ensures that they are orthogonal to one another.
-We expect, by design, the matrix to have the condition number equal to \num{1}.
-It has been measured to be \num{1.064} with the three coils for the homogeneous components and without a mu-metal shield inside.
+Conversely, the new system already takes the matrix into account at the design phase.
+The coils were designed to produce a magnetic field corresponding to the terms of the cartesian harmonic expansion of the field; 
+ensuring that they are orthogonal to one another.
+By design we expect the matrix to have the condition number equal to one.
+Using the three coils it has been measured to be \num{1.064} for the homogeneous components, without a mu-metal shield inside.
 
 % \note{Put a figure about the measurement of the matrix?}
 
 The active magnetic shield constructed at ETH implemented a new way of measuring the matrix.
-The procedure changed currents in all the coils simultaneously, shortening the duration of the procedure. It could also measure in close-to-zero field conditions. To measure the matrix, the space spanned by all the coils was considered.
+The procedure changed currents in all the coils simultaneously, shortening the duration of the procedure.
+It could also measure in close-to-zero field conditions.
+To measure the matrix, the space spanned by all the coils was considered.
 In this case it was three-dimensional: the current in the $x$-coil, in the $y$-coil and in the $z$ one.
 A point in this space corresponded to one configuration of the currents in the coils.
 A set of points on an n-sphere in this space was picked and all currents were changed simultaneously, making their way from one point to another.
 As the currents changed, the measurements of the sensors were recorded.
-Then, for each $i$th readout channel, 24 in total, a linear model was fitted to estimate the proportionality constants between the readout and the currents in the coils:
+Then, for each $i$th readout channel (24 in total) a linear model was fitted to estimate the proportionality constants between the readout and the currents in the coils:
 \begin{equation}
   \label{eq:SFC_matrix_linear_fits}
   B_i = B_i^0 + \sum_{j=x,y,z} M_{i,j} \, I_j \ ,
@@ -212,18 +220,20 @@ $B_i^0$ is the free offset vector---the background field.
 
 \marginpar{It is possible to fit the linear model and estimate the uncertainty of the matrix elements \emph{while} measuring; the measurement can be stopped when the uncertainty drops below a threshold.}
 If the system is perfectly linear it does not matter where in the current-space the n-sphere is located, nor how large it is (though larger ones give more precise estimates per point).
-We expect, however, non-linearities to appear in a presence of a $\mu$-metal shield inside the system.
+However, we expect non-linearities to appear in the presence of a $\mu$-metal shield inside the system.
 In that case it is preferable to measure the matrix in the vicinity of the point where the system is later operated.
 Motivated by this, the following procedure of the matrix measurement was employed:
 First an n-sphere centred at n-zero and a radius of \SI{50}{\micro\tesla} was chosen.
-Then the system walked over ten random points on the sphere, taking two seconds to go from one to the next (\SI{20}{\second} in total).
+Then the system walked over ten random points on the sphere, taking two seconds to pass from one to the next (\SI{20}{\second} in total).
 This gave the first estimate of the matrix.
 The next sphere was chosen to be centred around the zero field. This is the optimal, in the least-squares sense, solution of Eq.\,\ref{eq:SFC_matrix_model} with $\mathbb{B} = 0$:
 \begin{equation}
   \label{eq:SFC_zero_field_requirement}
   \mathbb{I}_\text{zero-field} = - M^\dagger \, \mathbb{B}_0 \ ,
 \end{equation}
-where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits} and $M^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $M$. This gave the second estimate of the matrix. Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{1}{\micro\tesla}.
+where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits}, and $M^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $M$.
+This gave the second estimate of the matrix.
+Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{1}{\micro\tesla}.
 % The procedure was developed for a system with mu-metal.
 In the case of an air system, without a mu-metal shield inside, all consecutive estimates of the matrix were almost the same.
 % \note{Hopefully I still do get to measure the matrix with the mu-metal cube inside. Then I will describe it here.}
@@ -234,7 +244,7 @@ In the case of an air system, without a mu-metal shield inside, all consecutive 
   \caption{The measured feedback matrix of the active magnetic shielding system. The sensors were mounted $\approx\SI{20}{\centi\meter}$ away from the coil surface. The values are microteslas of field per \SI{1}{\ampere} in the strongest coil (\SI{1}{\ampere} and \SI{0.1}{\ampere}) in the others.}\label{fig:prototype_feedback_matrix}
 \end{figure}
 
-The matrix measured with the sensors mounted $\approx\SI{20}{\centi\meter}$ away from the coil surface is presented in Fig.\,\ref{fig:prototype_feedback_matrix}.
+The matrix measured with the sensors $\approx\SI{20}{\centi\meter}$ away from the coil surface is presented in Fig.\,\ref{fig:prototype_feedback_matrix}.
 The differences between the non-zero elements of different fluxgates are under 1\%, as expected from the design and the field map (Fig.\,\ref{fig:prototype_plane_map}).
 The condition number of the matrix is \num{1.064}.
 % A typical measured matrix is\ldots Estimate the field inhomogeneity right away from it! Give two at two distances, maybe? The one I looked at has around 0.5\% std homogeneity at the sensors' positions.
@@ -244,7 +254,7 @@ The condition number of the matrix is \num{1.064}.
 
 
 \section{The feedback algorithm}
-The feedback was based on calculating the optimal solution of the Eq.\,\ref{eq:SFC_matrix_model} in each step.
+The feedback was based on calculating the optimal solution of Eq.\,\ref{eq:SFC_matrix_model} in each step.
 In the $n$th iteration (the iteration index marked on top) the equation is
 \begin{equation}
   \mathbb{B}^n = M \mathbb{I}^n + \mathbb{B}_0^n \ .
@@ -253,7 +263,7 @@ In the next iteration the field equal to the target field is sought
 \begin{equation}
   \mathbb{B}^{n+1} \overset{!}{=} \mathbb{B}_\text{target} \ .
 \end{equation}
-We allow $\mathbb{B}_\text{target}$ to be any.
+We allow $\mathbb{B}_\text{target}$ to be any field.
 This leads to the following requirement for the next currents:
 \begin{align}
   \mathbb{I}^{n+1} &=
@@ -269,8 +279,8 @@ By defining $\Delta\mathbb{I}^n := \mathbb{I}^{n+1} - \mathbb{I}^{n}$ and $\Delt
 \end{equation}
 A careful reader may be alarmed by the approximation $\mathbb{B}_0^{n+1} \approx \mathbb{B}_0^{n}$ In Eq.\,\ref{eq:current_update}.
 It is an unfortunate necessity, for the calculation needs to be performed just before the iteration $n+1$, when $\mathbb{B}_0^{n+1}$ is not yet known.
-In other words, the correction needs to be delayed by one iteration, at least.
-This introduces a lag and motivates high feedback frequencies.
+In other words, the correction needs to be delayed by at least one iteration.
+This introduces lag, and motivates high feedback frequencies.
 
 \begin{figure}
   \centering
@@ -279,16 +289,16 @@ This introduces a lag and motivates high feedback frequencies.
 \end{figure}
 
 In practice, the active shield had a delay of more than one iteration.
-Although the system was operated at \SI{200}{\hertz}, the quickest turnaround was three cycles, \SI{15}{\milli\second}.
-This was tested by applying a pulse on an DAC channel and observing the response on a directly connected ADC channel.
+Although the system was operated at \SI{200}{\hertz}, the quickest turnaround was three cycles (\SI{15}{\milli\second}).
+This was tested by applying a pulse on a DAC channel and observing the response on a directly connected ADC channel.
 It appeared only in the third iteration after the pulse had been sent.
-Knowing that the magnetic field information is delayed, it was crucial to delay the current information, too, so that Eq.\,\ref{eq:current_update} became:
+Knowing that the magnetic field information is delayed, it was crucial to delay the current information too, so Eq.\,\ref{eq:current_update} becomes:
 \begin{equation}
   \mathbb{I}^{n+1} = M^\dagger \left( \mathbb{B}_\text{target} - \mathbb{B}^{n-2} \right) + \mathbb{I}^{n-2} \ .
 \end{equation}
 Without accounting for the delay the system would spontaneously destabilise.
 In Fig.\,\ref{fig:prototype_step_response} a response of the system to a step-like change of the magnetic field is plotted.
-Note, how the system's reaction is delayed by three iterations.
+Note how the system's reaction is delayed by three iterations.
 
 % \note{A paragraph (or a margin note) comparing the feedback algorithm to the old one. Requires no parameters, any field may be the target field.}
 
@@ -300,8 +310,8 @@ Note, how the system's reaction is delayed by three iterations.
 \section{Dynamic stabilisation}
 \label{sec:dynamic_stabilisation}
 The dynamic stabilisation was tested with a strong permanent magnetic dipole.
-It was build out of two extremely strong neodymium magnets (\SI{200}{\kilo\gram} force when attached to iron) connected together with a \SI{1}{\metre} long iron rod.
-The dipole was moved by hand several meters from the system causing a magnetic field disturbance.
+The dipole was built out of two extremely strong neodymium magnets (\SI{200}{\kilo\gram} force when attached to iron) connected together with a \SI{1}{\metre} long iron rod.
+The dipole was moved several meters from the system causing a magnetic field disturbance.
 
 % \mnote{Need to put the details of the geometry of the fluxgates here. Eight fluxgates on the corners of a cube of \ldots size.}
 
@@ -312,19 +322,19 @@ The dipole was moved by hand several meters from the system causing a magnetic f
   The upper part shows in colours corresponding to the spatial directions the uncompensated field $\mathbb{B}_0$ for all eight sensors, calculated according to Eq.\,\ref{eq:uncompensated_field}. Each line is one sensor. The compensated field $\mathbb{B}$ is depicted in grey in the upper part and is enlarged in the lower part of the plot in colour. The curves have been smoothed for clarity.}\label{fig:prototype_compensation_time}
 \end{figure}
 
-The result of the compensation of the dipole being rotated \SI{7.5}{\meter} away from the system's centre are plotted in Fig.\,\ref{fig:prototype_compensation_time}. The upper part of the plot shows the field as it would be registered without compensation $\mathbb{B}_0$, calculated according to Eq.\,\ref{eq:SFC_matrix_model}
+The resulting field compensation from the dipole being rotated \SI{7.5}{\meter} away from the system's centre are plotted in Fig.\,\ref{fig:prototype_compensation_time}. The upper part of the plot shows the field as it would be registered without compensation $\mathbb{B}_0$, calculated according to Eq.\,\ref{eq:SFC_matrix_model}:
 \begin{equation}
   \label{eq:uncompensated_field}
   \mathbb{B}_0 = \mathbb{B} - \mathbb{M} \mathbb{I} \ .
 \end{equation}
 % The three colours correspond to the three spatial components ($x$, $y$, $z$). Each line is one sensor.
-In the bottom part the actually measured field $\mathbb{B}$ is depicted.
+The measured field $\mathbb{B}$ is depicted in the bottom part.
 The amplitude of the changes was reduced from around \SI{1.75}{\micro\tesla} to \SI{0.4}{\micro\tesla} (factor four).
-Yet, the variation is not mitigated completely.
+Yet, the variation is not completely mitigated.
 
-Take a look on the orange lines in the upper part of Fig.\,\ref{fig:prototype_compensation_time}, each representing the readout of a different sensor in the $y$ direction.
-They do not overlap, which means that the field change was not homogeneous (which, of course, would be the same everywhere).
-The coils of the system, being able to generate only homogeneous fields, can only compensate the homogeneous part.
+Looking at the orange lines in the upper part of Fig.\,\ref{fig:prototype_compensation_time}, each representing the readout of a different sensor in the $y$ direction.
+The lines do not overlap, meaning that the field change was not homogeneous (which, of course, would be the same everywhere).
+The coils of the system, being able to generate only homogeneous fields can only compensate the homogeneous part.
 Graphically it may be explained in the following way: each of the coils coil can keep all lines in one of the colours (one spatial component) steady, but it cannot bring them closer together (homogenise the field).
 This can be observed in the bottom part of Fig.\,\ref{fig:prototype_compensation_time}.
 There lines are centred around zero, but their spread within one colour (spatial component) is not reduced.
@@ -334,13 +344,13 @@ In order to do that, coils producing higher-order fields would be required.
 \begin{figure}
   \centering
   \includegraphics[width=0.85\linewidth]{gfx/prototype/big_magnet_performance_shielding_factor.pdf}
-  \caption{Performance of the active compensation system shielding a dipole disturbance, as a function of the distance to it. Upper part: the amplitude of the field variations, measured as the difference between the 75th and 25th quantiles, as uncompensated (black), compensated seen by the feedback sensors (orange), a non-feedback sensor in the centre (blue) and the numerical average of the feedback sensors (green). Lower part: the shielding factor, defined as the ratio of the curves in the plot to the left to the uncompensated variation.}\label{fig:prototype_compensation}
+  \caption{Performance of the active shield compensating a dipole disturbance, as a function of the distance away. \emph{Upper part:} the amplitude of the field variations measured as the difference between the 75th and 25th quantiles, uncompensated (black), compensated seen by the feedback sensors (orange), a non-feedback sensor in the centre (blue) and the numerical average of the feedback sensors (green). \emph{Lower part:} the shielding factor, defined as the ratio of the curves in the plot above to the uncompensated variation.}\label{fig:prototype_compensation}
 \end{figure}
 
 The amplitude of the variations seen in Fig.\,\ref{fig:prototype_compensation_time} can be quantified as the difference between 75th and 25th quantiles of the readouts.
 This measure is plotted in the upper part of Fig.\,\ref{fig:prototype_compensation} as the function of the distance between the dipole disturbance and the centre of the system.
-The uppermost curve, black, is the uncompensated field $\mathbb{B}_0$.
-The orange one below is the compensated field seen by the feedback sensors $\mathbb{B}$ (the bottom part of Fig.\,\ref{fig:prototype_compensation_time}).
+The uppermost black curve is the uncompensated field $\mathbb{B}_0$.
+The orange curve below is the compensated field seen by the feedback sensors $\mathbb{B}$ (the bottom part of Fig.\,\ref{fig:prototype_compensation_time}).
 We observe that the compensation improved with the distance to the dipole, as the field became weaker and more homogeneous.
 In the bottom of the figure the ratio of the two curves, called the \emph{shielding factor}, is plotted in orange.
 
