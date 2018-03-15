@@ -97,7 +97,13 @@ In other words, the matrix $M$ tells us what field, as measured by the sensors, 
 The feedback matrix used during the data taking of the nEDM PSI experiment at PSI (2014--17) was the one measured by Franke (Fig.\,\ref{fig:nEDM_SFC_matrix}). The inverse of the matrix was regularised~\cite{Franke2013}. Let us now elaborate on regularisation.
 % While it has been thoroughly discussed how to do the regularisation, the question of why was it needed at all was neither posed nor answered.
 
-The feedback matrix represents coefficients in a system of linear equations that need to be solved in order to make the optimal transition from the field to the current space. As the system of equations is over-determined, the best solution is found by the least-squares. This is equivalent to calculating the pseudoinverse matrix. A solution can be found reliably if the system is well-defined, i.e.\ the least-squares well is steep in every direction in the parameter space. If the well stretches, like a valley, in some directions, the solution is not globally well-defined. Still, it may be defined up to a parameter, the one pointing along the direction of the valley. We then speak of an ill-defined set of equations, or an ill-defined matrix. Regularisation helps an ill-defined problem to become better defined, at the cost of the solution having larger sum of the residuals squared.
+The feedback matrix represents coefficients in a system of linear equations that need to be solved in order to make the optimal transition from the field to the current space.
+As the system of equations is over-determined, the best solution is found by the least-squares.
+This is equivalent to calculating the pseudoinverse matrix. A solution can be found reliably if the system is well-defined, i.e.\ the least-squares well is steep in every direction in the parameter space.
+If the well stretches, like a valley, in some directions, the solution is not globally well-defined.
+Still, it may be defined up to a parameter, the one pointing along the direction of the valley.
+We then speak of an ill-defined set of equations, or an ill-defined matrix.
+Regularisation helps an ill-defined problem to become better defined, at the cost of the solution having larger sum of the residuals squared.
 
 The \emph{Singular Value Decomposition} (SVD) of a real matrix $M$ is
 \begin{equation}
@@ -130,9 +136,20 @@ An important observation is that the feedback matrix is defined solely by the co
 
 \section{Design challenges for n2EDM}
 \label{sec:n2EDM_challenges}
-There was relatively a lot of space available around the passive magnetic shield of the nEDM experiment at PSI (see Fig.\,\ref{fig:sfc-scheme}). The SFC system exploited that space by making the coils much larger than the shield. However, the successor experiment, n2EDM, was going to have a much larger passive magnetic shield. Spatial constraints were a major concern in the design of coils of a new active shield.
+There was relatively a lot of space available around the passive magnetic shield of the nEDM experiment at PSI (see Fig.\,\ref{fig:sfc-scheme}).
+The SFC system exploited that space by making the coils much larger than the shield.
+However, the successor experiment, n2EDM, was going to have a much larger passive magnetic shield.
+Spatial constraints were a major concern in the design of coils of a new active shield.
 
- Assume, that all there is to compensate are homogeneous fields. That is the zeroth order approximation concerning the space expansion of the magnetic field. To compensate them, a system needs to have coils that can produce a homogeneous field. Yet, the volume where the field of a coil system is homogeneous is limited. For example, in a case of a Helmholtz pair, the (linear) size of the volume where the generated field is homogeneous on a \SI{2}{\percent} level is only around \num{0.4} that of the (linear) size of the coils. Increasing the relative size of the homogeneous volume requires more elaborate designs~\cite{Kirschvink1992}. When three Helmholtz pairs are used to compensate a homogeneous change, they only do so inside this limited volume. Outside, the field may even be more unstable, the extreme case being right next to the coils, where the field can get arbitrarily large. The situation is similar for any type of field: an active shield can only stabilise the field in a limited volume.
+ Assume, that all there is to compensate are homogeneous fields.
+ That is the zeroth order approximation concerning the space expansion of the magnetic field.
+ To compensate them, a system needs to have coils that can produce a homogeneous field.
+ Yet, the volume where the field of a coil system is homogeneous is limited.
+ For example, in a case of a Helmholtz pair, the (linear) size of the volume where the generated field is homogeneous on a \SI{2}{\percent} level is only around \num{0.4} that of the (linear) size of the coils.
+ Increasing the relative size of the homogeneous volume requires more elaborate designs~\cite{Kirschvink1992}.
+ When three Helmholtz pairs are used to compensate a homogeneous change, they only do so inside this limited volume.
+ Outside, the field may even be more unstable, the extreme case being right next to the coils, where the field can get arbitrarily large.
+ The situation is similar for any type of field: an active shield can only stabilise the field in a limited volume.
 
 \begin{figure}
   \centering
@@ -140,8 +157,11 @@ There was relatively a lot of space available around the passive magnetic shield
   \caption{A plan by Michael Meier highlighting the potential conflicts between coils of an n2EDM active shield and other structures. The vicinity of the biological shielding (red) forced the coils to be designed relatively close to the magnetic shield (dark blue). Other bodies, like the support legs of the passive shield (orange), polarising magnet (orange) and an emergency exit from a nearby accelerator (red) gave additional constraints.}\label{fig:n2EDM_sfc_situational_plan}
 \end{figure}
 
-Figure~\ref{fig:n2EDM_sfc_situational_plan} depicts the major spatial constraints in the design of the n2EDM active shield. Firstly, the passive shield was going to be \SI{5}{\metre} large, with the available space being $\approx \SI{7.5}{\metre}$ (a ratio of \num{0.7}). In nEDM the shield was around \SI{2}{\meter} and the SFC coils \SIrange[range-phrase = --, range-units=single]{6}{8}{\meter} (a ratio of around \num{0.3}). Secondly, other bodies put additional constraints (Fig.\,\ref{fig:n2EDM_sfc_situational_plan}): support legs of the passive shield, the polarising magnet and an emergency exit from a nearby cyclotron.
+Figure~\ref{fig:n2EDM_sfc_situational_plan} depicts the major spatial constraints in the design of the n2EDM active shield.
+Firstly, the passive shield was going to be \SI{5}{\metre} large, with the available space being $\approx \SI{7.5}{\metre}$ (a ratio of \num{0.7}).
+In nEDM the shield was around \SI{2}{\meter} and the SFC coils \SIrange[range-phrase = --, range-units=single]{6}{8}{\meter} (a ratio of around \num{0.3}).
+Secondly, other bodies put additional constraints (Fig.\,\ref{fig:n2EDM_sfc_situational_plan}): support legs of the passive shield, the polarising magnet and an emergency exit from a nearby cyclotron.
 
-For the design of the n2EDM's active shield it was necessary to come up with coils that could produce such a field, that they are likely to compensate, and do that in the whole volume occupied by the shield. Unfortunately, because of spatial constraints no known design could be used. \note{Cite other coil design methods}. This, together with a concern about ensuring a low condition number of the system, called for an in-depth investigation into the geometry of the future system's coils, which led to the development of a new approach to magnetic field coils design---the topic of the next chapter.
+For the design of the n2EDM active shield it was necessary to come up with coils that could produce such a field, that they are likely to compensate, and do that in the whole volume occupied by the shield. Unfortunately, because of spatial constraints no known design could be used. \note{Cite other coil design methods}. This, together with a concern about ensuring a low condition number of the system, called for an in-depth investigation into the geometry of the future system's coils, which led to the development of a new approach to magnetic field coils design---the topic of the next chapter.
 
 % Some came from the experimental hall itself. For example an emergency exit from a nearby accelerator and a staircase leading to it (see Fig.\,\ref{fig:n2EDM_sfc_situational_plan}). Other constraints were due to higher-priority components of the experiment itself: legs on which the shield stands, the magnet used to polarise the neutrons, the neutron detection system, and the door of the magnetic shield.
