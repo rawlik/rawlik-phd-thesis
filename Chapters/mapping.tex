@@ -126,21 +126,20 @@ In these cases, the middle point of the shortest line connecting the circles is 
 
 \section{LPSC campaign}
 \label{sec:lpsc_campaign}
-The small-scale prototype setup was used to perform a mapping of the magnetic field of two rooms in Laboratoire de Physique Subatomique \& Cosmologie (LPSC) in Grenoble, France.
-The campaign took place in the days 6.-10.03.2017, with the much appreciated help of Rémi Faure, Guillaume Pignol and Dominique Rebreyend.
+The small-scale prototype setup was used to obtain a magnetic field map of two rooms at the Laboratoire de Physique Subatomique \& Cosmologie (LPSC) in Grenoble, France.
+The campaign took place during the days 6.-10.03.2017, with much appreciated help from Rémi Faure, Guillaume Pignol and Dominique Rebreyend.
 The rooms, referred to as \emph{Bastille} and \emph{Chalet}, were considered to host a magnetic-field-sensitive setup for ${}^{199}$Hg magnetometry.
 Of particular interest were the gradients, which cause an increase in the depolarisation rate of the mercury atoms~\cite{FertlThesis}.
 \note{In that case the gradients should be below roughly \SI[per-mode=symbol]{10}{\nano\tesla\per\centi\metre}, but I don't know why.
 Ask someone?}
-% In particular, gradients above roughly \SI[per-mode=symbol]{10}{\nano\tesla\per\centi\metre} 
 
-\marginpar{The string potentiometers were equipped with custom made attachments, that allowed the wire to come at an angle out of the device.
+\marginpar{The string potentiometers were equipped with custom made attachments that allowed the wire to protrude at an angle out of the device.
 The point where the wires bent was taken to be the middle of the circle in the geometry solution.}
 A photograph of the mapping setup is shown in Fig.\,\ref{fig:mapping_bastille_setup}.
 The \SI{2.5}{\metre} high mobile tower was equipped with ten three-axis fluxgate magnetic field sensors (Stefan-Mayer FLC3--70, the same as used in the active magnetic field stabilisation system).
 The stationary ``L-piece'' held three string potentiometers (Micro-Eplison WDS-15000-P115-SA-P with a \SI{15}{\metre} extension range).
-The geometry parameters, as defined in Fig.\,\ref{fig:mapping_geometry}, were: $x_0 = 0$, $y_0 = \SI{1871}{\milli\metre}$, $x_1 = \SI{1756}{\milli\metre}$, $a = \SI{623}{\milli\metre}$.
-The string potentiometer for the orientation measurement was in the point $(\SI{1756}{\milli\metre}, 0)$.
+The geometry parameters, as defined in Fig.\,\ref{fig:mapping_geometry}, were: $x_0 = 0$, $y_0 = \SI{1871}{\milli\metre}$, $x_1 = \SI{1756}{\milli\metre}$ and $a = \SI{623}{\milli\metre}$.
+The string potentiometer for the orientation measurement was at the point $(\SI{1756}{\milli\metre}, \SI{0}{\milli\metre})$.
 
 % Two of the strings were attached to a point where the vertical beam with the fluxgates is, the third (left on the picture) was attached to the black, short vertical profile on the tower.
 
@@ -149,10 +148,10 @@ The string potentiometer for the orientation measurement was in the point $(\SI{
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/mapping/lpsc/daq.jpeg}
-  \caption{The DAQ system used for the mapping campaign at LPSC\@: a power supply to put a constant voltage on the potentiometers (grey, lower corner); a custom-built crate for the fluxgates, which supplied them with power and conditioned the incoming signals (underneath the keyboard and the screen); a National Instruments PXI crate, which simultaneously digitised the analogue voltage signals from the fluxgates and the string pots (not visible, behind the screen); and a PC computer with peripherals.}\label{fig:mapping_bastille_daq}
+  \caption{The DAQ system used for the mapping campaign at LPSC\@: a power supply for constant voltage at the potentiometers (grey, lower corner); a custom-built crate for the fluxgates supplying them with power and conditioning the incoming signals (underneath the keyboard and the screen); a National Instruments PXI crate, which simultaneously digitises the analogue voltage signals from the fluxgates and the string pots (not visible, behind the screen); and a PC computer with peripherals.}\label{fig:mapping_bastille_daq}
 \end{figure}
 
-The data acquisition system, pictured in Fig.\,\ref{fig:mapping_bastille_daq}, consisted of: a power supply that put a constant voltage (\SI{10}{\volt}) on the potentiometers; a custom-built crate for the fluxgates, which supplied them with power and conditioned the incoming signals; and a National Instruments PXI crate, which simultaneously digitised the analogue voltage signals from the fluxgates and the string pots.
+The data acquisition system, pictured in Fig.\,\ref{fig:mapping_bastille_daq}, consisted of: a power supply to supply a constant voltage (\SI{10}{\volt}) to the potentiometers; a custom-built crate for the fluxgates, which supplies power and conditions the incoming signals; and a National Instruments PXI crate, which simultaneously digitises the analogue voltage signals from the fluxgates and the string pots.
 The data were collected on a PC computer.
 
 \begin{figure}
@@ -160,43 +159,41 @@ The data were collected on a PC computer.
   \includegraphics[width=\linewidth]{gfx/mapping/lpsc/bastille_panorama.jpeg}
   \caption{A panoramic view of the \emph{Bastille} room.
   To the left the ``L-piece'' and the mapping tower are visible.
-  In the back there is the DAQ system and to the right a door with a long handle, which is also marked on the magnetic field maps.}\label{fig:mapping_bastille_panorama}
+  In the back is the DAQ system and to the right a door with a long handle, which is visible on the magnetic field maps.}\label{fig:mapping_bastille_panorama}
 \end{figure}
 
 A panoramic shot of the Bastille room is presented in Fig.\,\ref{fig:mapping_bastille_panorama}.
-The coordinate system is visible in the upper-left corner.
-To the right are the entrance door.
+The L-piece is visible in the upper-left corner.
+To the right is the entrance door.
 % In the middle, high on the wall, a power outlet box is visible.
 % Behind the wall with the power outlet box there is a pump, which has been at some point removed.
-The room was made out of wood.
-It stood inside a hall made of steel beams and sheets.
-
+The room is made out of wood and is located  inside a hall made of steel beams and sheets.
 % The room's wall with the power outlet on it was located close, less than 1 metre, to a steel wall of the hall.
-The hall was equipped a gantry crane, several metres above the roof of the room.
+The hall is equipped a gantry crane, several metres above the roof of the room.
 % Directly on the roof there were air conditioning devices, standing about a metre above the roof on steel legs.
-The legs had rather large feet, possibly with a steel plate inside.
+% The legs had rather large feet, possibly with a steel plate inside.
 
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{gfx/mapping/lpsc/bastille_crane_away_rep_track_crop.pdf}
-  \caption{The trace of the tower's centre in one of the maps.
-  The outline of the room is marked.
+  \caption{A map of one trace of the tower's centre.
+  The outline of the room borders the plot.
   In the upper-right corner the location of the entrance door is marked.
   The ``L-piece'' was in the lower-left corner.}\label{fig:mapping_bastille_track}
 \end{figure}
 
-To collect a map the tower was moved around the room by one person, while another took care so that the readout cables did not get in the way.
-\marginpar{The position was determined on-line.
-A display showed where the tower has already been.}
-Care was taken to systematically scan the whole room and to maintain approximately the same orientation of the tower throughout the measurement.
+To collect a map the tower was moved around the room by one person with a second taking care that the readout cables did not get in the way of the tower.
+\marginpar{The position of the mapper was determined on-line.
+On the screen it was displayed where the tower had already been.}
+Care was taken to systematically scan the whole room.
+% and to maintain approximately the same orientation of the tower throughout the measurement.
 A track of one of the collected maps is depicted in Fig.\,\ref{fig:mapping_bastille_track}.
-Note, that the centre of the tower could only go to a certain distance to the walls, because of the size of the tower's cart.
+Note that the centre of the tower could only reach a certain distance from the walls, because of the size of the tower's cart.
 %\note{maybe mention, that the position was calculated on-line, too}
 % Part of the data analysis is performed on-line.
-In particular the voltage readout of the string pots is translated into their lengths which are used to determine the position and orientation of the tower.
-This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned.
-
+% In particular the voltage readout of the string pots is translated into their lengths which are used to determine the position and orientation of the tower.
+% This is to provide feedback during the measurements, necessary to make sure that the whole room was scanned.
 The data, the position and orientation of the tower, as well as the magnetic field measurements, were down-sampled and registered at a \SI{50}{\hertz} rate.
 
 \begin{figure}
