@@ -41,8 +41,8 @@ These are continuous symmetries. No less fundamental is the triad of symmetries 
 Yet, in a perfectly symmetric universe after the Big Bang an equal amount of matter and antimatter would be created, and they would perfectly annihilate. Luckily, this did not happen, but the question \emph{why} remains one of the big unsolved problems in physics.
 In 1967 Andrei Sakharov proposed, that the mechanism leading to the leftover matter  is based on a violation of the $CP$-symmetry~\cite{0038-5670-34-5-A08}.
 
-Already a decade before physicist have observed, for the first time, violations of the discrete symmetries in their laboratories.
-In 1956 Chien-Shiung Wu shocked the physics world with her discovery of $P$ violation in beta decay of cobalt-60~\cite{PhysRev.105.1413}. Shortly thereafter, in 1964, the discovery of $CP$ violation in $K^0_L \rightarrow \pi^+ \pi^-$ decay left the physics world stunned again~\cite{PhysRevLett.13.138}. Now, both are explained in the scope of the Standard Model of particle physics. In the model the $CP$-violation appears in the weak sector as a complex phase in the Cabbibo--Kobayashi--Maskawa matrix, the matrix that mixes the mass and interaction eigenstates of quarks~\cite{doi:10.1143/PTP.49.652}.
+Already a decade before, physicist have observed for the first time violations of one of the discrete symmetries in their laboratories.
+In 1956 Chien-Shiung Wu shocked the physics world with her discovery of $P$ violation in beta decay of cobalt-60~\cite{PhysRev.105.1413}. Shortly thereafter, in 1964, the discovery of $CP$ violation in $K^0_L \rightarrow \pi^+ \pi^-$ decay left the physics world stunned again~\cite{PhysRevLett.13.138}. Now, both are explained in the scope of the Standard Model of particle physics. In the model the $CP$-violation appears in the weak sector as a complex phase in the Cabbibo--Kobayashi--Maskawa matrix, the matrix that mixes the mass and weak interaction eigenstates of quarks~\cite{doi:10.1143/PTP.49.652}.
 
 $CP$ violation also appears in the strong sector of the Standard Model's quantum chromodynamics, as an additional term parametrised by $\theta_\text{QCD}$. Yet, no $CP$ violation in the strong sector has been observed so far. $\theta_\text{QCD}$, expected to be $\mathcal{O}(1)$, is limited to be smaller than \num{e-10}~\cite{PDG2016}. A puzzle in itself, this another unanswered problem in physics is referred to as the strong $CP$ problem.
 
@@ -61,21 +61,26 @@ For a spin $S = \tfrac{1}{2}$ particle:
 \begin{equation}
   H = - 2 \left( \mu \, \mathbf{B} + d \, \mathbf{E} \right ) \cdot \mathbf{S} \ .
 \end{equation}
-Vectors, like $\mathbf{E}$, are $P$-odd, while pseudovectors, $\mathbf{B}$ and $\mathbf{S}$, are $P$-even. The Hamiltonian as whole is $P$-odd:
+Vectors, like $\mathbf{E}$, are $P$-odd, while pseudovectors, $\mathbf{B}$ and $\mathbf{S}$, are $P$-even. The Hamiltonian as whole is $P$-violating:
 \begin{equation}
   H_P = - 2 \left( \mu \, \mathbf{B} - d \, \mathbf{E} \right ) \cdot \mathbf{S} \neq H \ .
 \end{equation}
-Under time symmetry the spin is reversed and so is the magnetic field, rendering the Hamiltonian $T$-odd:
+Under time symmetry the spin is reversed and so is the magnetic field, rendering the Hamiltonian $T$-violating:
 \marginpar{Magnetic fields are produced either by magnetic moments, which flip under $T$ together with spins, or by a movement of charges, which also is reversed under $T$.}
 \begin{equation}
   H_T = H_{CP} = + 2 \left( - \mu \, \mathbf{B} + d \, \mathbf{E} \right ) \cdot \mathbf{S} = - 2 \left( \mu \, \mathbf{B} - d \, \mathbf{E} \right ) \cdot \mathbf{S} \neq H \ .
 \end{equation}
 Note how in both cases setting $d = 0$ restores the symmetry.
 
-EDMs are measured mainly in three kinds of systems. Firstly, beams of cold paramagnetic molecules, like YbF, provide a great sensitivity to the EDM of the electron~\cite{Hudson2011}. Secondly, measurements of vapours of diamagnetic atoms, notably $^{199}$Hg~\cite{PhysRevLett.116.161601}, are the most sensitive EDM measurements. Finally, the electric dipole moment of a free neutron, nEDM, is the topic of this chapter. While the Standard Model predicts the nEDM to be below \SI{e-30}{\elementarycharge\centi\meter}, its extensions foresee it to be
+EDMs are measured mainly in three kinds of systems.
+Firstly, beams of cold paramagnetic molecules, like ThO and YbF, provide a great sensitivity to the EDM of the electron~\cite{ThO_eEDM,Hudson2011}.
+Secondly, measurements of vapours of diamagnetic atoms, notably $^{199}$Hg~\cite{PhysRevLett.116.161601}, are the most sensitive EDM measurements.
+Finally, the electric dipole moment of a free neutron, nEDM, is the topic of this chapter.
+While the Standard Model predicts the nEDM to be below \SI{e-30}{\elementarycharge\centi\meter}, its extensions foresee it to be
 % \SIrange[range-phrase=--,range-units=single]{e-29}{e-22}{\elementarycharge\centi\meter}. 
-as large as \SI{e-22}{\elementarycharge\centi\meter}.
-Experimental exploration of this range provides an opportunity to validate, or falsify, those theoretical models. Also, the neutron EDM, provides the most sensitive handle on measurement of the $\theta_\text{QCD}$, parametrising the strong $CP$ problem~\cite{PDG2016}.
+% as large as \SI{e-22}{\elementarycharge\centi\meter}.~\cite{Ellis1989}
+larger~\cite{Ellis1989}. Measurements of the nEDM provide an opportunity to validate, or falsify, those theoretical models.
+Also, the neutron EDM, provides (together with the EDM of ${}^{199}$Hg~\cite{PhysRevLett.116.161601}) the most sensitive handle on measurement of the $\theta_\text{QCD}$, parametrising the strong $CP$ problem~\cite{PDG2016}.
 
 
 
@@ -87,9 +92,9 @@ Experimental exploration of this range provides an opportunity to validate, or f
   \caption{The energy states of a neutron in a combination of a magnetic and an electric field. The Hamiltonian is $H = - 2 \left( \mu_\text{n} \, \mathbf{B} + d_\text{n} \, \mathbf{E} \right ) \cdot \mathbf{S}$. The first term causes the first splitting of $2\mu_\text{n} B$. The second term increases or decreases, for the electric field parallel and antiparallel to the magnetic one respectively, the splitting by $2 d_\text{n} E$.}\label{fig:nEDM_measurement_principle}
 \end{figure}
 
-Already in 1949, before Wu's discovery of $P$-violation in the weak sector, Purcell and Ramsey performed a measurement to test $P$-violation in the strong sector using the nEDM as the probe~\cite{PhysRev.108.120}. They got a zero-consistent result $d_n = (-0.1 \pm 2.4) \times 10^{-20}\,\si{\elementarycharge\centi\meter}$.
+Already in 1950, before Wu's discovery of $P$-violation in the weak sector, Smith, Purcell and Ramsey proposed a measurement to test $P$-violation in the strong sector using the nEDM as the probe~\cite{PhysRev.78.807}. Their result, published in 1957, was consistent with zero $d_n = (-0.1 \pm 2.4) \times 10^{-20}\,\si{\elementarycharge\centi\meter}$~\cite{PhysRev.108.120}.
 
-Figure~\ref{fig:nEDM_measurement_principle} illustrates the energy of a neutron in a magnetic field $B$, where it has two energy states separated by $2 \mu_\text{n} B$. The apparatus of Purcell and Ramsey could measure this separation, as a frequency, very precisely. In addition to the magnetic field, there was an electric one, either parallel or antiparallel to it. If there had been an nEDM, the energy separation would have increased in one configuration and decreased in the other. The difference between the energy separations measured in the two field configurations is proportional to the nEDM $d_\text{n}$.
+Figure~\ref{fig:nEDM_measurement_principle} illustrates the energy of a neutron in a magnetic field $B$, where it has two energy states separated by $2 \mu_\text{n} B$. The apparatus of Smith, Purcell and Ramsey could measure this separation, as a frequency, very precisely. In addition to the magnetic field, there was an electric one, either parallel or antiparallel to it. If there had been an nEDM, the energy separation would have increased in one configuration and decreased in the other. The difference between the energy separations measured in the two field configurations is proportional to the nEDM $d_\text{n}$.
 
 \begin{figure}
   \centering
@@ -97,8 +102,8 @@ Figure~\ref{fig:nEDM_measurement_principle} illustrates the energy of a neutron 
   \caption{A spin $\tfrac{1}{2}$ particle in a magnetic field on a Bloch sphere. The poles correspond to the pure spin-up and spin-down states. On the equator lie the states with an equal contribution of the two and the longitude corresponding to the quantum phase.}\label{fig:nEDM_bloch_sphere}
 \end{figure}
 
-To measure the energy separation between the two spin states they used what is now called the Ramsey method of separated oscillatory fields. In order to explain it, let us first consider a neutron in a magnetic field, as pictured in Fig.\,\ref{fig:nEDM_bloch_sphere}. The neutron's spin is depicted there on the Bloch sphere, where the poles correspond to the pure spin-up and spin-down states. On the equator lie the states with equal content of the two, the longitude marking the quantum phase. When the spin state is not vertical, the interaction between the magnetic moment and the magnetic field exerts a torque that sets it into a rotational motion, called the Larmor precession. The frequency of the motion is proportional to the energy difference between the two states.
-\note{Maybe don't mix classical and quantum pictures.}
+To measure the energy separation between the two spin states they used what is now called the Ramsey method of separated oscillatory fields~\cite{PhysRev.76.996}. In order to explain it, let us first consider a neutron in a magnetic field, as pictured in Fig.\,\ref{fig:nEDM_bloch_sphere}. The neutron's spin is depicted there on the Bloch sphere, where the poles correspond to the pure spin-up and spin-down states. On the equator lie the states with equal content of the two, the longitude marking the quantum phase. When the spin state is not vertical, the interaction between the magnetic moment and the magnetic field causes the phase to spin. The frequency of the motion, called the Larmor precession, is proportional to the energy difference between the two states.
+% \note{Maybe don't mix classical and quantum pictures.}
 
 \begin{SCfigure}
   \centering
@@ -109,11 +114,13 @@ To measure the energy separation between the two spin states they used what is n
 \begin{figure}
   \centering
   \includegraphics[width=.6\linewidth]{gfx/introduction/Ramsey_original_resonance.png}
-  \caption{The original resonance curve measured by Ramsey~\cite{PhysRev.108.120}, showing the counting rate versus the frequency of the generator powering the spin-flipping coils. The fringes are due the interference between the precessing spins and the transverse field. Their width is the inverse duration of the free precession. The envelope arises, as at a large detuning the spins were not flipped into the horizontal plane anymore.}\label{fig:nEDM_Ramsey_original_curve}
+  \caption{The original resonance curve measured by Ramsey~\cite{PhysRev.108.120}, showing the counting rate versus the frequency of the generator powering the spin-flipping coils.
+  % The fringes are due the interference between the precessing spins and the transverse field.
+  The width of the fringes is the inverse duration of the free precession. The envelope arises, as at a large detuning the spins were not flipped into the horizontal plane anymore.}\label{fig:nEDM_Ramsey_original_curve}
 \end{figure}
 
-In the experiment a nearly monochromatic neutron beam passed through a polariser, a region with an electric field, an analyser, and hit a neutron counter at the end. The whole setup was in a magnetic field. At the beginning and the end of the region with the electric field, there were coils producing an oscillating magnetic field in the direction perpendicular to the main magnetic field. The spin evolution between the two coils is depicted in Fig.\,\ref{fig:nEDM_Ramsey_principle}. When a neutron precessing in a magnetic field feels an additional oscillating field, transverse to the main one and of frequency close to the Larmor one, its spin undergoes a nutation---the precession plane moves along the main field (North or South on the Bloch sphere). The direction is determined by the relative phase between the spin's precession and the transverse oscillating field. In Ramsey's experiment the length of the coils was set to flip the neutrons' spins by $\pi/2$, so that after having passed the first coil they were precessing on the Bloch sphere's equator. The direction of the nutation in the second coil, and with it the probability of passing the analyser, depended on the relative phase between the precession and the transverse field. A slight change in the frequency of the generator powering the coils caused a considerable change in the phase difference that builded up while the neutrons flew precessing between the coils. Scanning the frequency of the generator and monitoring the counting rate produced a resonance curve (Fig.\,\ref{fig:nEDM_Ramsey_original_curve}). The middle of the central fringe is the resonance frequency corresponding to the transition energy between spin-up and spin-down states.
-\marginpar{In the LNPI measurements slightly differ from Ramsey's technique. Instead of spin-flips, they used an adiabatic transition in inhomogeneous magnetic field, in order to account for different storage times of individual neutrons freely travelling through the bottle.}
+In the experiment a nearly monochromatic neutron beam passed through a polariser, a region with an electric field, an analyser, and hit a neutron counter at the end. The whole setup was in a magnetic field. At the beginning and the end of the region with the electric field, there were coils producing an oscillating magnetic field in the direction perpendicular to the main magnetic field. The spin evolution between the two coils is depicted in Fig.\,\ref{fig:nEDM_Ramsey_principle}. When a neutron precessing in a magnetic field feels an additional oscillating field, transverse to the main one and of frequency close to the Larmor one, its spin undergoes a nutation---the precession plane moves along the main field (North or South on the Bloch sphere). The direction is determined by the relative phase between the spin's precession and the transverse oscillating field. In Ramsey's experiment the length of the coils was set to flip the neutrons' spins by $\pi/2$, so that after having passed the first coil they were precessing on the Bloch sphere's equator. The direction of the nutation in the second coil, and with it the probability of passing the analyser, depended on the relative phase between the precession and the transverse field. A slight change in the frequency of the generator powering the coils caused a considerable change in the phase difference that built up while the neutrons flew precessing between the coils. Scanning the frequency of the generator and monitoring the counting rate produced a resonance curve (Fig.\,\ref{fig:nEDM_Ramsey_original_curve}). The middle of the central fringe is the resonance frequency corresponding to the transition energy between spin-up and spin-down states.
+% \marginpar{In the LNPI measurements slightly differ from Ramsey's technique. Instead of spin-flips, they used an adiabatic transition in inhomogeneous magnetic field, in order to account for different storage times of individual neutrons freely travelling through the bottle.}
 Comparing the positions of the resonance with the magnetic and electric fields parallel and antiparallel gave the $d_n$ estimate.
 
 \begin{figure}
@@ -124,7 +131,11 @@ Comparing the positions of the resonance with the magnetic and electric fields p
 
 The community uses this technique to measure the nEDM until this day, their ever-more-sensitive efforts summarised in Fig.\,\ref{fig:nEDM_limits_history}. Until the 1970s the measurements were done using a beam of cold neutrons (marked in green), after then storage experiments greatly improved the time of the free precession and thereby the sensitivity. It was made possible by neutrons with kinetic energies below approximately \SI{300}{\nano\electronvolt} (referred to as ultracold), which are storable in some materials, by undergoing a total internal reflection~\cite{UCNbook}. In 1980 in the Leningrad Nuclear Physics Institute (LNPI, former USSR) the first measurement was performed with the neutrons being stored in a bottle~\cite{ALTAREV1980269}. The measurements in LNPI continued (orange) and in 1984 were joined by an international effort in the Institute Laue--Langevin in France (black).
 
-In 2007 a new effort has begun in the Paul Scherrer Institute (PSI) in Villigen, Switzerland. The experiment collected data over the years 2015--17 and at the time of writing the result was still being evaluated. The author had the honor to be part of this venture, which we will take a closer look at in the next chapter. The description of the nEDM measurement at PSI serves as an introduction to the main part of this work, the original work of the author, which focuses on two aspects closely related to all nEDM measurements: stabilisation of magnetic fields and exotic physics that can be explored with those highly sensitive experiments.
+A next effort took place in the Paul Scherrer Institute (PSI) in Villigen, Switzerland, .
+% In 2007 a new effort has begun in the Paul Scherrer Institute (PSI) in Villigen, Switzerland.
+The experiment collected data over the years 2015--17 and at the time of writing the result was still being evaluated.
+The author had the honor to be part of this venture, which we will take a closer look at in the next chapter.
+The description of the nEDM measurement at PSI serves as an introduction to the main part of this work, the original work of the author, which focuses on two aspects closely related to all nEDM measurements: stabilisation of magnetic fields and exotic physics that can be explored with those highly sensitive experiments.
 
 
 
@@ -135,7 +146,7 @@ The current nEDM limit is around $|d_\text{n}| < \SI{e-26}{\elementarycharge\cen
 \begin{equation}
   \Delta_{E\uparrow\downarrow} = 4 d_\text{n} E = \SI{4e-26}{\elementarycharge\centi\meter} \ \frac{ \SI{132}{\kilo\volt} }{ \SI{12}{\centi\meter} } = \SI{4.4e-22}{\electronvolt} \ .
 \end{equation}
-With the approximate neutron magnetic dipole moment~\cite{PDG2016}
+With the approximate neutron magnetic dipole moment~\cite{0026-1394-18-2-005}
 \begin{equation}
   \mu_\text{n} = \SI{-9.7e-27}{\joule\per\tesla} = \SI{-6e-8}{\electronvolt\per\tesla} \ ,
 \end{equation}
