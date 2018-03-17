@@ -67,13 +67,30 @@ Inside the shield, on the vacuum chamber, there were a number of coils wound.
 Besides the one producing the main magnetic field $B_0$, there were numerous others, producing fields of various shapes.
 Those were, on one hand, used to homogenise the field, which reduced the depolarisation rate of the neutrons. On the other hand, they were used to deliberately apply vertical gradients $\partial_z B_0$; Operating in different gradients was part of the measurement procedure and is explained later in this chapter.
 
-The stability of the field inside the shield was in the picotesla range. The remaining variations were measured and corrected for, primarily with a mercury-based magnetometer~\cite{FertlThesis,Komposch2017}. Below the precession chamber there was a cell containing a vapour of polarised $^{199}$Hg atoms, which was released into the precession chamber once it had been filled with neutrons.
-\marginpar{In the \SI[detect-all=true]{1}{\micro\tesla} $B_0$ field the precession frequencies of neutrons and $^{199}$Hg atoms are approximately \SI[detect-all=true]{30}{\hertz} and \SI[detect-all=true]{8}{\hertz}, respectively. The respective spin-flip pulses affect the other species only very slightly.}
-There, a dedicated $\uppi/2$ pulse of a rotating transverse magnetic field started their coherent precession, which was read on-line optically. A mercury discharge lamp shone a circularly polarised light through the precession chamber onto a photomultiplier tube. As the mercury atoms' photon-capture cross-section depended on the phase of the precession, the transparency of the chamber to the polarised light oscillated at the mercury's Larmor frequency. The oscillating signal of the photomultiplier was then analysed to estimate its frequency, proportional to the $B_0$ field, as averaged by the mercury atoms.
+The stability of the field inside the shield was in the picotesla range.
+The remaining variations were measured and corrected for, primarily with a mercury-based magnetometer~\cite{FertlThesis,Komposch2017}.
+Below the precession chamber there was a cell containing a vapour of polarised $^{199}$Hg atoms, which was released into the precession chamber once it had been filled with neutrons.
+\marginpar{In the \SI[detect-all=true]{1}{\micro\tesla} $B_0$ field the precession frequencies of neutrons and $^{199}$Hg atoms are approximately \SI[detect-all=true]{30}{\hertz} and \SI[detect-all=true]{8}{\hertz}, respectively.
+The respective spin-flip pulses affect the other species only very slightly.}
+There, a dedicated $\uppi/2$ pulse of a rotating transverse magnetic field started their coherent precession, which was read on-line optically.
+A mercury discharge lamp shone a circularly polarised light through the precession chamber onto a photomultiplier tube.
+As the mercury atoms' photon-capture cross-section depended on the phase of the precession, the transparency of the chamber to the polarised light oscillated at the mercury's Larmor frequency.
+The oscillating signal of the photomultiplier was then analysed to estimate its frequency, proportional to the $B_0$ field, as averaged by the mercury atoms.
 
-The mercury magnetometer may seem an ideal measure to correct the neutron measurement for the drifts of the magnetic field, as the two species filled exactly the same volume (hence it is often called a \emph{comagnetometer}). Only, they did not measure the exact same field. The ultracold neutrons were slow enough to be affected by the gravity, which shifted their centre of mass by around \SI{2.4}{\milli\meter} relative to the warm, homogeneous mercury vapour~\cite{Afach2014magmoment}. In a presence of a vertical gradient, the two species saw different fields. A detailed discussion of additional systematic effects related to this magnetometer can be found in~\cite{Afach2014magmoment}.
+The mercury magnetometer may seem an ideal measure to correct the neutron measurement for the drifts of the magnetic field, as the two species filled exactly the same volume (hence it is often called a \emph{comagnetometer}).
+Only, they did not measure the exact same field.
+The ultracold neutrons were slow enough to be affected by the gravity, which shifted their centre of mass by around \SI{2.4}{\milli\meter} relative to the warm, homogeneous mercury vapour~\cite{Afach2014magmoment}.
+In a presence of a vertical gradient, the two species saw different fields.
+A detailed discussion of additional systematic effects related to this magnetometer can be found in~\cite{Afach2014magmoment}.
 
-A way to measure vertical gradients, as well as other high-order components of the magnetic field, was provided by an array of Caesium magnetometers~\cite{Groeger2005}. These sensors were located inside the electrodes---seven in the top one, nine in the bottom one. Each magnetometer was a cell filled with Caesium vapour, through which a circularly polarised light, delivered with a light guide, shone at \SI{45}{\degree} inclination angle. The light simultaneously polarised the atoms and, as it met a surface of a photodiode behind the cell, probed their precession. A coil wound around the cell, axial with the light beam, was driven in a feedback loop with the diode's signal to resonantly drive the Larmor precession. Even though the magnetometers measured only the magnitude of the magnetic field, they provided information about the higher-order components of the field thanks to their distribution around the chamber. For example, one could na\"\i vely estimate the vertical gradient $\partial_z B_z$ by evaluating the average readings of the sensors in each electrode, taking the difference and dividing by the vertical separation. Instead, the high-order field terms, including the vertical gradient, were obtained by fitting a second-order parametrization of the magnetic field to the readings of the sensors~\cite{WurstenThesis}.
+A way to measure vertical gradients, as well as other high-order components of the magnetic field, was provided by an array of Caesium magnetometers~\cite{Groeger2005}.
+These sensors were located inside the electrodes---seven in the top one, nine in the bottom one.
+Each magnetometer was a cell filled with Caesium vapour, through which a circularly polarised light, delivered with a light guide, shone at \SI{45}{\degree} inclination angle.
+The light simultaneously polarised the atoms and, as it met a surface of a photodiode behind the cell, probed their precession.
+A coil wound around the cell, axial with the light beam, was driven in a feedback loop with the diode's signal to resonantly drive the Larmor precession.
+Even though the magnetometers measured only the magnitude of the magnetic field, they provided information about the higher-order components of the field thanks to their distribution around the chamber.
+For example, one could na\"\i vely estimate the vertical gradient $\partial_z B_z$ by evaluating the average readings of the sensors in each electrode, taking the difference and dividing by the vertical separation.
+Instead, the high-order field terms, including the vertical gradient, were obtained by fitting a second-order parametrization of the magnetic field to the readings of the sensors~\cite{WurstenThesis}.
 
 In the next section we describe how all these components came together to perform a measurement of the electric dipole moment of the neutron.
 
@@ -85,31 +102,48 @@ In the next section we describe how all these components came together to perfor
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/nEDMatPSI/ramsey_scan.pdf}
-  \caption{A scan of the Ramsey resonance curve in the nEDM experiment at the PSI\@. The asymmetry (the difference between spin-up and spin-down counts, normalised to their sum) is measured as the function of the detuning of the spin-flip generator's frequency. The black points depict the measured points, the orange line is the fit of the theoretical model~\cite{May1998} \note{Find out which eq exactly}. In the inset, the central fringe is enlarged and the working points are marked, which is where the experiment took data during normal operation. The generator frequency has been corrected with the $^{199}$Hg comagnetometer using the formula $\nu_\text{generator} / \nu_\text{Hg} \times \overline{\nu_\text{Hg}}$, where $\overline{\nu_\text{Hg}}$ is the average over the scan. The resonance curve was scanned in runs 12666 and 12678.}\label{fig:ramsey_scan}
+  \caption{A scan of the Ramsey resonance curve in the nEDM experiment at the PSI\@.
+  The asymmetry (the difference between spin-up and spin-down counts, normalised to their sum) is measured as the function of the detuning of the spin-flip generator's frequency.
+  The black points depict the measured points, the orange line is the fit of the theoretical model~\cite{May1998} \note{Find out which eq exactly}.
+  In the inset, the central fringe is enlarged and the working points are marked, which is where the experiment took data during normal operation.
+  The generator frequency has been corrected with the $^{199}$Hg comagnetometer using the formula $\nu_\text{generator} / \nu_\text{Hg} \times \overline{\nu_\text{Hg}}$, where $\overline{\nu_\text{Hg}}$ is the average over the scan.
+  The resonance curve was scanned in runs 12666 and 12678.}\label{fig:ramsey_scan}
 \end{figure}
 
-Recall the Ramsey method (Fig.\,\ref{fig:nEDM_Ramsey_principle}). Two coherent pulses of a transverse oscillating field are applied to an ensemble of polarised neutrons, with a period of free precession in between. Measuring the polarisation after the second pulse as the function of the frequency of the transverse field yields a resonance curve. The curve measured in the PSI experiment is reproduced in Fig.\,\ref{fig:ramsey_scan}. Comparing it with Ramsey's original curve (Fig.\,\ref{fig:nEDM_Ramsey_original_curve}) summarises fifty years of progress in measuring the electric dipole moment of the neutron.
+Recall the Ramsey method (Fig.\,\ref{fig:nEDM_Ramsey_principle}).
+Two coherent pulses of a transverse oscillating field are applied to an ensemble of polarised neutrons, with a period of free precession in between.
+Measuring the polarisation after the second pulse as the function of the frequency of the transverse field yields a resonance curve.
+The curve measured in the PSI experiment is reproduced in Fig.\,\ref{fig:ramsey_scan}.
+Comparing it with Ramsey's original curve (Fig.\,\ref{fig:nEDM_Ramsey_original_curve}) summarises fifty years of progress in measuring the electric dipole moment of the neutron.
 
-In the normal operation not the whole curve was sampled, but only the region most sensitive to the position of the central fringe---its steepest slope. In Fig.\,\ref{fig:ramsey_scan} the four \emph{working points} are marked, which the experiment was programmed to aim at. Assuming all the data are taken in this most sensitive region, the sensitivity for the nEDM is~\cite{FertlThesis}:
+In the normal operation not the whole curve was sampled, but only the region most sensitive to the position of the central fringe---its steepest slope.
+In Fig.\,\ref{fig:ramsey_scan} the four \emph{working points} are marked, which the experiment was programmed to aim at.
+Assuming all the data are taken in this most sensitive region, the sensitivity for the nEDM is~\cite{FertlThesis}:
 \begin{equation}
   \label{eq:nEDM_sensitivity}
   \sigma(d_\text{n}) = \frac{\hbar}{ 2 \alpha E T \sqrt{N} } \quad ,
 \end{equation}
-where $\alpha$ is the relative height of the curve ($\alpha = 1$ means the curve spanning from $-1$ to $1$ in asymmetry), $E$ is the strength of the electric field, $T$ is the duration of the free precession (\SI{180}{\second}, its inverse is the width of the fringes), and $N$ is the counting statistics. It is the statistical limit on the sensitivity, the value obtained from the analysis is expected be slightly worse.
+where $\alpha$ is the relative height of the curve ($\alpha = 1$ means the curve spanning from $-1$ to $1$ in asymmetry), $E$ is the strength of the electric field, $T$ is the duration of the free precession (\SI{180}{\second}, its inverse is the width of the fringes), and $N$ is the counting statistics.
+It is the statistical limit on the sensitivity, the value obtained from the analysis is expected be slightly worse.
 
-Each cycle of the experiment, filling in the neutrons, performing the Ramsey procedure and counting them, sampled one of the working points on the resonance curve. Assuming that the only parameter of the curve that changed between the cycles was the position of the resonance (due to drifts of the field), one could estimate the position of the central fringe, the neutron precession frequency $\nu_\text{n}$ for each cycle. In other words, the neutrons were a very accurate magnetometer operating on a cycle basis.
-% The resonance frequency $f_n^{\,0}$ is determined with a fit of the resonance curve. Because the points are probed one after another, it is only possible after a set of data points, \emph{cycles}, have been measured. In order to extract the neutron precession frequency for each individual \emph{cycle}, one assumes that the only parameter of the resonance curve that varies on a cycle--to--cycle basis is the position of the resonance. With this assumption the shape of the curve, fitted to the whole set of \emph{cycles}, is used to calculate back the resonant frequency in each \emph{cycle} of the set.
+Each cycle of the experiment, filling in the neutrons, performing the Ramsey procedure and counting them, sampled one of the working points on the resonance curve.
+Assuming that the only parameter of the curve that changed between the cycles was the position of the resonance (due to drifts of the field), one could estimate the position of the central fringe, the neutron precession frequency $\nu_\text{n}$ for each cycle.
+In other words, the neutrons were a very accurate magnetometer operating on a cycle basis.
 
-Naturally, measuring the magnetic field with the neutrons was not the goal. It was the much, much smaller, if any, effect of the electric field on the precession frequency that the experiment was after. To even out the variations in $\nu_\text{n}$ due to fluctuations of the magnetic field its ratio to the frequency of the comagnetometer's mercury atoms $\nu_\text{Hg}$ was used instead:
+Naturally, measuring the magnetic field with the neutrons was not the goal.
+It was the much, much smaller, if any, effect of the electric field on the precession frequency that the experiment was after.
+To even out the variations in $\nu_\text{n}$ due to fluctuations of the magnetic field its ratio to the frequency of the comagnetometer's mercury atoms $\nu_\text{Hg}$ was used instead:
 \marginpar{This correction was already included in the depiction of the resonance curve in Fig.\,\ref{fig:ramsey_scan}.}
 \begin{equation}
   \label{eq:Rdefinition}
   R \equiv \frac{\nu_\text{n}}{\nu_\text{Hg}} = \frac{\mu_\text{n}}{\mu_\text{Hg}} \pm \left( d_\text{n} \mp \frac{\mu_\text{n}}{\mu_\text{Hg}} \, d_\text{Hg} \right) \frac{2 E}{ h  \nu_\text{Hg}} + \Delta \ ,
 \end{equation}
-where the signs correspond to the parallel and antiparallel configuration of the magnetic and electric fields. (The derivation of the formula can be found in App.\,\ref{ch:R_derivation_appendix}.)
+where the signs correspond to the parallel and antiparallel configuration of the magnetic and electric fields.
+(The derivation of the formula can be found in App.\,\ref{ch:R_derivation_appendix}.)
 It is immediately visible that $R$ is sensitive to $d_\text{n}$ just as $\nu_\text{n}$, but the fluctuations due the changes of the magnetic field are suppressed.
 \marginpar{$R$ is actually sensitive to $d_\text{n} - \frac{\mu_\text{n}}{\mu_\text{Hg}} \, d_\text{Hg}$, but it has been measured that $|d_\text{Hg}| < \SI{7.4e-30}{\elementarycharge\centi\meter}$~\cite{PhysRevLett.116.161601}.}
-$\Delta$ encapsulates all higher-order terms and systematic effects. In particular, the already mentioned effect due to the gravitational sag of the neutrons' population, relative to the geometrical centre of the chamber, in combination with a vertical gradient of the magnetic field.
+$\Delta$ encapsulates all higher-order terms and systematic effects.
+In particular, the already mentioned effect due to the gravitational sag of the neutrons' population, relative to the geometrical centre of the chamber, in combination with a vertical gradient of the magnetic field.
 % Together with the UCNs there is a polarised $^{199}$Hg gas precessing. Its precession is monitored with light, allowing for direct determination of the $^{199}$Hg Larmor frequecy and thus the magnetic field strength. In order to cancel the first-order magnetic field changes one looks at the value:
 % \begin{equation}
 %   R := f_n / f_{Hg} \ .
