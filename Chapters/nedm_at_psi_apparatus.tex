@@ -153,26 +153,40 @@ In particular, the already mentioned effect due to the gravitational sag of the 
 % The largest effect in $\Delta$ has to do with the gradient of the magnetic field. The neutrons and mercury did not sample exactly the same field. The mercury vapour was at room temperature and filled the precession volume homogeneously. At the same time, the ultracold neutrons had an energy of only around \SI{300}{\nano\electronvolt}, while their gravitational potential is $m_\text{n} = \SI{102}{\nano\electronvolt\per\meter}$ steep~\cite{Zenner2013}. In effect, they filled, and sampled, the bottom of the chamber more then the top. The difference between centres of masses of the mercury and the neutrons was around \SI{4}{\mili\meter}
 
 
-In order to obtain the $d_n$ estimate the electric field was modulated. The experiment automatically reversed the polarisation of the electric field every 72 cycles. In between the two polarisations a few cycles were measured without the electric field (a total of 10\% of the data, which are not sensitive to the nEDM). Then a linear model of  $R$ vs. $E$ yielded an estimate of the electric dipole moment, which we call $d_n^*$ (Eq.\,\ref{eq:Rdefinition}, Fig.\,\ref{fig:crossing_lines}).
+In order to obtain the $d_n$ estimate the electric field was modulated.
+The experiment automatically reversed the polarisation of the electric field every 72 cycles.
+In between the two polarisations a few cycles were measured without the electric field (a total of 10\% of the data, which are not sensitive to the nEDM).
+Then a linear model of  $R$ vs. $E$ yielded an estimate of the electric dipole moment, which we call $d_n^*$ (Eq.\,\ref{eq:Rdefinition}, Fig.\,\ref{fig:crossing_lines}).
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/nEDMatPSI/crossing_lines.pdf}
-  \caption{The crossing lines in the nEDM estimation. Left: For each sequence, data taken in one magnetic field configuration, $d_n^*$ is estimated as the slope of a linear regression of $R$ vs. $E$ (Eq.\,\ref{eq:Rdefinition}). The two lines correspond to the parallel and antiparallel configurations of the magnetic and electric fields. The $d_n^*$ are tainted by a systematic effect proportional to the gradient. Right: a linear regression is done on $d_n^*$ vs. $R$, $R$ being an estimate of the gradient. The crossing point of the two lines, one for the magnetic field pointing upwards, one for downwards, is the estimate of $d_n$ at zero gradient, so free from the gradient-proportional systematic effect.}\label{fig:crossing_lines}
+  \caption{The crossing lines in the nEDM estimation.
+  Left: For each sequence, data taken in one magnetic field configuration, $d_n^*$ is estimated as the slope of a linear regression of $R$ vs. $E$ (Eq.\,\ref{eq:Rdefinition}).
+  The two lines correspond to the parallel and antiparallel configurations of the magnetic and electric fields.
+  The $d_n^*$ are tainted by a systematic effect proportional to the gradient.
+  Right: a linear regression is done on $d_n^*$ vs. $R$, $R$ being an estimate of the gradient.
+  The crossing point of the two lines, one for the magnetic field pointing upwards, one for downwards, is the estimate of $d_n$ at zero gradient, so free from the gradient-proportional systematic effect.}\label{fig:crossing_lines}
 \end{figure}
 
-Those estimates, however, still contained a large contribution of a systematic effect (hence the star). As a result of a conspiracy between radial magnetic field components and rotating magnetic components arising from the Lorentz transformation of the large electric field into the rest frame of the mercury atoms, a frequency shift proportional to the applied electric field was observed, mimicking the effect of a non-zero electric dipole moment of the neutron, a false EDM\@. This effect is, however, directly proportional to the gradient of the applied vertical magnetic field $\partial_z B_z$, and reverses with the sign of the applied magnetic field. The false EDM effect has been analysed in more detail in~\cite{Pendlebury2004,PhysRevA.71.032104,PhysRevA.73.014101} and a direct measurement of this effect was made in~\cite{Afach2015falseEDM}.
+Those estimates, however, still contained a large contribution of a systematic effect (hence the star).
+As a result of a conspiracy between radial magnetic field components and rotating magnetic components arising from the Lorentz transformation of the large electric field into the rest frame of the mercury atoms, a frequency shift proportional to the applied electric field was observed, mimicking the effect of a non-zero electric dipole moment of the neutron, a false EDM\@.
+This effect is, however, directly proportional to the gradient of the applied vertical magnetic field $\partial_z B_z$, and reverses with the sign of the applied magnetic field.
+The false EDM effect has been analysed in more detail in~\cite{Pendlebury2004,PhysRevA.71.032104,PhysRevA.73.014101} and a direct measurement of this effect was made in~\cite{Afach2015falseEDM}.
 
-The solution was to operate in different vertical gradients and then interpolate to the effect-free zero gradient. Every few hundred cycles a different gradient (up to $\pm \SI{60}{\pico\tesla\per\centi\meter}$) was set.
-%We set the magnetic configuration (homogenise the field, maybe mention the variometer method), apply a gradient (one of i don't remember how many), calibrate the Cs magnetometers (margin note why) and measure continuously cycle after cycle in this configuration.
-% We call a set of data taken in one configuration of the magnetic field a \emph{sequence}.
-Finally, for each direction of the magnetic field, a linear regression of $d_n^*$ vs $R$, $R$ itself being an estimate of the gradient, was performed (Fig.\,\ref{fig:crossing_lines}). The vertical position of the intersection of the two lines corresponded to the $d_n$ measured at zero gradient, free from this systematic effect.
-
-% In the nEDM experiment at PSI data taking is divided into \emph{runs}. A single \emph{run} is carried out automatically with, in most cases, no human intervention. The machine cycles through the working points by itself. Also the charging of the electrodes creating the electric field is automatised. In between \emph{runs} manual interference happens, most importantly the magnetic field vertical gradient is altered.
+The solution was to operate in different vertical gradients and then interpolate to the effect-free zero gradient.
+Every few hundred cycles a different gradient (up to $\pm \SI{60}{\pico\tesla\per\centi\meter}$) was set.
+Finally, for each direction of the magnetic field, a linear regression of $d_n^*$ vs $R$, $R$ itself being an estimate of the gradient, was performed (Fig.\,\ref{fig:crossing_lines}).
+The vertical position of the intersection of the two lines corresponded to the $d_n$ measured at zero gradient, free from this systematic effect.
 
 \marginpar{The blinding mimicked an nEDM signal
 by changing the logged neutron counts by around one neutron each cycle.
-by changing the logged detector mark for around one, on average, neutron count. The directon of the change depended on the electric field.}
-On top of that, in order to mitigate the bias due to the human factor, the nEDM experiment implemented data blinding. The data was artificially altered in a way that mimicked a non-zero neutron electric dipole moment, big enough to be visible in the data. The exact offset value is secret and would be revealed only after the analysis is complete.
+by changing the logged detector mark for around one, on average, neutron count.
+The directon of the change depended on the electric field.}
+On top of that, in order to mitigate the bias due to the human factor, the nEDM experiment implemented data blinding.
+The data was artificially altered in a way that mimicked a non-zero neutron electric dipole moment, big enough to be visible in the data.
+The exact offset value is secret and would be revealed only after the analysis is complete.
 
-In this short description we only scratched the surface of the quite complex experiment. We discussed only those elements necessary for understanding the original work presented in the next chapters. More details can be found in the following references:~\cite{Zenner2013,Afach2015falseEDM,Afach2015,Afach2014magmoment,FertlThesis,Komposch2017}.
+In this short description we only scratched the surface of the quite complex experiment.
+We discussed only those elements necessary for understanding the original work presented in the next chapters.
+More details can be found in the following references:~\cite{Zenner2013,Afach2015falseEDM,Afach2015,Afach2014magmoment,FertlThesis,Komposch2017}.
