@@ -1,20 +1,30 @@
 \chapter{Periodograms}
 \label{ch:axions-periodograms}
-The space of possible axion-induced signals is spanned by their amplitude (the strength of the coupling) and their frequency (the axion mass). The problem is, therefore, naturally set in the frequency domain. The analysis was performed in two steps. First, the measurements were transformed from the time domain into the frequency one by evaluating the periodogram of the time series. In the second step the periodogram was checked for statistically significant signals.
+The space of possible axion-induced signals is spanned by their amplitude (the strength of the coupling) and their frequency (the axion mass).
+The problem is, therefore, naturally set in the frequency domain.
+The analysis was performed in two steps.
+First, the measurements were transformed from the time domain into the frequency one by evaluating the periodogram of the time series.
+In the second step the periodogram was checked for statistically significant signals.
 
-In this chapter the statistical methods used in the analysis are introduced. The statistical properties of the periodogram are discussed, in particular the means of quantifying the significance of detected signals. Then, a Monte-Carlo-based way too set exclusions is presented. The methodology is demonstrated on a toy signal, generated specially for the purpose of a clear illustration of the subject.
+In this chapter the statistical methods used in the analysis are introduced.
+The statistical properties of the periodogram are discussed, in particular the means of quantifying the significance of detected signals.
+Then, a Monte-Carlo-based way too set exclusions is presented.
+The methodology is demonstrated on a toy signal, generated specially for the purpose of a clear illustration of the subject.
 
 
 
 
 \section{Definition of the periodogram}
-A \emph{periodogram} is an estimator of the power spectrum. It has been proposed as the preferred way to treat periodic signals as early as 1898~\cite{Schuster1898}. In its simplest form it is the squared magnitude of the discrete Fourier transform, which, however, is only possible to evaluate for evenly sampled series. Lomb and Scargle have independently described a method to construct a statistically well-behaving periodogram for non-uniformly sampled data with unequal error-bars: the Least Squares Spectral Analysis (LSSA) (also known as the Lomb-Scargle periodogram)~\cite{Scargle1982}.
-
-% Many packages readily offer procedures to evaluate Lomb--Scargle periodograms~\cite{scipy,astropy}. They could not, however, be used directly as the analysis deviated in details from the standard procedure. We had to take a low--level approach, instead.
+A \emph{periodogram} is an estimator of the power spectrum.
+It has been proposed as the preferred way to treat periodic signals as early as 1898~\cite{Schuster1898}.
+In its simplest form it is the squared magnitude of the discrete Fourier transform, which, however, is only possible to evaluate for evenly sampled series.
+Lomb and Scargle have independently described a method to construct a statistically well-behaving periodogram for non-uniformly sampled data with unequal error-bars: the Least Squares Spectral Analysis (LSSA) (also known as the Lomb-Scargle periodogram)~\cite{Scargle1982}.
 
 \begin{figure}
   \centering \includegraphics[width=\linewidth]{gfx/axions/LSSA}
-  \caption{The construction of an LSSA periodogram. The estimate of the LSSA power at the frequency $f$ is the amplitude of the least-squares fit of a harmonic oscillation of that frequency to the time-series (with a normalisation factor). The LSSA periodogram, an estimate of the power spectrum, is the LSSA power evaluated for a number of frequencies.}\label{fig:LSSA_overview}
+  \caption{The construction of an LSSA periodogram.
+  The estimate of the LSSA power at the frequency $f$ is the amplitude of the least-squares fit of a harmonic oscillation of that frequency to the time-series (with a normalisation factor).
+  The LSSA periodogram, an estimate of the power spectrum, is the LSSA power evaluated for a number of frequencies.}\label{fig:LSSA_overview}
 \end{figure}
 
 In order to evaluate the LSSA periodogram at a circular frequency $\omega$, a linear least-squares fit (hence the name) is performed to the data with a function
