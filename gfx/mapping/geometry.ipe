@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180301104809" modified="D:20180307150356"/>
+<info created="D:20180301104809" modified="D:20180318235256"/>
 <preamble>\usepackage{palatino}
 \usepackage[osf,sc]{mathpazo}
 \usepackage{amsmath}
@@ -272,7 +272,7 @@ h
 </path>
 <use matrix="1 0 0 1 16 0" name="mark/disk(sx)" pos="288 608" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="272 688" size="normal" stroke="black"/>
-<path stroke="seagreen">
+<path stroke="purple">
 192 720 m
 159.529 665.882 l
 </path>
@@ -293,19 +293,19 @@ h
 128.996 0 0 -128.996 256 608 329.629 713.919 a
 </path>
 <text matrix="1 0 0 1 -144.466 -93.3181" transformations="translations" pos="205.793 784.869" stroke="darkorange" type="label" width="32.474" height="9.355" depth="3.3" valign="baseline" size="large" style="math">(0, y_0)</text>
-<text matrix="1 0 0 1 -52.9571 -12.3237" transformations="translations" pos="118.752 727.194" stroke="seagreen" type="label" width="27.194" height="9.349" depth="3.12" valign="baseline" size="large" style="math">(0,0)</text>
-<text matrix="1 0 0 1 134.968 -111.956" transformations="translations" pos="118.752 727.194" stroke="seagreen" type="label" width="27.493" height="9.349" depth="3.12" valign="baseline" size="large" style="math">(d,0)</text>
+<text matrix="1 0 0 1 -52.9571 -12.3237" transformations="translations" pos="118.752 727.194" stroke="purple" type="label" width="27.194" height="9.349" depth="3.12" valign="baseline" size="large" style="math">(0,0)</text>
+<text matrix="1 0 0 1 134.968 -111.956" transformations="translations" pos="118.752 727.194" stroke="purple" type="label" width="27.493" height="9.349" depth="3.12" valign="baseline" size="large" style="math">(d,0)</text>
 <text matrix="1 0 0 1 21.3925 -189.604" transformations="translations" pos="205.793 784.869" stroke="darkorange" type="label" width="32.677" height="9.349" depth="3.12" valign="baseline" size="large" style="math">(x_0, 0)</text>
-<path stroke="seagreen">
+<path stroke="purple">
 85.0782 710.553 m
 290.165 587.501 l
 </path>
-<path stroke="black">
+<path stroke="purple">
 284.18 608 m
 28.1803 0 0 -28.1803 256 608 280.164 593.501 a
 </path>
-<text matrix="1 0 0 1 153.336 -127.703" transformations="translations" pos="118.752 727.194" stroke="seagreen" type="label" width="6.611" height="5.784" depth="0.11" valign="baseline" size="large" style="math">\alpha</text>
-<text matrix="1 0 0 1 41.4849 -3.72993" transformations="translations" pos="118.752 727.194" stroke="seagreen" type="label" width="27.72" height="9.349" depth="3.12" valign="baseline" size="large" style="math">(\xi, \nu)</text>
+<text matrix="1 0 0 1 153.336 -127.703" transformations="translations" pos="118.752 727.194" stroke="purple" type="label" width="6.611" height="5.784" depth="0.11" valign="baseline" size="large" style="math">\alpha</text>
+<text matrix="1 0 0 1 41.4849 -3.72993" transformations="translations" pos="118.752 727.194" stroke="purple" type="label" width="27.72" height="9.349" depth="3.12" valign="baseline" size="large" style="math">(\xi, \nu)</text>
 <text matrix="1 0 0 1 -16.0136 -48.8278" transformations="translations" pos="205.793 784.869" stroke="darkorange" type="label" width="28.114" height="9.355" depth="3.3" valign="baseline" size="large" style="math">(x, y)</text>
 <path stroke="black">
 192 720 m
@@ -316,15 +316,15 @@ h
 54.2568 0 0 -54.2568 192 720 242.376 699.85 a
 </path>
 <text matrix="1 0 0 1 115.642 -17.9023" transformations="translations" pos="118.752 727.194" stroke="darkblue" type="label" width="7.077" height="8.512" depth="3.3" valign="baseline" size="large" style="math">\beta</text>
-<path stroke="darkblue">
+<path stroke="seagreen">
 218.09 601.408 m
 86.1626 0 0 -86.1626 304 608 328.816 690.512 a
 </path>
-<path matrix="1 0 0 1 0 0" stroke="darkblue">
+<path stroke="seagreen">
 304 608 m
 272 688 l
 </path>
-<text matrix="1 0 0 1 175.14 -81.7757" transformations="translations" pos="118.752 727.194" stroke="darkblue" type="label" width="5.774" height="8.51" depth="0.11" valign="baseline" size="large" style="math">\delta</text>
+<text matrix="1 0 0 1 175.14 -81.7757" transformations="translations" pos="118.752 727.194" stroke="seagreen" type="label" width="5.774" height="8.51" depth="0.11" valign="baseline" size="large" style="math">\delta</text>
 <text matrix="1 0 0 1 106.488 -57.0731" transformations="translations" pos="118.752 727.194" stroke="black" type="label" width="6.276" height="5.786" depth="3.3" valign="baseline" size="large" style="math">\rho</text>
 <text matrix="1 0 0 1 17.5324 -12.6473" transformations="translations" pos="118.752 727.194" stroke="black" type="label" width="4.949" height="5.784" depth="0.11" valign="baseline" size="large" style="math">r</text>
 <use name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
