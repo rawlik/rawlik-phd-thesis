@@ -522,6 +522,12 @@ The main point of concern were the spatial constraints.
 Firstly, there would not be much space available around the mu-metal shield, calling for a coil system with a large fiducial volume.
 Secondly, only an irregular cage would avoid collisions with other components of the experiment and facilities in the hall.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_SFC_3D.jpg}
+  \caption{\note{Replace with a nicer figure. Ask Michi.}}\label{fig:n2EDM_design_3d}
+\end{figure}
+
 \begin{sidewaysfigure}
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_active_shield_all_faces.pdf}
@@ -529,13 +535,14 @@ Secondly, only an irregular cage would avoid collisions with other components of
   On the top view (upper centre) the names of the projections are defined (the names have a geographical origin).
   A kink to incorporate a staircase to an emergency exit from a nearby facility is marked in orange.
   The outline of the passive shield is depicted in blue,
-  the volume of interest used in the optimisation---in green.}\label{fig:n2EDM_design_top}
+  the volume of interest used in the optimisation---in green.
+  Also marked are: an opening for the magnet polarising the neutrons (blue, on the left in Fig.\,\ref{fig:mapping_photo}), larger openings for emergency exits, and a large opening for the main access to the shield's door.}\label{fig:n2EDM_design_top}
 \end{sidewaysfigure}
 
 A cage for the compensation coils was incorporated in an existing CAD model of the experiment.
 It was composed out of rectangles around \SI{1.5}{\metre} large.
 Care has been taken to avoid conflicts with other parts of the apparatus.
-The cage, depicted in Fig.\,\ref{fig:n2EDM_design_top}, was then implemented in the coil-design framework.
+The cage is rendered in 3D in Fig.\,\ref{fig:n2EDM_design_3d}. In Fig.\,\ref{fig:n2EDM_design_top} each face is depicted separately. The model was then implemented in the coil-design framework.
 
 \begin{figure}
   \centering
@@ -543,7 +550,7 @@ The cage, depicted in Fig.\,\ref{fig:n2EDM_design_top}, was then implemented in 
   \caption{Simulation of the n2EDM design.
   The colour represents the deviation from the target field for the $x$, $y$ and $z$ components of the field.
   A horizontal section $z=\SI{4.5}{\meter}$ above the floor is shown.
-  \emph{First three rows:} Depiction of coil designed to produce \SI{50}{\micro\tesla} homogeneous fields along $x$, $y$ and $z$, respectively ($n = 1\ 2\ \text{and}\ 3$, cf.\ Tab.\,\ref{tab:coils_cartesian_harmonics}).
+  \emph{First three rows:} Depiction of coil designed to produce \SI{50}{\micro\tesla} homogeneous fields along $x$, $y$ and $z$, respectively ($n = 1,\ 2\ \text{and}\ 3$, cf.\ Tab.\,\ref{tab:coils_cartesian_harmonics}).
   \emph{Bottom row:} The field of coil for a \SI[per-mode=symbol]{20}{\micro\tesla\per\meter} $n=6$ linear gradient.}\label{fig:n2EDM_design_fields}
 \end{figure}
 
