@@ -343,11 +343,14 @@ In order to do that, coils producing higher-order fields would be required.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.85\linewidth]{gfx/prototype/big_magnet_performance_shielding_factor.pdf}
-  \caption{Performance of the active shield compensating a dipole disturbance, as a function of the distance away. \emph{Upper part:} the amplitude of the field variations measured as the difference between the 75th and 25th quantiles, uncompensated (black), compensated seen by the feedback sensors (orange), a non-feedback sensor in the centre (blue) and the numerical average of the feedback sensors (green). \emph{Lower part:} the shielding factor, defined as the ratio of the curves in the plot above to the uncompensated variation.}\label{fig:prototype_compensation}
+  \includegraphics[width=\linewidth]{gfx/prototype/big_magnet_performance_shielding_factor.pdf}
+  \caption{Performance of the active shield compensating a dipole disturbance, as a function of the distance away.
+  \emph{Upper part:} The amplitude of the field variations measured as the difference between the 75th and 25th quantiles of all values.
+  Plotted are the variations of: the uncompensated field (black), the compensated field measured by the feedback sensors (orange), the field measured by a non-feedback sensor in the centre (blue) and the time series of the average readout of the feedback sensors (green).
+  \emph{Lower part:} The shielding factor, defined as the ratio of the curves in the plot above to the uncompensated variation.}\label{fig:prototype_compensation}
 \end{figure}
 
-The amplitude of the variations seen in Fig.\,\ref{fig:prototype_compensation_time} can be quantified as the difference between 75th and 25th quantiles of the readouts.
+The amplitude of the variations seen in Fig.\,\ref{fig:prototype_compensation_time} can be quantified as the difference between 75th and 25th quantiles of all the measurement points projected on the $y$-axis.
 This measure is plotted in the upper part of Fig.\,\ref{fig:prototype_compensation} as the function of the distance between the dipole disturbance and the centre of the system.
 The uppermost black curve is the uncompensated field $\mathbb{B}_0$.
 The orange curve below is the compensated field seen by the feedback sensors $\mathbb{B}$ (the bottom part of Fig.\,\ref{fig:prototype_compensation_time}).
