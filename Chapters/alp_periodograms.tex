@@ -21,7 +21,8 @@ In its simplest form it is the squared magnitude of the discrete Fourier transfo
 Lomb and Scargle have independently described a method to construct a statistically well-behaving periodogram for non-uniformly sampled data with unequal error-bars: the Least Squares Spectral Analysis (LSSA) (also known as the Lomb-Scargle periodogram)~\cite{Scargle1982}.
 
 \begin{figure}
-  \centering \includegraphics[width=\linewidth]{gfx/axions/LSSA}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/axions/LSSA}
   \caption{The construction of an LSSA periodogram.
   The estimate of the LSSA power at the frequency $f$ is the amplitude of the least-squares fit of a harmonic oscillation of that frequency to the time-series (with a normalisation factor).
   The LSSA periodogram, an estimate of the power spectrum, is the LSSA power evaluated for a number of frequencies.}\label{fig:LSSA_overview}
@@ -41,7 +42,8 @@ where $N$ is the number of data points. Different normalisations may be used.
 Here the one of~\cite{Scargle1982} is used, where the height of $\sqrt{P(\omega)}$ at the noise bed corresponds to the size of the error-bars squared, if they are all equal. A graphical overview of the method is shown in Fig.\,\ref{fig:LSSA_overview}. Throughout the analysis the figure of merit is either the power $P(\omega)$ or, interchangeably, its square root---amplitude. The latter has conveniently the same unit as the time series.
 
 \begin{figure}
-  \centering \includegraphics[width=\linewidth]{gfx/axions/basic_signal.pdf}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/axions/basic_signal.pdf}
   \caption{A toy signal generated just for the purpose for explaining the general scheme of the periodogram analysis. A harmonic signal (blue) was used to generate unevenly spaced data points (black). Each point was drawn from a normal distribution centred at the blue curve and a unit width.}\label{fig:basic_signal}
 \end{figure}
 
@@ -52,7 +54,8 @@ The immediate question arising when evaluating the LSSA periodogram is: for whic
 It is not the case when the sampling is not uniform. In practice, we can expect little sensitivity to oscillations faster than the period over which each signal is averaged, \SI{1}{\second} in the example. On the low side the limit is zero, which corresponds to the constant offset (a least-squares fit of a horizontal line, which is equivalent to calculating the average of the points). The value of the periodogram at zero is usually not plotted.
 
 \begin{figure}
-  \centering \includegraphics[width=\linewidth]{gfx/axions/basic_periodogram.pdf}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/axions/basic_periodogram.pdf}
   \caption{Two periodograms of the time series in Fig.\,\ref{fig:basic_signal}. One evaluated at frequencies with a spacing equal to the spectral resolution (black dots), and one evaluated a thousand times more densely (the orange line).}\label{fig:basic_periodogram}
 \end{figure}
 
@@ -63,7 +66,8 @@ In Fig.\,\ref{fig:basic_periodogram} there are two periodograms: a ``sparse'' on
 Each peak visible in the dense line is met with at least one sparse evaluation. However, not for each the point is at the peak's full height, which decreases the sensitivity of the method. As a compromise the frequency spacing is sometimes chosen to be a fraction of the spectral resolution, e.g.\ a tenth~\cite{Debosscher2007}. In this work the spacing of a full spectral resolution was used.
 
 \begin{figure}
-  \centering \includegraphics[width=\linewidth]{gfx/axions/basic_periodogram_loglog.pdf}
+  \centering
+  \includegraphics[width=\linewidth]{gfx/axions/basic_periodogram_loglog.pdf}
   \caption{The two periodograms as in Fig.\,\ref{fig:basic_periodogram} plotted on a log-log scale. The range of frequencies where the periodogram is evaluated is extended. The amplitude of the noise appears to be increasing with frequency, but it is not true. Only the density of the evaluated points increases, making the extreme deviations more pronounce.}\label{fig:basic_periodogram_loglog}
 \end{figure}
 
