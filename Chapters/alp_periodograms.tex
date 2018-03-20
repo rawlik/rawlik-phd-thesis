@@ -191,7 +191,7 @@ For each frequency the threshold local p-value gives the threshold power:
   P^\text{\,f.a.}_i = F_{P_i}^{-1}(1 - p_\text{f.a.}) \ .
 \end{equation}
 The p-values for integer sigma levels are depicted in if Fig.\,\ref{fig:P_look-elsewhere} in orange.
-\marginpar{Note, that the local sigma levels in Fig.\,\ref{fig:P_best_signal_candidate} and global ones in Fig.\,\ref{fig:P_look-elsewhere} have the same position on the $y$ axis.}
+\marginpar{Note, that the local sigma levels in Fig.\,\ref{fig:P_best_signal_candidate} and global ones in Fig.\,\ref{fig:P_look-elsewhere} have the same position on the $y$-axis.}
 The 2$\upsigma$ false-alarm threshold for the toy time-series is depicted in Fig.\,\ref{fig:basic_detection}, also in orange. It conveys an intuitive massage: a single crossing of the 2$\upsigma$ false-alarm threshold anywhere would mean a 2$\upsigma$ confidence, that there is a statistically significant signal in the time-series (which there is). To claim a discovery of a significant oscillating signal, the false-alarm probability has to be at most in the range of \num{2.87e-7} (5$\upsigma$)~\cite{PDG2016}.
 
 In summary, the difficulty lies in determining the false-alarm thresholds. Then the detection boils down to comparing the periodogram of the time series to the thresholds on a plot similar to the one in Fig.\,\ref{fig:basic_detection}.
@@ -322,7 +322,7 @@ The result of this procedure applied to the toy time series is presented on the 
 
 \begin{figure}
   \centering \includegraphics[width=\linewidth]{gfx/axions/basic_exclusion_sensitivity.pdf}
-  \caption{For each frequency, the LSSA power of a simulated signal of that frequency is plotted. Different colours correspond to different amplitudes of the signal, in particular no signal, the null hypothesis, is depicted in green. The lines have the interpretation of the height of a peak for different frequencies (the $x$ axis) and amplitudes (colours). The thin lines represent the different simulation outcomes, the thick ones---their average. The black line is the periodogram of the toy time series itself.}\label{fig:sensitivity}
+  \caption{For each frequency, the LSSA power of a simulated signal of that frequency is plotted. Different colours correspond to different amplitudes of the signal, in particular no signal, the null hypothesis, is depicted in green. The lines have the interpretation of the height of a peak for different frequencies (the $x$-axis) and amplitudes (colours). The thin lines represent the different simulation outcomes, the thick ones---their average. The black line is the periodogram of the toy time series itself.}\label{fig:sensitivity}
 \end{figure}
 
 Figure~\ref{fig:sensitivity} illustrates the mechanism behind the loss of sensitivity for high and low frequencies. The average power obtained for various hypotheses is plotted together with the periodogram of the toy time series. Each coloured line depicts how high a peak caused by a generated signal is, as the function of the frequency of the signal.
