@@ -312,14 +312,12 @@ Also, a broader frequency range was covered, logarithmically spaced \SIrange[ran
 
 \begin{figure}
   \centering
-  \subfloat[The test without the use of the CLs method.]
-  % The white line connects points of 95\% C.L., surrounding an exclusion region. Note how deep into low amplitudes the line goes for couple of frequencies. See the text for the explanation. \note{Put a white line for the 95\% C.L. exclusion.}]
-  {\label{fig:axions_exclusion_noCLs}
-  \includegraphics[width=.5\linewidth]{gfx/axions/basic_exclusion_noCls.pdf}}
-  \subfloat[The test with the use of the CLs method. Those hypotheses to which the measurement is not sensitive to get a statistical penalty.]
-  {\label{fig:axions_exclusion_CLs}
-  \includegraphics[width=.5\linewidth]{gfx/axions/basic_exclusion.pdf}}
-  \caption{The toy time series tested against hypothetical signals. The signal space is spanned by their frequency and amplitude. The colour depicts the confidence level with which the signal can be rejected. The black region is excluded with a high confidence. \note{Put them closer side-by-side, one error bar, remove unnecessary y-ticks. Remove the title on the plot on the left.}}\label{fig:axions_exclusions}
+  \includegraphics[width=\linewidth]{gfx/axions/basic_exclusion.pdf}
+  \caption{The toy time series tested against hypothetical signals.
+  The signal space is spanned by their frequency and amplitude.
+  The colour depicts the confidence level with which the signal can be rejected.
+  The black region is excluded with a high confidence.
+  \emph{Left:} Without the CLs method. \emph{Right:} The test with the use of the CLs method. Those hypotheses to which the measurement is not sensitive to get a statistical penalty.}\label{fig:axions_exclusions}
 \end{figure}
 
 The result of this procedure applied to the toy time series is presented on the left-hand side in Fig.\,\ref{fig:axions_exclusions}. In the space of possible signals the colour depicts the confidence level for rejecting the signals. The black region, corresponding to high confidence, is excluded. The exclusion region goes down to small amplitudes only in the region between \SI{e-2}{\hertz} (the time series is around \SI{200}{\second} long) and \SI{1}{\hertz} (each of the toy measurements integrated the signal for one second).
