@@ -8,7 +8,7 @@ In the second step the periodogram was checked for statistically significant sig
 
 In this chapter the statistical methods used in the analysis are introduced.
 The statistical properties of the periodogram are discussed, in particular the means of quantifying the significance of detected signals.
-Then, a Monte-Carlo-based way too set exclusions is presented.
+Then, a Monte-Carlo-based way to set exclusions is presented.
 The methodology is demonstrated on a toy signal, generated specially for the purpose of a clear illustration of the subject.
 
 
@@ -24,7 +24,7 @@ Lomb and Scargle have independently described a method to construct a statistica
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/LSSA}
   \caption{The construction of an LSSA periodogram.
-  The estimate of the LSSA power at the frequency $f$ is the amplitude of the least-squares fit of a harmonic oscillation of that frequency to the time-series (with a normalisation factor).
+  The estimate of the LSSA power at the frequency $f$ is the amplitude squared of the least-squares fit of a harmonic oscillation of that frequency to the time-series (with a normalisation factor).
   The LSSA periodogram, an estimate of the power spectrum, is the LSSA power evaluated for a number of frequencies.}\label{fig:LSSA_overview}
 \end{figure}
 
@@ -39,19 +39,19 @@ where $A$, $B$ and $C$ are free parameters. The estimator of power $P(\omega)$ i
 \end{equation}
 where $N$ is the number of data points. Different normalisations may be used.
 \marginpar{The noise bed is the flat part of periodogram due to random noise. If there is a signal, it is said to ``rise out of the noise bed''.}
-Here the one of~\cite{Scargle1982} is used, where the height of $\sqrt{P(\omega)}$ at the noise bed corresponds to the size of the error-bars squared, if they are all equal. A graphical overview of the method is shown in Fig.\,\ref{fig:LSSA_overview}. Throughout the analysis the figure of merit is either the power $P(\omega)$ or, interchangeably, its square root---amplitude. The latter has conveniently the same unit as the time series.
+Here the one of~\cite{Scargle1982} is used, where the height of $\sqrt{P(\omega)}$ at the noise bed corresponds to the size of the error-bars, if they are all equal. A graphical overview of the method is shown in Fig.\,\ref{fig:LSSA_overview}. Throughout the analysis the figure of merit is either the power $P(\omega)$ or, interchangeably, its square root---amplitude. The latter has conveniently the same unit as the time series.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/basic_signal.pdf}
-  \caption{A toy signal generated just for the purpose for explaining the general scheme of the periodogram analysis. A harmonic signal (blue) was used to generate unevenly spaced data points (black). Each point was drawn from a normal distribution centred at the blue curve and a unit width.}\label{fig:basic_signal}
+  \caption{A toy signal generated for the purpose for explaining the general scheme of the periodogram analysis. A harmonic signal (blue) was used to generate unevenly spaced data points (black). Each point was drawn from a normal distribution centred at the blue curve and a unit width.}\label{fig:basic_signal}
 \end{figure}
 
 We will now follow an analysis of a toy time series, shown in Fig.\,\ref{fig:basic_signal}. The time series had been fabricated as simulated measurements of an oscillating signal of a frequency \SI{0.17}{\hertz} and an amplitude equal to \num{0.7} in an arbitrary unit.
 The series has already some properties of the actual dataset. The measurements are not equally spaced; they are randomly grouped in \SI{10}{\second} long bunches, around \SI{20}{\second} apart. Inside a bunch a ``measurement'' is taken every \SI{2}{\second} with a \SI{0.3}{\second} jitter. The length of each measurement is \SI{1}{\second} with a \SI{0.1}{\second} jitter. The error-bars are all size one in the arbitrary unit. Each ``measurement'' averaged the signal over its duration.
 
 The immediate question arising when evaluating the LSSA periodogram is: for which frequencies to evaluate the power? In a case of evenly-spaced series the upper limit is the Nyquist frequency, equal to the half of the sampling rate~\cite{Shannon1949}.
-It is not the case when the sampling is not uniform. In practice, we can expect little sensitivity to oscillations faster than the period over which each signal is averaged, \SI{1}{\second} in the example. On the low side the limit is zero, which corresponds to the constant offset (a least-squares fit of a horizontal line, which is equivalent to calculating the average of the points). The value of the periodogram at zero is usually not plotted.
+This is not the case when the sampling is not uniform. In practice, we can expect little sensitivity to oscillations faster than the period over which each signal is averaged, \SI{1}{\second} in the example. On the low side the limit is zero, which corresponds to the constant offset (a least-squares fit of a horizontal line, which is equivalent to calculating the average of the points). The value of the periodogram at zero is usually not plotted.
 
 \begin{figure}
   \centering
@@ -61,7 +61,7 @@ It is not the case when the sampling is not uniform. In practice, we can expect 
 
 When choosing the spacing between the frequencies, the \emph{spectral resolution} is considered, defined as the inverse span of the dataset.
 \marginpar{A Fourier transform of a rectangular function is a sinc function. Any signal measured for a finite time in the frequency space is necessarily convoluted with the sinc function.}
-It roughly defines the minimal frequency difference between two signals that is distinguishable. A perfectly coherent oscillation produces a cardinal-sine-shaped peak of a width equal to the spectral resolution. \note{citation needed}
+It roughly defines the minimal frequency difference between two distinguishable signals. A perfectly coherent oscillation produces a cardinal-sine-shaped peak of a width equal to the spectral resolution. \note{citation needed}
 In Fig.\,\ref{fig:basic_periodogram} there are two periodograms: a ``sparse'' one evaluated at frequencies spaced a full spectral resolution apart (black dots), and one a thousand times more dense (the orange line).
 Each peak visible in the dense line is met with at least one sparse evaluation. However, not for each the point is at the peak's full height, which decreases the sensitivity of the method. As a compromise the frequency spacing is sometimes chosen to be a fraction of the spectral resolution, e.g.\ a tenth~\cite{Debosscher2007}. In this work the spacing of a full spectral resolution was used.
 
@@ -71,7 +71,7 @@ Each peak visible in the dense line is met with at least one sparse evaluation. 
   \caption{The two periodograms as in Fig.\,\ref{fig:basic_periodogram} plotted on a log-log scale. The range of frequencies where the periodogram is evaluated is extended. The amplitude of the noise appears to be increasing with frequency, but it is not true. Only the density of the evaluated points increases, making the extreme deviations more pronounce.}\label{fig:basic_periodogram_loglog}
 \end{figure}
 
-Figure~\ref{fig:basic_periodogram_loglog} shows the same two periodograms in a log-log scale. Additionally, the range of frequencies where the periodogram is evaluated has been extended to show its behaviour in the extremes. The logarithmic scale, albeit useful when the potential signals span orders of magnitude in both frequency and amplitude, can lead to misunderstandings. Specifically, the noise appears to increase in amplitude with frequency, but the effect is purely cognitive. The spacing of the points is linear, so on a logarithmic scale the density of points increases for high amplitude. This makes more of extreme deviations likely to appear per unit area of the plot.%, despite the noise amplitude being the same.
+Figure~\ref{fig:basic_periodogram_loglog} shows the same two periodograms, on a log-log scale. Additionally, the range of frequencies where the periodogram is evaluated has been extended to show its behaviour in the extremes. The logarithmic scale, albeit useful when the potential signals span orders of magnitude in both frequency and amplitude, can lead to misunderstandings. Specifically, the noise appears to increase in amplitude with frequency, but the effect is purely cognitive. The spacing of the points is linear, so on a logarithmic scale the density of points increases for high amplitude. This makes more of extreme deviations likely to appear per unit area of the plot.%, despite the noise amplitude being the same.
 
 An oscillation in the time series produces a peak in the periodogram. The position of the peak is the frequency of the oscillation, the width corresponds to the coherence of the signal. However, in the periodogram there many peaks besides the one corresponding to the oscillation used when generating the data. Some are even bigger and there are many smaller ones. In the next section we will consider what, besides an oscillating signal, may give rise to a peak. Most importantly, a way of determining whether a peak is caused by an oscillation is presented.
 
@@ -120,8 +120,8 @@ The most significant peak is the one with the lowest p-value.
   \caption{The estimate of the CDF of the power at \SI{0.17}{\hertz}. One-minus-CDF is plotted, so that the use of logarithmic scale details the high-power tail. The discrete estimate from MC samples is depicted with green dots. It is extrapolated with a fit, depicted by the straight blue line. The black cross marks the power in the toy time series at the frequency ($x$ coordinate) and the corresponding local p-value ($y$ coordinate). The local sigma levels are depicted in shades of green and the global ones in orange.}\label{fig:P_best_signal_candidate}
 \end{figure}
 
-To construct the discrete CDF estimate all the MC-generated power estimates were sorted into an array. The point of the CDF were obtained by putting the power on the $x$-axis and the place in the sorted array, normalised to one, on the $y$-axis \note{cite}.
-\marginpar{The CDF has this advantage over the PDF, that it does not require binning to be estimated.}
+To construct the discrete CDF estimate all the MC-generated power estimates were sorted into an array. The points of the CDF were obtained by plotting the power on the $x$-axis, and the position in the sorted array (normalised to one) on the $y$-axis \note{cite}.
+\marginpar{The CDF has the advantage over the PDF, that it does not require binning to be estimated.}
 The discrete CDF estimate of power, or actually one-minus-CDF, so that the logarithmic $y$-scale can be leveraged to resolve the high-power tail, for the frequency \SI{0.17}{\hertz} is depicted in Fig.\,\ref{fig:P_best_signal_candidate} with the green dots.
 
 When the power in the time series is very high, as it is the case for \SI{0.17}{\hertz} in the example, obtaining the discrete CDF estimate would require many, in some cases unrealistically many, Monte Carlo samples. Generic solutions of this problem are known (see for example section 39.3.2.2 in Ref.\,\cite{PDG2016}). Here, a more specific approach is taken. Motivated by Eq.\,\ref{eq:local_functional_form}, the discrete CDF was extrapolated with a linear fit of the form
@@ -323,7 +323,7 @@ The result of this procedure applied to the toy time series is presented on the 
 
 \begin{figure}
   \centering \includegraphics[width=\linewidth]{gfx/axions/basic_exclusion_sensitivity.pdf}
-  \caption{For each frequency, the LSSA power of a simulated signal of that frequency is plotted. Different colours correspond to different amplitudes of the signal, in particular no signal, the null hypothesis, is depicted in green. The lines have the interpretation of the height of a peak for different frequencies (the $x$-axis) and amplitudes (colours). The thin lines represent the different simulation outcomes, the thick ones---their average. The black line is the periodogram of the toy time series itself.}\label{fig:sensitivity}
+  \caption{For each frequency, the LSSA power of a simulated signal of that frequency is plotted. Different colours correspond to different amplitudes of the signal. In particular no signal, the null hypothesis, is depicted in green. The lines have the interpretation of the height of a peak that would be observed for different frequencies (the $x$-axis) and amplitudes (colours). The thin lines represent the different simulation outcomes, the thick ones---their average. The black line is the periodogram of the toy time series itself.}\label{fig:sensitivity}
 \end{figure}
 
 Figure~\ref{fig:sensitivity} illustrates the mechanism behind the loss of sensitivity for high and low frequencies. The average power obtained for various hypotheses is plotted together with the periodogram of the toy time series. Each coloured line depicts how high a peak caused by a generated signal is, as the function of the frequency of the signal.
@@ -342,14 +342,14 @@ Consider, however, that as the power was evaluated for many frequencies, inevita
 It is completely fine from the statistical point of view. Yet, a situation where a hypothesis is rejected based on a measurement which was not sensitive to it is uncomfortable.
 One possible solution is called the \emph{CLs method}. The method is defined, as well as the problem itself is discussed in detail, in the booklet of the Particle Data Group~\cite{PDG2016}. Here, a short graphical explanation can be found in Fig.\,\ref{fig:CLs}. With use of the CLs method the exclusion is suppressed in the region of low sensitivity, as shown on the right-hand side i n Fig.\,\ref{fig:axions_exclusions}.
 
-Rather than calculating each pixel of the alternative hypotheses space, one may resolve only the \SI{95}{\percent} C.L. threshold. This can be done, for example with the bisection algorithm run at each frequency.
+Rather than calculating each pixel of the alternative hypotheses space, one may resolve only the \SI{95}{\percent} C.L. threshold. This can be done, for example with a bisection algorithm run at each frequency.
 
 The phase was treated as a nuisance parameter. In the MC simulations it was taken to be random, uniformly distributed between $0$ and $2\pi$. In general, though, the sensitivity may be phase-dependent. In particular, sensitivity for signals with periods much longer than the total span of the data set is linear for sin-like signals and quadratic for cos-like ones. This work does not consider the phase dependence and gives results with the phase marginalised.
 
-In summary, there are three areas where the method looses sensitivity to detect oscillations, each with a different mechanism behind it. Most importantly, only signals with amplitude large enough to produce more power than noise can be excluded. Signals with periods longer than the total span of the data set are difficult to exclude, as only a small part of an oscillation is seen. Signals faster than the duration of a single measurement are integrated out, which reduces the sensitivity on the high-frequency side.
+In summary, there are three areas where the method looses sensitivity to detect oscillations, each with a different mechanism behind it. Firstly, only signals with amplitude large enough to produce more power than noise can be excluded. Secondly, signals with periods longer than the total span of the data set are difficult to exclude, as only a small part of an oscillation is seen. Thirdly, signals faster than the duration of a single measurement are integrated out, which reduces the sensitivity on the high-frequency side.
 
 
 
 
 \section*{Periodograms -- Conclusion}
-In this chapter the least squares spectral analysis, LSSA, was introduced as a method to look for oscillations in unevenly sampled time series with unequal error bars. The test of the null hypothesis (no signal present) gives an estimate of the level of confidence on which a discovery of an oscillating signal can be claimed. Then a space possible signals is explored to determine which ones can be excluded on the ground of not having been detected. In the next chapter this methodology is applied to the time series of the neutron electric dipole moment measurements performed at PSI\@. An oscillation there would be a hint of an axion dark matter.
+In this chapter the least squares spectral analysis, LSSA, was introduced as a method to look for oscillations in unevenly sampled time series with unequal error bars. The test of the null hypothesis (no signal present) gives an estimate of the level of confidence on which a discovery of an oscillating signal can be claimed. Then a space of possible signals is explored to determine which ones can be excluded on the ground of not having been detected. In the next chapter this methodology is applied to the time series of the neutron electric dipole moment measurements performed at PSI\@. An oscillation there would be a hint of an axion dark matter.
