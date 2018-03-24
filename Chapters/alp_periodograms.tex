@@ -111,7 +111,7 @@ Then the periodogram of the generated time series is calculated.
 This is repeated a number of times, yielding a set of periodograms, which are used to estimate the probability density function (PDF) of $P(\omega_i)$ for each $i$.
 The PDF for $\omega = \SI{0.17}{\hertz}$ (the frequency of the signal implanted in the time series) is depicted in the right-hand side of~Fig.\,\ref{fig:basic_detection}.
 % In the left-hand side of this figure the 1-, 2- and 3$\upsigma$ bands of the $P(\omega_i)$ PDFs are depicted in shades of green.
-In the left-hand side of the figure bands representing the shape of the PDFs for different frequencies (sigma bands, about be explained) are depicted is shades of green.
+In the left-hand side of the figure bands representing the shape of the PDFs for different frequencies (sigma bands, about to be explained) are depicted is shades of green.
 % the 1-, 2- and 3$\upsigma$ bands of the $P(\omega_i)$ PDFs are depicted in shades of green.
 For uniformly sampled data with equal error bars all PDFs would be the same and the bands flat~\cite{Scargle1982}.
 In our case structures appear, despite absolutely no signal being present in the generated time series.
@@ -203,7 +203,7 @@ So in this case we have
   F_p(p) &= p \\
   F_{p_\text{max}}(p) &= p^N \ .
 \end{align}
-with $p' := 1 - p$:
+With $p' := 1 - p$:
 \begin{equation}
   F_{p_\text{min}}(p) = 1 - F_{p'_\text{max}}(p') = 1 - {(1 - p)}^N \ ,
   \label{eq:global_CDF_functional_form}
