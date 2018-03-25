@@ -124,14 +124,26 @@ With this modification the LSSA could be applied to the three data sets in a way
 
 
 \section{Systematic Effects}
-In the analysis the compatibility of the periodogram of the $R$ time series with the one of pure noise, the null hypothesis, was tested. Variations in $R$ could be considered systematic effects, as they would have resulted in an additional power in the periodogram.
+In the analysis the compatibility of the periodogram of the $R$ time series with the one of pure noise, the null hypothesis, was tested.
+Variations in $R$ could be considered systematic effects, as they would have resulted in an additional power in the periodogram.
 
-Most prominently, $R$ followed the changes in the vertical gradient of the magnetic field. The gradient changed not only between the sequences, which was accounted for by modifying the LSSA fit, but also drifted within each sequence.
+Most prominently, $R$ followed the changes in the vertical gradient of the magnetic field.
+The gradient changed not only between the sequences, which was accounted for by modifying the LSSA fit, but also drifted within each sequence.
 % Because of the centre of height difference between the neutron and mercury atom ensembles they saw, on average, a different field in a presence of the vertical gradient.
-The in-sequence drifts were corrected for with the use of the caesium magnetometers. On a cycle basis, a second-order parametrisation of the field was fitted to their readouts, giving an estimate of the gradient~\cite{Afach2014magmoment,WurstenThesis}. Due to unknown random offsets in the magnetometers' readings the correction was only relative, that is correcting only for the variations of the gradient. In between sequences the caesium magnetometers were calibrated, which altered the offsets. For this reason the correction could not extend across a sequence boundary.
+The in-sequence drifts were corrected for with the use of the caesium magnetometers.
+On a cycle basis, a second-order parametrisation of the field was fitted to their readouts, giving an estimate of the gradient~\cite{Afach2014magmoment,WurstenThesis}.
+Due to unknown random offsets in the magnetometers' readings the correction was only relative, that is correcting only for the variations of the gradient.
+In between sequences the caesium magnetometers were calibrated, which altered the offsets.
+For this reason the correction could not extend across a sequence boundary.
 
-There could have been, potentially, other effects causing the time series of $R$ not to be fully random. An important decision had to be taken on how to treat those. Two possibilities were considered. The first would be a detailed study of time-dependent systematic effects.
-Here any excess in power, in any dataset ($E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$) would be treated as a signature of some kind of a signal. All effects that could potentially result in that would have to be identified before the analysis was performed and corrected for. This would have required a long and careful systematic study. Moreover, the full-fledged systematic studies for the static nEDM analysis of the PSI data were still ongoing at the time. This approach was considered to be, albeit careful, not necessary for this analysis.
+There could have been, potentially, other effects causing the time series of $R$ not to be fully random.
+An important decision had to be taken on how to treat those.
+Two possibilities were considered.
+The first would be a detailed study of time-dependent systematic effects.
+Here any excess in power, in any dataset ($E \uparrow \uparrow B$, $E \uparrow \downarrow B$ and $E=0$) would be treated as a signature of some kind of a signal.
+All effects that could potentially result in that would have to be identified before the analysis was performed and corrected for.
+This would have required a long and careful systematic study.
+Moreover, the full-fledged systematic studies for the static nEDM analysis of the PSI data were still ongoing at the time. This approach was considered to be, albeit careful, not necessary for this analysis.
 
 Instead, an easier approach was taken. An axion would produce a very specific signal, in particular:
 \begin{enumerate}
@@ -156,7 +168,7 @@ As the exclusions are anyway probabilistic in nature, in this case a \SI{95}{\pe
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/detection_psi_inset_gc.pdf}
-  \caption{Periodogram of the $R$ time array of the PSI experiment data, sensitive to oscillations in the quantity $d_\mathrm{n} - \left( \mu_\mathrm{n} / \mu_\mathrm{Hg} \right) \, d_\mathrm{Hg}$, taken with the $\boldsymbol{E}$ and $\boldsymbol{B}$ fields parallel (black line).
+  \caption{Periodogram of the $R$ time series of the PSI experiment data, sensitive to oscillations in the quantity $d_\mathrm{n} - \left( \mu_\mathrm{n} / \mu_\mathrm{Hg} \right) \, d_\mathrm{Hg}$, taken with the $\boldsymbol{E}$ and $\boldsymbol{B}$ fields parallel (black line).
   The mean of MC-generated periodograms, assuming no signal, is depicted in green. MC is used to calculate $1,2,…,5\,\sigma$ false-alarm thresholds, depicted in light orange.
   For clarity, we also plot the smoothed version in orange.
   There are two regions where a rise in the amplitude is expected, namely around \SI{28}{\micro\hertz} (inverse of 10 hours) and \SI{3.3}{\milli\hertz} (inverse of 300 seconds), due to the time structure of the data taking (see the main text for more details). The periodogram of non-gradient-drift-corrected data is shown in pink.}\label{fig:axions_PSI_detection}
@@ -168,7 +180,7 @@ There are two regions of expected rise in the oscillation amplitude due to the t
 The one around \SI{28}{\micro\hertz} (the inverse of 10 hours) corresponds to the period of the reversal of the electric field. Each ramp caused a small break in the data taking (one cycle was missed).
 The other, around \SI{3.3}{\milli\hertz}, the inverse of \SI{300}{\second}, corresponds to the cycle repetition rate.
 
-The periodogram of the $R$ time array without the gradient-drift correction is shown in pink in Fig.\,\ref{fig:axions_PSI_detection}.
+The periodogram of the $R$ time series without the gradient-drift correction is shown in pink in Fig.\,\ref{fig:axions_PSI_detection}.
 The correction had an effect only for frequencies slower than the period of the reversal of the electric field and around the narrow window around inverse \SI{300}{\second}.
 It should be pointed out, that \SI{300}{\second} is the approximate sampling period and as such it is likely to have some of the high power observed in low frequencies folded onto it (see the reasoning in Ref.\,\cite{Shannon1949}).
 The period of the electric field change had been deliberately chosen such, that was possibly infrequent, but still occurring when the magnetic field had not drifted significantly away.
@@ -199,14 +211,14 @@ Complementarily, they are sensitive to periods just below the duration of a sequ
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/psi_ill_axion_limits_v7.pdf}
   \caption{Limits on the interaction of an axion with the gluons (\SI{95}{\percent}~C.L.).
-  Tha parameter space is spanned by the axion's mass (horizontal) and the strength of the coupling (vertical).
-  It has been assumed, that axions saturate the local cold dark matter density.
-  Other depicted constraints are: Big Bang nucleosynthesis (red, \SI{95}{\percent}~C.L.)~\cite{Blum2014,StadnikThesis,Stadnik2015D}, supernova energy-loss bounds (green, order of magnitude)~\cite{Graham2013,Raffelt1990Review,Raffelt2008LNP}, consistency with observations of galaxies (orange)~\cite{Marsh2015Review,Marsh2015B,Schive2015,Marsh2017}.
+  The parameter space is spanned by the axion's mass (horizontal) and the strength of the coupling (vertical).
+  It has been assumed that axions saturate the local cold dark matter density.
+  Other depicted constraints are: Big Bang nucleosynthesis (red, \SI{95}{\percent}~C.L.)~\cite{Blum2014,StadnikThesis,Stadnik2015D}; supernova energy-loss bounds (green, order of magnitude)~\cite{Graham2013,Raffelt1990Review,Raffelt2008LNP} and consistency with observations of galaxies (orange)~\cite{Marsh2015Review,Marsh2015B,Schive2015,Marsh2017}.
   The projected reach of the proposed CASPEr experiment is depicted with a dotted black line~\cite{CASPEr2014}, and the parameter space for the canonical QCD axion with a purple band.}
 \label{fig:axions_limits_coupling}
 \end{figure}
 
-The oscillating-nEDM limits were interpreted as ones on the axion-gluon coupling (following the Eq.\,\ref{eq:nEDM_axion}).
+The oscillating-nEDM limits were interpreted as limits on the axion-gluon coupling (following the Eq.\,\ref{eq:nEDM_axion}).
 The results are presented in the axion space, spanned by their mass and the strength of the coupling, in Fig.\,\ref{fig:axions_limits_coupling}.
 The limits are presented in the landscape of already existing cosmological limits: axions with a mass below \SI{e-22}{\electronvolt} have their Compton wavelength larger than the size of the smallest dwarf galaxies and, therefore, could not be the sole constituent of dark matter~\cite{Marsh2015Review}; the influence of axions in the red-shaded area on the Big Bang nucleosynthesis would result in an underproduction of ${}^4$He~\cite{Blum2014}; the green area was excluded based on the observations of the supernova SN1987A, where excess cooling by axion emission would have been observed~\cite{Graham2013}.
 The limits are not only the first laboratory constraints on the axion-gluon coupling, but also improve on the existing cosmological exclusions.
@@ -216,7 +228,7 @@ The limits are not only the first laboratory constraints on the axion-gluon coup
 
 \section{Axion-Wind analysis}
 The analysis described so far was concerned with the scalar coupling of the axions to gluons, which looks like an oscillation in the electric dipole moment of the neutron.
-The same data set, and the same analysis techniques, were also used for a different coupling---a vector one of axions to nucleons. This coupling acts like an additional dynamic magnetic field. The data were split based on the direction of the holding magnetic field $B_0$, as indicated in Fig.\,\ref{fig:axions_wind_time_domain}. The axion-wind coupling is insensitive to the electric field in the experiment.
+The same data set, and the same analysis techniques, were also used for a different coupling---a derivative one of axions to nucleons. This coupling acts like an additional dynamic magnetic field. The data were split based on the direction of the holding magnetic field $B_0$, as indicated in Fig.\,\ref{fig:axions_wind_time_domain}. The axion-wind coupling is insensitive to the electric field in the experiment.
 
 \begin{figure}
   \centering
@@ -224,10 +236,10 @@ The same data set, and the same analysis techniques, were also used for a differ
   \caption{The $R$ time series measured at PSI measured between July 2015 and December 2016 with the orientation of the magnetic field marked. The two orientations form the two datasets for the axion-wind analysis.}\label{fig:axions_wind_time_domain}
 \end{figure}
 
-The coupling, Eq.\,\ref{potential_axion-wind}, is proportional to the projection of experiment's quantisation axis on the momentum of the axions.
+The induced energy level shift, Eq.\,\ref{potential_axion-wind}, is proportional to the projection of experiment's quantisation axis on the momentum of the axions.
 Because the latter arises due to the Earth's traversing the galactic axion field in the Solar System's movement around the Milky Way's centre, the effect is called the axion-wind~\cite{Stadnik2014A}.
 The Earth additionally spins, causing the effect to be modulated with the sidereal frequency $\Omega_\text{sid}$, equal to \num[detect-all=true]{23.9344699} hours. \note{ref needed}
-\marginpar{Sidereal frequency is the one of the Earth's spinning as seen in the reference of distant stars.}
+\marginpar{The sidereal frequency is the one of the Earth's spinning as seen in the reference of distant stars.}
 The modulation would have produced a triplet of lines as a signal in the periodogram.
 The highest peak would be at the frequency of the oscillation of the axion field, and would be accompanied by two additional ones on either side, $\Omega_\text{sid}$ away from it.
 
@@ -237,7 +249,7 @@ There are 44 frequencies with power above the 3$\upsigma$ threshold in $B\uparro
 Ony for two frequencies the threshold is exceeded in both data sets simultaneously: \SI{3.42969}{\micro\hertz} and \SI{3.32568}{\milli\hertz}.
 Neither  fulfilled the requirement of the phase being opposite in the two data sets.
 
-The lack of a statistically significant signal compatible with the axion model allowed us to put limits on the axion-nucleon coupling, depicted in Fig.\,\ref{fig:axions_wind_limits}. The limits improves the existing laboratory constraints by a factor of 40.
+The lack of a statistically significant signal compatible with the axion model allowed us to put limits on the axion-nucleon coupling, depicted in Fig.\,\ref{fig:axions_wind_limits}. The limits improves upon the existing laboratory constraints by a factor of 40.
 
 \begin{figure}
   \centering
@@ -261,7 +273,7 @@ Combining the ILL and PSI data into one time series would increase it to 19 year
 It could not yet be done at the time for two reasons.
 Firstly, the PSI data were still blinded.
 Secondly, the static nEDM analysis, which would produce per-sequence nEDM estimates, was still ongoing.
-In any case, axions oscillating this slow would be so light, that their Compton wavelength would not fit in small dwarf galaxies~\cite{Marsh2015Review}, which rules them out as the single dark matter constituent.
+In any case, axions oscillating this slow would be so light, that their Compton wavelength would not fit in small dwarf galaxies~\cite{Marsh2015Review}, which rules them out as the sole dark matter constituent.
 
 The third direction would be the high-frequency, heavy-axions one.
 It was limited by the sampling frequency of the system, the cycle repetition rate.
@@ -275,7 +287,10 @@ A real improvement in this direction would require changing the principle of the
 
 
 \section{Resonant oscillating nEDM search}
-The periodogram-based searches for Dark Matter were sensitive to a wide range of frequencies. In contrast to that resonant searches (for example ADMX~\cite{PhysRevLett.104.041301} or proposed CASPEr~\cite{CASPEr2014}) are sensitive at a any given time only to a relatively narrow band of frequencies. Covering a wide range requires scanning. In this section a resonant search of an oscillating nEDM is proposed, which would give access to faster oscillations than the periodogram-based method.
+The periodogram-based searches for Dark Matter were sensitive to a wide range of frequencies.
+In contrast resonant searches (for example ADMX~\cite{PhysRevLett.104.041301}, or the proposed CASPEr~\cite{CASPEr2014}) are sensitive at a any given time only to a relatively narrow band of frequencies.
+Covering a wide range requires scanning.
+In this section a resonant search of an oscillating nEDM is proposed, which would give access to faster oscillations than the periodogram-based method.
 
 % Many of the axion searches are resonant based.~\cite{PhysRevLett.104.041301,CASPEr2014} \note{some references}.
 % The standard instrument to look for an axion-photon coupling, called a haloscope \note{verity}, consists of ultra-low-noise resonant cavity, where axions can produce photons, detected with an antenna \note{is it an antenna?}.
@@ -287,12 +302,17 @@ For example, a Ramsey cycle begins with a $\uppi/2$ flip induced by an oscillati
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/resonant_effect.png}
-  \caption{The behaviour of the spin population in a resonant oscillating EDM search. One starts with an ensemble polarised along the holding magnetic field $B_0$. The electric field is perpendicular. Then, the polarisation is flipped by $\pi$/2 and starts the Larmor precession. The combination of the electric field and an oscillating EDM would induce a Rabi nutation. The direction of the nutation is determined by the relative phase of the Larmor precession and the EDM oscillation.}\label{fig:axions_resonant_effect}
+  \caption{The behaviour of the spin population in a resonant oscillating EDM search.
+  One starts with an ensemble polarised along the holding magnetic field $B_0$.
+  The electric field is perpendicular.
+  Then, the polarisation is flipped by $\pi$/2 and Larmor precession starts.
+  The combination of the electric field and an oscillating EDM would induce a Rabi nutation.
+  The direction of the nutation is determined by the relative phase of the Larmor precession and the EDM oscillation.}\label{fig:axions_resonant_effect}
 \end{figure}
 
 In the proposed scheme, sketched in Fig.\,\ref{fig:axions_resonant_effect}, the neutrons start polarised along the holding field and are put into the Larmor precession with a $\uppi/2$ flip. The oscillating nEDM would then induce a Rabi nutation and a net polarisation along the $\mathbf{B}$ direction would build up. This net polarisation could be measured. The direction of the nutation depends on the phase difference between the Larmor precession (defined by the phase of the $\uppi/2$ pulse) and the oscillating nEDM\@.
 
-In order to estimate the sensitivity of such a search consider the Hamiltonian for a neutron in a magnetic filed
+In order to estimate the sensitivity of such a search consider the Hamiltonian for a neutron in a magnetic field
 \begin{equation}
   H = - \boldsymbol{\upmu}_\text{n} \cdot \mathbf{B} = - \gamma_\text{n} \mathbf{S} \cdot \mathbf{B}
 \end{equation}
@@ -319,11 +339,13 @@ After time $T$ the accumulated angle is
   \theta = \omega_\text{nut.} T = \frac{d_\text{n}^0 E }{2 \hbar} \, T \ .
   \label{eq:resonant_the_angle}
 \end{equation}
-In the end of the measurement the neutrons pass a spin analyser, which projects their polarisation on the axis of $\mathbf{B}$. For $N_0$ neutrons the resonance curve has a shape
+At the end of the measurement the neutrons pass a spin analyser, which projects their polarisation on the axis of $\mathbf{B}$.
+For $N_0$ neutrons the resonance curve has a shape
 \begin{equation}
   N_{\uparrow \downarrow}(\theta) = \frac{N_0}{2} \left( 1 \pm \alpha \sin \theta  \right)  \ ,
 \end{equation}
-where $\alpha$ is the visibility parameter and the sign depends on which spin state is counted. A change in the neutron counts for a small angle $\delta \theta$ is:
+where $\alpha$ is the visibility parameter and the sign depends on which spin state is counted.
+A change in the neutron counts for a small angle $\delta \theta$ is:
 \begin{equation}
   \delta N = \frac{N_0}{2} \alpha \, \delta \theta \ .
   \label{eq:resonant_deltaN}
@@ -337,16 +359,20 @@ When both spin states are counted the sensitivity increases by a factor $\sqrt{2
   \sigma_{d_n^{\,0}} = \frac{2 \hbar}{\sqrt{N_0} \alpha T E} \ .
 \end{equation}
 
-A \ang{90} phase difference between the nEDM oscillation and spin precession (defined by the phase of the $\uppi/2$ pulse) is assumed. On average an additional factor of $\sqrt{2}$ is lost due to the non-matching phases.
+A \ang{90} phase difference between the nEDM oscillation and spin precession (defined by the phase of the $\uppi/2$ pulse) is assumed.
+On average an additional factor of $\sqrt{2}$ is lost due to the non-matching phases.
 Doing two measurements with the phases of the $\pi/2$ pulses shifted by \ang{90}, one having a sine-like sensitivity other a cosine-like, gives a flat sensitivity for all phases of the nEDM oscillation.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/resonant_sensitivity.png}
-  \caption{Left: the sensitivity of the resonant search has the width equal to the inverse interaction time. Right: a broad-band sensitivity needs to be built up with multiple measurements.}\label{fig:axions_resonant_sensitivity}
+  \caption{\emph{Left:} the sensitivity of the resonant search has a width equal to the inverse interaction time.
+  \emph{Right:} a broad-band sensitivity needs to be built up with multiple measurements.}\label{fig:axions_resonant_sensitivity}
 \end{figure}
 
-The search is resonant---at any given time the full sensitivity is achieved only for the nEDM oscillation frequency equal to the Larmor one. To cover a wide spectrum the strength of the magnetic field $\mathbf{B}$ would need to be scanned. The width of the sensitivity peak is $1/T$; the broad-band search would need to be built up from many of those, as depicted in Fig.\,\ref{fig:axions_resonant_sensitivity}. 
+The search is resonant---at any given time the full sensitivity is achieved only for the nEDM oscillation frequency equal to the Larmor one.
+To cover a wide spectrum the strength of the magnetic field $\mathbf{B}$ would need to be scanned.
+The width of the sensitivity peak is $1/T$; the broad-band search would need to be built up from many of those, as depicted in Fig.\,\ref{fig:axions_resonant_sensitivity}.
 
 In order to perform a \SIrange[range-phrase=--]{3}{300}{\hertz} scan in 1000 cycles (3 days of operation of the n2EDM experiment at PSI) the width of the resonance would need to be
 \begin{equation}
