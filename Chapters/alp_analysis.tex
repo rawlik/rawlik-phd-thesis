@@ -168,38 +168,48 @@ There are two regions of expected rise in the oscillation amplitude due to the t
 The one around \SI{28}{\micro\hertz} (the inverse of 10 hours) corresponds to the period of the reversal of the electric field. Each ramp caused a small break in the data taking (one cycle was missed).
 The other, around \SI{3.3}{\milli\hertz}, the inverse of \SI{300}{\second}, corresponds to the cycle repetition rate.
 
-The periodogram of the $R$ time array without the gradient-drift correction is shown in pink in Fig.\,\ref{fig:axions_PSI_detection}. The correction had an effect only for frequencies slower than the period of the reversal of the electric field and around the narrow window around inverse \SI{300}{\second}. It should be pointed out, that \SI{300}{\second} is the approximate sampling period and as such it is likely to have some of the high power observed in low frequencies folded onto it (see the reasoning in Ref.\,\cite{Shannon1949}). The period of the electric field change had been deliberately chosen such, that was possibly infrequent, but still occurring when the magnetic field had not drifted significantly away.
+The periodogram of the $R$ time array without the gradient-drift correction is shown in pink in Fig.\,\ref{fig:axions_PSI_detection}.
+The correction had an effect only for frequencies slower than the period of the reversal of the electric field and around the narrow window around inverse \SI{300}{\second}.
+It should be pointed out, that \SI{300}{\second} is the approximate sampling period and as such it is likely to have some of the high power observed in low frequencies folded onto it (see the reasoning in Ref.\,\cite{Shannon1949}).
+The period of the electric field change had been deliberately chosen such, that was possibly infrequent, but still occurring when the magnetic field had not drifted significantly away.
 
 In the periodogram of the gradient-corrected time series there are five
-%\note{NA does anybody know what style guide says about when numbers should be written in words i.e. seven vs 7? I personally think small numbers without units should be words but this comes down to preference} ***I THINK LESS THAN TEN IT IS IN WORDS - MALCOLM ***
 trial frequencies for which the $3\upsigma$ false-alarm threshold is exceeded,
-%\note{PMM: use words like 'surpassed', or 'exceeded' instead of penetrated}
 two of which, including the largest excess with a $6\upsigma$ significance, occur in a \SI{100}{\micro\hertz} region around the inverse of \SI{300}{\second}, while the other three are in the low-frequency region, longer than an inverse length of a sequence.
-% \note{FP: Can you maybe also explicitly state the positions of these three lines in Hz or inverse time?}
  The periodograms for the other two datasets, very similar to this one, can be found in App.\,\ref{ch:alp_appendix}.
 In the other sensitive set there are three excesses above the $3\upsigma$ threshold (the highest is $5\upsigma$), all constrained to the same two regions. In the control dataset, only the $1\upsigma$ threshold is exceeded. None of the excesses fulfill the detection criteria, in particular the requirement to be present in both $E \uparrow \uparrow B$ and $E \uparrow \downarrow B$ periodograms with opposite phases.
-%\note{MR: We may consider not discussing the false--alarm threshold penetrations, and just state in the next paragraph that we do not find a signal which meets our criteria.}
-
-% \mnote{Here a brief discussion about the Cs-gradient-drift correction.}
-% It is interesting to observe, that the periodograms with and without the gradient drift correction diverge only for frequencies below \SI{6e-5}{\hertz}, the period of the high-voltage reversal (the disagreement around inverse \SI{300}{\second} is folded from the low frequencies). This is not a coincidence. The period of the high-voltage reversal has been deliberately chosen, so that\ldots\mnote{Was the period really chosen such?}
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/psi_ill_1e-26ecm.pdf}
-  \caption{Limits on the amplitude of oscillation in the quantity $d_\text{n} - \frac{\mu_\text{n}}{\mu_\text{Hg}} \, d_\text{Hg}$, as a function of frequency thereof. The are above the curves is excluded on the \SI{95}{\percent}~C.L. The limit of this analysis (of the PSI data) are depicted in blue; the red curve depicts the limits of the complementary analysis of the ILL-based experiment's data~\cite{AyresThesis,PhysRevX.7.041034}. The numerically obtained limits are depicted with faint lines; the bold lines are smoothed.}
+  \caption{Limits on the amplitude of oscillation in the quantity $d_\text{n} - \frac{\mu_\text{n}}{\mu_\text{Hg}} \, d_\text{Hg}$, as a function of frequency thereof. The are above the curves is excluded on the \SI{95}{\percent}~C.L.
+  The limit of this analysis (of the PSI data) are depicted in blue; the red curve depicts the limits of the complementary analysis of the ILL-based experiment's data~\cite{AyresThesis,PhysRevX.7.041034}.
+  The numerically obtained limits are depicted with faint lines; the bold lines are smoothed.}
 \label{fig:axions_limits_nEDM}
 \end{figure}
 
-As no significant signals have been observed, limits could be placed to exclude the observations that would have been detected. The limits, obtained numerically in a way discussed in Sec.\,\ref{sec:signal_hypotheses_tests}, are depicted in Fig.\,\ref{fig:axions_limits_nEDM} in blue (labelled ``short time-base''). This analysis was most sensitive for periods between the duration of a sequence, around two days, and cycle repetition, \SI{300}{\second}. Amplitudes down to \SI{5e-26}{\elementarycharge\centi\meter} could be excluded on the \SI{95}{\percent}~C.L. The limits of the long time-base analysis, the one of the ILL-based experiment's data~\cite{AyresThesis,PhysRevX.7.041034}, are depicted in red. Complementarily, they are sensitive to periods just below the duration of a sequence and go down to about a decade.
+As no significant signals have been observed, limits could be placed to exclude the observations that would have been detected.
+The limits, obtained numerically in a way discussed in Sec.\,\ref{sec:signal_hypotheses_tests}, are depicted in Fig.\,\ref{fig:axions_limits_nEDM} in blue (labelled ``short time-base'').
+This analysis was most sensitive for periods between the duration of a sequence, around two days, and cycle repetition, \SI{300}{\second}.
+Amplitudes down to \SI{5e-26}{\elementarycharge\centi\meter} could be excluded on the \SI{95}{\percent}~C.L.
+The limits of the long time-base analysis, the one of the ILL-based experiment's data~\cite{AyresThesis,PhysRevX.7.041034}, are depicted in red.
+Complementarily, they are sensitive to periods just below the duration of a sequence and go down to about a decade.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/psi_ill_axion_limits_v7.pdf}
-  \caption{Limits on the interaction of an axion with the gluons (\SI{95}{\percent}~C.L.). Tha parameter space is spanned by the axion's mass (horizontal) and the strength of the coupling (vertical). It has been assumed, that axions saturate the local cold dark matter density. Other depicted constraints are: Big Bang nucleosynthesis (red, \SI{95}{\percent}~C.L.)~\cite{Blum2014,StadnikThesis,Stadnik2015D}, supernova energy-loss bounds (green, order of magnitude)~\cite{Graham2013,Raffelt1990Review,Raffelt2008LNP}, consistency with observations of galaxies (orange)~\cite{Marsh2015Review,Marsh2015B,Schive2015,Marsh2017}. The projected reach of the proposed CASPEr experiment is depicted with a dotted black line~\cite{CASPEr2014}, and the parameter space for the canonical QCD axion with a purple band.}
+  \caption{Limits on the interaction of an axion with the gluons (\SI{95}{\percent}~C.L.).
+  Tha parameter space is spanned by the axion's mass (horizontal) and the strength of the coupling (vertical).
+  It has been assumed, that axions saturate the local cold dark matter density.
+  Other depicted constraints are: Big Bang nucleosynthesis (red, \SI{95}{\percent}~C.L.)~\cite{Blum2014,StadnikThesis,Stadnik2015D}, supernova energy-loss bounds (green, order of magnitude)~\cite{Graham2013,Raffelt1990Review,Raffelt2008LNP}, consistency with observations of galaxies (orange)~\cite{Marsh2015Review,Marsh2015B,Schive2015,Marsh2017}.
+  The projected reach of the proposed CASPEr experiment is depicted with a dotted black line~\cite{CASPEr2014}, and the parameter space for the canonical QCD axion with a purple band.}
 \label{fig:axions_limits_coupling}
 \end{figure}
 
-The oscillating-nEDM limits were interpreted as ones on the axion-gluon coupling (following the Eq.\,\ref{eq:nEDM_axion}). The results are presented in the axion space, spanned by their mass and the strength of the coupling, in Fig.\,\ref{fig:axions_limits_coupling}. The limits are presented in the landscape of already existing cosmological limits: axions with a mass below \SI{e-22}{\electronvolt} have their Compton wavelength larger than the size of the smallest dwarf galaxies and, therefore, could not be the sole constituent of dark matter~\cite{Marsh2015Review}; the influence of axions in the red-shaded area on the Big Bang nucleosynthesis would result in an underproduction of ${}^4$He~\cite{Blum2014}; the green area was excluded based on the observations of the supernova SN1987A, where excess cooling by axion emission would have been observed~\cite{Graham2013}. The limits are not only the first laboratory constraints on the axion-gluon coupling, but also improve on the existing cosmological exclusions.
+The oscillating-nEDM limits were interpreted as ones on the axion-gluon coupling (following the Eq.\,\ref{eq:nEDM_axion}).
+The results are presented in the axion space, spanned by their mass and the strength of the coupling, in Fig.\,\ref{fig:axions_limits_coupling}.
+The limits are presented in the landscape of already existing cosmological limits: axions with a mass below \SI{e-22}{\electronvolt} have their Compton wavelength larger than the size of the smallest dwarf galaxies and, therefore, could not be the sole constituent of dark matter~\cite{Marsh2015Review}; the influence of axions in the red-shaded area on the Big Bang nucleosynthesis would result in an underproduction of ${}^4$He~\cite{Blum2014}; the green area was excluded based on the observations of the supernova SN1987A, where excess cooling by axion emission would have been observed~\cite{Graham2013}.
+The limits are not only the first laboratory constraints on the axion-gluon coupling, but also improve on the existing cosmological exclusions.
 
 
 
@@ -221,7 +231,11 @@ The Earth additionally spins, causing the effect to be modulated with the sidere
 The modulation would have produced a triplet of lines as a signal in the periodogram.
 The highest peak would be at the frequency of the oscillation of the axion field, and would be accompanied by two additional ones on either side, $\Omega_\text{sid}$ away from it.
 
-There were two datasets, with the magnetic field pointing in either way along gravity, both sensitive to the effect. The periodograms can be found in App.\note{reference them}. There are 44 frequencies with power above the 3$\upsigma$ threshold in $B\uparrow$ and 36 in $B\downarrow$. Ony for two frequencies the threshold is exceeded in both data sets simultaneously: \SI{3.42969}{\micro\hertz} and \SI{3.32568}{\milli\hertz}. Neither  fulfilled the requirement of the phase being opposite in the two data sets.
+There were two datasets, with the magnetic field pointing in either way along gravity, both sensitive to the effect.
+The periodograms can be found in App.\note{reference them}.
+There are 44 frequencies with power above the 3$\upsigma$ threshold in $B\uparrow$ and 36 in $B\downarrow$.
+Ony for two frequencies the threshold is exceeded in both data sets simultaneously: \SI{3.42969}{\micro\hertz} and \SI{3.32568}{\milli\hertz}.
+Neither  fulfilled the requirement of the phase being opposite in the two data sets.
 
 The lack of a statistically significant signal compatible with the axion model allowed us to put limits on the axion-nucleon coupling, depicted in Fig.\,\ref{fig:axions_wind_limits}. The limits improves the existing laboratory constraints by a factor of 40.
 
@@ -236,15 +250,24 @@ The lack of a statistically significant signal compatible with the axion model a
 
 \section{Outlook}
 There are three directions in which the nEDM-based axion dark matter search could continue.
-In order to improve sensitivity vertically, to be sensitive to more weekly coupled or less abundant axions, the overall sensitivity of the nEDM measurement would need to be improved. Following Eq.\,\ref{eq:nEDM_sensitivity} it would require more neutrons, a higher electric field or a longer spin-precession time.
+In order to improve sensitivity vertically, to be sensitive to more weekly coupled or less abundant axions, the overall sensitivity of the nEDM measurement would need to be improved.
+Following Eq.\,\ref{eq:nEDM_sensitivity} it would require more neutrons, a higher electric field or a longer spin-precession time.
 % \marginpar{In Eq\,\ref{eq:nEDM_sensitivity} $\alpha$ is already \ldots, precession time $T$ can only be improved so long---it is fundamentally limited by the neutron life-time (give the number.)}
 The global community already spares no effort in this respect.
 
-The second way would be to improve sensitivity for slower oscillations, that is  lighter axions. It was limited by the span of the data set---four years in the case of the ILL nEDM data set. Combining the ILL and PSI data into one time series would increase it to 19 years. It could not yet be done at the time for two reasons. Firstly, the PSI data were still blinded. Secondly, the static nEDM analysis, which would produce per-sequence nEDM estimates, was still ongoing. In any case, axions oscillating this slow would be so light, that their Compton wavelength would not fit in small dwarf galaxies~\cite{Marsh2015Review}, which rules them out as the single dark matter constituent.
+The second way would be to improve sensitivity for slower oscillations, that is  lighter axions.
+It was limited by the span of the data set---four years in the case of the ILL nEDM data set.
+Combining the ILL and PSI data into one time series would increase it to 19 years.
+It could not yet be done at the time for two reasons.
+Firstly, the PSI data were still blinded.
+Secondly, the static nEDM analysis, which would produce per-sequence nEDM estimates, was still ongoing.
+In any case, axions oscillating this slow would be so light, that their Compton wavelength would not fit in small dwarf galaxies~\cite{Marsh2015Review}, which rules them out as the single dark matter constituent.
 
-The third direction would be the high-frequency, heavy-axions one. It was limited by the sampling frequency of the system, the cycle repetition rate.
+The third direction would be the high-frequency, heavy-axions one.
+It was limited by the sampling frequency of the system, the cycle repetition rate.
 % \marginpar{At PSI the cycles were synchronised to the pulses of a kicker magnet, which redirected a proton beam onto the target of the UCN source.}
-The measurements could be conducted with a shorter cycle time. This would, however, worsen the sensitivity, as the loss in Eq.\,\ref{eq:nEDM_sensitivity} is linear, and the gain from the improved statistics scales with the square root.
+The measurements could be conducted with a shorter cycle time.
+This would, however, worsen the sensitivity, as the loss in Eq.\,\ref{eq:nEDM_sensitivity} is linear, and the gain from the improved statistics scales with the square root.
 A repetition period faster than \SI{10}{\second} is hard to imagine.
 A real improvement in this direction would require changing the principle of the measurement.
 
