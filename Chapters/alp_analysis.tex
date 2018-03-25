@@ -49,12 +49,13 @@ Sometimes there were technical breaks in the data taking during a sequence, as i
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/deltah4mm_time_domain_inset_no_yerr.pdf}
-  \caption{The complete $R$ time series used in the analysis, measured at PSI between July 2015 and December 2016.
+  \caption{The complete $R = \nu_\text{n} / \nu_\text{Hg}$ time series used in the analysis, measured at PSI between July 2015 and December 2016.
   Two sequences are enlarged (one 69 hours long, the other 34).
   Due to the high density of the measurements individual points cannot be resolved.
   The colours depict the relative orientation of the magnetic and electric fields: $E \uparrow \uparrow B$ (orange), $E \uparrow \downarrow B$ (blue) and $E=0$ (black).
-  The $R$ time series has been corrected for gradient drifts.
-  In the insets the points are drawn with their corresponding error bars.}\label{fig:PSI_dataset_time_domain}
+  Between sequences the vertical gradient of the magnetic field was changed, so that those systematic effects, which are linear with the gradient could be interpolated to zero. This caused large shifts in $R$.
+  The $R$ time series has been corrected for gradient drifts (the correction is relative and does not extend from one sequence to another, for details see text).
+  In the insets the points are drawn with their corresponding error bars. See also Fig.\,\ref{fig:oscillating_nEDM_in_R}.}\label{fig:PSI_dataset_time_domain}
 \end{figure}
 
 A sequence was taken always in one magnetic field configuration.
@@ -70,7 +71,7 @@ Now we consider how an oscillating electric dipole moment would have come up in 
 Should the neutron electric dipole moment oscillate, $R$ would have oscillated as well, even when the electric field was constant.
 A reversal of the electric field polarity would have reversed the phase of the oscillations.
 With a zero electric field no oscillations would be visible.
-In the inset in Fig.\,\ref{fig:oscillating_nEDM_in_R} an $R$ time series is depicted, with the combined effect of a large nEDM oscillation and the blinding offset.
+In Fig.\,\ref{fig:oscillating_nEDM_in_R} an $R$ time series is depicted, with the combined effect of a large nEDM oscillation and the blinding offset.
 Because of the non-zero static nEDM and the phase shift the least-squares spectral analysis could not be applied directly to the $R$ time series.
 However, the time series is still a part of a simple harmonic oscillation when only one field configuration is considered.
 (We neglect for the moment the inter-sequence shifts.) In the analysis the $R$ time series was split thus into three: a series of points measured without the electric field (not sensitive to an oscillation of the nEDM), one with the electric and magnetic fields parallel and one with antiparallel.
@@ -81,12 +82,11 @@ Each of those was treated separately.
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/axions/signal_illustration.pdf}
-  \caption{An oscillating neutron electric dipole moment signal in the nEDM @ PSI apparatus.
-  The colours indicate different electric field states: parallel to the magnetic field, antiparallel to it and zero.
-  An oscillating neutron electric dipole moment signal in the nEDM @ PSI apparatus across many runs.
-  The colours indicate different electric field states: parallel to the magnetic field, antiparallel to it and zero.
-  Different runs have different magnetic field gradients, which causes each run to have a different shift in $R = f_n / f_{Hg}$.
-  The data taking scheme in the nEDM experiment at PSI\@.}\label{fig:oscillating_nEDM_in_R}
+  \caption{An illustration of an axion-induced oscillation in the $R = \nu_\text{n} / \nu_\text{Hg}$ time series.
+  The colours indicate the configuration of the electric and magnetic fields: parallel to one another ($E \uparrow \uparrow B$, orange) and antiparallel ($E \uparrow \downarrow B$, blue).
+  The oscillation in $R$ has an opposite phase in the two configurations.
+  The effect of a static nEDM (expected to be large due to the data blinding) is a field-configuration-dependent offset.
+  Between sequences the vertical gradient of the magnetic field gradient was changed (so that those systematic effects, which are linear with the gradient could be interpolated to zero). This caused large shifts in $R$.}\label{fig:oscillating_nEDM_in_R}
 \end{figure}
 
 A part of the measurement procedure was to deliberately work in a substantial vertical magnetic field gradient.
