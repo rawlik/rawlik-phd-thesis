@@ -235,9 +235,10 @@ The global community already spares no effort in this respect.
 The second way would be to improve sensitivity for slower oscillations, that is  lighter axions. It was limited by the span of the data set---four years in the case of the ILL nEDM data set. Combining the ILL and PSI data into one time series would increase it to 19 years. It could not yet be done at the time for two reasons. Firstly, the PSI data were still blinded. Secondly, the static nEDM analysis, which would produce per-sequence nEDM estimates, was still ongoing. In any case, axions oscillating this slow would be so light, that their Compton wavelength would not fit in small dwarf galaxies~\cite{Marsh2015Review}, which rules them out as the single dark matter constituent.
 
 The third direction would be the high-frequency, heavy-axions one. It was limited by the sampling frequency of the system, the cycle repetition rate.
-\marginpar{At PSI the cycles were synchronised to the pulses of a kicker magnet, which redirected a proton beam onto the target of the UCN source.}
+% \marginpar{At PSI the cycles were synchronised to the pulses of a kicker magnet, which redirected a proton beam onto the target of the UCN source.}
 The measurements could be conducted with a shorter cycle time. This would, however, worsen the sensitivity, as the loss in Eq.\,\ref{eq:nEDM_sensitivity} is linear, and the gain from the improved statistics scales with the square root.
-However, it is hard to imagine going beyond ten-second range. A real improvement in this direction would require changing the principle of the measurement.
+A repetition period faster than \SI{10}{\second} is hard to imagine.
+A real improvement in this direction would require changing the principle of the measurement.
 
 
 
@@ -268,22 +269,23 @@ for which the Larmor frequency is
 \begin{equation}
   \omega_0 = \frac{\mu_\text{n} B}{S} = \frac{2 \mu_\text{n} B}{\hbar} = \gamma_\text{n} B \ .
 \end{equation}
-In a presence of an electric field perpendicular to $\mathbf{B}$ a harmonically oscillating nEDM adds an additional term to the Hamiltonian
+In the presence of an electric field perpendicular to $\mathbf{B}$ a harmonically oscillating nEDM adds an additional term to the Hamiltonian
 \begin{equation}
   H = - \gamma_\text{n} \mathbf{B} \cdot \mathbf{S} - \mathbf{d}_\text{n}^0 \sin (\omega_0 t) \cdot \mathbf{E} \ ,
 \end{equation}
-where we assume the Larmor frequency to be resonant with the oscillating nEDM, and a phase difference of \ang{90} between the spin's precession and the nEDM oscillation. In a rotating frame spinning around $\mathbf{B}$ with the frequency $\omega_0$ the field $\mathbf{B}$ vanishes and the oscillating nEDM coupling can be treated as constant~\cite{RamseyBook}:
-\marginpar{The oscillating would become stricly constant only, if it would rotate. But a rotation is a sum of two linear oscillations.}
+where we assume the Larmor frequency to be resonant with the oscillating nEDM, and a phase difference of \ang{90} between the spin's precession and the nEDM oscillation.
+The Hamiltonian is the same when nEDM is static and the term $\sin (\omega_0 t)$ comes from an oscillating electric field $\mathbf{E}$. The oscillating field can be decomposed into two fields rotating in the opposite directions, each with the amplitude $E/2$. In a rotating frame spinning around $\mathbf{B}$ with the frequency $\omega_0$ the field $\mathbf{B}$ vanishes. The $\mathbf{E}$ component which rotates with the spin is static~\cite{RamseyBook}:
 \begin{equation}
-  H_\text{rot} = d_\text{n}^{\,0} \, \mathbf{E} \cdot \mathbf{S} \ .
+  H_\text{rot} = d_\text{n}^{\,0} \, \frac{\mathbf{E}}{2} \cdot \mathbf{S} \ ,
 \end{equation}
-Following an analogy to a rotating transverse field we find the spin-precession frequency in the rotating frame, a nutation in the stationary one, to be
+whereas the other spin with frequency $2 \omega_0$ and can be, in the first approximation, neglected~\cite{RamseyBook}.
+In the rotating frame the spin precesses with the frequency
 \begin{equation}
-  \omega_\text{nut.} = \frac{d_\text{n}^{\,0}}{\hbar} \ .
+  \omega_\text{nut.} = \frac{d_\text{n}^{\,0} E }{2 \hbar} \ .
 \end{equation}
 After time $T$ the accumulated angle is
 \begin{equation}
-  \theta = \omega_\text{nut.} T = \frac{d_\text{n}^0 E }{\hbar} \, T \ .
+  \theta = \omega_\text{nut.} T = \frac{d_\text{n}^0 E }{2 \hbar} \, T \ .
   \label{eq:resonant_the_angle}
 \end{equation}
 In the end of the measurement the neutrons pass a spin analyser, which projects their polarisation on the axis of $\mathbf{B}$. For $N_0$ neutrons the resonance curve has a shape
@@ -297,15 +299,15 @@ where $\alpha$ is the visibility parameter and the sign depends on which spin st
 \end{equation}
 Finally, the sensitivity is obtained from Eqs.\,\ref{eq:resonant_the_angle} and~\ref{eq:resonant_deltaN}, assuming it is dominated by the counting statistics $\sqrt{N_0/2}$
 \begin{equation}
-  \sigma_{d_n^{\,0}} = \frac{\hbar}{\sqrt{N_0/2} \alpha T E} \ .
+  \sigma_{d_n^{\,0}} = \frac{2 \hbar}{\sqrt{N_0/2} \alpha T E} \ .
 \end{equation}
 When both spin states are counted the sensitivity increases by a factor $\sqrt{2}$:
 \begin{equation}
-  \sigma_{d_n^{\,0}} = \frac{\hbar}{\sqrt{N_0} \alpha T E} \ .
+  \sigma_{d_n^{\,0}} = \frac{2 \hbar}{\sqrt{N_0} \alpha T E} \ .
 \end{equation}
 
-A \ang{90} phase difference between the nEDM oscillation is assumed and spin precession (defined by the phase of the $\uppi/2$ pulse). On average an additional factor of $\sqrt{2}$ is lost due to the non-matching phases.
-Doing two measurement with the phases of the $\pi/2$ pulses shifted by \ang{90}, one having a sine-like sensitivity other a cosine-like, gives a flat sensitivity for all phases of the nEDM oscillation.
+A \ang{90} phase difference between the nEDM oscillation and spin precession (defined by the phase of the $\uppi/2$ pulse) is assumed. On average an additional factor of $\sqrt{2}$ is lost due to the non-matching phases.
+Doing two measurements with the phases of the $\pi/2$ pulses shifted by \ang{90}, one having a sine-like sensitivity other a cosine-like, gives a flat sensitivity for all phases of the nEDM oscillation.
 
 \begin{figure}
   \centering
@@ -321,7 +323,7 @@ In order to perform a \SIrange[range-phrase=--]{3}{300}{\hertz} scan in a 1000 c
 \end{equation}
 With the baseline parameters of the n2EDM experiment at PSI, $\alpha = 0.8$, $E = \SI{15}{\kilo\volt\per\centi\metre}$, $N_0 = \num{121000}$, the per-cycle sensitivity would be 
 \begin{equation}
-  \sigma_{d_n} = \SI{5e-23}{\elementarycharge\centi\metre} \ .
+  \sigma_{d_n} = \SI{1e-22}{\elementarycharge\centi\metre} \ .
 \end{equation}
 The region of an axion coupling to gluons that could be excluded is depicted in Fig.\,\ref{fig:axions_prediction}.
 
