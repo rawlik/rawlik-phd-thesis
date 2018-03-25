@@ -156,9 +156,9 @@ The most significant peak is the one with the lowest p-value.
   The local sigma levels are depicted in shades of green and the global ones in orange.}\label{fig:P_best_signal_candidate}
 \end{figure}
 
-To construct the discrete CDF estimate all the MC-generated power estimates were sorted into an array.
-The points of the CDF were obtained by plotting the power on the $x$-axis, and the position in the sorted array (normalised to one) on the $y$-axis \note{cite}.
-\marginpar{The CDF has the advantage over the PDF, that it does not require binning to be estimated.}
+To construct the discrete CDF estimate (the empirical distribution function~\cite{tucker1959}) all the MC-generated power estimates were sorted into an array.
+The points of the CDF were obtained by plotting the power on the $x$-axis, and the position in the sorted array (normalised to one) on the $y$-axis.
+\marginpar{The CDF has the advantage over the PDF, that it does not require binning to be estimated~\cite{tucker1959}.}
 The discrete CDF estimate of power, or actually one-minus-CDF, so that the logarithmic $y$-scale can be leveraged to resolve the high-power tail, for the frequency \SI{0.17}{\hertz} is depicted in Fig.\,\ref{fig:P_best_signal_candidate} with the green dots.
 
 When the power in the time series is very high, as it is the case for \SI{0.17}{\hertz} in the example, obtaining the discrete CDF estimate would require many, in some cases unrealistically many, Monte Carlo samples.

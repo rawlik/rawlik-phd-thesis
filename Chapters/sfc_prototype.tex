@@ -189,18 +189,12 @@ The matrix of proportionality constants $M$, dimension $24 \times 3$, is the cen
 Let us recall the discussion of the PSI system's matrix in Sec.\,\ref{fig:nEDM_SFC_matrix}.
 There it was pointed out that its high condition number, and the need for regularisation, can be attributed to the geometry of the system.
 In particular, some linear combinations of the coils created high-order fields which, despite high currents, had little influence on the sensors' readout.
-% The matrix of the PSI system and its properties were thoroughly discussed in Sec.\,\ref{fig:nEDM_SFC_matrix}.
-% There is a fundamental difference between the matrix of the PSI's system and the one of the next generation's one.
 PSI SFC matrix was not known a priori.
-% The system was constructed and the matrix was measured as the system's property. \note{Previous unclear, reformulate}
-% This could be considered as the reason that the matrix was ill-conditioned and the system required regularisation and PI control to be stable.
 Conversely, the new system already takes the matrix into account at the design phase.
 The coils were designed to produce a magnetic field corresponding to the terms of the cartesian harmonic expansion of the field; 
 ensuring that they are orthogonal to one another.
 By design we expect the matrix to have the condition number equal to one.
 Using the three coils it has been measured to be \num{1.064} for the homogeneous components, without a mu-metal shield inside.
-
-% \note{Put a figure about the measurement of the matrix?}
 
 The active magnetic shield constructed at ETH implemented a new way of measuring the matrix.
 The procedure changed currents in all the coils simultaneously, shortening the duration of the procedure.
@@ -234,9 +228,7 @@ The next sphere was chosen to be centred around the zero field. This is the opti
 where $\mathbb{B}_0$ is the free offset from Eq.\,\ref{eq:SFC_matrix_linear_fits}, and $M^\dagger$ is the Moore-Penrose pseudoinverse of the matrix $M$.
 This gave the second estimate of the matrix.
 Finally, the measurement was repeated with a sphere again centred at zero, but with a smaller radius of \SI{1}{\micro\tesla}.
-% The procedure was developed for a system with mu-metal.
 In the case of an air system, without a mu-metal shield inside, all consecutive estimates of the matrix were almost the same.
-% \note{Hopefully I still do get to measure the matrix with the mu-metal cube inside. Then I will describe it here.}
 
 \begin{figure}
   \centering
@@ -300,10 +292,6 @@ Without accounting for the delay the system would spontaneously destabilise.
 In Fig.\,\ref{fig:prototype_step_response} a response of the system to a step-like change of the magnetic field is plotted.
 Note how the system's reaction is delayed by three iterations.
 
-% \note{A paragraph (or a margin note) comparing the feedback algorithm to the old one. Requires no parameters, any field may be the target field.}
-
-% \note{Has been tested with the big system, but it did not outperform in terms of stability (do I have a plot to prove that?). Nick Schwegler's project report! I could just cite it here, it was inconclusive. But for sure I can say it.}
-
 
 
 
@@ -312,8 +300,6 @@ Note how the system's reaction is delayed by three iterations.
 The dynamic stabilisation was tested with a strong permanent magnetic dipole.
 The dipole was built out of two extremely strong neodymium magnets (\SI{200}{\kilo\gram} force when attached to iron) connected together with a \SI{1}{\metre} long iron rod.
 The dipole was moved several meters from the system causing a magnetic field disturbance.
-
-% \mnote{Need to put the details of the geometry of the fluxgates here. Eight fluxgates on the corners of a cube of \ldots size.}
 
 \begin{figure}
   \centering
@@ -327,7 +313,6 @@ The resulting field compensation from the dipole being rotated \SI{7.5}{\meter} 
   \label{eq:uncompensated_field}
   \mathbb{B}_0 = \mathbb{B} - \mathbb{M} \mathbb{I} \ .
 \end{equation}
-% The three colours correspond to the three spatial components ($x$, $y$, $z$). Each line is one sensor.
 The measured field $\mathbb{B}$ is depicted in the bottom part.
 The amplitude of the changes was reduced from around \SI{1.75}{\micro\tesla} to \SI{0.4}{\micro\tesla} (factor four).
 Yet, the variation is not completely mitigated.
@@ -471,13 +456,6 @@ This volume would be occupied by a cubic mu-metal shield intended to be put in t
 The measured field, mapped as described in Sec.\,\ref{sec:prototype_mapping}, confirms that the homogeneity could be achieved in practice.
 Figure~\ref{fig:prototype_open_design_Ycoil_map_section} details the measured field along the orange lines marked in Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}.
 
-% The simulation of the field produced by the optimal design of the $y$-coil is presented in the upper part of Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}. On the left-hand side the deviation of the $x$ component from zero is shown, on the right-hand side: one of the $y$ component from \SI{50}{\micro\tesla}. In the bottom of the figure a map of the two components is plotted. Additionally, two sections of the map, along the vertical lines depicted in orange, are presented in Fig.\,\ref{fig:prototype_open_design_Ycoil_map_section}. The dashed line is xxx away from the surface of the coils and corresponds to the edge of the fiducial volume. The design fully meets the specification of \SI{2}{\percent} homogeneity in the fiducial volume.
-
-% and the map of the $y$-coil are presented in Fig.\,\ref{fig:prototype_open_design_Ycoil_maps}. In Fig.\,\ref{fig:prototype_open_design_Ycoil_map_section} the section along the $y$ direction is plotted.
-% Now some thoughts about it. We see, that it behaves exactly as expected. For now the colours are inverted.
-
-% \note{It is now a bit weird, that I have a detailed wiring plan for the $x$-coil, but I write more about the $y$-coil (the one I have)}.
-
 \begin{figure}
   \centering
   \includegraphics[width=0.95\linewidth]{gfx/prototype/open_design_simulation.pdf}
@@ -503,13 +481,6 @@ The simulated field produced by the optimal designs for the $n = 1$ ($x$-coil) a
 Despite lack of one face in the grid, the field is reproduced in a volume large enough to fit the mu-metal cube, even in the case of the linear-gradient coil.
 In Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} the first 22 (out of 64) loops of the $x$-coil are depicted.
 Note in particular the high density of the cables along the edges of the open face.
-% Except the part near the open face (at the bottom of the plots) the field in the volume is reproduced in the whole fiducial volume down to \SI{2}{\percent} (\SI{1}{\micro\tesla} on a \SI{50}{\micro\tesla} field), even for the gradient coil.
-% Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} shows the first 22 (out of 64) current loops of the $x$ coil.
-%\note{All with 1A wires? not much more} The numbers show the number of windings in the 5A, 1A and 0.1A scheme.
-
-% \note{Here I could mention how inhomogeneous was the field in the lab. I.e.\ how much field was still left when running the homogeneous compensation. This would motivate the need for the linear gradient coils.}
-
-% The calculation with the fiducial volume of\ldots done for homogenous and 1st gradient coils. Fig.\,\ref{fig:prototype_open_design_simulation} presents the sections for\ldots Fig.\,\ref{fig:prototype_open_design_Xcoil_coils} shows the first 22 (out of 64) current loops. \note{All with 1A wires? not much more} The numbers show the number of windings in the 5A, 1A and 0.1A scheme.
 
 The open-design $y$-coil was a significant step forward from the closed-cage design.
 It has been demonstrated that the coil design framework is capable of handling irregular grids, and the designs can be successfully realised in practice.

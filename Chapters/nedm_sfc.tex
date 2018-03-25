@@ -26,10 +26,6 @@ The combination of the two shielding methods provides a stable magnetic field ov
 
 Since the 1980s numerous active shields have been built~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013,Afach2014}. The applications span from ion beams, through bio-magnetism, all the way to nEDM measurements, in particular the one conducted at PSI\@.
 
-% \note{Don't discuss it here: In the overlapping range of frequencies, where the two kinds of magnetic shielding could compete, the two advantages of the active shielding would certainly be the cost and accessibility of the enclosed volume.}
-
-
-
 \marginpar{There was an inside joke that SFC really stands for SULTAN Field Compensation, SULTAN having been the magnet with by far the strongest influence on the magnetic field.}
 \section{The nEDM at PSI SFC system}
 The construction of an active shield for the nEDM measurement at PSI, called the SFC (Surrounding Field Compensation) system,
@@ -43,10 +39,6 @@ The distinct feature of the PSI's SFC system was the use of a feedback matrix.
 Consider a single coil of any shape in air. For every point in space, and for every spatial component, the magnetic field is directly proportional to the current in the coil. The SFC system had six coils and measured the field in nine points, three spatial components in each. In total there were $6 \times 27 = 162$ proportionality constants, which were gathered in the feedback matrix $M$. The matrix $M$ is a property of the active compensation system, more precisely of the geometry of the coils and sensors. It could have been calculated analytically, if not for the mu-metal shield. Ferromagnetic materials distort the magnetic field around them.
 Different to similar systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013}, which used independent feedback for each coil, the SFC system at PSI used the matrix $M$ that mixes all sensors and all coils. 
 % The use of the matrix $M$ was what distinguished the PSI's SFC system from other systems~\cite{Kelha1982,Brake1991,Spemann2003,Brys2005,Kobayashi2012,Voigt2013}, which used either one component of a sensor, or a weighted combination of several components, to control one coil.
-
-% Moreover, they make the system non-linear, which we are going to, for now, neglect.
-
-% \note{Maybe some nice formula here for the matrix elements?}
 
 \begin{figure}
   \centering
@@ -113,27 +105,46 @@ The \emph{Singular Value Decomposition} (SVD) of a real matrix $M$ is
 \begin{equation}
   M = U S V^T \ , 
 \end{equation}
-where $U$ and $V$ are unitary, and $S$ is diagonal~\cite{Golub1965}. The singular values lie on the diagonal of $S$, which is called the \emph{spectrum}. 
-% The spectrum of the feedback matrix is of uttermost importance.
-Pseudo-inverting a matrix with small singular values is an ill-posed problem. Similarly, as inverting small numbers.
+where $U$ and $V$ are unitary, and $S$ is diagonal~\cite{Golub1965}.
+The singular values lie on the diagonal of $S$, which is called the \emph{spectrum}.
 
-The \emph{condition number} of a matrix is defined as a ratio of the extreme values of its spectrum~\cite{Regression}. For a matrix with a flat spectrum, all singular values equal, the condition number is one. A set of linear equations represented by such a matrix is well defined. The more extreme values differ, the higher the condition number and the worse defined the problem is. The effect is, that the noise in the original matrix becomes amplified by the condition number in the pseudoinverse.
+% The spectrum of the feedback matrix is of uttermost importance.
+Pseudo-inverting a matrix with small singular values is an ill-posed problem.
+Similarly, as inverting small numbers.
+
+The \emph{condition number} of a matrix is defined as a ratio of the extreme values of its spectrum~\cite{Regression}.
+For a matrix with a flat spectrum, all singular values equal, the condition number is one.
+A set of linear equations represented by such a matrix is well defined.
+The more extreme values differ, the higher the condition number and the worse defined the problem is.
+The effect is, that the noise in the original matrix becomes amplified by the condition number in the pseudoinverse.
 
 \begin{figure}
   \centering
   \includegraphics[width=.8\linewidth]{gfx/nEDM_SFC/coil-singular_vectors_of_the_nEDM_SFC_matrix.pdf}
-  \caption{The coil-singular values of the SFC matrix. Columns correspond to singular combinations of the coils (labeled as in Fig.\,\ref{fig:sfc-scheme}). For each column the corresponding singular value is indicated.}\label{fig:nEDM_SFC_svd}
+  \caption{The coil-singular values of the SFC matrix.
+  Columns correspond to singular combinations of the coils (labeled as in Fig.\,\ref{fig:sfc-scheme}).
+  For each column the corresponding singular value is indicated.}\label{fig:nEDM_SFC_svd}
 \end{figure}
 
-Figure~\ref{fig:nEDM_SFC_svd} presents the spectrum of the PSI's SFC feedback matrix. The condition number is $9.6 / 0.51 = 18.2$. A factor of 18 amplification of noise points to why the regularisation was necessary.
+Figure~\ref{fig:nEDM_SFC_svd} presents the spectrum of the PSI's SFC feedback matrix.
+The condition number is $9.6 / 0.51 = 18.2$.
+A factor of 18 amplification of noise points to why the regularisation was necessary.
 
-It is interesting to ask \emph{why} the system had an ill-defined feedback matrix. A very small singular value means that there exists a coil, or a combination thereof, which has about 18 times smaller influence on the field then other ones. In Fig.\,\ref{fig:nEDM_SFC_svd} the columns are the singular values with their corresponding coil-vectors. The first three, starting from the left, are easiest to interpret. Each of them is a pair of coils configured as Helmholtz-pair with roughly the same current, producing a homogeneous field in each of the spatial directions.
+It is interesting to ask \emph{why} the system had an ill-defined feedback matrix.
+A very small singular value means that there exists a coil, or a combination thereof, which has about 18 times smaller influence on the field then other ones.
+In Fig.\,\ref{fig:nEDM_SFC_svd} the columns are the singular values with their corresponding coil-vectors.
+The first three, starting from the left, are easiest to interpret.
+Each of them is a pair of coils configured as Helmholtz-pair with roughly the same current, producing a homogeneous field in each of the spatial directions.
 %The smaller singular value, or the effect on the field, in the Y direction is explained by the fact that this is the longitudinal axis of the μ-metal cylinder.
-The last column has also a clear interpretation: it corresponds to all pairs configured as anti-Helmholtz---currents flowing in the opposite directions in each pair. The magnetic field that was created by such a configuration was complicated and high-order. The fact that this combination has so little influence on the measured field means that it hardly changes any solution for currents when added to it. It spans a valley in the parameter space in the least-squares problem. If not regularised, a small change in the measured field would cause a large change in the currents along the valley. Rapid oscillations in this direction would render the system unstable.
+The last column has also a clear interpretation: it corresponds to all pairs configured as anti-Helmholtz---currents flowing in the opposite directions in each pair.
+The magnetic field that was created by such a configuration was complicated and high-order.
+The fact that this combination has so little influence on the measured field means that it hardly changes any solution for currents when added to it.
+It spans a valley in the parameter space in the least-squares problem.
+If not regularised, a small change in the measured field would cause a large change in the currents along the valley.
+Rapid oscillations in this direction would render the system unstable.
 
-An important observation is that the feedback matrix is defined solely by the configuration of the coils, sensors and ferromagnetic materials. It follows that already at the design stage one can, and should, take care about the definiteness of the system.
-
-% \note{Propose here immediately a solution: orthogonal system for elements of expansion! Any combination of 1st order gradients is a 1st order gradient.}
+An important observation is that the feedback matrix is defined solely by the configuration of the coils, sensors and ferromagnetic materials.
+It follows that already at the design stage one can, and should, take care about the definiteness of the system.
 
 
 
