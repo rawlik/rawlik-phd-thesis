@@ -101,13 +101,6 @@ Still, it may be defined up to a parameter, the one pointing along the direction
 We then speak of an ill-defined set of equations, or an ill-defined matrix.
 Regularisation helps an ill-defined problem to become better defined, at the cost of the solution having larger sum of the residuals squared.
 
-The \emph{Singular Value Decomposition} (SVD) of a real matrix $M$ is
-\begin{equation}
-  M = U S V^T \ , 
-\end{equation}
-where $U$ and $V$ are unitary, and $S$ is diagonal~\cite{Golub1965}.
-The singular values lie on the diagonal of $S$, which is called the \emph{spectrum}.
-
 \begin{figure}
   \centering
   \includegraphics[width=.8\linewidth]{gfx/nEDM_SFC/coil-singular_vectors_of_the_nEDM_SFC_matrix.pdf}
@@ -116,6 +109,12 @@ The singular values lie on the diagonal of $S$, which is called the \emph{spectr
   For each column the corresponding singular value is indicated.}\label{fig:nEDM_SFC_svd}
 \end{figure}
 
+The \emph{Singular Value Decomposition} (SVD) of a real matrix $M$ is
+\begin{equation}
+  M = U S V^T \ , 
+\end{equation}
+where $U$ and $V$ are unitary, and $S$ is diagonal~\cite{Golub1965}.
+The singular values lie on the diagonal of $S$, which is called the \emph{spectrum}.
 The \emph{condition number} of a matrix is defined as a ratio of the extreme values of its spectrum~\cite{Regression}.
 For a matrix with a flat spectrum, all singular values equal, the condition number is one.
 A set of linear equations represented by such a matrix is well defined.
