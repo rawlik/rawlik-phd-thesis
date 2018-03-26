@@ -61,12 +61,12 @@ The PSI's SFC system followed the established norm~\cite{Kelha1982,Brake1991,Spe
 \end{equation}
 
 % $\Delta I^n_j$ is the error value in the current space. It was obtained by using the error value in the field space (the difference of the measured and target fields) and transforming it into the current space with the pseudoinverse of the matrix~\cite{Franke2013}:
-\marginpar{The SFC system, when started, was static. Then the currents could be changed manually to achieve a desired field (or chosen from a predefined set). Then the system was switched to the dynamic mode~\cite{Franke2013}.}
 $\Delta I^n_j$ is the error value. It was obtained from the deviation of the measured and target field, $\Delta B^n_{k'}$ for the $k'$th sensor, by multiplying it by the pseudoinverse of the matrix $M$, denoted $M^\dagger$~\cite{Franke2013}:
 \begin{equation}
   \Delta I^n_j = \sum_{k'} M^\dagger_{jk'} \, \Delta B^n_{k'} \ .
 \end{equation}
 
+\marginpar{The SFC system, when started, was static. Then the currents could be changed manually to achieve a desired field (or chosen from a predefined set). Then the system was switched to the dynamic mode~\cite{Franke2013}.}
 Besides the proportional and integral terms, the feedback formula also included the $I^0_j$ term. It may seem puzzling to give such a big of a role to particular currents that had happened to be there at the zeroth iteration. The reason behind this choice was a particular property of the SFC system: the target field was always the one measured at the moment of switching the system from the dynamic mode (feedback running) to the static one (static current output).
 At that moment the error value was zero, and so was the integral term, so, according to the Eq.\,\ref{eq:old_SFC_feedback}, the output currents would immediately have switched to zero. In result the system would violently destabilise. The additional term $I^0_j$ prevented that from happening.
 
@@ -108,16 +108,6 @@ The \emph{Singular Value Decomposition} (SVD) of a real matrix $M$ is
 where $U$ and $V$ are unitary, and $S$ is diagonal~\cite{Golub1965}.
 The singular values lie on the diagonal of $S$, which is called the \emph{spectrum}.
 
-% The spectrum of the feedback matrix is of uttermost importance.
-Pseudo-inverting a matrix with small singular values is an ill-posed problem.
-Similarly, as inverting small numbers.
-
-The \emph{condition number} of a matrix is defined as a ratio of the extreme values of its spectrum~\cite{Regression}.
-For a matrix with a flat spectrum, all singular values equal, the condition number is one.
-A set of linear equations represented by such a matrix is well defined.
-The more extreme values differ, the higher the condition number and the worse defined the problem is.
-The effect is, that the noise in the original matrix becomes amplified by the condition number in the pseudoinverse.
-
 \begin{figure}
   \centering
   \includegraphics[width=.8\linewidth]{gfx/nEDM_SFC/coil-singular_vectors_of_the_nEDM_SFC_matrix.pdf}
@@ -126,7 +116,11 @@ The effect is, that the noise in the original matrix becomes amplified by the co
   For each column the corresponding singular value is indicated.}\label{fig:nEDM_SFC_svd}
 \end{figure}
 
-Figure~\ref{fig:nEDM_SFC_svd} presents the spectrum of the PSI's SFC feedback matrix.
+The \emph{condition number} of a matrix is defined as a ratio of the extreme values of its spectrum~\cite{Regression}.
+For a matrix with a flat spectrum, all singular values equal, the condition number is one.
+A set of linear equations represented by such a matrix is well defined.
+The more extreme values differ, the higher the condition number and the worse defined the problem is.
+The effect is, that the noise in the original matrix becomes amplified by the condition number in the pseudoinverse. Figure~\ref{fig:nEDM_SFC_svd} presents the spectrum of the PSI's SFC feedback matrix.
 The condition number is $9.6 / 0.51 = 18.2$.
 A factor of 18 amplification of noise points to why the regularisation was necessary.
 
@@ -166,7 +160,7 @@ Spatial constraints were a major concern in the design of coils of a new active 
  Outside, the field may even be more unstable, the extreme case being right next to the coils, where the field can get arbitrarily large.
  The situation is similar for any type of field: an active shield can only stabilise the field in a limited volume.
 
-\begin{figure}
+\begin{figure}[tbh]
   \centering
   \includegraphics[width=\linewidth]{gfx/nEDM_SFC/n2EDM_SFC_situation.png}
   \caption{A plan by Michael Meier highlighting the potential conflicts between coils of an n2EDM active shield and other structures. The vicinity of the biological shielding (red) forced the coils to be designed relatively close to the magnetic shield (dark blue). Other bodies, like the support legs of the passive shield (orange), polarising magnet (orange) and an emergency exit from a nearby accelerator (red) gave additional constraints.}\label{fig:n2EDM_sfc_situational_plan}

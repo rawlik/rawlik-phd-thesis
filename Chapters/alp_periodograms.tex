@@ -59,8 +59,8 @@ This is not the case when the sampling is not uniform. In practice, we can expec
   \caption{Two periodograms of the time series in Fig.\,\ref{fig:basic_signal}. One evaluated at frequencies with a spacing equal to the spectral resolution (black dots), and one evaluated a thousand times more densely (the orange line).}\label{fig:basic_periodogram}
 \end{figure}
 
-When choosing the spacing between the frequencies, the \emph{spectral resolution} is considered, defined as the inverse span of the dataset.
 \marginpar{A Fourier transform of a rectangular function is a sinc function. Any signal measured for a finite time in the frequency space is necessarily convoluted with the sinc function.}
+When choosing the spacing between the frequencies, the \emph{spectral resolution} is considered, defined as the inverse span of the dataset.
 It roughly defines the minimal frequency difference between two distinguishable signals. A perfectly coherent oscillation produces a cardinal-sine-shaped peak of a width equal to the spectral resolution~\cite{VanderPlas2017}.
 In Fig.\,\ref{fig:basic_periodogram} there are two periodograms: a ``sparse'' one evaluated at frequencies spaced a full spectral resolution apart (black dots), and one a thousand times more dense (the orange line).
 Each peak visible in the dense line is met with at least one sparse evaluation. However, not for each the point is at the peak's full height, which decreases the sensitivity of the method. As a compromise the frequency spacing is sometimes chosen to be a fraction of the spectral resolution, e.g.\ a tenth~\cite{Debosscher2007}. In this work the spacing of a full spectral resolution was used.

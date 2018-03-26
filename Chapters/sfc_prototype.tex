@@ -91,10 +91,10 @@ The robot, called a \emph{mapper}, is pictured in Fig.\,\ref{fig:prototype_photo
 
 A beam seen in the middle-bottom of Fig.\,\ref{fig:prototype_photo_inside} could move along the $y$ direction (left-right in the figure), pulled by two timing belts.
 The belts were wound around pulleys attached to stepper motors, visible to the left.
+\marginpar{In a fluxgate a ferromagnetic core is periodically driven into saturation. When it is not saturated, it is highly permeable and sucks the external magnetic flux in. When saturated, this does not occur. A pickup coil detects the changes in the external flux as it is alternately sucked in and out of the core.}
 Along the beam ($x$ direction) a cart was moved using the same method.
 On the cart three vertical rods were attached with a plastic (POM) platform tightly threaded on them.
 On the platform was a fluxgate magnetic field sensor.
-\marginpar{In a fluxgate a ferromagnetic core is periodically driven into saturation. When it is not saturated, it is highly permeable and sucks the external magnetic flux in. When saturated, this does not occur. A pickup coil detects the changes in the external flux as it is alternately sucked in and out of the core.}
 Through the centre of the platform was an aluminum threaded rod, passing through a mating threaded hole.
 The rod was mounted to a stepper motor on the cart.
 As the motor spun the threaded rod the platform moved vertically along the $z$ direction.
@@ -177,8 +177,8 @@ All these components were used for the active magnetic field shielding.
 \section{The feedback matrix}
 The system was based on a feedback matrix (Ch.\,\ref{ch:nedm_sfc}).
 The magnetic field measured by each of the 24 sensors is linear with the currents in the three coils.
-All readouts, gathered in a vector $\mathbb{B}$ (dimension~24) can be written as a linear combination of the currents in the coils $\mathbb{I}$ (dimension~3):
 \marginpar{We use the symbol $\mathbb{B}$ for the values measured by the sensors to distinguish it from $\mathbf{B}$, which is used to denote the magnetic field in the whole space.}
+All readouts, gathered in a vector $\mathbb{B}$ (dimension~24) can be written as a linear combination of the currents in the coils $\mathbb{I}$ (dimension~3):
 \begin{equation}
   \label{eq:SFC_matrix_model}
   \mathbb{B} = M \mathbb{I} + \mathbb{B}_0 \ ,
@@ -352,14 +352,14 @@ An ideal system should compensate it perfectly, regardless of the shape of the f
 Yet, the shielding factor for this measure was around 50.
 It also did not depend on the distance to the dipole (homogeneity of the field), suggesting that it is a property of the compensation system itself.
 The dominant factor is probably the inhomogeneity of the field created by the compensation coils (around \SIrange[range-phrase=--,range-units=single]{1}{2}{\percent}).
-\marginpar{In the PSI environment periods of strong magnetic field changes (tens of microteslas over an hour when nearby magnets ramp) were interleaved with ones of high stability---\SI[detect-all = true]{10}{\nano\tesla} at \SI[detect-all = true]{10}{\second} at night (Fig.\,5.3 in Ref.\,\cite{Franke2013}).}
 Even if the changes of the field were similar in magnitude and pace to the ones discussed, but perfectly homogeneous, this system would not be likely to compensate them better than a factor of 50.
 
 
 
-
+\newpage
 \section{Long-term Stability}
 We have just discussed how the active shield can stabilise the magnetic field in the case of strong variations.
+\marginpar{In the PSI environment periods of strong magnetic field changes (tens of microteslas over an hour when nearby magnets ramp) were interleaved with ones of high stability---\SI[detect-all = true]{10}{\nano\tesla} at \SI[detect-all = true]{10}{\second} at night (Fig.\,5.3 in Ref.\,\cite{Franke2013}).}
 However, the system's internal stability was inevitably finite. In conditions where the environmental magnetic field would be more stable than that, the system would effectively destabilise the field.
 In this section we will discuss where the limit of the stability lies.
 
