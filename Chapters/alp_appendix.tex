@@ -1,144 +1,196 @@
-\chapter{Appendix about the axion peaks}
+\chapter{Additional periodograms}
 \label{ch:alp_appendix}
 
-\section*{Further discussion}
-% \mnote{In this paragraph discuss the the distribution of the p-values and plot the filtered p-values.}
-% \mnote{Now, proceed to discuss the distribution of p-values. Then, proceed to plot the filtered p-values as the function of frequency.}
-There were a number of frequencies where statistically significant excesses were observed in the datasets sensitive to an oscillating nEDM\@.
-Even though the excesses are not compatible with an axion-induced signal, it is interesting to investigate the possible reason.
-
-In the first step we look at the p-value distribution, shown in black in Fig.\,\ref{fig:axions_P_p-values} (for the EB parallel dataset).
-The distribution is flat with narrow peak in the first bin, corresponding to the highest excesses.
-This means that there is only a small number (around 300 out of \num[detect-all=true]{156198}) frequencies, where more power than expected is observed.
-\marginpar{A global, like over- or underestimating the error-bars, would cause a tilt in the p-value distribution.}
-To identify this group we plot the ratio of the observed to average amplitude (Fig.\,\ref{fig:axions_observed-predicted_power_ratio_filtered}). The lines are low-pass filtered to average the statistical noise out. The excesses occur only for frequencies below \SI{1e-4}{\hertz} and in a narrow region around inverse \SI{300}{\second}. These are the regions where the gradient-drift correction had an effect.
-
-Here tell how it might be due to the imperfect gradient-drift correction. Say, that the narrow region around inverse \SI{300}{\second} is most likely strongly correlated with the low frequencies (essentially peak folding around the Nyquist frequency in the case of evenly sampled data.)
-
-
-\begin{figure}
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/axions/P_p-values.pdf}
-  \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value -- global p-value transition. The fit with the model \dots gives the number of frequencies. \note{Prepare this histogram in a way, that the curves for all the datasets are shown. Then may need to normalise it.}}\label{fig:axions_P_p-values}
+  \includegraphics[width=\linewidth]{gfx/axions/AP_detection_and_no_GDC.png}
+  \caption{Periodogram of the $R$ time series of the PSI experiment data, sensitive to oscillations in the quantity $d_\mathrm{n} - \left( \mu_\mathrm{n} / \mu_\mathrm{Hg} \right) \, d_\mathrm{Hg}$, taken with the $\mathbf{E}$ and $\mathbf{B}$ fields antiparallel (black line).
+  The distribution of the MC-generated periodograms is depicted in green. The thick line depicts the mean, around which $1,2,…,5\,\sigma$ bands of the distribution are marked. around it marked. MC is used to calculate $1,2,…,5\,\sigma$ false-alarm thresholds, depicted in orange.
+  % For clarity, we also plot the smoothed version in orange.
+  % There are two regions where a rise in the amplitude is expected, namely around \SI{28}{\micro\hertz} (inverse of 10 hours) and \SI{3.3}{\milli\hertz} (inverse of 300 seconds), due to the time structure of the data taking (see the main text for more details).
+  The periodogram of non-gradient-drift-corrected data is shown in pink. For details see Ch.\,\ref{ch:axion-analysis}.}\label{fig:app_AP_periodogram}
+  % For clarity, we also plot the smoothed version in orange.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/axions/observed-predicted_power_ratio_filtered.pdf}
-  \caption{Maybe mark the 1/300 seconds. Note, that because of the settling of the filter first $N$ points need to be dropped, so not whole range is plotted.}
-  \label{fig:axions_observed-predicted_power_ratio_filtered}
+  \includegraphics[width=\linewidth]{gfx/axions/E0_detection_and_no_GDC.png}
+  \caption{Periodogram of the $R$ time series of the PSI experiment data, not sensitive to nEDM effects, taken with the $\mathbf{E} = 0$ (black line).
+  The distribution of the MC-generated periodograms is depicted in green. The thick line depicts the mean, around which $1,2,…,5\,\sigma$ bands of the distribution are marked. around it marked. MC is used to calculate $1,2,…,5\,\sigma$ false-alarm thresholds, depicted in orange.
+  % For clarity, we also plot the smoothed version in orange.
+  % There are two regions where a rise in the amplitude is expected, namely around \SI{28}{\micro\hertz} (inverse of 10 hours) and \SI{3.3}{\milli\hertz} (inverse of 300 seconds), due to the time structure of the data taking (see the main text for more details).
+  The periodogram of non-gradient-drift-corrected data is shown in pink. For details see Ch.\,\ref{ch:axion-analysis}.}\label{fig:app_E0_periodogram}
+  % For clarity, we also plot the smoothed version in orange.}
 \end{figure}
 
-
-
-The idea is to give them all for completeness.
-\mnote{Also, put the axion wind plots here!}
-
-
-\section*{Axion-wind}
-\begin{figure}
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=0.9\linewidth]{gfx/axions/winddeltah4mm_Bdown_detection.png}
   \includegraphics[width=0.9\linewidth]{gfx/axions/winddeltah4mm_Bup_detection.png}
-  \caption{The periodogram of the $R$ time series measured with the main magnetic field pointing upwards. The distribution of MC-generated periodograms, assuming no signal, is depicted in green (the 1, 2 and 3$\upsigma$ bands and the mean with a line). The 1,2,…,5$\upsigma$ false-alarm thresholds are depicted in orange.}\label{fig:axions_wind_detection}
+  \includegraphics[width=0.9\linewidth]{gfx/axions/winddeltah4mm_Bdown_detection.png}
+  \caption{The periodograms of the $R$ time series measured with the main magnetic field pointing upwards (top) and downwards (bottom). The distribution of the MC-generated periodograms is depicted in green. The thick line depicts the mean, around which $1,2,…,5\,\sigma$ bands of the distribution are marked. around it marked. MC is used to calculate $1,2,…,5\,\sigma$ false-alarm thresholds, depicted in orange. For details see Ch.\,\ref{ch:axion-analysis}.}\label{fig:app_wind_periodogram}
+  % For clarity, we also plot the smoothed version in orange.}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/axions/P_look-elsewhere.png}
+  \caption{Quantitative illustration of the look-elsewhere effect in the $R$ time series of the PSI experiment data, sensitive to oscillations in the quantity $d_\mathrm{n} - \left( \mu_\mathrm{n} / \mu_\mathrm{Hg} \right) \, d_\mathrm{Hg}$, taken with the $\mathbf{E}$ and $\mathbf{B}$ fields parallel. See the caption of Fig.\,\ref{fig:P_look-elsewhere} for details.}\label{fig:app_P_look_elsewhere}
+  % For clarity, we also plot the smoothed version in orange.}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/axions/AP_look-elsewhere.png}
+  \caption{Quantitative illustration of the look-elsewhere effect in the $R$ time series of the PSI experiment data, sensitive to oscillations in the quantity $d_\mathrm{n} - \left( \mu_\mathrm{n} / \mu_\mathrm{Hg} \right) \, d_\mathrm{Hg}$, taken with the $\mathbf{E}$ and $\mathbf{B}$ fields antiparallel. See the caption of Fig.\,\ref{fig:P_look-elsewhere} for details.}\label{fig:app_AP_look_elsewhere}
+  % For clarity, we also plot the smoothed version in orange.}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/axions/E0_look-elsewhere.png}
+  \caption{Quantitative illustration of the look-elsewhere effect in the $R$ time series of the PSI experiment data, not sensitive to nEDM effects, taken with the $\mathbf{E} = 0$. See the caption of Fig.\,\ref{fig:P_look-elsewhere} for details.}\label{fig:app_E0_look_elsewhere}
   % For clarity, we also plot the smoothed version in orange.}
 \end{figure}
 
 
+% \section*{Further discussion}
+% % \mnote{In this paragraph discuss the the distribution of the p-values and plot the filtered p-values.}
+% % \mnote{Now, proceed to discuss the distribution of p-values. Then, proceed to plot the filtered p-values as the function of frequency.}
+% There were a number of frequencies where statistically significant excesses were observed in the datasets sensitive to an oscillating nEDM\@.
+% Even though the excesses are not compatible with an axion-induced signal, it is interesting to investigate the possible reason.
 
-\section*{EB antiparallel}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/AP_detection_and_no_GDC.png}
-  \caption{\ldots}
-  \label{fig:axions_AP_detection_and_no_GDC}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/AP_detection_area1.png}
-  \caption{\ldots}
-  \label{fig:axions_AP_detection_area1}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/AP_detection_peak_62.png}
-  \caption{\ldots}
-  \label{fig:AP_detection_peak_62}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/AP_detection_peak_144968.png}
-  \caption{\ldots}
-  \label{fig:AP_detection_peak_144968}
-\end{figure}
+% In the first step we look at the p-value distribution, shown in black in Fig.\,\ref{fig:axions_P_p-values} (for the EB parallel dataset).
+% The distribution is flat with narrow peak in the first bin, corresponding to the highest excesses.
+% This means that there is only a small number (around 300 out of \num[detect-all=true]{156198}) frequencies, where more power than expected is observed.
+% \marginpar{A global, like over- or underestimating the error-bars, would cause a tilt in the p-value distribution.}
+% To identify this group we plot the ratio of the observed to average amplitude (Fig.\,\ref{fig:axions_observed-predicted_power_ratio_filtered}). The lines are low-pass filtered to average the statistical noise out. The excesses occur only for frequencies below \SI{1e-4}{\hertz} and in a narrow region around inverse \SI{300}{\second}. These are the regions where the gradient-drift correction had an effect.
+
+% Here tell how it might be due to the imperfect gradient-drift correction. Say, that the narrow region around inverse \SI{300}{\second} is most likely strongly correlated with the low frequencies (essentially peak folding around the Nyquist frequency in the case of evenly sampled data.)
 
 
-\section*{EB parallel}
+% % \begin{figure}
+% %   \centering
+% %   \includegraphics[width=0.9\linewidth]{gfx/axions/P_p-values.pdf}
+% %   \caption{Accounting for the look-elsewhere effect for the parallel dataset. It provides the minimal local p-value -- global p-value transition. The fit with the model \dots gives the number of frequencies. \note{Prepare this histogram in a way, that the curves for all the datasets are shown. Then may need to normalise it.}}\label{fig:axions_P_p-values}
+% % \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_detection_and_no_GDC.png}
-  \caption{\ldots}
-  \label{fig:P_detection_and_no_GDC}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_21.png}
-  \caption{\ldots}
-  \label{fig:P_detection_peak_21}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_123.png}
-  \caption{\ldots}
-  \label{fig:P_detection_peak_123}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_148.png}
-  \caption{\ldots}
-  \label{fig:P_detection_peak_148}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_145389.png}
-  \caption{\ldots}
-  \label{fig:P_detection_peak_145389}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_145432.png}
-  \caption{\ldots}
-  \label{fig:P_detection_peak_145432}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_145440.png}
-  \caption{\ldots}
-  \label{fig:P_detection_peak_145440}
-\end{figure}
+% % \begin{figure}
+% %   \centering
+% %   \includegraphics[width=0.9\linewidth]{gfx/axions/observed-predicted_power_ratio_filtered.pdf}
+% %   \caption{Maybe mark the 1/300 seconds. Note, that because of the settling of the filter first $N$ points need to be dropped, so not whole range is plotted.}
+% %   \label{fig:axions_observed-predicted_power_ratio_filtered}
+% % \end{figure}
 
 
-\section*{E=0}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/E0_detection_and_no_GDC.png}
-  \caption{\ldots}
-  \label{fig:E0_detection_and_no_GDC}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/E0_look-elsewhere.png}
-  \caption{\ldots}
-  \label{fig:E0_look-elsewhere}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{gfx/axions/E0_best_signal_candidate.png}
-  \caption{\ldots}
-  \label{fig:E0_best_signal_candidate}
-\end{figure}
+% The idea is to give them all for completeness.
+% \mnote{Also, put the axion wind plots here!}
+
+
+% \section*{Axion-wind}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{gfx/axions/winddeltah4mm_Bdown_detection.png}
+%   \includegraphics[width=0.9\linewidth]{gfx/axions/winddeltah4mm_Bup_detection.png}
+%   \caption{The periodogram of the $R$ time series measured with the main magnetic field pointing upwards. The distribution of MC-generated periodograms, assuming no signal, is depicted in green (the 1, 2 and 3$\upsigma$ bands and the mean with a line). The 1,2,…,5$\upsigma$ false-alarm thresholds are depicted in orange.}\label{fig:axions_wind_detection}
+%   % For clarity, we also plot the smoothed version in orange.}
+% \end{figure}
+
+
+
+% \section*{EB antiparallel}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/AP_detection_and_no_GDC.png}
+%   \caption{\ldots}
+%   \label{fig:axions_AP_detection_and_no_GDC}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/AP_detection_area1.png}
+%   \caption{\ldots}
+%   \label{fig:axions_AP_detection_area1}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/AP_detection_peak_62.png}
+%   \caption{\ldots}
+%   \label{fig:AP_detection_peak_62}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/AP_detection_peak_144968.png}
+%   \caption{\ldots}
+%   \label{fig:AP_detection_peak_144968}
+% \end{figure}
+
+
+% \section*{EB parallel}
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/P_detection_and_no_GDC.png}
+%   \caption{\ldots}
+%   \label{fig:P_detection_and_no_GDC}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_21.png}
+%   \caption{\ldots}
+%   \label{fig:P_detection_peak_21}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_123.png}
+%   \caption{\ldots}
+%   \label{fig:P_detection_peak_123}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_148.png}
+%   \caption{\ldots}
+%   \label{fig:P_detection_peak_148}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_145389.png}
+%   \caption{\ldots}
+%   \label{fig:P_detection_peak_145389}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_145432.png}
+%   \caption{\ldots}
+%   \label{fig:P_detection_peak_145432}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/P_detection_peak_145440.png}
+%   \caption{\ldots}
+%   \label{fig:P_detection_peak_145440}
+% \end{figure}
+
+
+% \section*{E=0}
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/E0_detection_and_no_GDC.png}
+%   \caption{\ldots}
+%   \label{fig:E0_detection_and_no_GDC}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/E0_look-elsewhere.png}
+%   \caption{\ldots}
+%   \label{fig:E0_look-elsewhere}
+% \end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{gfx/axions/E0_best_signal_candidate.png}
+%   \caption{\ldots}
+%   \label{fig:E0_best_signal_candidate}
+% \end{figure}
 
 
 
