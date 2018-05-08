@@ -1,3 +1,7 @@
+\manualmark
+\markboth{\spacedlowsmallcaps{Derivation of the R-ratio}}{\spacedlowsmallcaps{Derivation of the R-ratio}} 
+
+
 \chapter{Derivation of the R-ratio}
 \label{ch:R_derivation_appendix}
 
@@ -21,17 +25,19 @@ The transition between the spin-up and spin-down states is twice the energy:
 \end{equation}
 Substituting into Eq.\,\ref{eq:appendix_R_definition}:
 \begin{align}
-  R &= \frac{\nu_\text{n}}{\nu_\text{Hg}} = \frac{ \frac{2}{h} \left( \mu_\text{n} B + d_\text{n} E \right) }{ \frac{2}{h} \left( \mu_\text{Hg} B + d_\text{Hg} E \right) } = \nonumber \\
-      &= \frac{ \left( \mu_\text{n} B \pm d_\text{n} E \right) }{ \left( \mu_\text{Hg} B \pm d_\text{Hg} E \right) } = \nonumber \\
-      &= \frac{ \mu_\text{n} B }{ \left( \mu_\text{Hg} B \pm d_\text{Hg} E \right) } \pm \frac{ d_\text{n} E }{ \left( \mu_\text{Hg} B \pm d_\text{Hg} E \right) } = \nonumber \\
-      &= \frac{\mu_\text{n}}{\mu_\text{Hg}} \times \frac{1}{ 1 \pm \frac{d_\text{Hg} E}{\mu_\text{Hg} B} } \pm \frac{d_\text{n} E}{\mu_\text{Hg} B} \times \frac{1}{1 \pm \frac{ d_\text{Hg} E }{ \mu_\text{Hg} B}} = \nonumber \\
-      &= \left\{ \frac{1}{1 \pm x} = 1 \mp x \right\} = \nonumber \\
-      &= \frac{\mu_\text{n}}{\mu_\text{Hg}} \mp d_\text{Hg} \frac{\mu_\text{n}}{\mu_\text{Hg}} \frac{E}{\mu_\text{Hg} B} \pm d_\text{n} \frac{E}{\mu_\text{Hg} B} \mp d_\text{n} d_\text{Hg} {\left( \frac{E}{\mu_\text{Hg} B} \right)}^2 = \\
+  R &= \frac{\nu_\text{n}}{\nu_\text{Hg}} = \frac{ \frac{2}{h} \left( \mu_\text{n} B + d_\text{n} E \right) }{ \frac{2}{h} \left( \mu_\text{Hg} B + d_\text{Hg} E \right) } \nonumber \\
+      &= \frac{ \left( \mu_\text{n} B \pm d_\text{n} E \right) }{ \left( \mu_\text{Hg} B \pm d_\text{Hg} E \right) } \nonumber \\
+      &= \frac{ \mu_\text{n} B }{ \left( \mu_\text{Hg} B \pm d_\text{Hg} E \right) } \pm \frac{ d_\text{n} E }{ \left( \mu_\text{Hg} B \pm d_\text{Hg} E \right) } \nonumber \\
+      &= \frac{\mu_\text{n}}{\mu_\text{Hg}} \times \frac{1}{ 1 \pm \frac{d_\text{Hg} E}{\mu_\text{Hg} B} } \pm \frac{d_\text{n} E}{\mu_\text{Hg} B} \times \frac{1}{1 \pm \frac{ d_\text{Hg} E }{ \mu_\text{Hg} B}}\ .
+\end{align}
+Since ${\left(1 \pm x \right)}^{-1} \approx 1 \mp x$,
+\begin{align}
+  R  &\approx \frac{\mu_\text{n}}{\mu_\text{Hg}} \mp d_\text{Hg} \frac{\mu_\text{n}}{\mu_\text{Hg}} \frac{E}{\mu_\text{Hg} B} \pm d_\text{n} \frac{E}{\mu_\text{Hg} B} \mp d_\text{n} d_\text{Hg} {\left( \frac{E}{\mu_\text{Hg} B} \right)}^2 = \\
       &\approx \frac{\mu_\text{n}}{\mu_\text{Hg}} \pm \left( d_\text{n} \mp  d_\text{Hg} \frac{\mu_\text{n}}{\mu_\text{Hg}} \right) \frac{E}{\mu_\text{Hg} B} \ .
 \end{align}
 We approximate the magnetic field with
 \begin{equation}
-   h \nu_\text{Hg} \approx 2 \mu_\text{Hg} B \ \Rightarrow \ \mu_\text{Hg} B \approx \frac{h \nu_\text{Hg}}{2}
+  h \nu_\text{Hg} \approx 2 \mu_\text{Hg} B \ \Rightarrow \ \mu_\text{Hg} B \approx \frac{h \nu_\text{Hg}}{2}
 \end{equation}
 and substitute to get
 \begin{equation}

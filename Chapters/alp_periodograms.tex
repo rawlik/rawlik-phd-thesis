@@ -16,7 +16,7 @@ The methodology is demonstrated on a toy signal, generated specially for the pur
 
 \section{Definition of the periodogram}
 A \emph{periodogram} is an estimator of the power spectrum.
-It has been proposed as the preferred way to treat periodic signals as early as 1898~\cite{Schuster1898}.
+It was proposed as the preferred way to treat periodic signals as early as 1898~\cite{Schuster1898}.
 In its simplest form it is the squared magnitude of the discrete Fourier transform, which, however, is only possible to evaluate for evenly sampled series.
 Lomb and Scargle have independently described a method to construct a statistically well-behaving periodogram for non-uniformly sampled data with unequal error-bars: the Least Squares Spectral Analysis (LSSA) (also known as the Lomb-Scargle periodogram)~\cite{Scargle1982}.
 
@@ -380,7 +380,7 @@ In general, though, the sensitivity may be phase-dependent.
 In particular, sensitivity for signals with periods much longer than the total span of the data set is linear for sin-like signals and quadratic for cos-like ones.
 This work does not consider the phase dependence and gives results with the phase marginalised.
 
-In summary, there are three areas where the method looses sensitivity to detect oscillations, each with a different mechanism behind it.
+In summary, there are three areas where the method loses sensitivity to detect oscillations, each with a different mechanism behind it.
 Firstly, only signals with amplitude large enough to produce more power than noise can be excluded.
 Secondly, signals with periods longer than the total span of the data set are difficult to exclude, as only a small part of an oscillation is seen.
 Thirdly, signals faster than the duration of a single measurement are integrated out, which reduces the sensitivity on the high-frequency side.
