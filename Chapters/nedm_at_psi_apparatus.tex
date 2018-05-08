@@ -145,40 +145,42 @@ It is immediately visible that $R$ is sensitive to $d_\text{n}$ just as $\nu_\te
 $\Delta$ encapsulates all higher-order terms and systematic effects.
 In particular, the already mentioned effect due to the gravitational sag of the neutrons' population, relative to the geometrical centre of the chamber, in combination with a vertical gradient of the magnetic field.
 
-In order to obtain the $d_n$ estimate the electric field was modulated.
+In order to obtain the $d_\text{n}$ estimate the electric field was modulated.
 The experiment automatically reversed the polarisation of the electric field every 72 cycles.
 In between the two polarisations a few cycles were measured without the electric field (a total of 10\% of the data, which are not sensitive to the nEDM).
-Then a linear model of  $R$\,vs.\,$E$ yielded an estimate of the electric dipole moment, which we call $d_n^*$ (Eq.\,\ref{eq:Rdefinition}, Fig.\,\ref{fig:crossing_lines}).
+Then a linear model of  $R$\,vs.\,$E$ yielded an estimate of the electric dipole moment, which we call $d_\text{n}^*$ (Eq.\,\ref{eq:Rdefinition}, Fig.\,\ref{fig:crossing_lines}).
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/nEDMatPSI/crossing_lines.pdf}
   \caption{The crossing lines in the nEDM estimation.
-  \emph{Left:} For each sequence, data taken in one magnetic field configuration, $d_n^*$ is estimated as the slope of a linear regression of $R$\,vs.\,$E$ (Eq.\,\ref{eq:Rdefinition}).
+  \emph{Left:} For each sequence, data taken in one magnetic field configuration, $d_\text{n}^*$ is estimated as the slope of a linear regression of $R$\,vs.\,$E$ (Eq.\,\ref{eq:Rdefinition}).
   The two lines correspond to the $B_0$ field pointing upwards (blue) and downwards (orange).
-  The $d_n^*$ are tainted by a systematic effect proportional to the gradient.
-  \emph{Right:} a linear regression is done on $d_n^*$\,vs.\,$R$, $R$ being an estimate of the gradient.
-  The crossing point of the two lines, one for the magnetic field pointing upwards, one for downwards, is the estimate of $d_n$ at zero gradient, so free from the gradient-proportional systematic effect.}\label{fig:crossing_lines}
+  The $d_\text{n}^*$ are tainted by a systematic effect proportional to the gradient.
+  \emph{Right:} a linear regression is done on $d_\text{n}^*$\,vs.\,$R$, $R$ being an estimate of the gradient.
+  The crossing point of the two lines, one for the magnetic field pointing upwards, one for downwards, is
+  the first-order estimate of $d_\text{n}$, being free from the gradient-proportional systematic, although other corrections still apply~\cite{Pendlebury2015}.}\label{fig:crossing_lines}
 \end{figure}
 
 Those estimates, however, still contained a large contribution of a systematic effect (hence the star).
 As a result of a conspiracy between radial magnetic field components and rotating magnetic components arising from the Lorentz transformation of the large electric field into the rest frame of the mercury atoms, a frequency shift proportional to the applied electric field was observed, mimicking the effect of a non-zero electric dipole moment of the neutron, a false EDM\@.
+\marginpar{Before $d_\text{n}^*$ was estimated from the lines' crossing point, $R$ values had also been corrected for the effect of the rotation of the Earth. For details see~\cite{PhysRevLett.98.149101,PhysRevLett.98.149102,Pendlebury2015}.}
 This effect is, however, directly proportional to the gradient of the applied vertical magnetic field $\partial_z B_z$, and reverses with the sign of the applied magnetic field.
 The false EDM effect has been analysed in more detail in~\cite{Pendlebury2004,PhysRevA.71.032104,PhysRevA.73.014101} and a direct measurement of this effect was made in~\cite{Afach2015falseEDM}.
 
 The solution was to operate in different vertical gradients and then interpolate to the effect-free zero gradient.
 Every few hundred cycles a different gradient (up to $\pm \SI{60}{\pico\tesla\per\centi\meter}$) was set.
-Finally, for each direction of the magnetic field, a linear regression of $d_n^*$ vs $R$, $R$ itself being an estimate of the gradient, was performed (Fig.\,\ref{fig:crossing_lines}).
-The vertical position of the intersection of the two lines corresponded to the $d_n$ measured at zero gradient, free from this systematic effect.
+Finally, for each direction of the magnetic field, a linear regression of $d_\text{n}$ vs $R$, $R$ itself being linear with the gradient (for small gradients), was performed (Fig.\,\ref{fig:crossing_lines}).
+The vertical position of the intersection of the two lines corresponded to the $d_\text{n}$ measured at zero gradient, free from this systematic effect.
 
 \marginpar{The blinding mimicked an nEDM signal
 by changing the logged neutron counts by around one neutron each cycle.
 The directon of the change depended on the electric field.}
 On top of that, in order to mitigate the bias due to the human factor, the nEDM experiment implemented data blinding.
-The data was artificially altered in a way that mimicked a non-zero neutron electric dipole moment, big enough to be visible in the data.
+The data were artificially altered in a way that mimicked a non-zero neutron electric dipole moment, big enough to be visible in the data.
 The exact offset value is secret and would be revealed only after the analysis is complete.
 
 \enlargethispage{2\baselineskip}
-In this short description we only scratched the surface of the quite complex experiment.
+In this short description we have only scratched the surface of the quite complex experiment.
 We discussed only those elements necessary for understanding the original work presented in the next chapters.
 More details can be found in the following references:~\cite{Zenner2013,Afach2015falseEDM,Afach2015,Afach2014magmoment,FertlThesis,Komposch2017}.
