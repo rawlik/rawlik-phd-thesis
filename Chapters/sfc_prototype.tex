@@ -7,7 +7,7 @@ The coil design method described in the previous chapter opened the door to a ne
 In a laboratory at ETH Zürich an active shield was constructed.
 In its first version it featured three coils for the homogeneous components of the magnetic field. The coils were wound on a regular grid.
 Mapping of the magnetic field created by the coils confirmed that they produce a field at the specified homogeneity in a large volume.
-The active shield was tested with strong, inhomogeneous disturbances, as well as its long-term stability.
+The active shield was tested with strong, inhomogeneous disturbances; its long-term stability was also tested.
 
 A next iteration of the active shield was constructed on a grid with one open face.
 This not only eased access to the inside, but also demonstrated coils of a more complicated design.
@@ -20,9 +20,9 @@ Despite tight spatial constraints, it achieves homogeneity of \SIrange[range-phr
 
 \section{The first iteration --- coil structure}
 In the discussion of the coil design method a practical way to realise it was indicated---to construct a grid out of cable channels.
-At ETH Zürich a system pictured in Fig.\,\ref{fig:prototype_photo} was built consisting of a $5 \times 9 \times 5$ grid of square tiles. Each tile had side length \SI{262}{\milli\meter}, the total size was $1310 \times 1310 \times \SI{2358}{\milli\meter}$.
+At ETH Zürich a system pictured in Fig.\,\ref{fig:prototype_photo} was built consisting of a $5 \times 9 \times 5$ grid of square tiles. Each tile had side length \SI{262}{\milli\meter} and the total size was $1310 \times 1310 \times \SI{2358}{\milli\meter}$.
 The vertical axis we refer to as $z$, the long horizontal one as $y$, and the remaining axis $x$. The support frame was made of aluminum construction profiles.
-To support the cable channels, on each side attached was a large one-piece aluminum sheet, with square cut-outs leaving material only directly below the cable channels.
+To support the cable channels, on each side a large one-piece aluminum sheet was attached, with square cut-outs leaving material only directly below the cable channels.
 The plastic cable channels were glued onto the aluminum.
 
 \begin{sidewaysfigure}
@@ -36,7 +36,7 @@ The plastic cable channels were glued onto the aluminum.
   \includegraphics[height=0.3\linewidth]{gfx/prototype/coil_design_y_100uT_1.pdf}
   \quad\quad
   \includegraphics[height=0.3\linewidth]{gfx/prototype/coil_design_y_100uT_2.pdf}
-  \caption{The optimal current net for the $y$-coil of ETH active magnetic shield. Both $5 \times 5$ faces ($y = \mathrm{const}$ planes) are identical and are depicted on the left-hand side. The rectangular faces are all identical, and are depicted on the right-hand side. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_y_currents}
+  \caption{The optimal current net for the $y$-coil of ETH active magnetic shield. Both $5 \times 5$ faces ($y = \mathrm{constant}$ planes) are identical and are depicted on the left-hand side. The rectangular faces are all identical, and are depicted on the right-hand side. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_y_currents}
 \end{figure}
 
 For the first version the system featured three coils for the homogeneous components of the magnetic field (the first three cartesian harmonics, Tab.\,\ref{tab:coils_cartesian_harmonics}).
@@ -59,7 +59,7 @@ For example, the \SI{38.96}{\ampere} current, indicated in black in Fig.\,\ref{f
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/prototype/coil_design_x_100uT.pdf}
-  \caption{The optimal current net for the $x$ and $z$-coils of ETH active magnetic shield. Both $5 \times 5$ faces ($y = \mathrm{const.}$ planes) are identical, and are depicted in the lower-left corner. The rectangular faces perpendicular to the field are depicted to the right, and the ones parallel to it on top. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_x_z_currents}
+  \caption{The optimal current net for the $x$ and $z$-coils of ETH active magnetic shield. Both $5 \times 5$ faces ($y = \mathrm{constant}$ planes) are identical, and are depicted in the lower-left corner. The rectangular faces perpendicular to the field are depicted to the right, and the ones parallel to it on top. For each segment the current per \SI{100}{\micro\tesla} of generated field is indicated upwards and to the right from its centre.}\label{fig:prototype_coil_x_z_currents}
 \end{figure}
 
 \begin{figure}
@@ -149,8 +149,8 @@ The outputs of the fluxgates were $\SI{\pm 5}{\volt}$ signals proportional to th
 The analogue signals were directly digitised with Beckhoff EL3602 24-bit differential analogue-to-digital converters (ADCs).
 The digital information was collected in software running on a PC.
 
-\marginpar{The main julia program published the data on a \texttt{ZMQ} \texttt{PUB} socket. The data were stored with a separate \texttt{julia} program, collecting the data on a \texttt{ZMQ} \texttt{SUB} socket. Similarly, the plotting program was separate, written in \texttt{Python}.}
-The software stack running under OpenSUSE Linux consisted of a low-level Ethercat driver~\cite{etherlabcode}, on top of which a custom program written in \texttt{julia}~\cite{julia} was running.
+\marginpar{The main Julia program published the data on a \texttt{ZMQ} \texttt{PUB} socket. The data were stored with a separate \texttt{Julia} program, collecting the data on a \texttt{ZMQ} \texttt{SUB} socket. Similarly, the plotting program was separate, written in \texttt{Python}.}
+The software stack running under OpenSUSE Linux consisted of a low-level Ethercat driver~\cite{etherlabcode}, on top of which a custom program written in \texttt{Julia}~\cite{julia} was running.
 This setup was optimised for high flexibility and close-to-zero turnaround time during the development.
 In particular, it was possible to develop the software interactively \emph{while} the system was running.
 The main task of the program was to continuously evaluate the optimal response for the measured magnetic field changes.
@@ -404,10 +404,10 @@ This limit can be pushed a factor twenty lower with higher-quality (and more exp
 Commercially available Stefan Mayer Instruments FL1--100 and Bartington Mag-03 are specified to drift \SI{0.1}{\nano\tesla\per\kelvin} with a $\SI{\pm 100}{\micro\tesla}$ measuring range.
 
 However, there is an other limitation.
-Figure\,\ref{fig:prototype_stability} features a red line labeled ``\SI{50}{\ohm} ADC shortcut''.
+Figure\,\ref{fig:prototype_stability} features a red line labeled ``\SI{50}{\ohm} ADC short circuit''.
 This is the stability of the readout of an ADC channel with the terminals connected with a \SI{50}{\ohm} resistor.
 Even if the magnetic field sensors would have output a perfectly stable voltage, the digitised information would be no more stable than this.
-A higher class digitisers could perform better.
+A higher-class digitisers could perform better.
 
 Interestingly, the stability was fully defined by the measurement chain: the sensors and the digitisers.
 Instabilities of the output chain, DACs and amplifiers, indistinguishable from changes in the magnetic field, were corrected by the system itself.
@@ -464,7 +464,7 @@ Figure~\ref{fig:prototype_open_design_Ycoil_map_section} details the measured fi
   The colour depicts the deviation of the coil's field $x$, $y$ and $z$ components from the target field.
   The section in the XY plane at height $z=\SI{0.3}{\meter}$ is shown.
   The open face is at the bottom of the plots.
-  The borders of the plots corresponds to the surface on which the coils are wound.
+  The borders of the plots correspond to the surface on which the coils are wound.
   }\label{fig:prototype_open_design_simulation}
 \end{figure}
 
@@ -492,7 +492,7 @@ While the prototype at ETH could be further extended by winding the remaining se
 
 \section{n2EDM design}
 Let us recall the discussion in Sec.\,\ref{sec:n2EDM_challenges} on the design challenges of an active magnetic field compensation system for the n2EDM experiment.
-The main point of concern were the spatial constraints.
+The main point of concern was the spatial constraints.
 Firstly, there would not be much space available around the mu-metal shield, calling for a coil system with a large fiducial volume.
 Secondly, only an irregular cage would avoid collisions with other components of the experiment and facilities in the hall.
 
@@ -501,7 +501,7 @@ Secondly, only an irregular cage would avoid collisions with other components of
   \includegraphics[width=\linewidth]{gfx/prototype/Bild20.jpg}
   \caption{CAD model of the n2EDM apparatus.
   The passive mu-metal shield is depicted in yellow (with its door open),
-  the proposed cage of an active shield---in orange.}\label{fig:n2EDM_design_3d}
+  the proposed cage of an active shield in orange.}\label{fig:n2EDM_design_3d}
 \end{figure}
 
 \begin{sidewaysfigure}
@@ -511,7 +511,7 @@ Secondly, only an irregular cage would avoid collisions with other components of
   On the top view (upper centre) the names of the projections are defined (the names have a geographical origin).
   A kink to incorporate a staircase to an emergency exit from a nearby facility is marked in orange.
   The outline of the passive shield is depicted in blue,
-  the volume of interest used in the optimisation---in green.
+  the volume of interest used in the optimisation in green.
   Also marked are: an opening for the magnet polarising the neutrons (blue, on the left in Fig.\,\ref{fig:mapping_photo}), larger openings for emergency exits, and a large opening for the main access to the shield's door.}\label{fig:n2EDM_design_top}
 \end{sidewaysfigure}
 
@@ -533,7 +533,7 @@ The cage is rendered in 3D in Fig.\,\ref{fig:n2EDM_design_3d}. In Fig.\,\ref{fig
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{gfx/prototype/n2EDM_coils_field.pdf}
-  \caption{The quality of the field produced by the designed coils for the n2EDM experiment, quantified by a histogram of the deviation of the design's simulated field from the target one, as calculated on the surface of the mu-metal shield.
+  \caption{The quality of the field produced by the coils designed for the n2EDM experiment, quantified by a histogram of the deviation of the design's simulated field from the target one, as calculated on the surface of the mu-metal shield.
   One entry corresponds to a difference in one spatial direction at one point.
   The designs for the homogeneous coils have been averaged as they are similar. The deviations for the linear gradients were also averaged.}\label{fig:n2EDM_design_deviation}
 \end{figure}
@@ -548,7 +548,7 @@ The magnitude of the fields was chosen to be roughly the expected compensation v
 \marginpar{The magnitudes of homogeneous fields and gradients have different units.
 They can only be compared given a characteristic length,
 in this case the size of the active shield.}
-When cancelling a perfectly homogeneous \SI{50}{\micro\tesla} field the remnant is expected to be $< \SI{1}{\micro\tesla}$ (which corresponds to \SI{2}{\percent}).
+When canceling a perfectly homogeneous \SI{50}{\micro\tesla} field the remnant is expected to be $< \SI{1}{\micro\tesla}$ (which corresponds to \SI{2}{\percent}).
 In the case of a \SI{20}{\micro\tesla\per\meter} linear gradient the remnant would be $< \SI{6}{\micro\tesla}$ (\SI{6}{\percent} for the \SI{5}{\metre} large shield).
 
 Remnant fields this small are unlikely to be a limiting factor in the dynamic stabilisation; recall the discussion at the end of Sec.\,\ref{sec:dynamic_stabilisation}, in particular Fig.\,\ref{fig:prototype_compensation}.
@@ -565,7 +565,7 @@ The characterisation is the topic of the next chapter.
 
 \section*{Next-generation active magnetic shielding -- Conclusion}
 % What is new about the next-generation active magnetic field compensation?
-Active magnetic shields built on a grid can easily deal with spatial constrains.
+Active magnetic shields built on a grid can easily deal with spatial constraints.
 The grid is shared between different coils, making it easy to overlay a number of them.
 In particular, it is possible to construct coils for the mutually orthogonal terms of the cartesian harmonic expansion of the field.
 This simplifies the control of the system.
