@@ -10,6 +10,7 @@
 *.blg
 *.synctex.gz
 *.ipynb_checkpoints
+*.bbl
 
 gfx/mapping/PSI_mapping_photos/not_used/*
 Archive/*
