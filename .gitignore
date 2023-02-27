@@ -12,5 +12,8 @@
 *.ipynb_checkpoints
 *.bbl
 
+# the main compiled pdf
+rawlik-phd-thesis.pdf
+
 gfx/mapping/PSI_mapping_photos/not_used/*
 Archive/*
